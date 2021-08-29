@@ -1,0 +1,31 @@
+{
+  "name": "space",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server -c-1 docs",
+    "build": "webpack && rm ./docs/main.js",
+    "watch": "webpack --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "html-webpack-plugin": "^3.2.0",
+    "jsfxr": "0.0.1",
+    "webpack": "^4.39.3"
+  },
+  "devDependencies": {
+    "eslint": "^7.7.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "html-webpack-inline-source-plugin": "0.0.10",
+    "http-server": "^0.12.3",
+    "prettier": "^2.0.5",
+    "terser-webpack-plugin": "^2.0.1",
+    "webpack-cli": "^3.3.7",
+    "webpack-closure-compiler": "^2.1.6",
+    "worker-loader": "^2.0.0"
+  }
+}

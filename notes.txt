@@ -1,0 +1,11 @@
+gun attributes
+
+bullet impact (normal, exploding)
+bullet tracing (normal, heat seeking, homing)
+bullet size (normal, large, HUGE)
+bullet physics (normal, bouncing, peircing through walls)
+bullet skin (normal, rainbow, ice, fire, emoji, arrows, darts)
+bullet spread (perfect, slight variation, shotgun spread)
+bullet speed (slow, normal, sniper fast)
+gun kickback (none, normal, huge)
+buffs (jetpack, double jump)
