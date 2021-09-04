@@ -6,6 +6,7 @@ import Music from "./Music";
 import CollisionDetector from "./CollisionDetector";
 
 import Background from "./Background";
+import Level from "./Level";
 import Map from "./Map";
 import HUD from "./HUD";
 import Player from "./Player";
@@ -27,8 +28,9 @@ window.onload = () => {
     ch: gameContainer.canvas.height,
   });
 
-  let level = 1;
-  let map = new Map();
+  let level = new Level();
+
+  let map = new Map(level.level);
   let hud = new HUD();
   // let music = new Music();
   let player = new Player(10, 10, 1000);
@@ -55,6 +57,7 @@ window.onload = () => {
   let tick = () => {
     const { camera } = drawer;
     keyboard.tick();
+    level.tick({ enemies });
     player.tick({ camera, keyboard, map, projectiles });
     enemies.tick({ camera, map, projectiles, spurts, chunks });
     camera.tick({ player, map });

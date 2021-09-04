@@ -1,24 +1,16 @@
 import Blood from "./Blood";
 import BloodChunk from "./BloodChunk";
-import Enemy from "./Enemy";
 import { idiot, sentinel } from "./EnemyPersonas";
-
-const colors = {
-  skin: "red",
-  horns: "red",
-  eyes: "yellow",
-  body: "orange",
-};
 
 class EnemyCollection {
   constructor() {
-    this.enemies = [new Enemy(249, 100, 100, -1, colors)];
+    this.enemies = [];
   }
 
   tick({ camera, map, projectiles, spurts, chunks }) {
     this.enemies.forEach((e) => {
-      const presses = sentinel(e);
-      e.tick({ camera, map, projectiles, presses, immobile: true });
+      const [presses, immobile] = idiot(e);
+      e.tick({ camera, map, projectiles, presses, immobile });
     });
 
     this.enemies = this.enemies.reduce((enemies, enemy) => {
@@ -45,7 +37,6 @@ class EnemyCollection {
             )
           );
         }
-        // enemies.push(new Enemy(249, 20, 100, -1, colors));
       } else {
         enemies.push(enemy);
       }

@@ -116,7 +116,7 @@ const hexToMap = (hex) => {
 };
 
 export default class Map {
-  constructor() {
+  constructor(level) {
     this.drawer = null;
     this.tileSize = 8;
     this.mapTiles = [];
@@ -124,7 +124,7 @@ export default class Map {
     this.mapLength = 0;
     const mapHex = mapToHex(level3);
     const map = hexToMap(level3Hex);
-    this.loadLevel(level1);
+    this.loadLevel(map);
     this.mapWidthPixels = this.tileSize * this.mapLength;
     this.mapHeightPixels = this.tileSize * this.mapHeight;
   }
