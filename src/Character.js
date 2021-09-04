@@ -68,6 +68,7 @@ class Character extends GameObject {
     this.lifespan = 0;
 
     // jumping
+    this.holdJump = 0;
     this.airtime = 0;
     this.jumpHoldTime = 0;
     this.jumpSpeed = 2;
@@ -83,7 +84,8 @@ class Character extends GameObject {
   static tick({ camera, map, projectiles, presses, immobile }) {
     this.lifespan += 1;
 
-    const { left, right, up, space, holdJump } = presses;
+    const { left, right, up, space } = presses;
+    this.holdJump = up ? this.holdJump + 1 : 0;
 
     const weaponLocation = {
       x: this.x + (this.facing === 1 ? this.size - 1 : 1),
@@ -122,7 +124,7 @@ class Character extends GameObject {
     // jumping
     if (up) {
       const onGround = this.grounded || this.airtime < 5;
-      const newJump = holdJump < 10;
+      const newJump = this.holdJump < 10;
       if (this.jumpHoldTime > 0 || (onGround && newJump)) {
         this.jumpHoldTime += 1;
         if (this.jumpHoldTime < this.maxJumpPress) {

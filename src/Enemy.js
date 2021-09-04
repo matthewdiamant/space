@@ -11,7 +11,6 @@ class Enemy extends Character {
       right: false,
       up: false,
       space: false,
-      holdJump: false,
     };
   }
 

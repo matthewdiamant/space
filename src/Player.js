@@ -17,13 +17,12 @@ export default class Player extends Character {
         right: keyboard.isDown(keyboard.RIGHT),
         up: keyboard.isDown(keyboard.UP),
         space: keyboard.isDown(keyboard.SPACE),
-        holdJump: keyboard.ticksDown(keyboard.UP),
       },
     });
   }
 
   draw(drawer) {
-    // drawer.rect({ fillColor: "green", rect: [this.x, this.y, 8, 8] });
+    // drawer.rect({ fillColor: "green", rect: [this.x, this.y, 8, 8] }); // hitbox
 
     const colors = {
       skin: "#FFCCAA",

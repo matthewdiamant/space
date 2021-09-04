@@ -1,77 +1,4 @@
-<html>
-  <style>
-    * {
-      margin: 0;
-    }
-    body {
-      align-items: center;
-      background: black;
-      display: flex;
-      justify-content: center;
-    }
-    canvas {
-      background: white;
-      image-rendering: pixelated;
-    }
-    main {
-      filter: brightness(1);
-      transition: 5s filter;
-    }
-    main.loaded {
-      filter: brightness(1);
-    }
-    .scanlines {
-      position: relative;
-      overflow: hidden;
-    }
-    .scanlines:before,
-    .scanlines:after {
-      display: block;
-      pointer-events: none;
-      content: "";
-      position: absolute;
-    }
-    .scanlines:before {
-      width: 100%;
-      height: 2px;
-      z-index: 2147483649;
-      background: rgba(57, 255, 20, 0.12);
-      opacity: 0.75;
-      animation: scanline 6s linear infinite;
-    }
-    .scanlines:after {
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      z-index: 2147483648;
-      background: linear-gradient(
-        to bottom,
-        transparent 50%,
-        rgba(57, 255, 20, 0.12) 51%
-      );
-      background-size: 100% 4px;
-      animation: scanlines 1s steps(60) infinite;
-    }
-    @keyframes scanline {
-      0% {
-        transform: translate3d(0, 200000%, 0);
-      }
-    }
-    @keyframes scanlines {
-      0% {
-        background-position: 0 50%;
-      }
-    }
-    canvas {
-      image-rendering: pixelated;
-    }
-  </style>
-  <main class="scanlines">
-    <canvas id="c" width="128" height="128"></canvas>
-  </main>
-</html>
-<script type="text/javascript">/******/ (function(modules) { // webpackBootstrap
+/******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -2988,4 +2915,4 @@ module.exports = function() {
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.js.map</script>
+//# sourceMappingURL=main.js.map
