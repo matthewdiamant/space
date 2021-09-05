@@ -29,7 +29,7 @@ class Level {
       this.levelOverTimer += 1;
     }
 
-    if (this.levelOverTimer > delay * 6) {
+    if (this.levelOverTimer > delay * (6 + (this.level.level === 1 ? 3 : 0))) {
       this.initializeLevel(this.level.level + 1, {
         player,
         enemies,
@@ -63,6 +63,26 @@ class Level {
         size: 1,
         x: 31 - (this.level.enemyCount >= 10 ? 2 : 0),
         y: 45,
+      });
+    }
+
+    if (this.level.level === 1 && this.levelOverTimer > delay * 5) {
+      drawer.rect({
+        adjusted: false,
+        fillColor: "#000",
+        rect: [14, 68, 100, 42],
+      });
+      drawer.text({
+        text: "Welcome",
+        size: 2,
+        x: 32,
+        y: 74,
+      });
+      drawer.text({
+        text: "to space",
+        size: 2,
+        x: 33,
+        y: 94,
       });
     }
 
