@@ -1738,6 +1738,7 @@ class Enemy extends _Character__WEBPACK_IMPORTED_MODULE_0__["default"] {
         rect: [this.x, this.y - 1, 8 * (this.health / this.maxHealth), 1],
       });
     }
+
     Object(_Sprites__WEBPACK_IMPORTED_MODULE_1__["humanoid"])(this.x, this.y, this.facing, this.colors).forEach(({ c, r }) =>
       drawer.rect({ fillColor: c, rect: r })
     );
@@ -1791,9 +1792,9 @@ class EnemyCollection {
   }
 
   tick({ camera, map, projectiles, spurts, chunks }) {
-    this.enemies.forEach((e) => {
-      const [presses, immobile] = Object(_EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["idiot"])(e);
-      e.tick({ camera, map, projectiles, presses, immobile });
+    this.enemies.forEach((enemy) => {
+      const [presses, immobile] = Object(_EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["pacifist"])({ enemy, map });
+      enemy.tick({ camera, map, projectiles, presses, immobile });
     });
 
     this.enemies = this.enemies.reduce((enemies, enemy) => {
@@ -1848,13 +1849,46 @@ class EnemyCollection {
 /*!******************************!*\
   !*** ./src/EnemyPersonas.js ***!
   \******************************/
-/*! exports provided: idiot, sentinel */
+/*! exports provided: pacifist, idiot, sentinel */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pacifist", function() { return pacifist; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "idiot", function() { return idiot; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sentinel", function() { return sentinel; });
+const pacifist = ({ enemy, map }) => {
+  if (!enemy.holdLeft && !enemy.holdRight) enemy.holdRight = true;
+
+  if (enemy.x < 8 * 2) {
+    enemy.holdLeft = false;
+    enemy.holdRight = true;
+  }
+
+  if (enemy.x > 8 * 36) {
+    enemy.holdLeft = true;
+    enemy.holdRight = false;
+  }
+
+  if (enemy.jumpTimer > 0) {
+    enemy.jumpTimer -= 1;
+  } else {
+    const jumpTarget = map.getTile(
+      enemy.x + 3 * 8 * enemy.facing,
+      enemy.y - 2 * 8
+    );
+    enemy.jumpTimer = jumpTarget && Math.random() < 0.2 ? 30 : 0;
+  }
+
+  const buttons = {
+    left: enemy.holdLeft,
+    right: enemy.holdRight,
+    up: enemy.jumpTimer > 0,
+  };
+
+  return [buttons, false];
+};
+
 const idiot = (enemy) => {
   const immobile = false;
   let buttons;
@@ -2059,7 +2093,7 @@ class Keyboard {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _enemy__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./enemy */ "./src/enemy.js");
+/* harmony import */ var _Enemy__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Enemy */ "./src/Enemy.js");
 
 
 const levelTemplates = [
@@ -2081,7 +2115,8 @@ class Level {
     enemies.initialize(this.level);
   }
 
-  tick() {}
+  tick({ enemies }) {
+  }
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Level);
@@ -2948,62 +2983,6 @@ class WeaponFactory {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (WeaponFactory);
-
-
-/***/ }),
-
-/***/ "./src/enemy.js":
-/*!**********************!*\
-  !*** ./src/enemy.js ***!
-  \**********************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Character__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Character */ "./src/Character.js");
-/* harmony import */ var _Sprites__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Sprites */ "./src/Sprites.js");
-
-
-
-class Enemy extends _Character__WEBPACK_IMPORTED_MODULE_0__["default"] {
-  constructor(x, y, health, facing, colors) {
-    super(x, y, health, facing);
-    this.colors = colors;
-    this.bloodColor = "#32CD32";
-    this.presses = {
-      left: false,
-      right: false,
-      up: false,
-      space: false,
-    };
-  }
-
-  tick({ camera, map, projectiles, presses, immobile }) {
-    if (presses) this.presses = presses;
-    _Character__WEBPACK_IMPORTED_MODULE_0__["default"].tick.call(this, {
-      camera,
-      map,
-      projectiles,
-      presses: this.presses,
-      immobile,
-    });
-  }
-
-  draw(drawer) {
-    if (this.health < this.maxHealth) {
-      drawer.rect({
-        fillColor: "white",
-        rect: [this.x, this.y - 1, 8 * (this.health / this.maxHealth), 1],
-      });
-    }
-    Object(_Sprites__WEBPACK_IMPORTED_MODULE_1__["humanoid"])(this.x, this.y, this.facing, this.colors).forEach(({ c, r }) =>
-      drawer.rect({ fillColor: c, rect: r })
-    );
-  }
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (Enemy);
 
 
 /***/ }),

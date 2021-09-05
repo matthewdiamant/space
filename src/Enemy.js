@@ -32,6 +32,7 @@ class Enemy extends Character {
         rect: [this.x, this.y - 1, 8 * (this.health / this.maxHealth), 1],
       });
     }
+
     humanoid(this.x, this.y, this.facing, this.colors).forEach(({ c, r }) =>
       drawer.rect({ fillColor: c, rect: r })
     );

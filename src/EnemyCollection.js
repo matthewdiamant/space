@@ -1,7 +1,7 @@
 import Blood from "./Blood";
 import BloodChunk from "./BloodChunk";
 import Enemy from "./Enemy";
-import { idiot, sentinel } from "./EnemyPersonas";
+import { idiot, pacifist, sentinel } from "./EnemyPersonas";
 
 const colors = {
   skin: "red",
@@ -27,9 +27,9 @@ class EnemyCollection {
   }
 
   tick({ camera, map, projectiles, spurts, chunks }) {
-    this.enemies.forEach((e) => {
-      const [presses, immobile] = idiot(e);
-      e.tick({ camera, map, projectiles, presses, immobile });
+    this.enemies.forEach((enemy) => {
+      const [presses, immobile] = pacifist({ enemy, map });
+      enemy.tick({ camera, map, projectiles, presses, immobile });
     });
 
     this.enemies = this.enemies.reduce((enemies, enemy) => {

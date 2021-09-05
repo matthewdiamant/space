@@ -1,4 +1,4 @@
-import Enemy from "./enemy";
+import Enemy from "./Enemy";
 
 const levelTemplates = [
   {
@@ -19,7 +19,8 @@ class Level {
     enemies.initialize(this.level);
   }
 
-  tick() {}
+  tick({ enemies }) {
+  }
 }
 
 export default Level;

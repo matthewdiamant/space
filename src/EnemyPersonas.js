@@ -1,3 +1,35 @@
+export const pacifist = ({ enemy, map }) => {
+  if (!enemy.holdLeft && !enemy.holdRight) enemy.holdRight = true;
+
+  if (enemy.x < 8 * 2) {
+    enemy.holdLeft = false;
+    enemy.holdRight = true;
+  }
+
+  if (enemy.x > 8 * 36) {
+    enemy.holdLeft = true;
+    enemy.holdRight = false;
+  }
+
+  if (enemy.jumpTimer > 0) {
+    enemy.jumpTimer -= 1;
+  } else {
+    const jumpTarget = map.getTile(
+      enemy.x + 3 * 8 * enemy.facing,
+      enemy.y - 2 * 8
+    );
+    enemy.jumpTimer = jumpTarget && Math.random() < 0.2 ? 30 : 0;
+  }
+
+  const buttons = {
+    left: enemy.holdLeft,
+    right: enemy.holdRight,
+    up: enemy.jumpTimer > 0,
+  };
+
+  return [buttons, false];
+};
+
 export const idiot = (enemy) => {
   const immobile = false;
   let buttons;
