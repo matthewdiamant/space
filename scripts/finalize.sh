@@ -9,10 +9,11 @@ cp docs/index.html dist/
 cd dist
 
 echo "${YELLOW}zip final build${NC}"
-zip final.zip index.html
+rm index.html.zip
+ect -zip -9 index.html
 
 echo "${YELLOW}final size${NC}"
-ls -hl final.zip | awk -F ' ' '{ print $5 }'
+ls -hl index.html.zip | awk -F ' ' '{ print $5 }'
 
 echo "${YELLOW}remaining bytes${NC}"
-expr 13312 - $(ls -l final.zip | awk -F ' ' '{ print $5 }')
+expr 13312 - $(ls -l index.html.zip | awk -F ' ' '{ print $5 }')
