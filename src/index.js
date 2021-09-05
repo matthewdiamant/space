@@ -130,6 +130,6 @@ window.onload = () => {
     level,
   ];
 
-  document.querySelector("main").className += " loaded";
+  document.querySelector("div").className += " loaded";
   gameLoop();
 };
