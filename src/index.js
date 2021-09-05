@@ -40,7 +40,7 @@ window.onload = () => {
   let packages = new PackageCollection();
 
   gameContainer.initialize();
-  level.initializeLevel(1, { player, enemies, chunks, spurts });
+  level.initializeLevel(1, { player, enemies, chunks, spurts, packages });
 
   let fps = 60,
     interval = 1000 / fps,
@@ -56,7 +56,7 @@ window.onload = () => {
 
   let tick = () => {
     const { camera } = drawer;
-    level.tick({ player, enemies, chunks, spurts });
+    level.tick({ player, enemies, chunks, spurts, packages });
     player.tick({ camera, keyboard, map, projectiles });
     enemies.tick({ camera, map, projectiles, spurts, chunks });
     camera.tick({ player, map });

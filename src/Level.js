@@ -9,7 +9,7 @@ const levelTemplates = [
 const delay = 80;
 
 class Level {
-  initializeLevel(level, { player, enemies, chunks, spurts }) {
+  initializeLevel(level, { player, enemies, chunks, spurts, packages }) {
     this.level = levelTemplates[level] || levelTemplates[0];
     this.level.level = level;
     player.health = player.maxHealth;
@@ -17,12 +17,13 @@ class Level {
     player.y = this.level.spawnPoint[1];
     chunks.chunks = [];
     spurts.spurts = [];
+    packages.packages = [];
     enemies.initialize(this.level);
     this.levelOverTimer = 0;
     this.levelFadeIn = 0;
   }
 
-  tick({ player, enemies, chunks, spurts }) {
+  tick({ player, enemies, chunks, spurts, packages }) {
     this.levelFadeIn += 1;
 
     if (enemies.enemies.length <= 0) {
@@ -35,6 +36,7 @@ class Level {
         enemies,
         chunks,
         spurts,
+        packages,
       });
     }
   }
