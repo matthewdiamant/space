@@ -1791,7 +1791,7 @@ const idiot = (enemy) => {
       left: left,
       right: !left,
       up: Math.random() < 0.5,
-      space: Math.random() < 0.5,
+      space: Math.random() < 0.7,
     };
   } else {
     buttons = null;
