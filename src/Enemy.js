@@ -2,7 +2,7 @@ import Character from "./Character";
 import { humanoid } from "./Sprites";
 
 class Enemy extends Character {
-  constructor(x, y, health, facing, colors) {
+  constructor(x, y, health, facing, colors, persona) {
     super(x, y, health, facing);
     this.colors = colors;
     this.bloodColor = "#32CD32";
@@ -12,9 +12,11 @@ class Enemy extends Character {
       up: false,
       space: false,
     };
+    this.persona = persona;
   }
 
-  tick({ camera, map, projectiles, presses, immobile }) {
+  tick({ camera, map, projectiles }) {
+    const [presses, immobile] = this.persona({ enemy: this, map });
     if (presses) this.presses = presses;
     Character.tick.call(this, {
       camera,

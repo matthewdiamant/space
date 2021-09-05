@@ -3,7 +3,7 @@ import Weapon from "./Weapon";
 // base weapons
 export const debugPistol = {
   name: "Debug Pistol",
-  cooldown: 10,
+  cooldown: 2,
   payloadCount: 1,
   knockback: 0,
   projectileConfig: {

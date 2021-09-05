@@ -21,15 +21,16 @@ class EnemyCollection {
     this.enemyCount = enemyCount;
 
     for (let i = 0; i < concurrentEnemies; i++) {
-      this.enemies.push(new Enemy(249, 20, 100, -1, colors));
+      this.enemies.push(
+        new Enemy(249, 20, 100, Math.random() > 0.5 ? 1 : -1, colors, pacifist)
+      );
       this.enemyCount -= 1;
     }
   }
 
   tick({ camera, map, projectiles, spurts, chunks }) {
     this.enemies.forEach((enemy) => {
-      const [presses, immobile] = pacifist({ enemy, map });
-      enemy.tick({ camera, map, projectiles, presses, immobile });
+      enemy.tick({ camera, map, projectiles });
     });
 
     this.enemies = this.enemies.reduce((enemies, enemy) => {
@@ -60,7 +61,7 @@ class EnemyCollection {
           this.enemies.length <= this.concurrentEnemies &&
           this.enemyCount > 0
         ) {
-          enemies.push(new Enemy(249, 20, 100, -1, colors));
+          enemies.push(new Enemy(249, 20, 100, -1, colors, pacifist));
           this.enemyCount -= 1;
         }
       } else {

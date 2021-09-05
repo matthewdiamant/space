@@ -1635,7 +1635,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class Enemy extends _Character__WEBPACK_IMPORTED_MODULE_0__["default"] {
-  constructor(x, y, health, facing, colors) {
+  constructor(x, y, health, facing, colors, persona) {
     super(x, y, health, facing);
     this.colors = colors;
     this.bloodColor = "#32CD32";
@@ -1645,9 +1645,11 @@ class Enemy extends _Character__WEBPACK_IMPORTED_MODULE_0__["default"] {
       up: false,
       space: false,
     };
+    this.persona = persona;
   }
 
-  tick({ camera, map, projectiles, presses, immobile }) {
+  tick({ camera, map, projectiles }) {
+    const [presses, immobile] = this.persona({ enemy: this, map });
     if (presses) this.presses = presses;
     _Character__WEBPACK_IMPORTED_MODULE_0__["default"].tick.call(this, {
       camera,
@@ -1713,15 +1715,16 @@ class EnemyCollection {
     this.enemyCount = enemyCount;
 
     for (let i = 0; i < concurrentEnemies; i++) {
-      this.enemies.push(new _Enemy__WEBPACK_IMPORTED_MODULE_2__["default"](249, 20, 100, -1, colors));
+      this.enemies.push(
+        new _Enemy__WEBPACK_IMPORTED_MODULE_2__["default"](249, 20, 100, Math.random() > 0.5 ? 1 : -1, colors, _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["pacifist"])
+      );
       this.enemyCount -= 1;
     }
   }
 
   tick({ camera, map, projectiles, spurts, chunks }) {
     this.enemies.forEach((enemy) => {
-      const [presses, immobile] = Object(_EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["pacifist"])({ enemy, map });
-      enemy.tick({ camera, map, projectiles, presses, immobile });
+      enemy.tick({ camera, map, projectiles });
     });
 
     this.enemies = this.enemies.reduce((enemies, enemy) => {
@@ -1752,7 +1755,7 @@ class EnemyCollection {
           this.enemies.length <= this.concurrentEnemies &&
           this.enemyCount > 0
         ) {
-          enemies.push(new _Enemy__WEBPACK_IMPORTED_MODULE_2__["default"](249, 20, 100, -1, colors));
+          enemies.push(new _Enemy__WEBPACK_IMPORTED_MODULE_2__["default"](249, 20, 100, -1, colors, _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["pacifist"]));
           this.enemyCount -= 1;
         }
       } else {
@@ -2820,7 +2823,7 @@ __webpack_require__.r(__webpack_exports__);
 // base weapons
 const debugPistol = {
   name: "Debug Pistol",
-  cooldown: 10,
+  cooldown: 2,
   payloadCount: 1,
   knockback: 0,
   projectileConfig: {
@@ -3078,7 +3081,12 @@ window.onload = () => {
     camera.tick({ player, map });
     projectiles.tick();
     spurts.tick();
+
+    if (chunks.chunks.length > 1000) {
+      chunks.chunks = chunks.chunks.slice(chunks.chunks.length - 1000);
+    }
     chunks.chunks.forEach((chunk) => chunk.tick());
+
     hud.tick(player, enemies);
     packages.tick(map);
   };

@@ -62,7 +62,12 @@ window.onload = () => {
     camera.tick({ player, map });
     projectiles.tick();
     spurts.tick();
+
+    if (chunks.chunks.length > 1000) {
+      chunks.chunks = chunks.chunks.slice(chunks.chunks.length - 1000);
+    }
     chunks.chunks.forEach((chunk) => chunk.tick());
+
     hud.tick(player, enemies);
     packages.tick(map);
   };
