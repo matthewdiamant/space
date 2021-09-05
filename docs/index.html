@@ -1811,7 +1811,7 @@ class EnemyCollection {
           );
         }
         for (let i = 0; i < 5; i++) {
-          chunks.push(
+          chunks.chunks.push(
             new _BloodChunk__WEBPACK_IMPORTED_MODULE_1__["default"](
               enemy.x,
               enemy.y - 2,
@@ -2103,22 +2103,24 @@ const levelTemplates = [
 ];
 
 class Level {
-  initializeLevel(level, { player, enemies }) {
+  initializeLevel(level, { player, enemies, chunks, spurts }) {
     this.level = levelTemplates.find((t) => t.level === level);
     player.health = player.maxHealth;
     player.x = this.level.spawnPoint[0];
     player.y = this.level.spawnPoint[1];
+    chunks.chunks = [];
+    spurts.spurts = [];
     enemies.initialize(this.level);
     this.levelOverTimer = 0;
   }
 
-  tick({ player, enemies }) {
+  tick({ player, enemies, chunks, spurts }) {
     if (enemies.enemies.length <= 0) {
       this.levelOverTimer += 1;
     }
 
     if (this.levelOverTimer > 600) {
-      this.initializeLevel(1, { player, enemies });
+      this.initializeLevel(1, { player, enemies, chunks, spurts });
     }
   }
 
@@ -3106,11 +3108,11 @@ window.onload = () => {
   let enemies = new _EnemyCollection__WEBPACK_IMPORTED_MODULE_11__["default"]();
   let projectiles = new _ProjectileCollection__WEBPACK_IMPORTED_MODULE_12__["default"]();
   let spurts = new _BloodCollection__WEBPACK_IMPORTED_MODULE_13__["default"]();
-  let chunks = [];
+  let chunks = { chunks: [] };
   let packages = new _PackageCollection__WEBPACK_IMPORTED_MODULE_14__["default"]();
 
   gameContainer.initialize();
-  level.initializeLevel(1, { player, enemies });
+  level.initializeLevel(1, { player, enemies, chunks, spurts });
 
   let fps = 60,
     interval = 1000 / fps,
@@ -3126,13 +3128,13 @@ window.onload = () => {
 
   let tick = () => {
     const { camera } = drawer;
-    level.tick({ player, enemies });
+    level.tick({ player, enemies, chunks, spurts });
     player.tick({ camera, keyboard, map, projectiles });
     enemies.tick({ camera, map, projectiles, spurts, chunks });
     camera.tick({ player, map });
     projectiles.tick();
     spurts.tick();
-    chunks.forEach((chunk) => chunk.tick());
+    chunks.chunks.forEach((chunk) => chunk.tick());
     hud.tick(player, enemies);
     packages.tick(map);
   };
@@ -3152,7 +3154,7 @@ window.onload = () => {
         });
       });
 
-    spurts.spurts.concat(chunks).forEach((item) => {
+    spurts.spurts.concat(chunks.chunks).forEach((item) => {
       if (map.getTile(item.x, item.y)) item.stick();
     });
 
@@ -3190,7 +3192,7 @@ window.onload = () => {
     packages,
     projectiles,
     spurts,
-    ...chunks,
+    ...chunks.chunks,
     hud,
     level,
   ];

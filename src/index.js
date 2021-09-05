@@ -36,11 +36,11 @@ window.onload = () => {
   let enemies = new EnemyCollection();
   let projectiles = new ProjectileCollection();
   let spurts = new BloodCollection();
-  let chunks = [];
+  let chunks = { chunks: [] };
   let packages = new PackageCollection();
 
   gameContainer.initialize();
-  level.initializeLevel(1, { player, enemies });
+  level.initializeLevel(1, { player, enemies, chunks, spurts });
 
   let fps = 60,
     interval = 1000 / fps,
@@ -56,13 +56,13 @@ window.onload = () => {
 
   let tick = () => {
     const { camera } = drawer;
-    level.tick({ player, enemies });
+    level.tick({ player, enemies, chunks, spurts });
     player.tick({ camera, keyboard, map, projectiles });
     enemies.tick({ camera, map, projectiles, spurts, chunks });
     camera.tick({ player, map });
     projectiles.tick();
     spurts.tick();
-    chunks.forEach((chunk) => chunk.tick());
+    chunks.chunks.forEach((chunk) => chunk.tick());
     hud.tick(player, enemies);
     packages.tick(map);
   };
@@ -82,7 +82,7 @@ window.onload = () => {
         });
       });
 
-    spurts.spurts.concat(chunks).forEach((item) => {
+    spurts.spurts.concat(chunks.chunks).forEach((item) => {
       if (map.getTile(item.x, item.y)) item.stick();
     });
 
@@ -120,7 +120,7 @@ window.onload = () => {
     packages,
     projectiles,
     spurts,
-    ...chunks,
+    ...chunks.chunks,
     hud,
     level,
   ];

@@ -46,7 +46,7 @@ class EnemyCollection {
           );
         }
         for (let i = 0; i < 5; i++) {
-          chunks.push(
+          chunks.chunks.push(
             new BloodChunk(
               enemy.x,
               enemy.y - 2,
