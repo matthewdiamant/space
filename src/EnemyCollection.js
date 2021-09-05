@@ -5,6 +5,11 @@ import { idiot, sentinel } from "./EnemyPersonas";
 class EnemyCollection {
   constructor() {
     this.enemies = [];
+    this.enemyCount = 0;
+  }
+
+  initialize({ enemyCount }) {
+    this.enemyCount = enemyCount;
   }
 
   tick({ camera, map, projectiles, spurts, chunks }) {
@@ -15,6 +20,7 @@ class EnemyCollection {
 
     this.enemies = this.enemies.reduce((enemies, enemy) => {
       if (enemy.health <= 0) {
+        this.enemyCount -= 1;
         for (let i = 0; i < 100; i++) {
           spurts.add(
             new Blood(

@@ -29,7 +29,6 @@ window.onload = () => {
   });
 
   let level = new Level();
-
   let map = new Map(level.level);
   let hud = new HUD();
   // let music = new Music();
@@ -41,6 +40,7 @@ window.onload = () => {
   let packages = new PackageCollection();
 
   gameContainer.initialize();
+  level.initializeLevel(1, { player, enemies });
 
   let fps = 60,
     interval = 1000 / fps,
