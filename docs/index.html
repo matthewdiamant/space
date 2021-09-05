@@ -1880,7 +1880,7 @@ const pacifist = ({ enemy, map }) => {
       enemy.x + 3 * 8 * enemy.facing,
       enemy.y - 2 * 8
     );
-    enemy.jumpTimer = jumpTarget && Math.random() < 0.2 ? 30 : 0;
+    enemy.jumpTimer = jumpTarget && Math.random() < 0.1 ? 30 : 0;
   }
 
   const buttons = {
