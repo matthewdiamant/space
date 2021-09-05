@@ -2022,16 +2022,18 @@ class Keyboard {
 __webpack_require__.r(__webpack_exports__);
 const levelTemplates = [
   {
-    level: 1,
-    concurrentEnemies: 10,
+    concurrentEnemies: 5,
     enemyCount: 10,
-    spawnPoint: [10, 10],
+    spawnPoint: [40, 10],
   },
 ];
 
+const delay = 80;
+
 class Level {
   initializeLevel(level, { player, enemies, chunks, spurts }) {
-    this.level = levelTemplates.find((t) => t.level === level);
+    this.level = levelTemplates[level] || levelTemplates[0];
+    this.level.level = level;
     player.health = player.maxHealth;
     player.x = this.level.spawnPoint[0];
     player.y = this.level.spawnPoint[1];
@@ -2039,20 +2041,27 @@ class Level {
     spurts.spurts = [];
     enemies.initialize(this.level);
     this.levelOverTimer = 0;
+    this.levelFadeIn = 0;
   }
 
   tick({ player, enemies, chunks, spurts }) {
+    this.levelFadeIn += 1;
+
     if (enemies.enemies.length <= 0) {
       this.levelOverTimer += 1;
     }
 
-    if (this.levelOverTimer > 600) {
-      this.initializeLevel(1, { player, enemies, chunks, spurts });
+    if (this.levelOverTimer > delay * 6) {
+      this.initializeLevel(this.level.level + 1, {
+        player,
+        enemies,
+        chunks,
+        spurts,
+      });
     }
   }
 
   draw(drawer) {
-    const delay = 80;
     if (this.levelOverTimer > delay) {
       drawer.rect({
         adjusted: false,
@@ -2065,7 +2074,7 @@ class Level {
       drawer.text({
         text: `level ${this.level.level} complete`,
         size: 1,
-        x: 32,
+        x: 32 - (this.level.level >= 10 ? 2 : 0),
         y: 30,
       });
     }
@@ -2076,6 +2085,14 @@ class Level {
         size: 1,
         x: 31 - (this.level.enemyCount >= 10 ? 2 : 0),
         y: 45,
+      });
+    }
+
+    if (this.levelFadeIn < 200) {
+      drawer.rect({
+        adjusted: false,
+        fillColor: `rgba(0,0,0,${1 - this.levelFadeIn / 200})`,
+        rect: [0, 0, 128, 128],
       });
     }
   }
@@ -2802,7 +2819,7 @@ __webpack_require__.r(__webpack_exports__);
 
 // base weapons
 const debugPistol = {
-  name: "Pistol",
+  name: "Debug Pistol",
   cooldown: 10,
   payloadCount: 1,
   knockback: 0,
@@ -2811,7 +2828,7 @@ const debugPistol = {
     speed: 3,
     spreadX: 0,
     spreadY: 0.15,
-    damage: 1000,
+    damage: 100,
     blood: 5,
   },
 };
