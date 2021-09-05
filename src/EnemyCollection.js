@@ -57,7 +57,7 @@ class EnemyCollection {
           );
         }
         if (
-          this.enemies.length < this.concurrentEnemies &&
+          this.enemies.length <= this.concurrentEnemies &&
           this.enemyCount > 0
         ) {
           enemies.push(new Enemy(249, 20, 100, -1, colors));

@@ -1821,7 +1821,7 @@ class EnemyCollection {
           );
         }
         if (
-          this.enemies.length < this.concurrentEnemies &&
+          this.enemies.length <= this.concurrentEnemies &&
           this.enemyCount > 0
         ) {
           enemies.push(new _Enemy__WEBPACK_IMPORTED_MODULE_2__["default"](249, 20, 100, -1, colors));
