@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "browserslist": "modern",
   "scripts": {
     "start": "http-server -c-1 docs",
-    "build": "webpack && rm ./docs/main.js",
+    "build": "./scripts/finalize.sh",
     "watch": "webpack --watch"
   },
   "author": "",
