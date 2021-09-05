@@ -1,6 +1,21 @@
 import Weapon from "./Weapon";
 
 // base weapons
+export const debugPistol = {
+  name: "Pistol",
+  cooldown: 10,
+  payloadCount: 1,
+  knockback: 0,
+  projectileConfig: {
+    color: () => "#eee",
+    speed: 3,
+    spreadX: 0,
+    spreadY: 0.15,
+    damage: 1000,
+    blood: 5,
+  },
+};
+
 export const pistol = {
   name: "Pistol",
   cooldown: 10,
@@ -130,9 +145,7 @@ const randomAttribute = () =>
 class WeaponFactory {
   constructor() {}
 
-  random() {
-    const guns = [pistol, assaultRifle, minigun, shotgun, grenade];
-    const base = guns[Math.floor(Math.random() * guns.length)];
+  create(base) {
     const attribute =
       Math.random() > 0.9 ? randomAttribute() : { projectileConfig: {} };
     const projectileConfig = {
@@ -146,6 +159,12 @@ class WeaponFactory {
       name: `${attribute.prefix ? `${attribute.prefix} ` : ""}${base.name}`,
     };
     return new Weapon(final);
+  }
+
+  random() {
+    const guns = [pistol, assaultRifle, minigun, shotgun, grenade];
+    const base = guns[Math.floor(Math.random() * guns.length)];
+    return this.create(base);
   }
 }
 

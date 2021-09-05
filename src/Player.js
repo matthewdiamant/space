@@ -1,10 +1,12 @@
 import Character from "./Character";
 import { humanoid } from "./Sprites.js";
+import WeaponFactory, { debugPistol } from "./WeaponFactory";
 
 export default class Player extends Character {
   constructor(x, y, health) {
     super(x, y, health);
     this.bloodColor = "red";
+    this.weapon = new WeaponFactory().create(debugPistol);
   }
 
   tick({ camera, keyboard, map, projectiles }) {
@@ -30,6 +32,7 @@ export default class Player extends Character {
       eyes: "#008751",
       body: "#29ADFF",
     };
+
     humanoid(this.x, this.y, this.facing, colors).forEach(({ c, r }) =>
       drawer.rect({ fillColor: c, rect: r })
     );
