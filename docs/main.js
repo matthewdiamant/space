@@ -1279,7 +1279,10 @@ class Drawer {
     text
       .toUpperCase()
       .split("")
-      .map((c) => letters[c])
+      .map((c) => {
+        if (!letters[c]) console.log(c);
+        return letters[c];
+      })
       .forEach((letter) => {
         let currY = 0;
         let addX = 0;
@@ -1542,7 +1545,133 @@ const letters = {
     [, ,],
     [, ,],
   ],
+  "0": [
+    [1, 1, 1],
+    [1, , 1],
+    [1, , 1],
+    [1, , 1],
+    [1, 1, 1],
+  ],
+  "1": [
+    [, 1],
+    [, 1],
+    [, 1],
+    [, 1],
+    [, 1],
+  ],
+  "2": [
+    [1, 1, 1],
+    [0, 0, 1],
+    [1, 1, 1],
+    [1, 0, 0],
+    [1, 1, 1],
+  ],
+  "3": [
+    [1, 1, 1],
+    [0, 0, 1],
+    [1, 1, 1],
+    [0, 0, 1],
+    [1, 1, 1],
+  ],
+  "4": [
+    [1, 0, 1],
+    [1, 0, 1],
+    [1, 1, 1],
+    [0, 0, 1],
+    [0, 0, 1],
+  ],
+  "5": [
+    [1, 1, 1],
+    [1, 0, 0],
+    [1, 1, 1],
+    [0, 0, 1],
+    [1, 1, 1],
+  ],
+  "6": [
+    [1, 1, 1],
+    [1, 0, 0],
+    [1, 1, 1],
+    [1, 0, 1],
+    [1, 1, 1],
+  ],
+  "7": [
+    [1, 1, 1],
+    [0, 0, 1],
+    [0, 0, 1],
+    [0, 0, 1],
+    [0, 0, 1],
+  ],
+  "8": [
+    [1, 1, 1],
+    [1, 0, 1],
+    [1, 1, 1],
+    [1, 0, 1],
+    [1, 1, 1],
+  ],
+  "9": [
+    [1, 1, 1],
+    [1, 0, 1],
+    [1, 1, 1],
+    [0, 0, 1],
+    [1, 1, 1],
+  ],
 };
+
+
+/***/ }),
+
+/***/ "./src/Enemy.js":
+/*!**********************!*\
+  !*** ./src/Enemy.js ***!
+  \**********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Character__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Character */ "./src/Character.js");
+/* harmony import */ var _Sprites__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Sprites */ "./src/Sprites.js");
+
+
+
+class Enemy extends _Character__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor(x, y, health, facing, colors) {
+    super(x, y, health, facing);
+    this.colors = colors;
+    this.bloodColor = "#32CD32";
+    this.presses = {
+      left: false,
+      right: false,
+      up: false,
+      space: false,
+    };
+  }
+
+  tick({ camera, map, projectiles, presses, immobile }) {
+    if (presses) this.presses = presses;
+    _Character__WEBPACK_IMPORTED_MODULE_0__["default"].tick.call(this, {
+      camera,
+      map,
+      projectiles,
+      presses: this.presses,
+      immobile,
+    });
+  }
+
+  draw(drawer) {
+    if (this.health < this.maxHealth) {
+      drawer.rect({
+        fillColor: "white",
+        rect: [this.x, this.y - 1, 8 * (this.health / this.maxHealth), 1],
+      });
+    }
+    Object(_Sprites__WEBPACK_IMPORTED_MODULE_1__["humanoid"])(this.x, this.y, this.facing, this.colors).forEach(({ c, r }) =>
+      drawer.rect({ fillColor: c, rect: r })
+    );
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Enemy);
 
 
 /***/ }),
@@ -1558,10 +1687,19 @@ const letters = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Blood__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Blood */ "./src/Blood.js");
 /* harmony import */ var _BloodChunk__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BloodChunk */ "./src/BloodChunk.js");
-/* harmony import */ var _EnemyPersonas__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./EnemyPersonas */ "./src/EnemyPersonas.js");
+/* harmony import */ var _Enemy__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Enemy */ "./src/Enemy.js");
+/* harmony import */ var _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./EnemyPersonas */ "./src/EnemyPersonas.js");
 
 
 
+
+
+const colors = {
+  skin: "red",
+  horns: "red",
+  eyes: "yellow",
+  body: "orange",
+};
 
 class EnemyCollection {
   constructor() {
@@ -1569,19 +1707,24 @@ class EnemyCollection {
     this.enemyCount = 0;
   }
 
-  initialize({ enemyCount }) {
+  initialize({ concurrentEnemies, enemyCount }) {
+    this.concurrentEnemies = concurrentEnemies;
     this.enemyCount = enemyCount;
+
+    for (let i = 0; i < concurrentEnemies; i++) {
+      this.enemies.push(new _Enemy__WEBPACK_IMPORTED_MODULE_2__["default"](249, 20, 100, -1, colors));
+      this.enemyCount -= 1;
+    }
   }
 
   tick({ camera, map, projectiles, spurts, chunks }) {
     this.enemies.forEach((e) => {
-      const [presses, immobile] = Object(_EnemyPersonas__WEBPACK_IMPORTED_MODULE_2__["idiot"])(e);
+      const [presses, immobile] = Object(_EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["idiot"])(e);
       e.tick({ camera, map, projectiles, presses, immobile });
     });
 
     this.enemies = this.enemies.reduce((enemies, enemy) => {
       if (enemy.health <= 0) {
-        this.enemyCount -= 1;
         for (let i = 0; i < 100; i++) {
           spurts.add(
             new _Blood__WEBPACK_IMPORTED_MODULE_0__["default"](
@@ -1603,6 +1746,13 @@ class EnemyCollection {
               "red"
             )
           );
+        }
+        if (
+          this.enemies.length < this.concurrentEnemies &&
+          this.enemyCount > 0
+        ) {
+          enemies.push(new _Enemy__WEBPACK_IMPORTED_MODULE_2__["default"](249, 20, 100, -1, colors));
+          this.enemyCount -= 1;
         }
       } else {
         enemies.push(enemy);
@@ -1731,13 +1881,17 @@ class GameObject {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Sprites__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Sprites */ "./src/Sprites.js");
+
+
 class HUD {
   constructor() {}
 
-  tick(player) {
+  tick(player, enemies) {
     this.weapon = player.weapon.name;
     this.health = player.health;
     this.maxHealth = player.maxHealth;
+    this.enemyCount = enemies.enemyCount + enemies.enemies.length;
   }
 
   draw(drawer) {
@@ -1745,6 +1899,24 @@ class HUD {
       text: this.weapon,
       size: 1,
       x: 2,
+      y: 117,
+    });
+
+    const colors = {
+      skin: "red",
+      horns: "red",
+      eyes: "yellow",
+      body: "orange",
+    };
+
+    Object(_Sprites__WEBPACK_IMPORTED_MODULE_0__["humanoid"])(113, 115, 1, colors, { bodyless: true }).forEach(({ c, r }) =>
+      drawer.rect({ adjusted: false, fillColor: c, rect: r })
+    );
+
+    drawer.text({
+      text: `${this.enemyCount}`,
+      size: 1,
+      x: 120,
       y: 117,
     });
 
@@ -1817,13 +1989,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _enemy__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./enemy */ "./src/enemy.js");
 
 
-const colors = {
-  skin: "red",
-  horns: "red",
-  eyes: "yellow",
-  body: "orange",
-};
-
 const levelTemplates = [
   {
     level: 1,
@@ -1843,14 +2008,7 @@ class Level {
     enemies.initialize(this.level);
   }
 
-  tick({ enemies }) {
-    if (
-      enemies.enemies.length < this.level.concurrentEnemies &&
-      enemies.enemyCount > 0
-    ) {
-      enemies.enemies.push(new _enemy__WEBPACK_IMPORTED_MODULE_0__["default"](249, 20, 100, -1, colors));
-    }
-  }
+  tick() {}
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Level);
@@ -2448,16 +2606,26 @@ class Sound {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "humanoid", function() { return humanoid; });
-const humanoid = (x, y, facing, colors) => {
+const humanoid = (x, y, facing, colors, options = {}) => {
   const { skin, hair, horns, eyes, body } = colors;
-  let parts = [
+  let parts = [];
+
+  let upper = [
     [skin, [1, 3, 5, 3]], // head
     [eyes, [2, 4, 1, 1]], // eye left
     [eyes, [5, 4, 1, 1]], // eye right
+  ];
+  parts = parts.concat(upper);
+
+  let lower = [
     [body, [1, 7, 3, 1]], // body
     [skin, [1, 7, 1, 1]], // left arm
     [skin, [4, 7, 1, 1]], // right arm
   ];
+
+  if (!options.bodyless) {
+    parts = parts.concat(lower);
+  }
 
   if (hair)
     parts = parts.concat([
@@ -2856,7 +3024,7 @@ window.onload = () => {
     projectiles.tick();
     spurts.tick();
     chunks.forEach((chunk) => chunk.tick());
-    hud.tick(player);
+    hud.tick(player, enemies);
     packages.tick(map);
   };
 

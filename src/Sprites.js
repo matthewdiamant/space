@@ -1,13 +1,23 @@
-export const humanoid = (x, y, facing, colors) => {
+export const humanoid = (x, y, facing, colors, options = {}) => {
   const { skin, hair, horns, eyes, body } = colors;
-  let parts = [
+  let parts = [];
+
+  let upper = [
     [skin, [1, 3, 5, 3]], // head
     [eyes, [2, 4, 1, 1]], // eye left
     [eyes, [5, 4, 1, 1]], // eye right
+  ];
+  parts = parts.concat(upper);
+
+  let lower = [
     [body, [1, 7, 3, 1]], // body
     [skin, [1, 7, 1, 1]], // left arm
     [skin, [4, 7, 1, 1]], // right arm
   ];
+
+  if (!options.bodyless) {
+    parts = parts.concat(lower);
+  }
 
   if (hair)
     parts = parts.concat([

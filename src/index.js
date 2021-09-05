@@ -63,7 +63,7 @@ window.onload = () => {
     projectiles.tick();
     spurts.tick();
     chunks.forEach((chunk) => chunk.tick());
-    hud.tick(player);
+    hud.tick(player, enemies);
     packages.tick(map);
   };
 

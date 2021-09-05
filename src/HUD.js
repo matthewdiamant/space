@@ -1,10 +1,13 @@
+import { humanoid } from "./Sprites";
+
 class HUD {
   constructor() {}
 
-  tick(player) {
+  tick(player, enemies) {
     this.weapon = player.weapon.name;
     this.health = player.health;
     this.maxHealth = player.maxHealth;
+    this.enemyCount = enemies.enemyCount + enemies.enemies.length;
   }
 
   draw(drawer) {
@@ -12,6 +15,24 @@ class HUD {
       text: this.weapon,
       size: 1,
       x: 2,
+      y: 117,
+    });
+
+    const colors = {
+      skin: "red",
+      horns: "red",
+      eyes: "yellow",
+      body: "orange",
+    };
+
+    humanoid(113, 115, 1, colors, { bodyless: true }).forEach(({ c, r }) =>
+      drawer.rect({ adjusted: false, fillColor: c, rect: r })
+    );
+
+    drawer.text({
+      text: `${this.enemyCount}`,
+      size: 1,
+      x: 120,
       y: 117,
     });
 

@@ -1,6 +1,14 @@
 import Blood from "./Blood";
 import BloodChunk from "./BloodChunk";
+import Enemy from "./Enemy";
 import { idiot, sentinel } from "./EnemyPersonas";
+
+const colors = {
+  skin: "red",
+  horns: "red",
+  eyes: "yellow",
+  body: "orange",
+};
 
 class EnemyCollection {
   constructor() {
@@ -8,8 +16,14 @@ class EnemyCollection {
     this.enemyCount = 0;
   }
 
-  initialize({ enemyCount }) {
+  initialize({ concurrentEnemies, enemyCount }) {
+    this.concurrentEnemies = concurrentEnemies;
     this.enemyCount = enemyCount;
+
+    for (let i = 0; i < concurrentEnemies; i++) {
+      this.enemies.push(new Enemy(249, 20, 100, -1, colors));
+      this.enemyCount -= 1;
+    }
   }
 
   tick({ camera, map, projectiles, spurts, chunks }) {
@@ -20,7 +34,6 @@ class EnemyCollection {
 
     this.enemies = this.enemies.reduce((enemies, enemy) => {
       if (enemy.health <= 0) {
-        this.enemyCount -= 1;
         for (let i = 0; i < 100; i++) {
           spurts.add(
             new Blood(
@@ -42,6 +55,13 @@ class EnemyCollection {
               "red"
             )
           );
+        }
+        if (
+          this.enemies.length < this.concurrentEnemies &&
+          this.enemyCount > 0
+        ) {
+          enemies.push(new Enemy(249, 20, 100, -1, colors));
+          this.enemyCount -= 1;
         }
       } else {
         enemies.push(enemy);
