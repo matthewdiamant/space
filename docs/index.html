@@ -1,4 +1,4 @@
-<html><style>* {
+<html><head><meta charset="UTF-8"></head><style>* {
       margin: 0;
     }
     body {
@@ -11,11 +11,11 @@
       background: white;
       image-rendering: pixelated;
     }
-    main {
+    div {
       filter: brightness(1);
       transition: 5s filter;
     }
-    main.loaded {
+    div.loaded {
       filter: brightness(1);
     }
     .scanlines {
@@ -63,4 +63,3198 @@
     }
     canvas {
       image-rendering: pixelated;
-    }</style><main class="scanlines"><canvas id="c" width="128" height="128"></canvas></main></html><script>!function(t){var e={};function i(s){if(e[s])return e[s].exports;var a=e[s]={i:s,l:!1,exports:{}};return t[s].call(a.exports,a,a.exports,i),a.l=!0,a.exports}i.m=t,i.c=e,i.d=function(t,e,s){i.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:s})},i.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},i.t=function(t,e){if(1&e&&(t=i(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var s=Object.create(null);if(i.r(s),Object.defineProperty(s,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var a in t)i.d(s,a,function(e){return t[e]}.bind(null,a));return s},i.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return i.d(e,"a",e),e},i.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},i.p="",i(i.s=3)}([function(t,e,i){function s(){this.setSettings=function(t){for(var e=0;e<24;e++)this[String.fromCharCode(97+e)]=t[e]||0;this.c<.01&&(this.c=.01);var i=this.b+this.c+this.e;if(i<.18){var s=.18/i;this.b*=s,this.c*=s,this.e*=s}}}var a=new function(){var t,e,i,a,r,o,n,h,l,c,d,f;this._params=new s,this.reset=function(){var t=this._params;a=100/(t.f*t.f+.001),r=100/(t.g*t.g+.001),o=1-t.h*t.h*t.h*.01,n=-t.i*t.i*t.i*1e-6,t.a||(d=.5-t.n/2,f=5e-5*-t.o),h=1+t.l*t.l*(t.l>0?-.9:10),l=0,c=1==t.m?0:(1-t.m)*(1-t.m)*2e4+32},this.totalReset=function(){this.reset();var s=this._params;return t=s.b*s.b*1e5,e=s.c*s.c*1e5,i=s.e*s.e*1e5+12,3*((t+e+i)/3|0)},this.synthWave=function(s,p){var u=this._params,m=1!=u.s||u.v,y=u.v*u.v*.1,g=1+3e-4*u.w,x=u.s*u.s*u.s*.1,w=1+1e-4*u.t,v=1!=u.s,k=u.x*u.x,j=u.g,b=u.q||u.r,C=u.r*u.r*u.r*.2,M=u.q*u.q*(u.q<0?-1020:1020),S=u.p?32+((1-u.p)*(1-u.p)*2e4|0):0,z=u.d,T=u.j/2,O=u.k*u.k*.01,P=u.a,L=t,_=1/t,E=1/e,F=1/i,D=5/(1+u.u*u.u*20)*(.01+x);D>.8&&(D=.8),D=1-D;for(var H,B,R,A,I,W,X=!1,Y=0,U=0,J=0,q=0,G=0,K=0,N=0,$=0,Q=0,V=0,Z=new Array(1024),tt=new Array(32),et=Z.length;et--;)Z[et]=0;for(et=tt.length;et--;)tt[et]=2*Math.random()-1;for(et=0;et<p;et++){if(X)return et;if(S&&++Q>=S&&(Q=0,this.reset()),c&&++l>=c&&(c=0,a*=h),(a*=o+=n)>r&&(a=r,j>0&&(X=!0)),B=a,T>0&&(V+=O,B*=1+Math.sin(V)*T),(B|=0)<8&&(B=8),P||((d+=f)<0?d=0:d>.5&&(d=.5)),++U>L)switch(U=0,++Y){case 1:L=e;break;case 2:L=i}switch(Y){case 0:J=U*_;break;case 1:J=1+2*(1-U*E)*z;break;case 2:J=1-U*F;break;case 3:J=0,X=!0}b&&((R=0|(M+=C))<0?R=-R:R>1023&&(R=1023)),m&&g&&((y*=g)<1e-5?y=1e-5:y>.1&&(y=.1)),W=0;for(var it=8;it--;){if(++N>=B&&(N%=B,3==P))for(var st=tt.length;st--;)tt[st]=2*Math.random()-1;switch(P){case 0:I=N/B<d?.5:-.5;break;case 1:I=1-N/B*2;break;case 2:I=.225*(((I=1.27323954*(A=6.28318531*((A=N/B)>.5?A-1:A))+.405284735*A*A*(A<0?1:-1))<0?-1:1)*I*I-I)+I;break;case 3:I=tt[Math.abs(32*N/B|0)]}m&&(H=K,(x*=w)<0?x=0:x>.1&&(x=.1),v?(G+=(I-K)*x,G*=D):(K=I,G=0),q+=(K+=G)-H,I=q*=1-y),b&&(Z[$%1024]=I,I+=Z[($-R+1024)%1024],$++),W+=I}W*=.125*J*k,s[et]=W>=1?32767:W<=-1?-32768:32767*W|0}return p}};t.exports=function(t){a._params.setSettings(t);var e=a.totalReset(),i=new Uint8Array(4*((e+1)/2|0)+44),s=2*a.synthWave(new Uint16Array(i.buffer,44),e),r=new Uint32Array(i.buffer,0,44);r[0]=1179011410,r[1]=s+36,r[2]=1163280727,r[3]=544501094,r[4]=16,r[5]=65537,r[6]=44100,r[7]=88200,r[8]=1048578,r[9]=1635017060,r[10]=s,s+=44;for(var o=0,n="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/",h="data:audio/wav;base64,";o<s;o+=3){var l=i[o]<<16|i[o+1]<<8|i[o+2];h+=n[l>>18]+n[l>>12&63]+n[l>>6&63]+n[63&l]}return h}},function(t,e,i){t.exports=function(){return i(2)('!function(n){var t={};function e(r){if(t[r])return t[r].exports;var i=t[r]={i:r,l:!1,exports:{}};return n[r].call(i.exports,i,i.exports,e),i.l=!0,i.exports}e.m=n,e.c=t,e.d=function(n,t,r){e.o(n,t)||Object.defineProperty(n,t,{enumerable:!0,get:r})},e.r=function(n){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(n,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(n,"__esModule",{value:!0})},e.t=function(n,t){if(1&t&&(n=e(n)),8&t)return n;if(4&t&&"object"==typeof n&&n&&n.__esModule)return n;var r=Object.create(null);if(e.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:n}),2&t&&"string"!=typeof n)for(var i in n)e.d(r,i,function(t){return n[t]}.bind(null,i));return r},e.n=function(n){var t=n&&n.__esModule?function(){return n.default}:function(){return n};return e.d(t,"a",t),t},e.o=function(n,t){return Object.prototype.hasOwnProperty.call(n,t)},e.p="",e(e.s=0)}([function(n,t,e){"use strict";e.r(t);var r={songData:[{i:[0,100,128,0,1,201,128,0,0,0,0,8,28,0,0,0,194,4,1,3,25,191,115,244,147,6,43,4],p:[5,1,2,2,1,1,1,1,3,4,1,2,1,2,1,2,,,7,7,7,7,7,7,7,7],c:[{n:[132,132,134,134,135,135,132,132,137,137,135,135,134,134,135,135,139,139,137,137,135,135,137,137,134,,133,,132,,131],f:[21,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,48]},{n:[132,132,134,134,135,135,132,132,137,137,135,135,134,134,135,135,139,139,137,137,135,135,137,137,139,139,135,135,134,134,130,130],f:[,,,,,,,,,,,,,,,,,,,,,,,,,,,11,13,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,31]},{n:[],f:[]},{n:[159,,,,,,,,158,,,,,,,,157,,,,,,,,156,155,154,153,152,151,150,149],f:[13,,,,,,,,,,,,,,,,,,,,,,,,13,,13,,13,,13,11,29,,,,,,,,,,,,,,,,,,,,,,,,32,,41,,29,,25,15]},{n:[132,132,134,134,135,135,132,132,137,137,135,135,134,134,135,135,139,139,137,137,135,135,137,137,139,139,135,135,134,134,130,130],f:[13,11,21,17,,,,,,,,,,,,,,,,,,,,,,,,,,,,17,29,,25,113,,,,,,,,,,,,,,,,,,,,,,,,,,,,194]},{n:[120,,,,,,,,132,,,,,,,,120,,,,,,,,108],f:[]},{n:[132,144,134,146,132,144,135,147,132,144,137,149,132,144,139,151,140,152,139,151,137,149,139,151,138,150,137,149,135,147,134,146],f:[]}]},{i:[0,255,117,1,0,255,110,0,1,0,4,6,35,0,0,0,0,0,0,2,14,1,1,39,76,5,0,0],p:[,,1,3,1,3,1,3,2,,,,1,3,1,3,1,3,,,1,3,1,3,1,3],c:[{n:[147,,,,,,147,,,,147,,,,,,147,,,,,,147,,,,147,,,,147],f:[]},{n:[147],f:[]},{n:[147,,,,,,147,,,,147,,,,147,,147,,,,,,147,,,,147,,,,147,147],f:[]}]},{i:[0,0,140,0,0,0,140,0,0,60,4,10,68,0,0,0,187,5,0,1,239,135,0,32,108,5,16,4],p:[,,1,1,2,3,2,3,4,,,,2,3,2,3,2,3,,,5,5,5,5,5,5],c:[{n:[,,,,147,,,,,,,,148,,,,,,,,147,,,,,,,,147],f:[13,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,35]},{n:[,,,,147,,,147,,,,,148,,,,,,,,147,,,147,,,147,,,,147],f:[13,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,35]},{n:[,,,,147,,,147,,,,,148,,,,,,,,147,,,147,,,147,,,147,147,147],f:[13,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,35]},{n:[147],f:[13,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,68]},{n:[147,,,147,,,147,,147,,,147,,147,,147,147,,,147,,,147,,147,,,147,,147,,147],f:[13,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,35]}]},{i:[2,192,128,0,2,192,140,18,0,0,107,115,138,0,0,0,136,5,1,2,8,93,22,56,148,5,85,8],p:[3,,2,1,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2],c:[{n:[120],f:[]},{n:[120],f:[]},{n:[120],f:[,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,24,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,56]}]},{i:[3,0,127,0,3,68,127,0,1,218,11,0,40,0,0,1,55,4,1,2,67,115,124,190,67,6,39,1],p:[,,,2,1,2,1,2,3,,,,1,2,1,2,1,2,,,1,4,1,4,1,4],c:[{n:[,,,,147,,,,,,,,147,,,,,,,,147,,,,,,,,147],f:[]},{n:[,,,,147,,,,,,147,,147,,,,,,,,147,,,,,,,,147],f:[]},{n:[147],f:[]},{n:[,,,,147,,,,,,,,147,,,,,,,,147,,,,,,,,147,,,147],f:[]}]},{i:[3,91,128,0,0,95,128,12,0,0,12,0,67,0,0,0,0,0,0,2,255,15,0,32,83,3,51,4],p:[,,,,1,2,1,2,1,2,,,1,2,3,2,1,2,,,,,5,4,5,4],c:[{n:[156,,,164,,,163,,161,,,,,,,,,,158,,159,,161,,159,,158,,159,,154,,159],f:[5,13,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,67]},{n:[144,,,147,,,149,,151,,,,,,,,,,149,,151,,152,,151,,151,,147,,147,,139],f:[]},{n:[156,,,156,,,156,,154,,,154,,,154,,152,,,152,,,152,,151,,,147,,,146,,,,151,,,151,,151,,,146,,,146,,146,,,144,,,144,,144,,,142,,,139,,137],f:[5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3]},{n:[163,,164,,166,,163,,163,,164,,166,,163,,163,,164,,166,,163,,163,,164,,166,,163],f:[13,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,25]},{n:[168,,170,,171,,168,,168,,170,,171,,168,,159,,159,,158,,158,,157,,157,,156,,156],f:[,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,13,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,67]}]},{i:[0,146,140,0,1,224,128,3,0,0,61,0,63,0,0,3,179,5,1,3,37,162,0,67,150,3,37,2],p:[,1,,,,,,,,,1,2,3,,1,2,1,2,3,,4,5],c:[{n:[,,,,,,,,,,,,,,,,,,,,,,,,122,,121,,120,,119],f:[]},{n:[,,,,,,,,,,,,110,109,,,,,,,,,,,,,,,132,144,120,108],f:[11,,,,,,,,,,,,,,,,,,,,,,,,,,,,11,,,,95,,,,,,,,,,,,,,,,,,,,,,,,,,,,29]},{n:[123],f:[24,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,24,52,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,67]},{n:[120,,,,,,120,,120,,,,,,,,,,,,,,,,,,,,,,,,123,,,,,,123,,123,,,,,,,,,,,,,,,,,,,,,,,,125,,,,,,125,,125],f:[11,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,95]},{n:[120,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,123,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,125],f:[]}]},{i:[2,138,116,0,2,138,128,4,0,0,47,48,107,124,3,0,139,4,1,3,64,160,3,32,147,4,121,5],p:[,,,,,,,,1,,,,,,,,,,1],c:[{n:[156,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,168],f:[]}]}],rowLen:5513,patternLen:32,endPattern:25,numChannels:8};let i=new function(){var n,t,e,r,i,f=function(n){return Math.sin(6.283184*n)},o=function(n){return.003959503758*Math.pow(2,(n-128)/12)},a=function(n,t,e){var r,i,f,a,c,l,p,s=u[n.i[0]],v=n.i[1],d=n.i[3],h=u[n.i[4]],y=n.i[5],g=n.i[8],w=n.i[9],M=n.i[10]*n.i[10]*4,b=n.i[11]*n.i[11]*4,m=n.i[12]*n.i[12]*4,j=1/m,O=n.i[13],P=e*Math.pow(2,2-n.i[14]),L=new Int32Array(M+b+m),_=0,x=0;for(r=0,i=0;r<M+b+m;r++,i++)i>=0&&(i-=P,l=o(t+(15&(O=O>>8|(255&O)<<4))+n.i[2]-128),p=o(t+(15&O)+n.i[6]-128)*(1+8e-4*n.i[7])),f=1,r<M?f=r/M:r>=M+b&&(f-=(r-M-b)*j),a=l,d&&(a*=f*f),c=s(_+=a)*v,a=p,g&&(a*=f*f),c+=h(x+=a)*y,w&&(c+=(2*Math.random()-1)*w),L[r]=80*c*f|0;return L},u=[f,function(n){return n%1<.5?1:-1},function(n){return n%1*2-1},function(n){var t=n%1*4;return t<2?t-1:3-t}];this.init=function(f){n=f,t=f.endPattern,e=0,r=f.rowLen*f.patternLen*(t+1)*2,i=new Int32Array(r)},this.generate=function(){var o,c,l,p,s,v,d,h,y,g,w,M,b,m,j=new Int32Array(r),O=n.songData[e],P=n.rowLen,L=n.patternLen,_=0,x=0,A=!1,S=[];for(l=0;l<=t;++l)for(d=O.p[l],p=0;p<L;++p){var I=d?O.c[d-1].f[p]:0;I&&(O.i[I-1]=O.c[d-1].f[p+L]||0,I<16&&(S=[]));var D=u[O.i[15]],C=O.i[16]/512,T=Math.pow(2,O.i[17]-9)/P,W=O.i[18],U=O.i[19],k=43.23529*O.i[20]*3.141592/44100,q=1-O.i[21]/255,z=1e-5*O.i[22],B=O.i[23]/32,E=O.i[24]/512,F=6.283184*Math.pow(2,O.i[25]-9)/P,G=O.i[26]/255,H=O.i[27]*P&-2;for(w=(l*L+p)*P,s=0;s<4;++s)if(v=d?O.c[d-1].n[p+s*L]:0){S[v]||(S[v]=a(O,v,P));var J=S[v];for(c=0,o=2*w;c<J.length;c++,o+=2)j[o]+=J[c]}for(c=0;c<P;c++)(g=j[h=2*(w+c)])||A?(M=k,W&&(M*=D(T*h)*C+.5),x+=(M=1.5*Math.sin(M))*(b=q*(g-x)-(_+=M*x)),g=3==U?x:1==U?b:_,z&&(g=(g*=z)<1?g>-1?f(.25*g):-1:1,g/=z),A=(g*=B)*g>1e-5,m=g*(1-(y=Math.sin(F*h)*E+.5)),g*=y):m=0,h>=H&&(m+=j[h-H+1]*G,g+=j[h-H]*G),j[h]=0|m,j[h+1]=0|g,i[h]+=0|m,i[h+1]+=0|g}return++e/n.numChannels},this.createWave=function(){var n=44+2*r-8,t=n-36,e=new Uint8Array(44+2*r);e.set([82,73,70,70,255&n,n>>8&255,n>>16&255,n>>24&255,87,65,86,69,102,109,116,32,16,0,0,0,1,0,2,0,68,172,0,0,16,177,2,0,4,0,16,0,100,97,116,97,255&t,t>>8&255,t>>16&255,t>>24&255]);for(var f=0,o=44;f<r;++f){var a=i[f];a=a<-32767?-32767:a>32767?32767:a,e[o++]=255&a,e[o++]=a>>8&255}return e},this.getData=function(n,t){for(var e=2*Math.floor(44100*n),r=new Array(t),f=0;f<2*t;f+=1){var o=e+f;r[f]=n>0&&o<i.length?i[o]/32768:0}return r}};i.init(r),i.init(r);let f=!1;setInterval((function(){if(!f&&(f=i.generate()>=1,f)){let n=i.createWave();postMessage(n)}}),10),t.default=i}]);',null)}},function(t,e,i){"use strict";var s=window.URL||window.webkitURL;t.exports=function(t,e){try{try{var i;try{(i=new(window.BlobBuilder||window.WebKitBlobBuilder||window.MozBlobBuilder||window.MSBlobBuilder)).append(t),i=i.getBlob()}catch(e){i=new Blob([t])}return new Worker(s.createObjectURL(i))}catch(e){return new Worker("data:application/javascript,"+encodeURIComponent(t))}}catch(t){if(!e)throw Error("Inline worker is not supported");return new Worker(e)}}},function(t,e,i){"use strict";i.r(e);var s=class{constructor(){this.x=0,this.y=128,this.position_x=0,this.position_y=128,this.shakeRemaining=0,this.shakeForce=0}adjustX(t,e){return t-this.x+e/2}adjustY(t,e){return t-this.y+e/2}clampX(t){this.position_x=Math.round(Math.min(Math.max(8*t.tileSize,this.position_x),(t.mapLength-8)*t.tileSize))}clampY(t){this.position_y=Math.round(Math.min(Math.max(8*t.tileSize,this.position_y),(t.mapHeight-8)*t.tileSize+15))}followSubject(t){t.x-this.position_x>16&&(this.position_x=t.x-16),t.x-this.position_x<-16&&(this.position_x=t.x+16),t.y-this.position_y>16&&(this.position_y=t.y-16),t.y-this.position_y<-16&&(this.position_y=t.y+16)}shake(t,e){this.shakeRemaining=e,this.shakeForce=t}applyShake(){if(this.shakeRemaining=Math.max(0,this.shakeRemaining-1),!this.shakeRemaining)return;const t=Math.random()*this.shakeForce*2-this.shakeForce,e=Math.random()*this.shakeForce*2-this.shakeForce;this.x+=t,this.y+=e}tick({player:t,map:e}){this.followSubject(t,e),this.clampX(e),this.clampY(e),this.x=this.position_x,this.y=this.position_y,this.applyShake()}};let a=null;class r{constructor(t){this.canvas=t,a=this.canvas.getContext("2d"),this.camera=new s}draw(t){a.save(),t(),a.restore()}clearBackground(){a.clearRect(0,0,this.canvas.width,this.canvas.height)}drawBackground(t){a.fillStyle=t,a.fillRect(0,0,this.canvas.width,this.canvas.height)}rect({rect:t,fillColor:e,strokeColor:i,shadowBlur:s=0,shadowColor:r="none",lineWidth:o=1,adjusted:n=!0,rotation:h,size:l,crisp:c=!0}){c&&(t[0]=Math.floor(t[0]),t[1]=Math.floor(t[1])),n&&(t[0]=this.camera.adjustX(t[0],this.canvas.width),t[1]=this.camera.adjustY(t[1],this.canvas.height)),h&&(a.translate(t[0]+l/2,t[1]+l/2),a.rotate(h),a.translate(-1*t[0]-l/2,-1*t[1]-l/2)),a.shadowBlur=s,a.shadowColor=r,e&&(a.fillStyle=e,a.fillRect(t[0],t[1],...t.slice(2))),i&&(a.strokeStyle=i,a.lineWidth=o,a.strokeRect(t[0],t[1],...t.slice(2))),a.shadowBlur=0}arc({arc:t,fillColor:e,strokeColor:i,shadowBlur:s,shadowColor:r}){a.beginPath(),a.arc(this.camera.adjustX(t[0],this.canvas.width),this.camera.adjustY(t[1],this.canvas.height),...t.slice(2)),a.shadowBlur=s,a.shadowColor=r,e&&(a.fillStyle=e,a.fill()),i&&(a.strokeStyle=i,a.stroke()),a.shadowBlur=0}text({text:t,x:e,y:i,fillColor:s="#fff",size:r=1}){a.fillStyle=s;let n=0;t.toUpperCase().split("").map(t=>(o[t]||console.log(t),o[t])).forEach(t=>{let s=0,o=0;t.forEach(t=>{t.forEach((t,o)=>{t&&a.fillRect(n+o*r+e,s+i,r,r)}),o=Math.max(o,t.length*r),s+=r}),n+=r+o})}lines({lines:t,shadowBlur:e=0,shadowColor:i,rotation:s,x:r,y:o,fillColor:n,strokeColor:h}){s&&(a.translate(this.camera.adjustX(r,this.canvas.width),this.camera.adjustY(o,this.canvas.height)),a.rotate(s),a.translate(-1*this.camera.adjustX(r,this.canvas.width),-1*this.camera.adjustY(o,this.canvas.height))),a.beginPath(),a.moveTo(this.camera.adjustX(t[0][0],this.canvas.width),this.camera.adjustY(t[0][1],this.canvas.height)),t.slice(1).map(t=>a.lineTo(this.camera.adjustX(t[0],this.canvas.width),this.camera.adjustY(t[1],this.canvas.height))),a.closePath(),a.shadowBlur=e,a.shadowColor=i,h&&(a.strokeStyle=h,a.stroke()),n&&(a.fillStyle=n,a.fill())}fill({path:t,x:e,y:i,fillColor:s,strokeColor:r,rotation:o,adjusted:n=!0,centered:h=!0,size:l}){n&&(e=this.camera.adjustX(e,this.canvas.width),i=this.camera.adjustY(i,this.canvas.height)),o&&(a.translate(e,i),a.rotate(o),a.translate(-1*e,-1*i)),a.translate(e,i),h||a.translate(-l/2,-l/2+.5),s&&(a.fillStyle=s,a.fill(t)),r&&(a.strokeStyle=r,a.fillStyle=s||"#131",a.fill(t),a.stroke(t))}emoji({emoji:t,x:e,y:i,adjusted:s=!0}){s&&(e=this.camera.adjustX(e,this.canvas.width),i=this.camera.adjustY(i,this.canvas.height)),a.font="4px serif",a.fillText(t,e,i)}hitbox({x:t,y:e,size:i}){this.rect({rect:[t-i/2,e-i/2,i,i],color:"#f00"})}}const o={A:[[,1],[1,,1],[1,,1],[1,1,1],[1,,1]],B:[[1,1],[1,,1],[1,1,1],[1,,1],[1,1]],C:[[1,1,1],[1],[1],[1],[1,1,1]],D:[[1,1],[1,,1],[1,,1],[1,,1],[1,1]],E:[[1,1,1],[1],[1,1,1],[1],[1,1,1]],F:[[1,1,1],[1],[1,1],[1],[1]],G:[[,1,1],[1],[1,,1,1],[1,,,1],[,1,1]],H:[[1,,1],[1,,1],[1,1,1],[1,,1],[1,,1]],I:[[1,1,1],[,1],[,1],[,1],[1,1,1]],J:[[1,1,1],[,,1],[,,1],[1,,1],[1,1,1]],K:[[1,,,1],[1,,1],[1,1],[1,,1],[1,,,1]],L:[[1],[1],[1],[1],[1,1,1]],M:[[1,1,1,1,1],[1,,1,,1],[1,,1,,1],[1,,,,1],[1,,,,1]],N:[[1,,,1],[1,1,,1],[1,,1,1],[1,,,1],[1,,,1]],O:[[1,1,1],[1,,1],[1,,1],[1,,1],[1,1,1]],P:[[1,1,1],[1,,1],[1,1,1],[1],[1]],Q:[[0,1,1],[1,,,1],[1,,,1],[1,,1,1],[1,1,1,1]],R:[[1,1],[1,,1],[1,,1],[1,1],[1,,1]],S:[[1,1,1],[1],[1,1,1],[,,1],[1,1,1]],T:[[1,1,1],[,1],[,1],[,1],[,1]],U:[[1,,1],[1,,1],[1,,1],[1,,1],[1,1,1]],V:[[1,,,,1],[1,,,,1],[,1,,1],[,1,,1],[,,1]],W:[[1,,,,1],[1,,,,1],[1,,,,1],[1,,1,,1],[1,1,1,1,1]],X:[[1,,,,1],[,1,,1],[,,1],[,1,,1],[1,,,,1]],Y:[[1,,1],[1,,1],[,1],[,1],[,1]],Z:[[1,1,1,1,1],[,,,1],[,,1],[,1],[1,1,1,1,1]]," ":[[,,],[,,],[,,],[,,],[,,]],0:[[1,1,1],[1,,1],[1,,1],[1,,1],[1,1,1]],1:[[,1],[,1],[,1],[,1],[,1]],2:[[1,1,1],[0,0,1],[1,1,1],[1,0,0],[1,1,1]],3:[[1,1,1],[0,0,1],[1,1,1],[0,0,1],[1,1,1]],4:[[1,0,1],[1,0,1],[1,1,1],[0,0,1],[0,0,1]],5:[[1,1,1],[1,0,0],[1,1,1],[0,0,1],[1,1,1]],6:[[1,1,1],[1,0,0],[1,1,1],[1,0,1],[1,1,1]],7:[[1,1,1],[0,0,1],[0,0,1],[0,0,1],[0,0,1]],8:[[1,1,1],[1,0,1],[1,1,1],[1,0,1],[1,1,1]],9:[[1,1,1],[1,0,1],[1,1,1],[0,0,1],[1,1,1]]};let n=document.getElementById("c");class h{constructor(){this.canvas=n}initialize(){let t=document.querySelector("body"),e=e=>{t.clientWidth/t.clientHeight>1?(n.style.height="100vh")&&(n.style.width="auto"):(n.style.height="auto")&&(n.style.width="100vw")};e(),t.onresize=e}}var l=class{constructor(){document.addEventListener("keyup",t=>this.onKeyup(t)),document.addEventListener("keydown",t=>this.onKeydown(t)),this._pressed={},this.ENTER=[13],this.SPACE=[32],this.LEFT=[37,65],this.UP=[38,87],this.RIGHT=[39,68],this.DOWN=[40,83]}isDown(t){return t.some(t=>this._pressed[t])||!1}onKeydown(t){this._pressed[t.keyCode]=!0}onKeyup(t){delete this._pressed[t.keyCode]}},c=i(0),d=i.n(c);class f{constructor(){this.state={engine:!1}}engineOn(){}engineOff(){}playSound(t){let e=d()(t),i=new Audio;i.src=e,i.play()}mainLaser(){this.playSound([2,,.1749,,.3063,.713,.2,-.2645,,,,,,.0543,.1546,,,,1,,,,,.5])}secondaryLaser(){this.playSound([2,,.1426,,.2251,.7799,.2555,-.2285,,,,,,.7631,-.4501,,,,1,,,.0846,,.5])}missile(){this.playSound([3,,.0937,.571,.3803,.7495,,,,,,,,,,,,,1,,,,,.5])}projectileHit(){this.playSound([3,,.0867,,.2283,.2711,,-.6853,,,,,,,,,,,1,,,,,.5])}enemyLaser(){this.playSound([0,,.2934,.1381,.2143,.6919,.3422,-.2379,,,,,,.4281,-.6711,,,,1,,,.194,,.5])}}i(1);class p{constructor({x:t,y:e,maxDx:i,maxDy:s,grav:a}){this.x=t,this.y=e,this.dx=0,this.dy=0,this.maxDx=i,this.maxDy=s,this.grav=a}}var u=class extends p{constructor(t,e,i,s,a){super({x:t,y:e,grav:.1}),this.dx=i,this.dy=s,this.color=a,this.stuck=!1}stick(){this.stuck=!0}tick(){this.stuck||(this.x+=this.dx,this.dy+=this.grav,this.y+=this.dy)}draw(t){t.rect({fillColor:this.color,rect:[this.x,this.y,1,1]})}};var m=class{constructor({x:t,y:e,facing:i},{color:s,speed:a,spreadX:r=0,spreadY:o=0,lift:n=0,grav:h=0,damage:l,damageMod:c,explosion:d,blood:f,size:p,emoji:u}){this.size=p||1,this.x=t-this.size/2,this.y=e,this.dx=i*a+(Math.random()-r/2)*r,this.dy=(Math.random()-o/2)*o-n,this.grav=h,this.color=s,this.explosion=d||1,this.lifespan=0,this.shouldDie=!1,this.exploding=!1,this.lifeleft=null,this.damage=l,this.damageMod=c||1,this.blood=f,this.emoji=u}destroy(){this.exploding=!0,this.lifeleft=2}tick(){this.lifespan+=1,this.lifeleft&&(this.lifeleft-=1,0===this.lifeleft&&(this.shouldDie=!0)),this.exploding||(this.x+=this.dx,this.dy+=this.grav,this.y+=this.dy)}draw(t){this.exploding?t.arc({arc:[this.x,this.y,2/this.lifeleft*this.explosion,0,2*Math.PI],fillColor:"#ff8",shadowBlur:10,shadowColor:"#ff0"}):this.emoji?t.emoji({x:this.x,y:this.y,emoji:this.emoji}):1===this.size?t.rect({fillColor:this.color(),rect:[this.x,this.y,this.size,this.size]}):t.arc({arc:[this.x,this.y,this.size,0,2*Math.PI],fillColor:this.color(),shadowBlur:this.size,shadowColor:"#ff0"})}};var y=class{constructor({name:t,cooldown:e,cooldownMod:i=1,payloadCount:s,knockback:a,shake:r,projectileConfig:o}){this.name=t,this.cooldown=e,this.cooldownMod=i,this.payloadCount=s,this.knockback=a,this.shake=r,this.projectileConfig=o,this.ticksSinceLastFired=e}tick(t,e,i,s){return this.ticksSinceLastFired+=1,this.cooldown*this.cooldownMod<this.ticksSinceLastFired&&t?(this.fire(e,i),this.shake&&s.shake(this.shake.force,this.shake.duration),this.knockback):0}fire(t,e){this.ticksSinceLastFired=0;for(let i=0;i<this.payloadCount;i++){const i=new m(e,this.projectileConfig);t.add(i)}}};const g={name:"Debug Pistol",cooldown:2,payloadCount:1,knockback:0,projectileConfig:{color:()=>"#eee",speed:3,spreadX:0,spreadY:.15,damage:100,blood:5}},x={name:"Pistol",cooldown:10,payloadCount:1,knockback:0,projectileConfig:{color:()=>"#eee",speed:3,spreadX:0,spreadY:.15,damage:10,blood:5}},w={name:"Minigun",cooldown:2,payloadCount:1,knockback:.5,shake:{force:1,duration:1},projectileConfig:{color:()=>"#fff",speed:4,spreadX:1,spreadY:.3,damage:2,blood:5}},v={name:"Assault Rifle",cooldown:8,payloadCount:1,knockback:.1,projectileConfig:{color:()=>"#fff",speed:3,spreadX:0,spreadY:.3,damage:4,blood:5}},k={name:"Shotgun",cooldown:40,payloadCount:12,knockback:2,shake:{force:2,duration:8},projectileConfig:{color:()=>"yellow",speed:4,spreadX:.7,spreadY:1,damage:1,blood:5}},j={name:"Grenade",cooldown:40,payloadCount:1,knockback:0,projectileConfig:{emoji:"💣",speed:2,lift:4,grav:.3,explosion:3,size:3,damage:20,blood:5}},b=[{prefix:"Rainbow",projectileConfig:{color:()=>["#FF0000","#FFAC00","#FFF100","#0BFF00","#00F6FF"][Math.floor(6*Math.random())]}},{prefix:"Collosal",cooldownMod:3,projectileConfig:{color:()=>"yellow",damageMod:3,explosion:5,size:5}},{prefix:"Shrimp",projectileConfig:{emoji:"🍤",explosion:3,size:3}},{prefix:"Bomb",projectileConfig:{emoji:"💣",explosion:3,size:3}}];var C=class{constructor(){}create(t){const e=Math.random()>.9?b[Math.floor(Math.random()*b.length)]:{projectileConfig:{}},i={...t.projectileConfig,...e.projectileConfig},s={...t,...e,projectileConfig:i,name:`${e.prefix?e.prefix+" ":""}${t.name}`};return new y(s)}random(){const t=[x,v,w,k,j],e=t[Math.floor(Math.random()*t.length)];return this.create(e)}};const M=(t,e,i)=>Math.min(Math.max(e,t),i);var S=class extends p{constructor(t,e,i,s){super({x:t,y:e,maxDx:1,maxDy:2,grav:.15}),this.size=8,this.acc=.05,this.dcc=.8,this.airDcc=1,this.grounded=!0,this.facing=s||1,this.lifespan=0,this.holdJump=0,this.airtime=0,this.jumpHoldTime=0,this.jumpSpeed=2,this.maxJumpPress=12,this.health=i,this.maxHealth=i;const a=new C;this.weapon=a.random()}static tick({camera:t,map:e,projectiles:i,presses:s,immobile:a}){this.lifespan+=1;const{left:r,right:o,up:n,space:h}=s;this.holdJump=n?this.holdJump+1:0;const l={x:this.x+(1===this.facing?this.size-1:1),y:this.y+5,facing:this.facing},c=this.weapon.tick(h,i,l,t);if(r?(this.dx-=this.acc,this.facing=-1):o?(this.dx+=this.acc,this.facing=1):this.grounded?this.dx*=this.dcc:this.dx*=this.airDcc,Math.abs(this.dx)<.01&&(this.dx=0),this.dx=M(this.dx,-this.maxDx,this.maxDx),this.dx+=c*-this.facing,this.x+=a?0:this.dx,((t,e)=>{let{x:i,y:s,dx:a,size:r}=t;if(a>0){const a=e.getTile(i+r,s),o=e.getTile(i+r,s+r-1);(a||o)&&(t.dx=0,t.x=8*Math.floor(i/8))}else if(a<0){const a=e.getTile(i,s),o=e.getTile(i,s+r-1);(a||o)&&(t.dx=0,t.x=8*Math.floor(i/8)+8)}})(this,e),n){const t=this.grounded||this.airtime<5,e=this.holdJump<10;(this.jumpHoldTime>0||t&&e)&&(this.jumpHoldTime+=1,this.jumpHoldTime<this.maxJumpPress&&(this.dy=-this.jumpSpeed))}else this.jumpHoldTime=0;this.dy+=this.grav,this.dy=M(this.dy,-this.maxDy,this.maxDy),this.y+=this.dy,((t,e)=>{const{x:i,y:s,dy:a,size:r}=t;if(a<0)return!1;const o=e.getTile(i,s+r),n=e.getTile(i+r-1,s+r);return!(!o&&!n)&&(t.dy=0,t.y=8*Math.floor(s/8),t.grounded=!0,t.airtime=0,!0)})(this,e)||(this.grounded=!1,this.airtime+=1),((t,e)=>{const{x:i,y:s,size:a}=t,r=e.getTile(i,s),o=e.getTile(i+a-1,s);(r||o)&&(t.dy=0,t.y=8*Math.floor((s-a/2)/8)+8+a/2,t.jumpHoldTime=0)})(this,e)}static takeDamage(t){this.health-=t}};const z=(t,e)=>t.x<e.x+e.size&&t.x+t.size>e.x&&t.y<e.y+e.size&&t.y+t.size>e.y;class T{handleProjectile(t,e,i){if(t.exploding||e.exploding||!z(t,e))return!1;t.destroy(),S.takeDamage.call(e,t.damage*t.damageMod);for(let s=0;s<t.blood;s++)i.add(new u(t.x,t.y,t.dx/3*Math.random()*2,-1.5*Math.random(),e.bloodColor));return!0}handlePackage(t,e,i){z(t,e)&&(e.weapon=t.weapon,i.packages=i.packages.filter(e=>e!==t))}}let O=[],P=[];function L(t,e){return(t%e+e)%e}class _{constructor({cw:t,ch:e}){for(let i=0;i<10;i++)O.push([Math.random()*t,Math.random()*e,Math.random()]);for(let i=0;i<10;i++)P.push([Math.random()*t,Math.random()*e,Math.random()])}draw(t){t.draw(()=>{t.drawBackground("#111"),O.map(e=>t.rect({rect:[L(e[0]-t.camera.x/(3+3*e[2]),t.canvas.width),L(e[1]-t.camera.y/(3+3*e[2]),t.canvas.height),1,1],fillColor:"rgba(255, 255, 255, 0.6)",adjusted:!1})),P.map(e=>t.rect({rect:[L(e[0]-t.camera.x/(7+3*e[2]),t.canvas.width),L(e[1]-t.camera.y/(7+3*e[2]),t.canvas.height),1,1],fillColor:"rgba(255, 255, 255, 0.3)",adjusted:!1}))})}}const E=[{concurrentEnemies:5,enemyCount:10,spawnPoint:[40,10]}];var F=class{initializeLevel(t,{player:e,enemies:i,chunks:s,spurts:a,packages:r}){this.level=E[t]||E[0],this.level.level=t,e.health=e.maxHealth,e.x=this.level.spawnPoint[0],e.y=this.level.spawnPoint[1],s.chunks=[],a.spurts=[],r.packages=[],i.initialize(this.level),this.levelOverTimer=0,this.levelFadeIn=0}tick({player:t,enemies:e,chunks:i,spurts:s,packages:a}){this.levelFadeIn+=1,e.enemies.length<=0&&(this.levelOverTimer+=1),this.levelOverTimer>80*(6+(1===this.level.level?3:0))&&this.initializeLevel(this.level.level+1,{player:t,enemies:e,chunks:i,spurts:s,packages:a})}draw(t){this.levelOverTimer>80&&t.rect({adjusted:!1,fillColor:"rgba(0,0,0,0.9)",rect:[20,20,88,42]}),this.levelOverTimer>160&&t.text({text:`level ${this.level.level} complete`,size:1,x:32-(this.level.level>=10?2:0),y:30}),this.levelOverTimer>240&&t.text({text:this.level.enemyCount+" aliens defeated",size:1,x:31-(this.level.enemyCount>=10?2:0),y:45}),1===this.level.level&&this.levelOverTimer>400&&(t.rect({adjusted:!1,fillColor:"#000",rect:[14,68,100,42]}),t.text({text:"Welcome",size:2,x:32,y:74}),t.text({text:"to space",size:2,x:33,y:94})),this.levelFadeIn<200&&t.rect({adjusted:!1,fillColor:`rgba(0,0,0,${1-this.levelFadeIn/200})`,rect:[0,0,128,128]})}};const D=[[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,1,1,1,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,1,1,1,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,1,1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]],H=["ffffffffff","8000000001","8000000001","8000000001","8000000001","87007e00e1","8000000001","8000000001","f03c003c0f","8000000001","8000000001","8300c300c1","8000000001","8000000001","8fc07e03f1","8000000001","8000000001","e00f00f007","8000000001","8000000001","ffffffffff"];class B{constructor(t){this.drawer=null,this.tileSize=8,this.mapTiles=[],this.mapHeight=0,this.mapLength=0;(t=>{t.map(t=>parseInt(t.join(""),2).toString(16))})(D);const e=H.map(t=>parseInt(t,16).toString(2).split("").map(Number));this.loadLevel(e),this.mapWidthPixels=this.tileSize*this.mapLength,this.mapHeightPixels=this.tileSize*this.mapHeight}loadLevel(t){this.mapTiles=t,this.mapHeight=t.length,this.mapLength=t[0].length}getTile(t,e){const i=this.mapTiles[Math.floor(e/this.tileSize)];return i?i[Math.floor(t/this.tileSize)]:1}draw(t){this.drawer=this.drawer||t,this.mapTiles.forEach((e,i)=>{e.forEach((e,s)=>{1===e&&t.rect({fillColor:"darkblue",rect:[s*this.tileSize,i*this.tileSize,this.tileSize,this.tileSize]})})})}}const R=(t,e,i,s,a={})=>{const{skin:r,hair:o,horns:n,eyes:h,body:l}=s;let c=[],d=[[r,[1,3,5,3]],[h,[2,4,1,1]],[h,[5,4,1,1]]];c=c.concat(d);let f=[[l,[1,7,3,1]],[r,[1,7,1,1]],[r,[4,7,1,1]]];return a.bodyless||(c=c.concat(f)),o&&(c=c.concat([[o,[2,1,4,1]],[o,[1,2,6,1]]])),n&&(c=c.concat([[n,[1,2,1,1]],[n,[5,2,1,1]]])),c=c.map(([s,a])=>({c:s,r:[1===i?t+a[0]:8-(a[0]+a[2])+t,e+a[1],a[2],a[3]]})),c};var A=class{constructor(){}tick(t,e){this.weapon=t.weapon.name,this.health=t.health,this.maxHealth=t.maxHealth,this.enemyCount=e.enemyCount+e.enemies.length}draw(t){t.text({text:this.weapon,size:1,x:2,y:117});R(113,115,1,{skin:"red",horns:"red",eyes:"yellow",body:"orange"},{bodyless:!0}).forEach(({c:e,r:i})=>t.rect({adjusted:!1,fillColor:e,rect:i})),t.text({text:""+this.enemyCount,size:1,x:120,y:117}),t.rect({adjusted:!1,fillColor:`rgb(${255*(1-this.health/this.maxHealth)}, ${this.health/this.maxHealth*255}, 0)`,rect:[2,124,this.health/this.maxHealth*124,2]})}};class I extends S{constructor(t,e,i){super(t,e,i),this.bloodColor="red",this.weapon=(new C).create(g)}tick({camera:t,keyboard:e,map:i,projectiles:s}){S.tick.call(this,{camera:t,map:i,projectiles:s,presses:{left:e.isDown(e.LEFT),right:e.isDown(e.RIGHT),up:e.isDown(e.UP),space:e.isDown(e.SPACE)}})}draw(t){R(this.x,this.y,this.facing,{skin:"#FFCCAA",hair:"#FFA300",eyes:"#008751",body:"#29ADFF"}).forEach(({c:e,r:i})=>t.rect({fillColor:e,rect:i}))}}var W=class extends p{constructor(t,e,i,s,a){super({x:t,y:e}),this.dx=i,this.dy=s,this.grav=.1,this.color=a,this.stuck=!1}stick(){this.stuck=!0}tick(){this.stuck||(this.x+=this.dx,this.dy+=this.grav,this.y+=this.dy)}draw(t){t.rect({fillColor:this.color,rect:[this.x,this.y-2,2,3]}),[[1,2],[2,3]].forEach(([e,i])=>{t.rect({fillColor:this.color,rect:[this.x+e-2,this.y+i-2,1,1]})}),[[2,0],[1,1],[0,2],[1,3]].forEach(([e,i])=>{t.rect({fillColor:"#FF77A8",rect:[this.x+e-2,this.y+i-2,1,1]})})}};var X=class extends S{constructor(t,e,i,s,a,r){super(t,e,i,s),this.colors=a,this.bloodColor="#32CD32",this.presses={left:!1,right:!1,up:!1,space:!1},this.persona=r}tick({camera:t,map:e,projectiles:i}){const[s,a]=this.persona({enemy:this,map:e});s&&(this.presses=s),S.tick.call(this,{camera:t,map:e,projectiles:i,presses:this.presses,immobile:a})}draw(t){this.health<this.maxHealth&&t.rect({fillColor:"white",rect:[this.x,this.y-1,this.health/this.maxHealth*8,1]}),R(this.x,this.y,this.facing,this.colors).forEach(({c:e,r:i})=>t.rect({fillColor:e,rect:i}))}};const Y=({enemy:t,map:e})=>{if(t.holdLeft||t.holdRight||(t.holdRight=!0),t.x<16&&(t.holdLeft=!1,t.holdRight=!0),t.x>288&&(t.holdLeft=!0,t.holdRight=!1),t.jumpTimer>0)t.jumpTimer-=1;else{const i=e.getTile(t.x+24*t.facing,t.y-16);t.jumpTimer=i&&Math.random()<.1?30:0}return[{left:t.holdLeft,right:t.holdRight,up:t.jumpTimer>0},!1]},U={skin:"red",horns:"red",eyes:"yellow",body:"orange"};var J=class{constructor(){this.enemies=[],this.enemyCount=0}initialize({concurrentEnemies:t,enemyCount:e}){this.concurrentEnemies=t,this.enemyCount=e;for(let e=0;e<t;e++)this.enemies.push(new X(249,20,100,Math.random()>.5?1:-1,U,Y)),this.enemyCount-=1}tick({camera:t,map:e,projectiles:i,spurts:s,chunks:a}){this.enemies.forEach(s=>{s.tick({camera:t,map:e,projectiles:i})}),this.enemies=this.enemies.reduce((t,e)=>{if(e.health<=0){for(let t=0;t<100;t++)s.add(new u(e.x,e.y,5*Math.random()-2.5,5*Math.random()-5,e.bloodColor));for(let t=0;t<5;t++)a.chunks.push(new W(e.x,e.y-2,3*Math.random()-1.5,3*Math.random()-1.5,"red"));this.enemies.length<=this.concurrentEnemies&&this.enemyCount>0&&(t.push(new X(249,20,100,-1,U,Y)),this.enemyCount-=1)}else t.push(e);return t},[])}draw(t){this.enemies.forEach(e=>e.draw(t))}};var q=class{constructor(){this.projectiles=[]}add(t){this.projectiles.push(t)}tick(){this.projectiles.map(t=>t.tick()),this.projectiles=this.projectiles.filter(t=>!t.shouldDie)}draw(t){this.projectiles.map(e=>e.draw(t))}};var G=class{constructor(){this.spurts=[]}add(t){this.spurts.push(t)}tick(){this.spurts.length>1e3&&(this.spurts=this.spurts.slice(this.spurts.length-1e3)),this.spurts.forEach(t=>t.tick())}draw(t){this.spurts.forEach(e=>e.draw(t))}};var K=class extends p{constructor(t,e){super({x:t,y:e});const i=new C;this.weapon=i.random(),this.size=5,this.grav=.04,this.dy=.4,this.landed=!1}tick(){this.landed||(this.dy+=this.grav,this.y+=this.dy)}draw(t){t.rect({fillColor:"#C3732A",rect:[this.x,this.y,5,5]}),[[0,1],[1,0],[2,0],[3,0],[4,1],[3,2],[2,2],[2,4]].forEach(([e,i])=>t.rect({fillColor:"yellow",rect:[this.x+e,this.y+i,1,1]}))}};var N=class{constructor(){this.packages=[new K(138,20)],this.lifespan=0}tick(t,e){if(1!==e){if(this.lifespan+=1,!(this.lifespan%500)){let e=Math.random()*t.mapWidthPixels,i=Math.random()*t.mapHeightPixels;for(;t.getTile(e,i);)e=Math.random()*t.mapWidthPixels,i=Math.random()*t.mapHeightPixels;this.packages.push(new K(e,i))}this.packages.forEach(t=>t.tick())}}draw(t){this.packages.forEach(e=>e.draw(t))}};window.onload=()=>{let t=new h,e=new r(t.canvas),i=new l,s=(new f,new T),a=new _({cw:t.canvas.width,ch:t.canvas.height}),o=new F,n=new B(o.level),c=new A,d=new I(10,10,1e3),p=new J,u=new q,m=new G,y={chunks:[]},g=new N;t.initialize(),o.initializeLevel(1,{player:d,enemies:p,chunks:y,spurts:m,packages:g});let x=(new Date).getTime(),w=0,v=0,k=()=>{j(),b(),C()},j=()=>{const{camera:t}=e;o.tick({player:d,enemies:p,chunks:y,spurts:m,packages:g}),d.tick({camera:t,keyboard:i,map:n,projectiles:u}),p.tick({camera:t,map:n,projectiles:u,spurts:m,chunks:y}),t.tick({player:d,map:n}),u.tick(),m.tick(),y.chunks.length>1e3&&(y.chunks=y.chunks.slice(y.chunks.length-1e3)),y.chunks.forEach(t=>t.tick()),c.tick(d,p),g.tick(n)},b=()=>{u.projectiles.filter(t=>!t.exploding&&t.lifespan>2).forEach(t=>{n.getTile(t.x,t.y)&&t.destroy(),p.enemies.concat([d]).forEach(e=>{s.handleProjectile(t,e,m)})}),m.spurts.concat(y.chunks).forEach(t=>{n.getTile(t.x,t.y)&&t.stick()}),g.packages.forEach(t=>{n.getTile(t.x,t.y+t.size)&&(t.landed=!0),p.enemies.concat([d]).forEach(e=>{s.handlePackage(t,e,g)})})},C=()=>{window.requestAnimationFrame(k),w=(new Date).getTime(),v=w-x,v>1e3/60&&(e.clearBackground(),M().map(t=>t.draw(e)),x=w-v%(1e3/60))},M=()=>[a,n,p,d,g,u,m,...y.chunks,c,o];document.querySelector("main").className+=" loaded",k()}}]);</script>
+    }</style><div class="scanlines"><canvas id="c" width="128" height="128"></canvas></div></html><script>/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./node_modules/jsfxr/jsfxr.js":
+/*!*************************************!*\
+  !*** ./node_modules/jsfxr/jsfxr.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * SfxrParams
+ *
+ * Copyright 2010 Thomas Vian
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * @author Thomas Vian
+ */
+/** @constructor */
+function SfxrParams() {
+  //--------------------------------------------------------------------------
+  //
+  //  Settings String Methods
+  //
+  //--------------------------------------------------------------------------
+
+  /**
+   * Parses a settings array into the parameters
+   * @param array Array of the settings values, where elements 0 - 23 are
+   *                a: waveType
+   *                b: attackTime
+   *                c: sustainTime
+   *                d: sustainPunch
+   *                e: decayTime
+   *                f: startFrequency
+   *                g: minFrequency
+   *                h: slide
+   *                i: deltaSlide
+   *                j: vibratoDepth
+   *                k: vibratoSpeed
+   *                l: changeAmount
+   *                m: changeSpeed
+   *                n: squareDuty
+   *                o: dutySweep
+   *                p: repeatSpeed
+   *                q: phaserOffset
+   *                r: phaserSweep
+   *                s: lpFilterCutoff
+   *                t: lpFilterCutoffSweep
+   *                u: lpFilterResonance
+   *                v: hpFilterCutoff
+   *                w: hpFilterCutoffSweep
+   *                x: masterVolume
+   * @return If the string successfully parsed
+   */
+  this.setSettings = function(values)
+  {
+    for ( var i = 0; i < 24; i++ )
+    {
+      this[String.fromCharCode( 97 + i )] = values[i] || 0;
+    }
+
+    // I moved this here from the reset(true) function
+    if (this['c'] < .01) {
+      this['c'] = .01;
+    }
+
+    var totalTime = this['b'] + this['c'] + this['e'];
+    if (totalTime < .18) {
+      var multiplier = .18 / totalTime;
+      this['b']  *= multiplier;
+      this['c'] *= multiplier;
+      this['e']   *= multiplier;
+    }
+  }
+}
+
+/**
+ * SfxrSynth
+ *
+ * Copyright 2010 Thomas Vian
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * @author Thomas Vian
+ */
+/** @constructor */
+function SfxrSynth() {
+  // All variables are kept alive through function closures
+
+  //--------------------------------------------------------------------------
+  //
+  //  Sound Parameters
+  //
+  //--------------------------------------------------------------------------
+
+  this._params = new SfxrParams();  // Params instance
+
+  //--------------------------------------------------------------------------
+  //
+  //  Synth Variables
+  //
+  //--------------------------------------------------------------------------
+
+  var _envelopeLength0, // Length of the attack stage
+      _envelopeLength1, // Length of the sustain stage
+      _envelopeLength2, // Length of the decay stage
+
+      _period,          // Period of the wave
+      _maxPeriod,       // Maximum period before sound stops (from minFrequency)
+
+      _slide,           // Note slide
+      _deltaSlide,      // Change in slide
+
+      _changeAmount,    // Amount to change the note by
+      _changeTime,      // Counter for the note change
+      _changeLimit,     // Once the time reaches this limit, the note changes
+
+      _squareDuty,      // Offset of center switching point in the square wave
+      _dutySweep;       // Amount to change the duty by
+
+  //--------------------------------------------------------------------------
+  //
+  //  Synth Methods
+  //
+  //--------------------------------------------------------------------------
+
+  /**
+   * Resets the runing variables from the params
+   * Used once at the start (total reset) and for the repeat effect (partial reset)
+   */
+  this.reset = function() {
+    // Shorter reference
+    var p = this._params;
+
+    _period       = 100 / (p['f'] * p['f'] + .001);
+    _maxPeriod    = 100 / (p['g']   * p['g']   + .001);
+
+    _slide        = 1 - p['h'] * p['h'] * p['h'] * .01;
+    _deltaSlide   = -p['i'] * p['i'] * p['i'] * .000001;
+
+    if (!p['a']) {
+      _squareDuty = .5 - p['n'] / 2;
+      _dutySweep  = -p['o'] * .00005;
+    }
+
+    _changeAmount =  1 + p['l'] * p['l'] * (p['l'] > 0 ? -.9 : 10);
+    _changeTime   = 0;
+    _changeLimit  = p['m'] == 1 ? 0 : (1 - p['m']) * (1 - p['m']) * 20000 + 32;
+  }
+
+  // I split the reset() function into two functions for better readability
+  this.totalReset = function() {
+    this.reset();
+
+    // Shorter reference
+    var p = this._params;
+
+    // Calculating the length is all that remained here, everything else moved somewhere
+    _envelopeLength0 = p['b']  * p['b']  * 100000;
+    _envelopeLength1 = p['c'] * p['c'] * 100000;
+    _envelopeLength2 = p['e']   * p['e']   * 100000 + 12;
+    // Full length of the volume envelop (and therefore sound)
+    // Make sure the length can be divided by 3 so we will not need the padding "==" after base64 encode
+    return ((_envelopeLength0 + _envelopeLength1 + _envelopeLength2) / 3 | 0) * 3;
+  }
+
+  /**
+   * Writes the wave to the supplied buffer ByteArray
+   * @param buffer A ByteArray to write the wave to
+   * @return If the wave is finished
+   */
+  this.synthWave = function(buffer, length) {
+    // Shorter reference
+    var p = this._params;
+
+    // If the filters are active
+    var _filters = p['s'] != 1 || p['v'],
+        // Cutoff multiplier which adjusts the amount the wave position can move
+        _hpFilterCutoff = p['v'] * p['v'] * .1,
+        // Speed of the high-pass cutoff multiplier
+        _hpFilterDeltaCutoff = 1 + p['w'] * .0003,
+        // Cutoff multiplier which adjusts the amount the wave position can move
+        _lpFilterCutoff = p['s'] * p['s'] * p['s'] * .1,
+        // Speed of the low-pass cutoff multiplier
+        _lpFilterDeltaCutoff = 1 + p['t'] * .0001,
+        // If the low pass filter is active
+        _lpFilterOn = p['s'] != 1,
+        // masterVolume * masterVolume (for quick calculations)
+        _masterVolume = p['x'] * p['x'],
+        // Minimum frequency before stopping
+        _minFreqency = p['g'],
+        // If the phaser is active
+        _phaser = p['q'] || p['r'],
+        // Change in phase offset
+        _phaserDeltaOffset = p['r'] * p['r'] * p['r'] * .2,
+        // Phase offset for phaser effect
+        _phaserOffset = p['q'] * p['q'] * (p['q'] < 0 ? -1020 : 1020),
+        // Once the time reaches this limit, some of the    iables are reset
+        _repeatLimit = p['p'] ? ((1 - p['p']) * (1 - p['p']) * 20000 | 0) + 32 : 0,
+        // The punch factor (louder at begining of sustain)
+        _sustainPunch = p['d'],
+        // Amount to change the period of the wave by at the peak of the vibrato wave
+        _vibratoAmplitude = p['j'] / 2,
+        // Speed at which the vibrato phase moves
+        _vibratoSpeed = p['k'] * p['k'] * .01,
+        // The type of wave to generate
+        _waveType = p['a'];
+
+    var _envelopeLength      = _envelopeLength0,     // Length of the current envelope stage
+        _envelopeOverLength0 = 1 / _envelopeLength0, // (for quick calculations)
+        _envelopeOverLength1 = 1 / _envelopeLength1, // (for quick calculations)
+        _envelopeOverLength2 = 1 / _envelopeLength2; // (for quick calculations)
+
+    // Damping muliplier which restricts how fast the wave position can move
+    var _lpFilterDamping = 5 / (1 + p['u'] * p['u'] * 20) * (.01 + _lpFilterCutoff);
+    if (_lpFilterDamping > .8) {
+      _lpFilterDamping = .8;
+    }
+    _lpFilterDamping = 1 - _lpFilterDamping;
+
+    var _finished = false,     // If the sound has finished
+        _envelopeStage    = 0, // Current stage of the envelope (attack, sustain, decay, end)
+        _envelopeTime     = 0, // Current time through current enelope stage
+        _envelopeVolume   = 0, // Current volume of the envelope
+        _hpFilterPos      = 0, // Adjusted wave position after high-pass filter
+        _lpFilterDeltaPos = 0, // Change in low-pass wave position, as allowed by the cutoff and damping
+        _lpFilterOldPos,       // Previous low-pass wave position
+        _lpFilterPos      = 0, // Adjusted wave position after low-pass filter
+        _periodTemp,           // Period modified by vibrato
+        _phase            = 0, // Phase through the wave
+        _phaserInt,            // Integer phaser offset, for bit maths
+        _phaserPos        = 0, // Position through the phaser buffer
+        _pos,                  // Phase expresed as a Number from 0-1, used for fast sin approx
+        _repeatTime       = 0, // Counter for the repeats
+        _sample,               // Sub-sample calculated 8 times per actual sample, averaged out to get the super sample
+        _superSample,          // Actual sample writen to the wave
+        _vibratoPhase     = 0; // Phase through the vibrato sine wave
+
+    // Buffer of wave values used to create the out of phase second wave
+    var _phaserBuffer = new Array(1024),
+        // Buffer of random values used to generate noise
+        _noiseBuffer  = new Array(32);
+    for (var i = _phaserBuffer.length; i--; ) {
+      _phaserBuffer[i] = 0;
+    }
+    for (var i = _noiseBuffer.length; i--; ) {
+      _noiseBuffer[i] = Math.random() * 2 - 1;
+    }
+
+    for (var i = 0; i < length; i++) {
+      if (_finished) {
+        return i;
+      }
+
+      // Repeats every _repeatLimit times, partially resetting the sound parameters
+      if (_repeatLimit) {
+        if (++_repeatTime >= _repeatLimit) {
+          _repeatTime = 0;
+          this.reset();
+        }
+      }
+
+      // If _changeLimit is reached, shifts the pitch
+      if (_changeLimit) {
+        if (++_changeTime >= _changeLimit) {
+          _changeLimit = 0;
+          _period *= _changeAmount;
+        }
+      }
+
+      // Acccelerate and apply slide
+      _slide += _deltaSlide;
+      _period *= _slide;
+
+      // Checks for frequency getting too low, and stops the sound if a minFrequency was set
+      if (_period > _maxPeriod) {
+        _period = _maxPeriod;
+        if (_minFreqency > 0) {
+          _finished = true;
+        }
+      }
+
+      _periodTemp = _period;
+
+      // Applies the vibrato effect
+      if (_vibratoAmplitude > 0) {
+        _vibratoPhase += _vibratoSpeed;
+        _periodTemp *= 1 + Math.sin(_vibratoPhase) * _vibratoAmplitude;
+      }
+
+      _periodTemp |= 0;
+      if (_periodTemp < 8) {
+        _periodTemp = 8;
+      }
+
+      // Sweeps the square duty
+      if (!_waveType) {
+        _squareDuty += _dutySweep;
+        if (_squareDuty < 0) {
+          _squareDuty = 0;
+        } else if (_squareDuty > .5) {
+          _squareDuty = .5;
+        }
+      }
+
+      // Moves through the different stages of the volume envelope
+      if (++_envelopeTime > _envelopeLength) {
+        _envelopeTime = 0;
+
+        switch (++_envelopeStage)  {
+          case 1:
+            _envelopeLength = _envelopeLength1;
+            break;
+          case 2:
+            _envelopeLength = _envelopeLength2;
+        }
+      }
+
+      // Sets the volume based on the position in the envelope
+      switch (_envelopeStage) {
+        case 0:
+          _envelopeVolume = _envelopeTime * _envelopeOverLength0;
+          break;
+        case 1:
+          _envelopeVolume = 1 + (1 - _envelopeTime * _envelopeOverLength1) * 2 * _sustainPunch;
+          break;
+        case 2:
+          _envelopeVolume = 1 - _envelopeTime * _envelopeOverLength2;
+          break;
+        case 3:
+          _envelopeVolume = 0;
+          _finished = true;
+      }
+
+      // Moves the phaser offset
+      if (_phaser) {
+        _phaserOffset += _phaserDeltaOffset;
+        _phaserInt = _phaserOffset | 0;
+        if (_phaserInt < 0) {
+          _phaserInt = -_phaserInt;
+        } else if (_phaserInt > 1023) {
+          _phaserInt = 1023;
+        }
+      }
+
+      // Moves the high-pass filter cutoff
+      if (_filters && _hpFilterDeltaCutoff) {
+        _hpFilterCutoff *= _hpFilterDeltaCutoff;
+        if (_hpFilterCutoff < .00001) {
+          _hpFilterCutoff = .00001;
+        } else if (_hpFilterCutoff > .1) {
+          _hpFilterCutoff = .1;
+        }
+      }
+
+      _superSample = 0;
+      for (var j = 8; j--; ) {
+        // Cycles through the period
+        _phase++;
+        if (_phase >= _periodTemp) {
+          _phase %= _periodTemp;
+
+          // Generates new random noise for this period
+          if (_waveType == 3) {
+            for (var n = _noiseBuffer.length; n--; ) {
+              _noiseBuffer[n] = Math.random() * 2 - 1;
+            }
+          }
+        }
+
+        // Gets the sample from the oscillator
+        switch (_waveType) {
+          case 0: // Square wave
+            _sample = ((_phase / _periodTemp) < _squareDuty) ? .5 : -.5;
+            break;
+          case 1: // Saw wave
+            _sample = 1 - _phase / _periodTemp * 2;
+            break;
+          case 2: // Sine wave (fast and accurate approx)
+            _pos = _phase / _periodTemp;
+            _pos = (_pos > .5 ? _pos - 1 : _pos) * 6.28318531;
+            _sample = 1.27323954 * _pos + .405284735 * _pos * _pos * (_pos < 0 ? 1 : -1);
+            _sample = .225 * ((_sample < 0 ? -1 : 1) * _sample * _sample  - _sample) + _sample;
+            break;
+          case 3: // Noise
+            _sample = _noiseBuffer[Math.abs(_phase * 32 / _periodTemp | 0)];
+        }
+
+        // Applies the low and high pass filters
+        if (_filters) {
+          _lpFilterOldPos = _lpFilterPos;
+          _lpFilterCutoff *= _lpFilterDeltaCutoff;
+          if (_lpFilterCutoff < 0) {
+            _lpFilterCutoff = 0;
+          } else if (_lpFilterCutoff > .1) {
+            _lpFilterCutoff = .1;
+          }
+
+          if (_lpFilterOn) {
+            _lpFilterDeltaPos += (_sample - _lpFilterPos) * _lpFilterCutoff;
+            _lpFilterDeltaPos *= _lpFilterDamping;
+          } else {
+            _lpFilterPos = _sample;
+            _lpFilterDeltaPos = 0;
+          }
+
+          _lpFilterPos += _lpFilterDeltaPos;
+
+          _hpFilterPos += _lpFilterPos - _lpFilterOldPos;
+          _hpFilterPos *= 1 - _hpFilterCutoff;
+          _sample = _hpFilterPos;
+        }
+
+        // Applies the phaser effect
+        if (_phaser) {
+          _phaserBuffer[_phaserPos % 1024] = _sample;
+          _sample += _phaserBuffer[(_phaserPos - _phaserInt + 1024) % 1024];
+          _phaserPos++;
+        }
+
+        _superSample += _sample;
+      }
+
+      // Averages out the super samples and applies volumes
+      _superSample *= .125 * _envelopeVolume * _masterVolume;
+
+      // Clipping if too loud
+      buffer[i] = _superSample >= 1 ? 32767 : _superSample <= -1 ? -32768 : _superSample * 32767 | 0;
+    }
+
+    return length;
+  }
+}
+
+// Adapted from http://codebase.es/riffwave/
+var synth = new SfxrSynth();
+// Export for the Closure Compiler
+var jsfxr = function(settings) {
+  // Initialize SfxrParams
+  synth._params.setSettings(settings);
+  // Synthesize Wave
+  var envelopeFullLength = synth.totalReset();
+  var data = new Uint8Array(((envelopeFullLength + 1) / 2 | 0) * 4 + 44);
+  var used = synth.synthWave(new Uint16Array(data.buffer, 44), envelopeFullLength) * 2;
+  var dv = new Uint32Array(data.buffer, 0, 44);
+  // Initialize header
+  dv[0] = 0x46464952; // "RIFF"
+  dv[1] = used + 36;  // put total size here
+  dv[2] = 0x45564157; // "WAVE"
+  dv[3] = 0x20746D66; // "fmt "
+  dv[4] = 0x00000010; // size of the following
+  dv[5] = 0x00010001; // Mono: 1 channel, PCM format
+  dv[6] = 0x0000AC44; // 44,100 samples per second
+  dv[7] = 0x00015888; // byte rate: two bytes per sample
+  dv[8] = 0x00100002; // 16 bits per sample, aligned on every two bytes
+  dv[9] = 0x61746164; // "data"
+  dv[10] = used;      // put number of samples here
+
+  // Base64 encoding written by me, @maettig
+  used += 44;
+  var i = 0,
+      base64Characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/',
+      output = 'data:audio/wav;base64,';
+  for (; i < used; i += 3)
+  {
+    var a = data[i] << 16 | data[i + 1] << 8 | data[i + 2];
+    output += base64Characters[a >> 18] + base64Characters[a >> 12 & 63] + base64Characters[a >> 6 & 63] + base64Characters[a & 63];
+  }
+  return output;
+}
+
+if (true) {
+  module.exports = jsfxr;
+}
+else {}
+
+
+/***/ }),
+
+/***/ "./node_modules/worker-loader/dist/workers/InlineWorker.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/worker-loader/dist/workers/InlineWorker.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+// http://stackoverflow.com/questions/10343913/how-to-create-a-web-worker-from-a-string
+
+var URL = window.URL || window.webkitURL;
+
+module.exports = function (content, url) {
+  try {
+    try {
+      var blob;
+
+      try {
+        // BlobBuilder = Deprecated, but widely implemented
+        var BlobBuilder = window.BlobBuilder || window.WebKitBlobBuilder || window.MozBlobBuilder || window.MSBlobBuilder;
+
+        blob = new BlobBuilder();
+
+        blob.append(content);
+
+        blob = blob.getBlob();
+      } catch (e) {
+        // The proposed API
+        blob = new Blob([content]);
+      }
+
+      return new Worker(URL.createObjectURL(blob));
+    } catch (e) {
+      return new Worker('data:application/javascript,' + encodeURIComponent(content));
+    }
+  } catch (e) {
+    if (!url) {
+      throw Error('Inline worker is not supported');
+    }
+
+    return new Worker(url);
+  }
+};
+
+/***/ }),
+
+/***/ "./src/Background.js":
+/*!***************************!*\
+  !*** ./src/Background.js ***!
+  \***************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Background; });
+let nearStars = [];
+let farStars = [];
+
+function mod(n, m) {
+  return ((n % m) + m) % m;
+}
+
+class Background {
+  constructor({ cw, ch }) {
+    for (let i = 0; i < 10; i++)
+      nearStars.push([Math.random() * cw, Math.random() * ch, Math.random()]);
+    for (let i = 0; i < 10; i++)
+      farStars.push([Math.random() * cw, Math.random() * ch, Math.random()]);
+  }
+  draw(drawer) {
+    drawer.draw(() => {
+      drawer.drawBackground("#111");
+      nearStars.map((star) =>
+        drawer.rect({
+          rect: [
+            mod(
+              star[0] - drawer.camera.x / (3 + 3 * star[2]),
+              drawer.canvas.width
+            ),
+            mod(
+              star[1] - drawer.camera.y / (3 + 3 * star[2]),
+              drawer.canvas.height
+            ),
+            1,
+            1,
+          ],
+          fillColor: "rgba(255, 255, 255, 0.6)",
+          adjusted: false,
+        })
+      );
+      farStars.map((star) =>
+        drawer.rect({
+          rect: [
+            mod(
+              star[0] - drawer.camera.x / (7 + 3 * star[2]),
+              drawer.canvas.width
+            ),
+            mod(
+              star[1] - drawer.camera.y / (7 + 3 * star[2]),
+              drawer.canvas.height
+            ),
+            1,
+            1,
+          ],
+          fillColor: "rgba(255, 255, 255, 0.3)",
+          adjusted: false,
+        })
+      );
+    });
+  }
+}
+
+
+/***/ }),
+
+/***/ "./src/Blood.js":
+/*!**********************!*\
+  !*** ./src/Blood.js ***!
+  \**********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _GameObject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GameObject */ "./src/GameObject.js");
+
+
+class Blood extends _GameObject__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor(x, y, dx, dy, color) {
+    super({ x, y, grav: 0.1 });
+    this.dx = dx;
+    this.dy = dy;
+    this.color = color;
+    this.stuck = false;
+  }
+
+  stick() {
+    this.stuck = true;
+  }
+
+  tick() {
+    if (this.stuck) return;
+    this.x += this.dx;
+    this.dy += this.grav;
+    this.y += this.dy;
+  }
+
+  draw(drawer) {
+    drawer.rect({
+      fillColor: this.color,
+      rect: [this.x, this.y, 1, 1],
+    });
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Blood);
+
+
+/***/ }),
+
+/***/ "./src/BloodChunk.js":
+/*!***************************!*\
+  !*** ./src/BloodChunk.js ***!
+  \***************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _GameObject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GameObject */ "./src/GameObject.js");
+
+
+class BloodChunk extends _GameObject__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor(x, y, dx, dy, color) {
+    super({ x, y });
+    this.dx = dx;
+    this.dy = dy;
+    this.grav = 0.1;
+    this.color = color;
+    this.stuck = false;
+  }
+
+  stick() {
+    this.stuck = true;
+  }
+
+  tick() {
+    if (this.stuck) return;
+    this.x += this.dx;
+    this.dy += this.grav;
+    this.y += this.dy;
+  }
+
+  draw(drawer) {
+    drawer.rect({
+      fillColor: this.color,
+      rect: [this.x, this.y - 2, 2, 3],
+    });
+
+    [
+      [1, 2],
+      [2, 3],
+    ].forEach(([x, y]) => {
+      drawer.rect({
+        fillColor: this.color,
+        rect: [this.x + x - 2, this.y + y - 2, 1, 1],
+      });
+    });
+
+    [
+      [2, 0],
+      [1, 1],
+      [0, 2],
+      [1, 3],
+    ].forEach(([x, y]) => {
+      drawer.rect({
+        fillColor: "#FF77A8",
+        rect: [this.x + x - 2, this.y + y - 2, 1, 1],
+      });
+    });
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (BloodChunk);
+
+
+/***/ }),
+
+/***/ "./src/BloodCollection.js":
+/*!********************************!*\
+  !*** ./src/BloodCollection.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+class BloodCollection {
+  constructor() {
+    this.spurts = [];
+  }
+
+  add(blood) {
+    this.spurts.push(blood);
+  }
+
+  tick() {
+    if (this.spurts.length > 1000) {
+      this.spurts = this.spurts.slice(this.spurts.length - 1000);
+    }
+    this.spurts.forEach((s) => s.tick());
+  }
+
+  draw(drawer) {
+    this.spurts.forEach((s) => s.draw(drawer));
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (BloodCollection);
+
+
+/***/ }),
+
+/***/ "./src/Camera.js":
+/*!***********************!*\
+  !*** ./src/Camera.js ***!
+  \***********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const pullThreshold = 16;
+const HUDSize = 15;
+
+class Camera {
+  constructor() {
+    this.x = 0;
+    this.y = 128;
+    this.position_x = 0;
+    this.position_y = 128;
+    this.shakeRemaining = 0;
+    this.shakeForce = 0;
+  }
+
+  adjustX(x, width) {
+    return x - this.x + width / 2;
+  }
+
+  adjustY(y, height) {
+    return y - this.y + height / 2;
+  }
+
+  clampX(map) {
+    this.position_x = Math.round(
+      Math.min(
+        Math.max(8 * map.tileSize, this.position_x),
+        (map.mapLength - 8) * map.tileSize
+      )
+    );
+  }
+
+  clampY(map) {
+    this.position_y = Math.round(
+      Math.min(
+        Math.max(8 * map.tileSize, this.position_y),
+        (map.mapHeight - 8) * map.tileSize + HUDSize
+      )
+    );
+  }
+
+  followSubject(subject) {
+    if (subject.x - this.position_x > pullThreshold) {
+      this.position_x = subject.x - pullThreshold;
+    }
+    if (subject.x - this.position_x < -pullThreshold) {
+      this.position_x = subject.x + pullThreshold;
+    }
+    if (subject.y - this.position_y > pullThreshold) {
+      this.position_y = subject.y - pullThreshold;
+    }
+    if (subject.y - this.position_y < -pullThreshold) {
+      this.position_y = subject.y + pullThreshold;
+    }
+  }
+
+  shake(force, duration) {
+    this.shakeRemaining = duration;
+    this.shakeForce = force;
+  }
+
+  applyShake() {
+    this.shakeRemaining = Math.max(0, this.shakeRemaining - 1);
+    if (!this.shakeRemaining) return;
+    const shakeX = Math.random() * this.shakeForce * 2 - this.shakeForce;
+    const shakeY = Math.random() * this.shakeForce * 2 - this.shakeForce;
+    this.x += shakeX;
+    this.y += shakeY;
+  }
+
+  tick({ player, map }) {
+    this.followSubject(player, map);
+    this.clampX(map);
+    this.clampY(map);
+    this.x = this.position_x;
+    this.y = this.position_y;
+    this.applyShake();
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Camera);
+
+
+/***/ }),
+
+/***/ "./src/Character.js":
+/*!**************************!*\
+  !*** ./src/Character.js ***!
+  \**************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _GameObject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GameObject */ "./src/GameObject.js");
+/* harmony import */ var _WeaponFactory__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./WeaponFactory */ "./src/WeaponFactory.js");
+
+
+
+const clamp = (num, min, max) => Math.min(Math.max(min, num), max);
+
+const offset = 1;
+
+const collideSide = (player, map) => {
+  let { x, y, dx, size } = player;
+
+  if (dx > 0) {
+    const rightTopTileType = map.getTile(x + size, y);
+    const rightBottomTileType = map.getTile(x + size, y + size - offset);
+    if (rightTopTileType || rightBottomTileType) {
+      player.dx = 0;
+      player.x = Math.floor(x / 8) * 8;
+    }
+  } else if (dx < 0) {
+    const leftTopTileType = map.getTile(x, y);
+    const leftBottomTileType = map.getTile(x, y + size - offset);
+    if (leftTopTileType || leftBottomTileType) {
+      player.dx = 0;
+      player.x = Math.floor(x / 8) * 8 + 8;
+    }
+  }
+};
+
+const collideFloor = (player, map) => {
+  const { x, y, dy, size } = player;
+
+  if (dy < 0) return false;
+
+  const leftBottomTileType = map.getTile(x, y + size);
+  const rightBottomTileType = map.getTile(x + size - offset, y + size);
+
+  if (leftBottomTileType || rightBottomTileType) {
+    player.dy = 0;
+    player.y = Math.floor(y / 8) * 8;
+    player.grounded = true;
+    player.airtime = 0;
+    return true;
+  } else {
+    return false;
+  }
+};
+
+const collideRoof = (player, map) => {
+  const { x, y, size } = player;
+  const leftTopTileType = map.getTile(x, y);
+  const rightTopTileType = map.getTile(x + size - offset, y);
+
+  if (leftTopTileType || rightTopTileType) {
+    player.dy = 0;
+    player.y = Math.floor((y - size / 2) / 8) * 8 + 8 + size / 2;
+    player.jumpHoldTime = 0;
+  }
+};
+
+class Character extends _GameObject__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor(x, y, health, facing) {
+    super({ x, y, maxDx: 1, maxDy: 2, grav: 0.15 });
+    this.size = 8;
+    this.acc = 0.05;
+    this.dcc = 0.8;
+    this.airDcc = 1;
+    this.grounded = true;
+    this.facing = facing || 1;
+    this.lifespan = 0;
+
+    // jumping
+    this.holdJump = 0;
+    this.airtime = 0;
+    this.jumpHoldTime = 0;
+    this.jumpSpeed = 2;
+    this.maxJumpPress = 12;
+
+    this.health = health;
+    this.maxHealth = health;
+
+    const weaponFactory = new _WeaponFactory__WEBPACK_IMPORTED_MODULE_1__["default"]();
+    this.weapon = weaponFactory.random();
+  }
+
+  static tick({ camera, map, projectiles, presses, immobile }) {
+    this.lifespan += 1;
+
+    const { left, right, up, space } = presses;
+    this.holdJump = up ? this.holdJump + 1 : 0;
+
+    const weaponLocation = {
+      x: this.x + (this.facing === 1 ? this.size - 1 : 1),
+      y: this.y + 5,
+      facing: this.facing,
+    };
+    const knockback = this.weapon.tick(
+      space,
+      projectiles,
+      weaponLocation,
+      camera
+    );
+
+    // move x
+    if (left) {
+      this.dx -= this.acc;
+      this.facing = -1;
+    } else if (right) {
+      this.dx += this.acc;
+      this.facing = 1;
+    } else {
+      if (this.grounded) {
+        this.dx *= this.dcc;
+      } else {
+        this.dx *= this.airDcc;
+      }
+    }
+    if (Math.abs(this.dx) < 0.01) this.dx = 0;
+    this.dx = clamp(this.dx, -this.maxDx, this.maxDx);
+    this.dx += knockback * -this.facing;
+    this.x += immobile ? 0 : this.dx;
+
+    // hit walls
+    collideSide(this, map);
+
+    // jumping
+    if (up) {
+      const onGround = this.grounded || this.airtime < 5;
+      const newJump = this.holdJump < 10;
+      if (this.jumpHoldTime > 0 || (onGround && newJump)) {
+        this.jumpHoldTime += 1;
+        if (this.jumpHoldTime < this.maxJumpPress) {
+          this.dy = -this.jumpSpeed;
+        }
+      }
+    } else {
+      this.jumpHoldTime = 0;
+    }
+
+    // move y
+    this.dy += this.grav;
+    this.dy = clamp(this.dy, -this.maxDy, this.maxDy);
+    this.y += this.dy;
+
+    if (!collideFloor(this, map)) {
+      this.grounded = false;
+      this.airtime += 1;
+    }
+
+    collideRoof(this, map);
+  }
+
+  static takeDamage(damage) {
+    this.health -= damage;
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Character);
+
+
+/***/ }),
+
+/***/ "./src/CollisionDetector.js":
+/*!**********************************!*\
+  !*** ./src/CollisionDetector.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return CollisionDetector; });
+/* harmony import */ var _Blood__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Blood */ "./src/Blood.js");
+/* harmony import */ var _Character__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Character */ "./src/Character.js");
+
+
+
+const collision = (a, b) => {
+  return (
+    a.x < b.x + b.size &&
+    a.x + a.size > b.x &&
+    a.y < b.y + b.size &&
+    a.y + a.size > b.y
+  );
+};
+class CollisionDetector {
+  handleProjectile(projectile, object, spurts) {
+    if (
+      !(projectile.exploding || object.exploding) &&
+      collision(projectile, object)
+    ) {
+      projectile.destroy();
+      _Character__WEBPACK_IMPORTED_MODULE_1__["default"].takeDamage.call(
+        object,
+        projectile.damage * projectile.damageMod
+      );
+      for (let i = 0; i < projectile.blood; i++) {
+        spurts.add(
+          new _Blood__WEBPACK_IMPORTED_MODULE_0__["default"](
+            projectile.x,
+            projectile.y,
+            (projectile.dx / 3) * Math.random() * 2,
+            -1.5 * Math.random(),
+            object.bloodColor
+          )
+        );
+      }
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  handlePackage(packge, object, packages) {
+    if (collision(packge, object)) {
+      object.weapon = packge.weapon;
+      packages.packages = packages.packages.filter((p) => p !== packge);
+    }
+  }
+}
+
+
+/***/ }),
+
+/***/ "./src/Drawer.js":
+/*!***********************!*\
+  !*** ./src/Drawer.js ***!
+  \***********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Drawer; });
+/* harmony import */ var _Camera__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Camera */ "./src/Camera.js");
+
+
+let cx = null;
+
+class Drawer {
+  constructor(canvas) {
+    this.canvas = canvas;
+    cx = this.canvas.getContext("2d");
+    this.camera = new _Camera__WEBPACK_IMPORTED_MODULE_0__["default"]();
+  }
+
+  draw(d) {
+    cx.save();
+    d();
+    cx.restore();
+  }
+
+  clearBackground() {
+    cx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+  }
+
+  drawBackground(color) {
+    cx.fillStyle = color;
+    cx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+  }
+
+  rect({
+    rect,
+    fillColor,
+    strokeColor,
+    shadowBlur = 0,
+    shadowColor = "none",
+    lineWidth = 1,
+    adjusted = true,
+    rotation,
+    size,
+    crisp = true,
+  }) {
+    if (crisp) {
+      rect[0] = Math.floor(rect[0]);
+      rect[1] = Math.floor(rect[1]);
+    }
+    if (adjusted) {
+      rect[0] = this.camera.adjustX(rect[0], this.canvas.width);
+      rect[1] = this.camera.adjustY(rect[1], this.canvas.height);
+    }
+    if (rotation) {
+      cx.translate(rect[0] + size / 2, rect[1] + size / 2);
+      cx.rotate(rotation);
+      cx.translate(-1 * rect[0] - size / 2, -1 * rect[1] - size / 2);
+    }
+    cx.shadowBlur = shadowBlur;
+    cx.shadowColor = shadowColor;
+    if (fillColor) {
+      cx.fillStyle = fillColor;
+      cx.fillRect(...[rect[0], rect[1], ...rect.slice(2)]);
+    }
+    if (strokeColor) {
+      cx.strokeStyle = strokeColor;
+      cx.lineWidth = lineWidth;
+      cx.strokeRect(...[rect[0], rect[1], ...rect.slice(2)]);
+    }
+    cx.shadowBlur = 0;
+  }
+
+  arc({ arc, fillColor, strokeColor, shadowBlur, shadowColor }) {
+    cx.beginPath();
+    cx.arc(
+      this.camera.adjustX(arc[0], this.canvas.width),
+      this.camera.adjustY(arc[1], this.canvas.height),
+      ...arc.slice(2)
+    );
+    cx.shadowBlur = shadowBlur;
+    cx.shadowColor = shadowColor;
+    if (fillColor) {
+      cx.fillStyle = fillColor;
+      cx.fill();
+    }
+    if (strokeColor) {
+      cx.strokeStyle = strokeColor;
+      cx.stroke();
+    }
+    cx.shadowBlur = 0;
+  }
+
+  text({ text, x, y, fillColor = "#fff", size = 1 }) {
+    cx.fillStyle = fillColor;
+
+    let currX = 0;
+
+    text
+      .toUpperCase()
+      .split("")
+      .map((c) => {
+        if (!letters[c]) console.log(c);
+        return letters[c];
+      })
+      .forEach((letter) => {
+        let currY = 0;
+        let addX = 0;
+        letter.forEach((row) => {
+          row.forEach((bit, i) => {
+            bit && cx.fillRect(currX + i * size + x, currY + y, size, size);
+          });
+          addX = Math.max(addX, row.length * size);
+          currY += size;
+        });
+        currX += size + addX;
+      });
+  }
+
+  lines({
+    lines,
+    shadowBlur = 0,
+    shadowColor,
+    rotation,
+    x,
+    y,
+    fillColor,
+    strokeColor,
+  }) {
+    if (rotation) {
+      cx.translate(
+        this.camera.adjustX(x, this.canvas.width),
+        this.camera.adjustY(y, this.canvas.height)
+      );
+      cx.rotate(rotation);
+      cx.translate(
+        -1 * this.camera.adjustX(x, this.canvas.width),
+        -1 * this.camera.adjustY(y, this.canvas.height)
+      );
+    }
+    cx.beginPath();
+    cx.moveTo(
+      this.camera.adjustX(lines[0][0], this.canvas.width),
+      this.camera.adjustY(lines[0][1], this.canvas.height)
+    );
+    lines
+      .slice(1)
+      .map((line) =>
+        cx.lineTo(
+          this.camera.adjustX(line[0], this.canvas.width),
+          this.camera.adjustY(line[1], this.canvas.height)
+        )
+      );
+    cx.closePath();
+    cx.shadowBlur = shadowBlur;
+    cx.shadowColor = shadowColor;
+    if (strokeColor) {
+      cx.strokeStyle = strokeColor;
+      cx.stroke();
+    }
+    if (fillColor) {
+      cx.fillStyle = fillColor;
+      cx.fill();
+    }
+  }
+
+  fill({
+    path,
+    x,
+    y,
+    fillColor,
+    strokeColor,
+    rotation,
+    adjusted = true,
+    centered = true,
+    size,
+  }) {
+    if (adjusted) {
+      x = this.camera.adjustX(x, this.canvas.width);
+      y = this.camera.adjustY(y, this.canvas.height);
+    }
+    if (rotation) {
+      cx.translate(x, y);
+      cx.rotate(rotation);
+      cx.translate(-1 * x, -1 * y);
+    }
+    cx.translate(x, y);
+    if (!centered) {
+      cx.translate(-size / 2, -size / 2 + 0.5);
+    }
+    if (fillColor) {
+      cx.fillStyle = fillColor;
+      cx.fill(path);
+    }
+    if (strokeColor) {
+      cx.strokeStyle = strokeColor;
+      cx.fillStyle = fillColor || "#131";
+      cx.fill(path);
+      cx.stroke(path);
+    }
+  }
+
+  emoji({ emoji, x, y, adjusted = true }) {
+    if (adjusted) {
+      x = this.camera.adjustX(x, this.canvas.width);
+      y = this.camera.adjustY(y, this.canvas.height);
+    }
+    cx.font = "4px serif";
+    cx.fillText(emoji, x, y);
+  }
+
+  hitbox({ x, y, size }) {
+    this.rect({
+      rect: [x - size / 2, y - size / 2, size, size],
+      color: "#f00",
+    });
+  }
+}
+
+const letters = {
+  A: [
+    [, 1],
+    [1, , 1],
+    [1, , 1],
+    [1, 1, 1],
+    [1, , 1],
+  ],
+  B: [
+    [1, 1],
+    [1, , 1],
+    [1, 1, 1],
+    [1, , 1],
+    [1, 1],
+  ],
+  C: [[1, 1, 1], [1], [1], [1], [1, 1, 1]],
+  D: [
+    [1, 1],
+    [1, , 1],
+    [1, , 1],
+    [1, , 1],
+    [1, 1],
+  ],
+  E: [[1, 1, 1], [1], [1, 1, 1], [1], [1, 1, 1]],
+  F: [[1, 1, 1], [1], [1, 1], [1], [1]],
+  G: [[, 1, 1], [1], [1, , 1, 1], [1, , , 1], [, 1, 1]],
+  H: [
+    [1, , 1],
+    [1, , 1],
+    [1, 1, 1],
+    [1, , 1],
+    [1, , 1],
+  ],
+  I: [
+    [1, 1, 1],
+    [, 1],
+    [, 1],
+    [, 1],
+    [1, 1, 1],
+  ],
+  J: [
+    [1, 1, 1],
+    [, , 1],
+    [, , 1],
+    [1, , 1],
+    [1, 1, 1],
+  ],
+  K: [
+    [1, , , 1],
+    [1, , 1],
+    [1, 1],
+    [1, , 1],
+    [1, , , 1],
+  ],
+  L: [[1], [1], [1], [1], [1, 1, 1]],
+  M: [
+    [1, 1, 1, 1, 1],
+    [1, , 1, , 1],
+    [1, , 1, , 1],
+    [1, , , , 1],
+    [1, , , , 1],
+  ],
+  N: [
+    [1, , , 1],
+    [1, 1, , 1],
+    [1, , 1, 1],
+    [1, , , 1],
+    [1, , , 1],
+  ],
+  O: [
+    [1, 1, 1],
+    [1, , 1],
+    [1, , 1],
+    [1, , 1],
+    [1, 1, 1],
+  ],
+  P: [[1, 1, 1], [1, , 1], [1, 1, 1], [1], [1]],
+  Q: [
+    [0, 1, 1],
+    [1, , , 1],
+    [1, , , 1],
+    [1, , 1, 1],
+    [1, 1, 1, 1],
+  ],
+  R: [
+    [1, 1],
+    [1, , 1],
+    [1, , 1],
+    [1, 1],
+    [1, , 1],
+  ],
+  S: [[1, 1, 1], [1], [1, 1, 1], [, , 1], [1, 1, 1]],
+  T: [
+    [1, 1, 1],
+    [, 1],
+    [, 1],
+    [, 1],
+    [, 1],
+  ],
+  U: [
+    [1, , 1],
+    [1, , 1],
+    [1, , 1],
+    [1, , 1],
+    [1, 1, 1],
+  ],
+  V: [
+    [1, , , , 1],
+    [1, , , , 1],
+    [, 1, , 1],
+    [, 1, , 1],
+    [, , 1],
+  ],
+  W: [
+    [1, , , , 1],
+    [1, , , , 1],
+    [1, , , , 1],
+    [1, , 1, , 1],
+    [1, 1, 1, 1, 1],
+  ],
+  X: [
+    [1, , , , 1],
+    [, 1, , 1],
+    [, , 1],
+    [, 1, , 1],
+    [1, , , , 1],
+  ],
+  Y: [
+    [1, , 1],
+    [1, , 1],
+    [, 1],
+    [, 1],
+    [, 1],
+  ],
+  Z: [
+    [1, 1, 1, 1, 1],
+    [, , , 1],
+    [, , 1],
+    [, 1],
+    [1, 1, 1, 1, 1],
+  ],
+  " ": [
+    [, ,],
+    [, ,],
+    [, ,],
+    [, ,],
+    [, ,],
+  ],
+  "0": [
+    [1, 1, 1],
+    [1, , 1],
+    [1, , 1],
+    [1, , 1],
+    [1, 1, 1],
+  ],
+  "1": [
+    [, 1],
+    [, 1],
+    [, 1],
+    [, 1],
+    [, 1],
+  ],
+  "2": [
+    [1, 1, 1],
+    [0, 0, 1],
+    [1, 1, 1],
+    [1, 0, 0],
+    [1, 1, 1],
+  ],
+  "3": [
+    [1, 1, 1],
+    [0, 0, 1],
+    [1, 1, 1],
+    [0, 0, 1],
+    [1, 1, 1],
+  ],
+  "4": [
+    [1, 0, 1],
+    [1, 0, 1],
+    [1, 1, 1],
+    [0, 0, 1],
+    [0, 0, 1],
+  ],
+  "5": [
+    [1, 1, 1],
+    [1, 0, 0],
+    [1, 1, 1],
+    [0, 0, 1],
+    [1, 1, 1],
+  ],
+  "6": [
+    [1, 1, 1],
+    [1, 0, 0],
+    [1, 1, 1],
+    [1, 0, 1],
+    [1, 1, 1],
+  ],
+  "7": [
+    [1, 1, 1],
+    [0, 0, 1],
+    [0, 0, 1],
+    [0, 0, 1],
+    [0, 0, 1],
+  ],
+  "8": [
+    [1, 1, 1],
+    [1, 0, 1],
+    [1, 1, 1],
+    [1, 0, 1],
+    [1, 1, 1],
+  ],
+  "9": [
+    [1, 1, 1],
+    [1, 0, 1],
+    [1, 1, 1],
+    [0, 0, 1],
+    [1, 1, 1],
+  ],
+};
+
+
+/***/ }),
+
+/***/ "./src/Enemy.js":
+/*!**********************!*\
+  !*** ./src/Enemy.js ***!
+  \**********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Character__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Character */ "./src/Character.js");
+/* harmony import */ var _Sprites__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Sprites */ "./src/Sprites.js");
+
+
+
+class Enemy extends _Character__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor(x, y, health, facing, colors, persona) {
+    super(x, y, health, facing);
+    this.colors = colors;
+    this.bloodColor = "#32CD32";
+    this.presses = {
+      left: false,
+      right: false,
+      up: false,
+      space: false,
+    };
+    this.persona = persona;
+  }
+
+  tick({ camera, map, projectiles }) {
+    const [presses, immobile] = this.persona({ enemy: this, map });
+    if (presses) this.presses = presses;
+    _Character__WEBPACK_IMPORTED_MODULE_0__["default"].tick.call(this, {
+      camera,
+      map,
+      projectiles,
+      presses: this.presses,
+      immobile,
+    });
+  }
+
+  draw(drawer) {
+    if (this.health < this.maxHealth) {
+      drawer.rect({
+        fillColor: "white",
+        rect: [this.x, this.y - 1, 8 * (this.health / this.maxHealth), 1],
+      });
+    }
+
+    Object(_Sprites__WEBPACK_IMPORTED_MODULE_1__["humanoid"])(this.x, this.y, this.facing, this.colors).forEach(({ c, r }) =>
+      drawer.rect({ fillColor: c, rect: r })
+    );
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Enemy);
+
+
+/***/ }),
+
+/***/ "./src/EnemyCollection.js":
+/*!********************************!*\
+  !*** ./src/EnemyCollection.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Blood__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Blood */ "./src/Blood.js");
+/* harmony import */ var _BloodChunk__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BloodChunk */ "./src/BloodChunk.js");
+/* harmony import */ var _Enemy__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Enemy */ "./src/Enemy.js");
+/* harmony import */ var _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./EnemyPersonas */ "./src/EnemyPersonas.js");
+
+
+
+
+
+const colors = {
+  skin: "red",
+  horns: "red",
+  eyes: "yellow",
+  body: "orange",
+};
+
+class EnemyCollection {
+  constructor() {
+    this.enemies = [];
+    this.enemyCount = 0;
+  }
+
+  initialize({ concurrentEnemies, enemyCount }) {
+    this.concurrentEnemies = concurrentEnemies;
+    this.enemyCount = enemyCount;
+
+    for (let i = 0; i < concurrentEnemies; i++) {
+      this.enemies.push(
+        new _Enemy__WEBPACK_IMPORTED_MODULE_2__["default"](249, 20, 100, Math.random() > 0.5 ? 1 : -1, colors, _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["pacifist"])
+      );
+      this.enemyCount -= 1;
+    }
+  }
+
+  tick({ camera, map, projectiles, spurts, chunks }) {
+    this.enemies.forEach((enemy) => {
+      enemy.tick({ camera, map, projectiles });
+    });
+
+    this.enemies = this.enemies.reduce((enemies, enemy) => {
+      if (enemy.health <= 0) {
+        for (let i = 0; i < 100; i++) {
+          spurts.add(
+            new _Blood__WEBPACK_IMPORTED_MODULE_0__["default"](
+              enemy.x,
+              enemy.y,
+              Math.random() * 5 - 2.5,
+              Math.random() * 5 - 5,
+              enemy.bloodColor
+            )
+          );
+        }
+        for (let i = 0; i < 5; i++) {
+          chunks.chunks.push(
+            new _BloodChunk__WEBPACK_IMPORTED_MODULE_1__["default"](
+              enemy.x,
+              enemy.y - 2,
+              Math.random() * 3 - 1.5,
+              Math.random() * 3 - 1.5,
+              "red"
+            )
+          );
+        }
+        if (
+          this.enemies.length <= this.concurrentEnemies &&
+          this.enemyCount > 0
+        ) {
+          enemies.push(new _Enemy__WEBPACK_IMPORTED_MODULE_2__["default"](249, 20, 100, -1, colors, _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["pacifist"]));
+          this.enemyCount -= 1;
+        }
+      } else {
+        enemies.push(enemy);
+      }
+      return enemies;
+    }, []);
+  }
+
+  draw(drawer) {
+    this.enemies.forEach((e) => e.draw(drawer));
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (EnemyCollection);
+
+
+/***/ }),
+
+/***/ "./src/EnemyPersonas.js":
+/*!******************************!*\
+  !*** ./src/EnemyPersonas.js ***!
+  \******************************/
+/*! exports provided: pacifist, idiot, sentinel */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pacifist", function() { return pacifist; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "idiot", function() { return idiot; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sentinel", function() { return sentinel; });
+const pacifist = ({ enemy, map }) => {
+  if (!enemy.holdLeft && !enemy.holdRight) enemy.holdRight = true;
+
+  if (enemy.x < 8 * 2) {
+    enemy.holdLeft = false;
+    enemy.holdRight = true;
+  }
+
+  if (enemy.x > 8 * 36) {
+    enemy.holdLeft = true;
+    enemy.holdRight = false;
+  }
+
+  if (enemy.jumpTimer > 0) {
+    enemy.jumpTimer -= 1;
+  } else {
+    const jumpTarget = map.getTile(
+      enemy.x + 3 * 8 * enemy.facing,
+      enemy.y - 2 * 8
+    );
+    enemy.jumpTimer = jumpTarget && Math.random() < 0.1 ? 30 : 0;
+  }
+
+  const buttons = {
+    left: enemy.holdLeft,
+    right: enemy.holdRight,
+    up: enemy.jumpTimer > 0,
+  };
+
+  return [buttons, false];
+};
+
+const idiot = (enemy) => {
+  const immobile = false;
+  let buttons;
+  if (enemy.lifespan % 30 === 0) {
+    const left = Math.random() < 0.5;
+    buttons = {
+      left: left,
+      right: !left,
+      up: Math.random() < 0.5,
+      space: Math.random() < 0.7,
+    };
+  } else {
+    buttons = null;
+  }
+  return [buttons, immobile];
+};
+
+const sentinel = () => {
+  const immobile = true;
+  return [
+    {
+      left: false,
+      right: false,
+      up: false,
+      space: true,
+    },
+    immobile,
+  ];
+};
+
+
+/***/ }),
+
+/***/ "./src/GameContainer.js":
+/*!******************************!*\
+  !*** ./src/GameContainer.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return GameContainer; });
+let canvas = document.getElementById("c");
+class GameContainer {
+  constructor() {
+    this.canvas = canvas;
+  }
+
+  initialize() {
+    let container = document.querySelector("body");
+    let resize = e => {
+      container.clientWidth / container.clientHeight > 128 / 128
+        ? (canvas.style.height = "100vh") && (canvas.style.width = "auto")
+        : (canvas.style.height = "auto") && (canvas.style.width = "100vw");
+    };
+    resize();
+    container.onresize = resize;
+  }
+}
+
+
+
+/***/ }),
+
+/***/ "./src/GameObject.js":
+/*!***************************!*\
+  !*** ./src/GameObject.js ***!
+  \***************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return GameObject; });
+class GameObject {
+  constructor({ x, y, maxDx, maxDy, grav }) {
+    this.x = x;
+    this.y = y;
+    this.dx = 0;
+    this.dy = 0;
+    this.maxDx = maxDx;
+    this.maxDy = maxDy;
+    this.grav = grav;
+  }
+}
+
+
+/***/ }),
+
+/***/ "./src/HUD.js":
+/*!********************!*\
+  !*** ./src/HUD.js ***!
+  \********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Sprites__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Sprites */ "./src/Sprites.js");
+
+
+class HUD {
+  constructor() {}
+
+  tick(player, enemies) {
+    this.weapon = player.weapon.name;
+    this.health = player.health;
+    this.maxHealth = player.maxHealth;
+    this.enemyCount = enemies.enemyCount + enemies.enemies.length;
+  }
+
+  draw(drawer) {
+    drawer.text({
+      text: this.weapon,
+      size: 1,
+      x: 2,
+      y: 117,
+    });
+
+    const colors = {
+      skin: "red",
+      horns: "red",
+      eyes: "yellow",
+      body: "orange",
+    };
+
+    Object(_Sprites__WEBPACK_IMPORTED_MODULE_0__["humanoid"])(113, 115, 1, colors, { bodyless: true }).forEach(({ c, r }) =>
+      drawer.rect({ adjusted: false, fillColor: c, rect: r })
+    );
+
+    drawer.text({
+      text: `${this.enemyCount}`,
+      size: 1,
+      x: 120,
+      y: 117,
+    });
+
+    drawer.rect({
+      adjusted: false,
+      fillColor: `rgb(${255 * (1 - this.health / this.maxHealth)}, ${
+        255 * (this.health / this.maxHealth)
+      }, 0)`,
+      rect: [2, 124, 124 * (this.health / this.maxHealth), 2],
+    });
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (HUD);
+
+
+/***/ }),
+
+/***/ "./src/Keyboard.js":
+/*!*************************!*\
+  !*** ./src/Keyboard.js ***!
+  \*************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+class Keyboard {
+  constructor() {
+    document.addEventListener("keyup", (event) => this.onKeyup(event));
+    document.addEventListener("keydown", (event) => this.onKeydown(event));
+
+    this._pressed = {};
+
+    this.ENTER = [13];
+    this.SPACE = [32];
+    this.LEFT = [37, 65];
+    this.UP = [38, 87];
+    this.RIGHT = [39, 68];
+    this.DOWN = [40, 83];
+  }
+
+  isDown(keyCode) {
+    return keyCode.some((key) => this._pressed[key]) || false;
+  }
+
+  onKeydown(event) {
+    this._pressed[event.keyCode] = true;
+  }
+
+  onKeyup(event) {
+    delete this._pressed[event.keyCode];
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Keyboard);
+
+
+/***/ }),
+
+/***/ "./src/Level.js":
+/*!**********************!*\
+  !*** ./src/Level.js ***!
+  \**********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const levelTemplates = [
+  {
+    concurrentEnemies: 5,
+    enemyCount: 10,
+    spawnPoint: [40, 10],
+  },
+];
+
+const delay = 80;
+
+class Level {
+  initializeLevel(level, { player, enemies, chunks, spurts, packages }) {
+    this.level = levelTemplates[level] || levelTemplates[0];
+    this.level.level = level;
+    player.health = player.maxHealth;
+    player.x = this.level.spawnPoint[0];
+    player.y = this.level.spawnPoint[1];
+    chunks.chunks = [];
+    spurts.spurts = [];
+    packages.packages = [];
+    enemies.initialize(this.level);
+    this.levelOverTimer = 0;
+    this.levelFadeIn = 0;
+  }
+
+  tick({ player, enemies, chunks, spurts, packages }) {
+    this.levelFadeIn += 1;
+
+    if (enemies.enemies.length <= 0) {
+      this.levelOverTimer += 1;
+    }
+
+    if (this.levelOverTimer > delay * (6 + (this.level.level === 1 ? 3 : 0))) {
+      this.initializeLevel(this.level.level + 1, {
+        player,
+        enemies,
+        chunks,
+        spurts,
+        packages,
+      });
+    }
+  }
+
+  draw(drawer) {
+    if (this.levelOverTimer > delay) {
+      drawer.rect({
+        adjusted: false,
+        fillColor: "rgba(0,0,0,0.9)",
+        rect: [20, 20, 88, 42],
+      });
+    }
+
+    if (this.levelOverTimer > delay * 2) {
+      drawer.text({
+        text: `level ${this.level.level} complete`,
+        size: 1,
+        x: 32 - (this.level.level >= 10 ? 2 : 0),
+        y: 30,
+      });
+    }
+
+    if (this.levelOverTimer > delay * 3) {
+      drawer.text({
+        text: `${this.level.enemyCount} aliens defeated`,
+        size: 1,
+        x: 31 - (this.level.enemyCount >= 10 ? 2 : 0),
+        y: 45,
+      });
+    }
+
+    if (this.level.level === 1 && this.levelOverTimer > delay * 5) {
+      drawer.rect({
+        adjusted: false,
+        fillColor: "#000",
+        rect: [14, 68, 100, 42],
+      });
+      drawer.text({
+        text: "Welcome",
+        size: 2,
+        x: 32,
+        y: 74,
+      });
+      drawer.text({
+        text: "to space",
+        size: 2,
+        x: 33,
+        y: 94,
+      });
+    }
+
+    if (this.levelFadeIn < 200) {
+      drawer.rect({
+        adjusted: false,
+        fillColor: `rgba(0,0,0,${1 - this.levelFadeIn / 200})`,
+        rect: [0, 0, 128, 128],
+      });
+    }
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Level);
+
+
+/***/ }),
+
+/***/ "./src/Map.js":
+/*!********************!*\
+  !*** ./src/Map.js ***!
+  \********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Map; });
+// prettier-ignore
+const level1 = [
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+];
+
+// prettier-ignore
+const level2 = [
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+];
+
+// prettier-ignore
+const level3 = [
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+];
+
+// prettier-ignore
+const level3Hex = [
+  "ffffffffff", "8000000001", "8000000001", "8000000001",
+  "8000000001", "87007e00e1", "8000000001", "8000000001",
+  "f03c003c0f", "8000000001", "8000000001", "8300c300c1",
+  "8000000001", "8000000001", "8fc07e03f1", "8000000001",
+  "8000000001", "e00f00f007", "8000000001", "8000000001",
+  "ffffffffff",
+];
+
+// quads are 10x12
+// prettier-ignore
+const emptyQuad = [
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+];
+
+const quad1 = [
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+];
+
+const mapToHex = (map) => {
+  return map.map((r) => parseInt(r.join(""), 2).toString(16));
+};
+
+const hexToMap = (hex) => {
+  return hex.map((h) => {
+    return parseInt(h, 16).toString(2).split("").map(Number);
+  });
+};
+
+class Map {
+  constructor(level) {
+    this.drawer = null;
+    this.tileSize = 8;
+    this.mapTiles = [];
+    this.mapHeight = 0;
+    this.mapLength = 0;
+    const mapHex = mapToHex(level3);
+    const map = hexToMap(level3Hex);
+    this.loadLevel(map);
+    this.mapWidthPixels = this.tileSize * this.mapLength;
+    this.mapHeightPixels = this.tileSize * this.mapHeight;
+  }
+
+  loadLevel(tiles) {
+    this.mapTiles = tiles;
+    this.mapHeight = tiles.length;
+    this.mapLength = tiles[0].length;
+  }
+
+  getTile(x, y) {
+    const row = this.mapTiles[Math.floor(y / this.tileSize)];
+    if (!row) return 1;
+    return row[Math.floor(x / this.tileSize)];
+  }
+
+  draw(drawer) {
+    this.drawer = this.drawer || drawer;
+    this.mapTiles.forEach((row, y) => {
+      row.forEach((tile, x) => {
+        if (tile === 1) {
+          drawer.rect({
+            fillColor: "darkblue",
+            rect: [
+              x * this.tileSize,
+              y * this.tileSize,
+              this.tileSize,
+              this.tileSize,
+            ],
+          });
+        }
+      });
+    });
+  }
+}
+
+
+/***/ }),
+
+/***/ "./src/Music.js":
+/*!**********************!*\
+  !*** ./src/Music.js ***!
+  \**********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Music; });
+/* harmony import */ var _sound_box_worker_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sound-box.worker.js */ "./src/sound-box.worker.js");
+/* harmony import */ var _sound_box_worker_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_sound_box_worker_js__WEBPACK_IMPORTED_MODULE_0__);
+// https://sb.bitsnbites.eu/?data=U0JveAwC7d1NbxtFGMDxZ3Z2Q4QbSpGCGokIS1VVEAcqgUQPrYrkHLkhTgj1wq2hEkkQDn1blcVms1FleeM4hDQBilAFR45IgHrjK3DiG3DhHmbWa0NNvCPRbGLD_7c7b35mrNn15jTaSTwrMifVaXk3FPVLKMb0cyZ76Cs999PyH-nUS36gPE8Z2leePUSeyEVRo9FsRlEcN5u2liS2FscN-UQi-VjKNuuIn3fER80_SWz7zh3H8DJVZhwdnnfEJ8FeXu7m5b283Pl8-7Ot7mbngCGHatQ9nukdlfkR8aq8KPMyd_K4n5-ZyuypgvApM8f3C-IP63klyst-e_GAzuMoajXaUauZRq24E7WS7vpW0o07SXdtM-4000bbNf64Ld2SW0vmHC5XQglXZGnVNR4AAAAAAAAAUJL9D5TsXxMl_tSZ3ifeU0qdeyOwVaXt4Q1q_TLNOqZ5-nv-12fjbPxnWGz4fg-1J_3yAAAAAAAAAAAAjsF6L130n1wwtR8CUb83pboYPO2LKOVpT5uK2NLTIkHGjusvzWzkZTpUlsn1PtYZR9xK86luPNI-mlW_Uueflr9q9rjzL32CDq75Lzji_XudZ-lw2zH8sbnm77r_AAAAAAAAAADgn7yfQ5PWnxG5urxm2p8Gypt-59kLG8Fb01o81dubcfioy2Rj_qU67YhfcMQBAAAAAAAAAACOnJbbohdui_q1Ii-IqNd85dWWb_xYmzqnTDhbI9Om0v_PZsq3hx05_G7ZUb5rdhj6uxpO4vwnYY4uBc_Pf-HyAAAAAAAAAADAhNFvhyJXwhMiJ6TW-8jbPynVN_Ur2drYYLXM01kpEviBvyPytch9-XLwPbuyZ1p7WbltUrkC1xZ1teJwK1uZ6Uh38Imtb5nUzdbRkoKx42AnP7eld25J7-xm19U2PbqSXYytt23WsqfJ7oq5uNj1_S6BI64d8fvm8fnG5KPKsrkenzlH_IF8K9-ZvF_uZU_-rtwzx479aY6X6_Icfx0AAAAAAAAAAPxPtddF_RZqkUtyWUR_Hyh99iupbeqznqh-J_u-We-tM79wweQjWZW6fFjUZexce-_RdtSqLx7c8_BUHLErBfF5k64XxI-CYwvG068Wx2u9HSbrI3eavJ7no67zZp7fHBF3Kbr_VtH9t1w7ZLp-n387bwAAAAAAAAAAUB5vbcWk0Bd5-fzVG1oSX-nXv9DV1F8drI8NFs8GNdfbNA8ccQAAAAAAAAAAAGCc_Ak
+
+
+
+function startMusic() {
+  var myWorker = new _sound_box_worker_js__WEBPACK_IMPORTED_MODULE_0___default.a();
+
+  myWorker.onmessage = function (e) {
+    let wave = e.data;
+    let audio = document.createElement("audio");
+    audio.src = URL.createObjectURL(new Blob([wave], { type: "audio/wav" }));
+    audio.volume = 0.5;
+    audio.loop = true;
+    let playPromise = audio.play();
+    (function tryAgain(playPromise) {
+      playPromise
+        .then(_ => { })
+        .catch(error => {
+          setTimeout(() => {
+            let playPromise = audio.play();
+            tryAgain(playPromise);
+          }, 1000);
+        });
+    })(playPromise);
+  };
+}
+
+class Music {
+  constructor() {
+    startMusic();
+  }
+}
+
+
+/***/ }),
+
+/***/ "./src/Package.js":
+/*!************************!*\
+  !*** ./src/Package.js ***!
+  \************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _GameObject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GameObject */ "./src/GameObject.js");
+/* harmony import */ var _WeaponFactory__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./WeaponFactory */ "./src/WeaponFactory.js");
+
+
+
+class Package extends _GameObject__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor(x, y) {
+    super({ x, y });
+
+    const weaponFactory = new _WeaponFactory__WEBPACK_IMPORTED_MODULE_1__["default"]();
+    this.weapon = weaponFactory.random();
+    this.size = 5;
+    this.grav = 0.04;
+    this.dy = 0.4;
+    this.landed = false;
+  }
+
+  tick() {
+    if (this.landed) return;
+    this.dy += this.grav;
+    this.y += this.dy;
+  }
+
+  draw(drawer) {
+    drawer.rect({
+      fillColor: "#C3732A",
+      rect: [this.x, this.y, 5, 5],
+    });
+
+    [
+      [0, 1],
+      [1, 0],
+      [2, 0],
+      [3, 0],
+      [4, 1],
+      [3, 2],
+      [2, 2],
+      [2, 4],
+    ].forEach(([x, y]) =>
+      drawer.rect({
+        fillColor: "yellow",
+        rect: [this.x + x, this.y + y, 1, 1],
+      })
+    );
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Package);
+
+
+/***/ }),
+
+/***/ "./src/PackageCollection.js":
+/*!**********************************!*\
+  !*** ./src/PackageCollection.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Package__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Package */ "./src/Package.js");
+
+
+class PackageCollection {
+  constructor() {
+    this.packages = [new _Package__WEBPACK_IMPORTED_MODULE_0__["default"](138, 20)];
+    this.lifespan = 0;
+  }
+
+  tick(map, level) {
+    if (level === 1) return;
+    this.lifespan += 1;
+    if (!(this.lifespan % 500)) {
+      let x = Math.random() * map.mapWidthPixels;
+      let y = Math.random() * map.mapHeightPixels;
+      while (map.getTile(x, y)) {
+        x = Math.random() * map.mapWidthPixels;
+        y = Math.random() * map.mapHeightPixels;
+      }
+      this.packages.push(new _Package__WEBPACK_IMPORTED_MODULE_0__["default"](x, y));
+    }
+    this.packages.forEach((p) => p.tick());
+  }
+
+  draw(drawer) {
+    this.packages.forEach((p) => p.draw(drawer));
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (PackageCollection);
+
+
+/***/ }),
+
+/***/ "./src/Player.js":
+/*!***********************!*\
+  !*** ./src/Player.js ***!
+  \***********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Player; });
+/* harmony import */ var _Character__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Character */ "./src/Character.js");
+/* harmony import */ var _Sprites_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Sprites.js */ "./src/Sprites.js");
+/* harmony import */ var _WeaponFactory__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./WeaponFactory */ "./src/WeaponFactory.js");
+
+
+
+
+class Player extends _Character__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor(x, y, health) {
+    super(x, y, health);
+    this.bloodColor = "red";
+    this.weapon = new _WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["debugPistol"]);
+  }
+
+  tick({ camera, keyboard, map, projectiles }) {
+    _Character__WEBPACK_IMPORTED_MODULE_0__["default"].tick.call(this, {
+      camera,
+      map,
+      projectiles,
+      presses: {
+        left: keyboard.isDown(keyboard.LEFT),
+        right: keyboard.isDown(keyboard.RIGHT),
+        up: keyboard.isDown(keyboard.UP),
+        space: keyboard.isDown(keyboard.SPACE),
+      },
+    });
+  }
+
+  draw(drawer) {
+    // drawer.rect({ fillColor: "green", rect: [this.x, this.y, 8, 8] }); // hitbox
+
+    const colors = {
+      skin: "#FFCCAA",
+      hair: "#FFA300",
+      eyes: "#008751",
+      body: "#29ADFF",
+    };
+
+    Object(_Sprites_js__WEBPACK_IMPORTED_MODULE_1__["humanoid"])(this.x, this.y, this.facing, colors).forEach(({ c, r }) =>
+      drawer.rect({ fillColor: c, rect: r })
+    );
+  }
+}
+
+
+/***/ }),
+
+/***/ "./src/Projectile.js":
+/*!***************************!*\
+  !*** ./src/Projectile.js ***!
+  \***************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+class Projectile {
+  constructor(
+    { x, y, facing },
+    {
+      color,
+      speed,
+      spreadX = 0,
+      spreadY = 0,
+      lift = 0,
+      grav = 0,
+      damage,
+      damageMod,
+      explosion,
+      blood,
+      size,
+      emoji,
+    }
+  ) {
+    this.size = size || 1;
+    this.x = x - this.size / 2;
+    this.y = y;
+    this.dx = facing * speed + (Math.random() - spreadX / 2) * spreadX;
+    this.dy = (Math.random() - spreadY / 2) * spreadY - lift;
+    this.grav = grav;
+    this.color = color;
+    this.explosion = explosion || 1;
+    this.lifespan = 0;
+    this.shouldDie = false;
+    this.exploding = false;
+    this.lifeleft = null;
+    this.damage = damage;
+    this.damageMod = damageMod || 1;
+    this.blood = blood;
+    this.emoji = emoji;
+  }
+
+  destroy() {
+    this.exploding = true;
+    this.lifeleft = 2;
+  }
+
+  tick() {
+    this.lifespan += 1;
+    if (this.lifeleft) {
+      this.lifeleft -= 1;
+      if (this.lifeleft === 0) this.shouldDie = true;
+    }
+    if (this.exploding) return;
+
+    this.x += this.dx;
+    this.dy += this.grav;
+    this.y += this.dy;
+  }
+
+  draw(drawer) {
+    if (this.exploding) {
+      drawer.arc({
+        arc: [
+          this.x,
+          this.y,
+          (2 / this.lifeleft) * this.explosion,
+          0,
+          2 * Math.PI,
+        ],
+        fillColor: "#ff8",
+        shadowBlur: 10,
+        shadowColor: "#ff0",
+      });
+    } else {
+      if (this.emoji) {
+        drawer.emoji({ x: this.x, y: this.y, emoji: this.emoji });
+      } else if (this.size === 1) {
+        drawer.rect({
+          fillColor: this.color(),
+          rect: [this.x, this.y, this.size, this.size],
+        });
+      } else {
+        drawer.arc({
+          arc: [this.x, this.y, this.size, 0, 2 * Math.PI],
+          fillColor: this.color(),
+          shadowBlur: this.size,
+          shadowColor: "#ff0",
+        });
+      }
+    }
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Projectile);
+
+
+/***/ }),
+
+/***/ "./src/ProjectileCollection.js":
+/*!*************************************!*\
+  !*** ./src/ProjectileCollection.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+class ProjectileCollection {
+  constructor() {
+    this.projectiles = [];
+  }
+
+  add(p) {
+    this.projectiles.push(p);
+  }
+
+  tick() {
+    this.projectiles.map((p) => p.tick());
+    this.projectiles = this.projectiles.filter((p) => !p.shouldDie);
+  }
+
+  draw(drawer) {
+    this.projectiles.map((p) => p.draw(drawer));
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (ProjectileCollection);
+
+
+/***/ }),
+
+/***/ "./src/Sound.js":
+/*!**********************!*\
+  !*** ./src/Sound.js ***!
+  \**********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Sound; });
+/* harmony import */ var jsfxr__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jsfxr */ "./node_modules/jsfxr/jsfxr.js");
+/* harmony import */ var jsfxr__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jsfxr__WEBPACK_IMPORTED_MODULE_0__);
+
+
+class Sound {
+  constructor() {
+    this.state = {
+      engine: false
+    };
+  }
+
+  engineOn() { }
+
+  engineOff() { }
+
+  playSound(url) {
+    let soundUrl = jsfxr__WEBPACK_IMPORTED_MODULE_0___default()(url);
+
+    let player = new Audio();
+    player.src = soundUrl;
+    player.play();
+  }
+
+  mainLaser() {
+    this.playSound(
+      [2,,0.1749,,0.3063,0.713,0.2,-0.2645,,,,,,0.0543,0.1546,,,,1,,,,,0.5]
+    );
+  }
+
+  secondaryLaser() {
+    this.playSound(
+      [2,,0.1426,,0.2251,0.7799,0.2555,-0.2285,,,,,,0.7631,-0.4501,,,,1,,,0.0846,,0.5]
+    );
+  }
+
+  missile() {
+    this.playSound([3,,0.0937,0.571,0.3803,0.7495,,,,,,,,,,,,,1,,,,,0.5]);
+  }
+
+  projectileHit() {
+    this.playSound([3,,0.0867,,0.2283,0.2711,,-0.6853,,,,,,,,,,,1,,,,,0.5]);
+  }
+
+  enemyLaser() {
+    this.playSound(
+      [0,,0.2934,0.1381,0.2143,0.6919,0.3422,-0.2379,,,,,,0.4281,-0.6711,,,,1,,,0.194,,0.5]
+    );
+  }
+}
+
+
+
+/***/ }),
+
+/***/ "./src/Sprites.js":
+/*!************************!*\
+  !*** ./src/Sprites.js ***!
+  \************************/
+/*! exports provided: humanoid */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "humanoid", function() { return humanoid; });
+const humanoid = (x, y, facing, colors, options = {}) => {
+  const { skin, hair, horns, eyes, body } = colors;
+  let parts = [];
+
+  let upper = [
+    [skin, [1, 3, 5, 3]], // head
+    [eyes, [2, 4, 1, 1]], // eye left
+    [eyes, [5, 4, 1, 1]], // eye right
+  ];
+  parts = parts.concat(upper);
+
+  let lower = [
+    [body, [1, 7, 3, 1]], // body
+    [skin, [1, 7, 1, 1]], // left arm
+    [skin, [4, 7, 1, 1]], // right arm
+  ];
+
+  if (!options.bodyless) {
+    parts = parts.concat(lower);
+  }
+
+  if (hair)
+    parts = parts.concat([
+      [hair, [2, 1, 4, 1]], // hair top
+      [hair, [1, 2, 6, 1]], // hair bottom
+    ]);
+
+  if (horns)
+    parts = parts.concat([
+      [horns, [1, 2, 1, 1]], // horn left
+      [horns, [5, 2, 1, 1]], // horn right
+    ]);
+
+  parts = parts.map(([c, r]) => ({
+    c,
+    r: [facing === 1 ? x + r[0] : 8 - (r[0] + r[2]) + x, y + r[1], r[2], r[3]],
+  }));
+
+  return parts;
+};
+
+
+/***/ }),
+
+/***/ "./src/Weapon.js":
+/*!***********************!*\
+  !*** ./src/Weapon.js ***!
+  \***********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Projectile__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Projectile */ "./src/Projectile.js");
+
+
+class Weapon {
+  constructor({
+    name,
+    cooldown,
+    cooldownMod = 1,
+    payloadCount,
+    knockback,
+    shake,
+    projectileConfig,
+  }) {
+    this.name = name;
+    this.cooldown = cooldown;
+    this.cooldownMod = cooldownMod;
+    this.payloadCount = payloadCount;
+    this.knockback = knockback;
+    this.shake = shake;
+    this.projectileConfig = projectileConfig;
+
+    this.ticksSinceLastFired = cooldown;
+  }
+
+  tick(pressSpace, projectiles, location, camera) {
+    this.ticksSinceLastFired += 1;
+    if (
+      this.cooldown * this.cooldownMod < this.ticksSinceLastFired &&
+      pressSpace
+    ) {
+      this.fire(projectiles, location);
+      if (this.shake) camera.shake(this.shake.force, this.shake.duration);
+      return this.knockback;
+    }
+    return 0;
+  }
+
+  fire(projectiles, location) {
+    this.ticksSinceLastFired = 0;
+    for (let i = 0; i < this.payloadCount; i++) {
+      const p = new _Projectile__WEBPACK_IMPORTED_MODULE_0__["default"](location, this.projectileConfig);
+      projectiles.add(p);
+    }
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Weapon);
+
+
+/***/ }),
+
+/***/ "./src/WeaponFactory.js":
+/*!******************************!*\
+  !*** ./src/WeaponFactory.js ***!
+  \******************************/
+/*! exports provided: debugPistol, pistol, minigun, shotgun, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "debugPistol", function() { return debugPistol; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pistol", function() { return pistol; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "minigun", function() { return minigun; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "shotgun", function() { return shotgun; });
+/* harmony import */ var _Weapon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Weapon */ "./src/Weapon.js");
+
+
+// base weapons
+const debugPistol = {
+  name: "Debug Pistol",
+  cooldown: 2,
+  payloadCount: 1,
+  knockback: 0,
+  projectileConfig: {
+    color: () => "#eee",
+    speed: 3,
+    spreadX: 0,
+    spreadY: 0.15,
+    damage: 100,
+    blood: 5,
+  },
+};
+
+const pistol = {
+  name: "Pistol",
+  cooldown: 10,
+  payloadCount: 1,
+  knockback: 0,
+  projectileConfig: {
+    color: () => "#eee",
+    speed: 3,
+    spreadX: 0,
+    spreadY: 0.15,
+    damage: 10,
+    blood: 5,
+  },
+};
+
+const minigun = {
+  name: "Minigun",
+  cooldown: 2,
+  payloadCount: 1,
+  knockback: 0.5,
+  shake: { force: 1, duration: 1 },
+  projectileConfig: {
+    color: () => "#fff",
+    speed: 4,
+    spreadX: 1,
+    spreadY: 0.3,
+    damage: 2,
+    blood: 5,
+  },
+};
+
+const assaultRifle = {
+  name: "Assault Rifle",
+  cooldown: 8,
+  payloadCount: 1,
+  knockback: 0.1,
+  projectileConfig: {
+    color: () => "#fff",
+    speed: 3,
+    spreadX: 0,
+    spreadY: 0.3,
+    damage: 4,
+    blood: 5,
+  },
+};
+
+const shotgun = {
+  name: "Shotgun",
+  cooldown: 40,
+  payloadCount: 12,
+  knockback: 2,
+  shake: { force: 2, duration: 8 },
+  projectileConfig: {
+    color: () => "yellow",
+    speed: 4,
+    spreadX: 0.7,
+    spreadY: 1,
+    damage: 1,
+    blood: 5,
+  },
+};
+
+const superShotgun = {};
+const sniperRifle = {};
+const flameThrower = {};
+
+const grenade = {
+  name: "Grenade",
+  cooldown: 40,
+  payloadCount: 1,
+  knockback: 0,
+  projectileConfig: {
+    emoji: "💣",
+    speed: 2,
+    lift: 4,
+    grav: 0.3,
+    explosion: 3,
+    size: 3,
+    damage: 20,
+    blood: 5,
+  },
+};
+
+// cooldown
+const slowCooldown = { cooldown: 2, damage: 2 };
+const fastCooldown = { cooldown: 0.5, damage: 0.5 };
+
+const knockback = { knockback: 1 };
+
+const sniper = { cooldown: 3, damage: 5, speed: 2 };
+
+// attributes
+const rainbow = {
+  prefix: "Rainbow",
+  projectileConfig: {
+    color: () =>
+      ["#FF0000", "#FFAC00", "#FFF100", "#0BFF00", "#00F6FF"][
+        Math.floor(Math.random() * 6)
+      ],
+  },
+};
+
+const collosal = {
+  prefix: "Collosal",
+  cooldownMod: 3,
+  projectileConfig: {
+    color: () => "yellow",
+    damageMod: 3,
+    explosion: 5,
+    size: 5,
+  },
+};
+
+const shrimp = {
+  prefix: "Shrimp",
+  projectileConfig: { emoji: "🍤", explosion: 3, size: 3 },
+};
+const bomb = {
+  prefix: "Bomb",
+  projectileConfig: { emoji: "💣", explosion: 3, size: 3 },
+};
+
+const attributes = [rainbow, collosal, shrimp, bomb];
+const randomAttribute = () =>
+  attributes[Math.floor(Math.random() * attributes.length)];
+
+class WeaponFactory {
+  constructor() {}
+
+  create(base) {
+    const attribute =
+      Math.random() > 0.9 ? randomAttribute() : { projectileConfig: {} };
+    const projectileConfig = {
+      ...base.projectileConfig,
+      ...attribute.projectileConfig,
+    };
+    const final = {
+      ...base,
+      ...attribute,
+      projectileConfig,
+      name: `${attribute.prefix ? `${attribute.prefix} ` : ""}${base.name}`,
+    };
+    return new _Weapon__WEBPACK_IMPORTED_MODULE_0__["default"](final);
+  }
+
+  random() {
+    const guns = [pistol, assaultRifle, minigun, shotgun, grenade];
+    const base = guns[Math.floor(Math.random() * guns.length)];
+    return this.create(base);
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (WeaponFactory);
+
+
+/***/ }),
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Drawer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Drawer */ "./src/Drawer.js");
+/* harmony import */ var _GameContainer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GameContainer */ "./src/GameContainer.js");
+/* harmony import */ var _Keyboard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Keyboard */ "./src/Keyboard.js");
+/* harmony import */ var _Sound__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Sound */ "./src/Sound.js");
+/* harmony import */ var _Music__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Music */ "./src/Music.js");
+/* harmony import */ var _CollisionDetector__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./CollisionDetector */ "./src/CollisionDetector.js");
+/* harmony import */ var _Background__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Background */ "./src/Background.js");
+/* harmony import */ var _Level__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Level */ "./src/Level.js");
+/* harmony import */ var _Map__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Map */ "./src/Map.js");
+/* harmony import */ var _HUD__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./HUD */ "./src/HUD.js");
+/* harmony import */ var _Player__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Player */ "./src/Player.js");
+/* harmony import */ var _EnemyCollection__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./EnemyCollection */ "./src/EnemyCollection.js");
+/* harmony import */ var _ProjectileCollection__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./ProjectileCollection */ "./src/ProjectileCollection.js");
+/* harmony import */ var _BloodCollection__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./BloodCollection */ "./src/BloodCollection.js");
+/* harmony import */ var _PackageCollection__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./PackageCollection */ "./src/PackageCollection.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+window.onload = () => {
+  let gameContainer = new _GameContainer__WEBPACK_IMPORTED_MODULE_1__["default"]();
+
+  let drawer = new _Drawer__WEBPACK_IMPORTED_MODULE_0__["default"](gameContainer.canvas);
+  let keyboard = new _Keyboard__WEBPACK_IMPORTED_MODULE_2__["default"]();
+  let sound = new _Sound__WEBPACK_IMPORTED_MODULE_3__["default"]();
+  let collisionDetector = new _CollisionDetector__WEBPACK_IMPORTED_MODULE_5__["default"]();
+
+  let background = new _Background__WEBPACK_IMPORTED_MODULE_6__["default"]({
+    cw: gameContainer.canvas.width,
+    ch: gameContainer.canvas.height,
+  });
+
+  let level = new _Level__WEBPACK_IMPORTED_MODULE_7__["default"]();
+  let map = new _Map__WEBPACK_IMPORTED_MODULE_8__["default"](level.level);
+  let hud = new _HUD__WEBPACK_IMPORTED_MODULE_9__["default"]();
+  // let music = new Music();
+  let player = new _Player__WEBPACK_IMPORTED_MODULE_10__["default"](10, 10, 1000);
+  let enemies = new _EnemyCollection__WEBPACK_IMPORTED_MODULE_11__["default"]();
+  let projectiles = new _ProjectileCollection__WEBPACK_IMPORTED_MODULE_12__["default"]();
+  let spurts = new _BloodCollection__WEBPACK_IMPORTED_MODULE_13__["default"]();
+  let chunks = { chunks: [] };
+  let packages = new _PackageCollection__WEBPACK_IMPORTED_MODULE_14__["default"]();
+
+  gameContainer.initialize();
+  level.initializeLevel(1, { player, enemies, chunks, spurts, packages });
+
+  let fps = 60,
+    interval = 1000 / fps,
+    lastTime = new Date().getTime(),
+    currentTime = 0,
+    delta = 0;
+
+  let gameLoop = () => {
+    tick();
+    collisionDetection();
+    draw();
+  };
+
+  let tick = () => {
+    const { camera } = drawer;
+    level.tick({ player, enemies, chunks, spurts, packages });
+    player.tick({ camera, keyboard, map, projectiles });
+    enemies.tick({ camera, map, projectiles, spurts, chunks });
+    camera.tick({ player, map });
+    projectiles.tick();
+    spurts.tick();
+
+    if (chunks.chunks.length > 1000) {
+      chunks.chunks = chunks.chunks.slice(chunks.chunks.length - 1000);
+    }
+    chunks.chunks.forEach((chunk) => chunk.tick());
+
+    hud.tick(player, enemies);
+    packages.tick(map);
+  };
+
+  let collisionDetection = () => {
+    projectiles.projectiles
+      .filter((p) => !p.exploding && p.lifespan > 2)
+      .forEach((projectile) => {
+        // map
+        if (map.getTile(projectile.x, projectile.y)) {
+          projectile.destroy();
+        }
+
+        // characters
+        enemies.enemies.concat([player]).forEach((object) => {
+          collisionDetector.handleProjectile(projectile, object, spurts);
+        });
+      });
+
+    spurts.spurts.concat(chunks.chunks).forEach((item) => {
+      if (map.getTile(item.x, item.y)) item.stick();
+    });
+
+    packages.packages.forEach((packge) => {
+      // map
+      if (map.getTile(packge.x, packge.y + packge.size)) {
+        packge.landed = true;
+      }
+
+      // characters
+      enemies.enemies.concat([player]).forEach((object) => {
+        collisionDetector.handlePackage(packge, object, packages);
+      });
+    });
+  };
+
+  let draw = () => {
+    window.requestAnimationFrame(gameLoop);
+
+    currentTime = new Date().getTime();
+    delta = currentTime - lastTime;
+
+    if (delta > interval) {
+      drawer.clearBackground();
+      drawObjects().map((object) => object.draw(drawer));
+      lastTime = currentTime - (delta % interval);
+    }
+  };
+
+  let drawObjects = () => [
+    background,
+    map,
+    enemies,
+    player,
+    packages,
+    projectiles,
+    spurts,
+    ...chunks.chunks,
+    hud,
+    level,
+  ];
+
+  document.querySelector("main").className += " loaded";
+  gameLoop();
+};
+
+
+/***/ }),
+
+/***/ "./src/sound-box.worker.js":
+/*!*********************************!*\
+  !*** ./src/sound-box.worker.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = function() {
+  return __webpack_require__(/*! !./node_modules/worker-loader/dist/workers/InlineWorker.js */ "./node_modules/worker-loader/dist/workers/InlineWorker.js")("/******/ (function(modules) { // webpackBootstrap\n/******/ \t// The module cache\n/******/ \tvar installedModules = {};\n/******/\n/******/ \t// The require function\n/******/ \tfunction __webpack_require__(moduleId) {\n/******/\n/******/ \t\t// Check if module is in cache\n/******/ \t\tif(installedModules[moduleId]) {\n/******/ \t\t\treturn installedModules[moduleId].exports;\n/******/ \t\t}\n/******/ \t\t// Create a new module (and put it into the cache)\n/******/ \t\tvar module = installedModules[moduleId] = {\n/******/ \t\t\ti: moduleId,\n/******/ \t\t\tl: false,\n/******/ \t\t\texports: {}\n/******/ \t\t};\n/******/\n/******/ \t\t// Execute the module function\n/******/ \t\tmodules[moduleId].call(module.exports, module, module.exports, __webpack_require__);\n/******/\n/******/ \t\t// Flag the module as loaded\n/******/ \t\tmodule.l = true;\n/******/\n/******/ \t\t// Return the exports of the module\n/******/ \t\treturn module.exports;\n/******/ \t}\n/******/\n/******/\n/******/ \t// expose the modules object (__webpack_modules__)\n/******/ \t__webpack_require__.m = modules;\n/******/\n/******/ \t// expose the module cache\n/******/ \t__webpack_require__.c = installedModules;\n/******/\n/******/ \t// define getter function for harmony exports\n/******/ \t__webpack_require__.d = function(exports, name, getter) {\n/******/ \t\tif(!__webpack_require__.o(exports, name)) {\n/******/ \t\t\tObject.defineProperty(exports, name, { enumerable: true, get: getter });\n/******/ \t\t}\n/******/ \t};\n/******/\n/******/ \t// define __esModule on exports\n/******/ \t__webpack_require__.r = function(exports) {\n/******/ \t\tif(typeof Symbol !== 'undefined' && Symbol.toStringTag) {\n/******/ \t\t\tObject.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });\n/******/ \t\t}\n/******/ \t\tObject.defineProperty(exports, '__esModule', { value: true });\n/******/ \t};\n/******/\n/******/ \t// create a fake namespace object\n/******/ \t// mode & 1: value is a module id, require it\n/******/ \t// mode & 2: merge all properties of value into the ns\n/******/ \t// mode & 4: return value when already ns object\n/******/ \t// mode & 8|1: behave like require\n/******/ \t__webpack_require__.t = function(value, mode) {\n/******/ \t\tif(mode & 1) value = __webpack_require__(value);\n/******/ \t\tif(mode & 8) return value;\n/******/ \t\tif((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;\n/******/ \t\tvar ns = Object.create(null);\n/******/ \t\t__webpack_require__.r(ns);\n/******/ \t\tObject.defineProperty(ns, 'default', { enumerable: true, value: value });\n/******/ \t\tif(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));\n/******/ \t\treturn ns;\n/******/ \t};\n/******/\n/******/ \t// getDefaultExport function for compatibility with non-harmony modules\n/******/ \t__webpack_require__.n = function(module) {\n/******/ \t\tvar getter = module && module.__esModule ?\n/******/ \t\t\tfunction getDefault() { return module['default']; } :\n/******/ \t\t\tfunction getModuleExports() { return module; };\n/******/ \t\t__webpack_require__.d(getter, 'a', getter);\n/******/ \t\treturn getter;\n/******/ \t};\n/******/\n/******/ \t// Object.prototype.hasOwnProperty.call\n/******/ \t__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };\n/******/\n/******/ \t// __webpack_public_path__\n/******/ \t__webpack_require__.p = \"\";\n/******/\n/******/\n/******/ \t// Load entry module and return exports\n/******/ \treturn __webpack_require__(__webpack_require__.s = \"./src/sound-box.worker.js\");\n/******/ })\n/************************************************************************/\n/******/ ({\n\n/***/ \"./src/sound-box.worker.js\":\n/*!*********************************!*\\\n  !*** ./src/sound-box.worker.js ***!\n  \\*********************************/\n/*! exports provided: default */\n/***/ (function(module, __webpack_exports__, __webpack_require__) {\n\n\"use strict\";\n__webpack_require__.r(__webpack_exports__);\n/* -*- mode: javascript; tab-width: 4; indent-tabs-mode: nil; -*-\n *\n * Copyright (c) 2011-2013 Marcus Geelnard\n *\n * This software is provided 'as-is', without any express or implied\n * warranty. In no event will the authors be held liable for any damages\n * arising from the use of this software.\n *\n * Permission is granted to anyone to use this software for any purpose,\n * including commercial applications, and to alter it and redistribute it\n * freely, subject to the following restrictions:\n *\n * 1. The origin of this software must not be misrepresented; you must not\n *    claim that you wrote the original software. If you use this software\n *    in a product, an acknowledgment in the product documentation would be\n *    appreciated but is not required.\n *\n * 2. Altered source versions must be plainly marked as such, and must not be\n *    misrepresented as being the original software.\n *\n * 3. This notice may not be removed or altered from any source\n *    distribution.\n *\n */\n\n\n\nlet Soundbox = function () {\n  //--------------------------------------------------------------------------\n  // Private methods\n  //--------------------------------------------------------------------------\n\n  // Oscillators\n  var osc_sin = function (value) {\n    return Math.sin(value * 6.283184);\n  };\n\n  var osc_saw = function (value) {\n    return 2 * (value % 1) - 1;\n  };\n\n  var osc_square = function (value) {\n    return value % 1 < 0.5 ? 1 : -1;\n  };\n\n  var osc_tri = function (value) {\n    var v2 = (value % 1) * 4;\n    if (v2 < 2) return v2 - 1;\n    return 3 - v2;\n  };\n\n  var getnotefreq = function (n) {\n    // 174.61.. / 44100 = 0.003959503758 (F3)\n    return 0.003959503758 * Math.pow(2, (n - 128) / 12);\n  };\n\n  var createNote = function (instr, n, rowLen) {\n    var osc1 = mOscillators[instr.i[0]],\n      o1vol = instr.i[1],\n      o1xenv = instr.i[3],\n      osc2 = mOscillators[instr.i[4]],\n      o2vol = instr.i[5],\n      o2xenv = instr.i[8],\n      noiseVol = instr.i[9],\n      attack = instr.i[10] * instr.i[10] * 4,\n      sustain = instr.i[11] * instr.i[11] * 4,\n      release = instr.i[12] * instr.i[12] * 4,\n      releaseInv = 1 / release,\n      arp = instr.i[13],\n      arpInterval = rowLen * Math.pow(2, 2 - instr.i[14]);\n\n    var noteBuf = new Int32Array(attack + sustain + release);\n\n    // Re-trig oscillators\n    var c1 = 0,\n      c2 = 0;\n\n    // Local variables.\n    var j, j2, e, t, rsample, o1t, o2t;\n\n    // Generate one note (attack + sustain + release)\n    for (j = 0, j2 = 0; j < attack + sustain + release; j++ , j2++) {\n      if (j2 >= 0) {\n        // Switch arpeggio note.\n        arp = (arp >> 8) | ((arp & 255) << 4);\n        j2 -= arpInterval;\n\n        // Calculate note frequencies for the oscillators\n        o1t = getnotefreq(n + (arp & 15) + instr.i[2] - 128);\n        o2t =\n          getnotefreq(n + (arp & 15) + instr.i[6] - 128) *\n          (1 + 0.0008 * instr.i[7]);\n      }\n\n      // Envelope\n      e = 1;\n      if (j < attack) {\n        e = j / attack;\n      } else if (j >= attack + sustain) {\n        e -= (j - attack - sustain) * releaseInv;\n      }\n\n      // Oscillator 1\n      t = o1t;\n      if (o1xenv) {\n        t *= e * e;\n      }\n      c1 += t;\n      rsample = osc1(c1) * o1vol;\n\n      // Oscillator 2\n      t = o2t;\n      if (o2xenv) {\n        t *= e * e;\n      }\n      c2 += t;\n      rsample += osc2(c2) * o2vol;\n\n      // Noise oscillator\n      if (noiseVol) {\n        rsample += (2 * Math.random() - 1) * noiseVol;\n      }\n\n      // Add to (mono) channel buffer\n      noteBuf[j] = (80 * rsample * e) | 0;\n    }\n\n    return noteBuf;\n  };\n\n  //--------------------------------------------------------------------------\n  // Private members\n  //--------------------------------------------------------------------------\n\n  // Array of oscillator functions\n  var mOscillators = [osc_sin, osc_square, osc_saw, osc_tri];\n\n  // Private variables set up by init()\n  var mSong, mLastRow, mCurrentCol, mNumWords, mMixBuf;\n\n  //--------------------------------------------------------------------------\n  // Initialization\n  //--------------------------------------------------------------------------\n\n  this.init = function (song) {\n    // Define the song\n    mSong = song;\n\n    // Init iteration state variables\n    mLastRow = song.endPattern;\n    mCurrentCol = 0;\n\n    // Prepare song info\n    mNumWords = song.rowLen * song.patternLen * (mLastRow + 1) * 2;\n\n    // Create work buffer (initially cleared)\n    mMixBuf = new Int32Array(mNumWords);\n  };\n\n  //--------------------------------------------------------------------------\n  // Public methods\n  //--------------------------------------------------------------------------\n\n  // Generate audio data for a single track\n  this.generate = function () {\n    // Local variables\n    var i,\n      j,\n      b,\n      p,\n      row,\n      col,\n      n,\n      cp,\n      k,\n      t,\n      lfor,\n      e,\n      x,\n      rsample,\n      rowStartSample,\n      f,\n      da;\n\n    // Put performance critical items in local variables\n    var chnBuf = new Int32Array(mNumWords),\n      instr = mSong.songData[mCurrentCol],\n      rowLen = mSong.rowLen,\n      patternLen = mSong.patternLen;\n\n    // Clear effect state\n    var low = 0,\n      band = 0,\n      high;\n    var lsample,\n      filterActive = false;\n\n    // Clear note cache.\n    var noteCache = [];\n\n    // Patterns\n    for (p = 0; p <= mLastRow; ++p) {\n      cp = instr.p[p];\n\n      // Pattern rows\n      for (row = 0; row < patternLen; ++row) {\n        // Execute effect command.\n        var cmdNo = cp ? instr.c[cp - 1].f[row] : 0;\n        if (cmdNo) {\n          instr.i[cmdNo - 1] = instr.c[cp - 1].f[row + patternLen] || 0;\n\n          // Clear the note cache since the instrument has changed.\n          if (cmdNo < 16) {\n            noteCache = [];\n          }\n        }\n\n        // Put performance critical instrument properties in local variables\n        var oscLFO = mOscillators[instr.i[15]],\n          lfoAmt = instr.i[16] / 512,\n          lfoFreq = Math.pow(2, instr.i[17] - 9) / rowLen,\n          fxLFO = instr.i[18],\n          fxFilter = instr.i[19],\n          fxFreq = (instr.i[20] * 43.23529 * 3.141592) / 44100,\n          q = 1 - instr.i[21] / 255,\n          dist = instr.i[22] * 1e-5,\n          drive = instr.i[23] / 32,\n          panAmt = instr.i[24] / 512,\n          panFreq = (6.283184 * Math.pow(2, instr.i[25] - 9)) / rowLen,\n          dlyAmt = instr.i[26] / 255,\n          dly = (instr.i[27] * rowLen) & ~1; // Must be an even number\n\n        // Calculate start sample number for this row in the pattern\n        rowStartSample = (p * patternLen + row) * rowLen;\n\n        // Generate notes for this pattern row\n        for (col = 0; col < 4; ++col) {\n          n = cp ? instr.c[cp - 1].n[row + col * patternLen] : 0;\n          if (n) {\n            if (!noteCache[n]) {\n              noteCache[n] = createNote(instr, n, rowLen);\n            }\n\n            // Copy note from the note cache\n            var noteBuf = noteCache[n];\n            for (\n              j = 0, i = rowStartSample * 2;\n              j < noteBuf.length;\n              j++ , i += 2\n            ) {\n              chnBuf[i] += noteBuf[j];\n            }\n          }\n        }\n\n        // Perform effects for this pattern row\n        for (j = 0; j < rowLen; j++) {\n          // Dry mono-sample\n          k = (rowStartSample + j) * 2;\n          rsample = chnBuf[k];\n\n          // We only do effects if we have some sound input\n          if (rsample || filterActive) {\n            // State variable filter\n            f = fxFreq;\n            if (fxLFO) {\n              f *= oscLFO(lfoFreq * k) * lfoAmt + 0.5;\n            }\n            f = 1.5 * Math.sin(f);\n            low += f * band;\n            high = q * (rsample - band) - low;\n            band += f * high;\n            rsample = fxFilter == 3 ? band : fxFilter == 1 ? high : low;\n\n            // Distortion\n            if (dist) {\n              rsample *= dist;\n              rsample =\n                rsample < 1 ? (rsample > -1 ? osc_sin(rsample * 0.25) : -1) : 1;\n              rsample /= dist;\n            }\n\n            // Drive\n            rsample *= drive;\n\n            // Is the filter active (i.e. still audiable)?\n            filterActive = rsample * rsample > 1e-5;\n\n            // Panning\n            t = Math.sin(panFreq * k) * panAmt + 0.5;\n            lsample = rsample * (1 - t);\n            rsample *= t;\n          } else {\n            lsample = 0;\n          }\n\n          // Delay is always done, since it does not need sound input\n          if (k >= dly) {\n            // Left channel = left + right[-p] * t\n            lsample += chnBuf[k - dly + 1] * dlyAmt;\n\n            // Right channel = right + left[-p] * t\n            rsample += chnBuf[k - dly] * dlyAmt;\n          }\n\n          // Store in stereo channel buffer (needed for the delay effect)\n          chnBuf[k] = lsample | 0;\n          chnBuf[k + 1] = rsample | 0;\n\n          // ...and add to stereo mix buffer\n          mMixBuf[k] += lsample | 0;\n          mMixBuf[k + 1] += rsample | 0;\n        }\n      }\n    }\n\n    // Next iteration. Return progress (1.0 == done!).\n    mCurrentCol++;\n    return mCurrentCol / mSong.numChannels;\n  };\n\n  // Create a WAVE formatted Uint8Array from the generated audio data\n  this.createWave = function () {\n    // Create WAVE header\n    var headerLen = 44;\n    var l1 = headerLen + mNumWords * 2 - 8;\n    var l2 = l1 - 36;\n    var wave = new Uint8Array(headerLen + mNumWords * 2);\n    wave.set([\n      82,\n      73,\n      70,\n      70,\n      l1 & 255,\n      (l1 >> 8) & 255,\n      (l1 >> 16) & 255,\n      (l1 >> 24) & 255,\n      87,\n      65,\n      86,\n      69,\n      102,\n      109,\n      116,\n      32,\n      16,\n      0,\n      0,\n      0,\n      1,\n      0,\n      2,\n      0,\n      68,\n      172,\n      0,\n      0,\n      16,\n      177,\n      2,\n      0,\n      4,\n      0,\n      16,\n      0,\n      100,\n      97,\n      116,\n      97,\n      l2 & 255,\n      (l2 >> 8) & 255,\n      (l2 >> 16) & 255,\n      (l2 >> 24) & 255\n    ]);\n\n    // Append actual wave data\n    for (var i = 0, idx = headerLen; i < mNumWords; ++i) {\n      // Note: We clamp here\n      var y = mMixBuf[i];\n      y = y < -32767 ? -32767 : y > 32767 ? 32767 : y;\n      wave[idx++] = y & 255;\n      wave[idx++] = (y >> 8) & 255;\n    }\n\n    // Return the WAVE formatted typed array\n    return wave;\n  };\n\n  // Get n samples of wave data at time t [s]. Wave data in range [-2,2].\n  this.getData = function (t, n) {\n    var i = 2 * Math.floor(t * 44100);\n    var d = new Array(n);\n    for (var j = 0; j < 2 * n; j += 1) {\n      var k = i + j;\n      d[j] = t > 0 && k < mMixBuf.length ? mMixBuf[k] / 32768 : 0;\n    }\n    return d;\n  };\n};\n\n// This music has been exported by SoundBox. You can use it with\n// http://sb.bitsnbites.eu/player-small.js in your own product.\n\n// See http://sb.bitsnbites.eu/demo.html for an example of how to\n// use it in a demo.\n\n// Song data\nvar song = {\n  songData: [\n    { // Instrument 0\n      i: [\n        0, // OSC1_WAVEFORM\n        100, // OSC1_VOL\n        128, // OSC1_SEMI\n        0, // OSC1_XENV\n        1, // OSC2_WAVEFORM\n        201, // OSC2_VOL\n        128, // OSC2_SEMI\n        0, // OSC2_DETUNE\n        0, // OSC2_XENV\n        0, // NOISE_VOL\n        0, // ENV_ATTACK\n        8, // ENV_SUSTAIN\n        28, // ENV_RELEASE\n        0, // ARP_CHORD\n        0, // ARP_SPEED\n        0, // LFO_WAVEFORM\n        194, // LFO_AMT\n        4, // LFO_FREQ\n        1, // LFO_FX_FREQ\n        3, // FX_FILTER\n        25, // FX_FREQ\n        191, // FX_RESONANCE\n        115, // FX_DIST\n        244, // FX_DRIVE\n        147, // FX_PAN_AMT\n        6, // FX_PAN_FREQ\n        43, // FX_DELAY_AMT\n        4 // FX_DELAY_TIME\n      ],\n      // Patterns\n      p: [5, 1, 2, 2, 1, 1, 1, 1, 3, 4, 1, 2, 1, 2, 1, 2, , , 7, 7, 7, 7, 7, 7, 7, 7],\n      // Columns\n      c: [\n        {\n          n: [132, 132, 134, 134, 135, 135, 132, 132, 137, 137, 135, 135, 134, 134, 135, 135, 139, 139, 137, 137, 135, 135, 137, 137, 134, , 133, , 132, , 131],\n          f: [21, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 48]\n        },\n        {\n          n: [132, 132, 134, 134, 135, 135, 132, 132, 137, 137, 135, 135, 134, 134, 135, 135, 139, 139, 137, 137, 135, 135, 137, 137, 139, 139, 135, 135, 134, 134, 130, 130],\n          f: [, , , , , , , , , , , , , , , , , , , , , , , , , , , 11, 13, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 31]\n        },\n        {\n          n: [],\n          f: []\n        },\n        {\n          n: [159, , , , , , , , 158, , , , , , , , 157, , , , , , , , 156, 155, 154, 153, 152, 151, 150, 149],\n          f: [13, , , , , , , , , , , , , , , , , , , , , , , , 13, , 13, , 13, , 13, 11, 29, , , , , , , , , , , , , , , , , , , , , , , , 32, , 41, , 29, , 25, 15]\n        },\n        {\n          n: [132, 132, 134, 134, 135, 135, 132, 132, 137, 137, 135, 135, 134, 134, 135, 135, 139, 139, 137, 137, 135, 135, 137, 137, 139, 139, 135, 135, 134, 134, 130, 130],\n          f: [13, 11, 21, 17, , , , , , , , , , , , , , , , , , , , , , , , , , , , 17, 29, , 25, 113, , , , , , , , , , , , , , , , , , , , , , , , , , , , 194]\n        },\n        {\n          n: [120, , , , , , , , 132, , , , , , , , 120, , , , , , , , 108],\n          f: []\n        },\n        {\n          n: [132, 144, 134, 146, 132, 144, 135, 147, 132, 144, 137, 149, 132, 144, 139, 151, 140, 152, 139, 151, 137, 149, 139, 151, 138, 150, 137, 149, 135, 147, 134, 146],\n          f: []\n        }\n      ]\n    },\n    { // Instrument 1\n      i: [\n        0, // OSC1_WAVEFORM\n        255, // OSC1_VOL\n        117, // OSC1_SEMI\n        1, // OSC1_XENV\n        0, // OSC2_WAVEFORM\n        255, // OSC2_VOL\n        110, // OSC2_SEMI\n        0, // OSC2_DETUNE\n        1, // OSC2_XENV\n        0, // NOISE_VOL\n        4, // ENV_ATTACK\n        6, // ENV_SUSTAIN\n        35, // ENV_RELEASE\n        0, // ARP_CHORD\n        0, // ARP_SPEED\n        0, // LFO_WAVEFORM\n        0, // LFO_AMT\n        0, // LFO_FREQ\n        0, // LFO_FX_FREQ\n        2, // FX_FILTER\n        14, // FX_FREQ\n        1, // FX_RESONANCE\n        1, // FX_DIST\n        39, // FX_DRIVE\n        76, // FX_PAN_AMT\n        5, // FX_PAN_FREQ\n        0, // FX_DELAY_AMT\n        0 // FX_DELAY_TIME\n      ],\n      // Patterns\n      p: [, , 1, 3, 1, 3, 1, 3, 2, , , , 1, 3, 1, 3, 1, 3, , , 1, 3, 1, 3, 1, 3],\n      // Columns\n      c: [\n        {\n          n: [147, , , , , , 147, , , , 147, , , , , , 147, , , , , , 147, , , , 147, , , , 147],\n          f: []\n        },\n        {\n          n: [147],\n          f: []\n        },\n        {\n          n: [147, , , , , , 147, , , , 147, , , , 147, , 147, , , , , , 147, , , , 147, , , , 147, 147],\n          f: []\n        }\n      ]\n    },\n    { // Instrument 2\n      i: [\n        0, // OSC1_WAVEFORM\n        0, // OSC1_VOL\n        140, // OSC1_SEMI\n        0, // OSC1_XENV\n        0, // OSC2_WAVEFORM\n        0, // OSC2_VOL\n        140, // OSC2_SEMI\n        0, // OSC2_DETUNE\n        0, // OSC2_XENV\n        60, // NOISE_VOL\n        4, // ENV_ATTACK\n        10, // ENV_SUSTAIN\n        68, // ENV_RELEASE\n        0, // ARP_CHORD\n        0, // ARP_SPEED\n        0, // LFO_WAVEFORM\n        187, // LFO_AMT\n        5, // LFO_FREQ\n        0, // LFO_FX_FREQ\n        1, // FX_FILTER\n        239, // FX_FREQ\n        135, // FX_RESONANCE\n        0, // FX_DIST\n        32, // FX_DRIVE\n        108, // FX_PAN_AMT\n        5, // FX_PAN_FREQ\n        16, // FX_DELAY_AMT\n        4 // FX_DELAY_TIME\n      ],\n      // Patterns\n      p: [, , 1, 1, 2, 3, 2, 3, 4, , , , 2, 3, 2, 3, 2, 3, , , 5, 5, 5, 5, 5, 5],\n      // Columns\n      c: [\n        {\n          n: [, , , , 147, , , , , , , , 148, , , , , , , , 147, , , , , , , , 147],\n          f: [13, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 35]\n        },\n        {\n          n: [, , , , 147, , , 147, , , , , 148, , , , , , , , 147, , , 147, , , 147, , , , 147],\n          f: [13, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 35]\n        },\n        {\n          n: [, , , , 147, , , 147, , , , , 148, , , , , , , , 147, , , 147, , , 147, , , 147, 147, 147],\n          f: [13, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 35]\n        },\n        {\n          n: [147],\n          f: [13, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 68]\n        },\n        {\n          n: [147, , , 147, , , 147, , 147, , , 147, , 147, , 147, 147, , , 147, , , 147, , 147, , , 147, , 147, , 147],\n          f: [13, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 35]\n        }\n      ]\n    },\n    { // Instrument 3\n      i: [\n        2, // OSC1_WAVEFORM\n        192, // OSC1_VOL\n        128, // OSC1_SEMI\n        0, // OSC1_XENV\n        2, // OSC2_WAVEFORM\n        192, // OSC2_VOL\n        140, // OSC2_SEMI\n        18, // OSC2_DETUNE\n        0, // OSC2_XENV\n        0, // NOISE_VOL\n        107, // ENV_ATTACK\n        115, // ENV_SUSTAIN\n        138, // ENV_RELEASE\n        0, // ARP_CHORD\n        0, // ARP_SPEED\n        0, // LFO_WAVEFORM\n        136, // LFO_AMT\n        5, // LFO_FREQ\n        1, // LFO_FX_FREQ\n        2, // FX_FILTER\n        8, // FX_FREQ\n        93, // FX_RESONANCE\n        22, // FX_DIST\n        56, // FX_DRIVE\n        148, // FX_PAN_AMT\n        5, // FX_PAN_FREQ\n        85, // FX_DELAY_AMT\n        8 // FX_DELAY_TIME\n      ],\n      // Patterns\n      p: [3, , 2, 1, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2],\n      // Columns\n      c: [\n        {\n          n: [120],\n          f: []\n        },\n        {\n          n: [120],\n          f: []\n        },\n        {\n          n: [120],\n          f: [, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 24, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 56]\n        }\n      ]\n    },\n    { // Instrument 4\n      i: [\n        3, // OSC1_WAVEFORM\n        0, // OSC1_VOL\n        127, // OSC1_SEMI\n        0, // OSC1_XENV\n        3, // OSC2_WAVEFORM\n        68, // OSC2_VOL\n        127, // OSC2_SEMI\n        0, // OSC2_DETUNE\n        1, // OSC2_XENV\n        218, // NOISE_VOL\n        11, // ENV_ATTACK\n        0, // ENV_SUSTAIN\n        40, // ENV_RELEASE\n        0, // ARP_CHORD\n        0, // ARP_SPEED\n        1, // LFO_WAVEFORM\n        55, // LFO_AMT\n        4, // LFO_FREQ\n        1, // LFO_FX_FREQ\n        2, // FX_FILTER\n        67, // FX_FREQ\n        115, // FX_RESONANCE\n        124, // FX_DIST\n        190, // FX_DRIVE\n        67, // FX_PAN_AMT\n        6, // FX_PAN_FREQ\n        39, // FX_DELAY_AMT\n        1 // FX_DELAY_TIME\n      ],\n      // Patterns\n      p: [, , , 2, 1, 2, 1, 2, 3, , , , 1, 2, 1, 2, 1, 2, , , 1, 4, 1, 4, 1, 4],\n      // Columns\n      c: [\n        {\n          n: [, , , , 147, , , , , , , , 147, , , , , , , , 147, , , , , , , , 147],\n          f: []\n        },\n        {\n          n: [, , , , 147, , , , , , 147, , 147, , , , , , , , 147, , , , , , , , 147],\n          f: []\n        },\n        {\n          n: [147],\n          f: []\n        },\n        {\n          n: [, , , , 147, , , , , , , , 147, , , , , , , , 147, , , , , , , , 147, , , 147],\n          f: []\n        }\n      ]\n    },\n    { // Instrument 5\n      i: [\n        3, // OSC1_WAVEFORM\n        91, // OSC1_VOL\n        128, // OSC1_SEMI\n        0, // OSC1_XENV\n        0, // OSC2_WAVEFORM\n        95, // OSC2_VOL\n        128, // OSC2_SEMI\n        12, // OSC2_DETUNE\n        0, // OSC2_XENV\n        0, // NOISE_VOL\n        12, // ENV_ATTACK\n        0, // ENV_SUSTAIN\n        67, // ENV_RELEASE\n        0, // ARP_CHORD\n        0, // ARP_SPEED\n        0, // LFO_WAVEFORM\n        0, // LFO_AMT\n        0, // LFO_FREQ\n        0, // LFO_FX_FREQ\n        2, // FX_FILTER\n        255, // FX_FREQ\n        15, // FX_RESONANCE\n        0, // FX_DIST\n        32, // FX_DRIVE\n        83, // FX_PAN_AMT\n        3, // FX_PAN_FREQ\n        51, // FX_DELAY_AMT\n        4 // FX_DELAY_TIME\n      ],\n      // Patterns\n      p: [, , , , 1, 2, 1, 2, 1, 2, , , 1, 2, 3, 2, 1, 2, , , , , 5, 4, 5, 4],\n      // Columns\n      c: [\n        {\n          n: [156, , , 164, , , 163, , 161, , , , , , , , , , 158, , 159, , 161, , 159, , 158, , 159, , 154, , 159],\n          f: [5, 13, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 67]\n        },\n        {\n          n: [144, , , 147, , , 149, , 151, , , , , , , , , , 149, , 151, , 152, , 151, , 151, , 147, , 147, , 139],\n          f: []\n        },\n        {\n          n: [156, , , 156, , , 156, , 154, , , 154, , , 154, , 152, , , 152, , , 152, , 151, , , 147, , , 146, , , , 151, , , 151, , 151, , , 146, , , 146, , 146, , , 144, , , 144, , 144, , , 142, , , 139, , 137],\n          f: [5, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 3]\n        },\n        {\n          n: [163, , 164, , 166, , 163, , 163, , 164, , 166, , 163, , 163, , 164, , 166, , 163, , 163, , 164, , 166, , 163],\n          f: [13, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 25]\n        },\n        {\n          n: [168, , 170, , 171, , 168, , 168, , 170, , 171, , 168, , 159, , 159, , 158, , 158, , 157, , 157, , 156, , 156],\n          f: [, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 13, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 67]\n        }\n      ]\n    },\n    { // Instrument 6\n      i: [\n        0, // OSC1_WAVEFORM\n        146, // OSC1_VOL\n        140, // OSC1_SEMI\n        0, // OSC1_XENV\n        1, // OSC2_WAVEFORM\n        224, // OSC2_VOL\n        128, // OSC2_SEMI\n        3, // OSC2_DETUNE\n        0, // OSC2_XENV\n        0, // NOISE_VOL\n        61, // ENV_ATTACK\n        0, // ENV_SUSTAIN\n        63, // ENV_RELEASE\n        0, // ARP_CHORD\n        0, // ARP_SPEED\n        3, // LFO_WAVEFORM\n        179, // LFO_AMT\n        5, // LFO_FREQ\n        1, // LFO_FX_FREQ\n        3, // FX_FILTER\n        37, // FX_FREQ\n        162, // FX_RESONANCE\n        0, // FX_DIST\n        67, // FX_DRIVE\n        150, // FX_PAN_AMT\n        3, // FX_PAN_FREQ\n        37, // FX_DELAY_AMT\n        2 // FX_DELAY_TIME\n      ],\n      // Patterns\n      p: [, 1, , , , , , , , , 1, 2, 3, , 1, 2, 1, 2, 3, , 4, 5],\n      // Columns\n      c: [\n        {\n          n: [, , , , , , , , , , , , , , , , , , , , , , , , 122, , 121, , 120, , 119],\n          f: []\n        },\n        {\n          n: [, , , , , , , , , , , , 110, 109, , , , , , , , , , , , , , , 132, 144, 120, 108],\n          f: [11, , , , , , , , , , , , , , , , , , , , , , , , , , , , 11, , , , 95, , , , , , , , , , , , , , , , , , , , , , , , , , , , 29]\n        },\n        {\n          n: [123],\n          f: [24, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 24, 52, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 67]\n        },\n        {\n          n: [120, , , , , , 120, , 120, , , , , , , , , , , , , , , , , , , , , , , , 123, , , , , , 123, , 123, , , , , , , , , , , , , , , , , , , , , , , , 125, , , , , , 125, , 125],\n          f: [11, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 95]\n        },\n        {\n          n: [120, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 123, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 125],\n          f: []\n        }\n      ]\n    },\n    { // Instrument 7\n      i: [\n        2, // OSC1_WAVEFORM\n        138, // OSC1_VOL\n        116, // OSC1_SEMI\n        0, // OSC1_XENV\n        2, // OSC2_WAVEFORM\n        138, // OSC2_VOL\n        128, // OSC2_SEMI\n        4, // OSC2_DETUNE\n        0, // OSC2_XENV\n        0, // NOISE_VOL\n        47, // ENV_ATTACK\n        48, // ENV_SUSTAIN\n        107, // ENV_RELEASE\n        124, // ARP_CHORD\n        3, // ARP_SPEED\n        0, // LFO_WAVEFORM\n        139, // LFO_AMT\n        4, // LFO_FREQ\n        1, // LFO_FX_FREQ\n        3, // FX_FILTER\n        64, // FX_FREQ\n        160, // FX_RESONANCE\n        3, // FX_DIST\n        32, // FX_DRIVE\n        147, // FX_PAN_AMT\n        4, // FX_PAN_FREQ\n        121, // FX_DELAY_AMT\n        5 // FX_DELAY_TIME\n      ],\n      // Patterns\n      p: [, , , , , , , , 1, , , , , , , , , , 1],\n      // Columns\n      c: [\n        {\n          n: [156, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 168],\n          f: []\n        }\n      ]\n    },\n  ],\n  rowLen: 5513,   // In sample lengths\n  patternLen: 32,  // Rows per pattern\n  endPattern: 25,  // End pattern\n  numChannels: 8  // Number of channels\n};\n\nlet player = new Soundbox();\nplayer.init(song);\n\n// Initialize music generation (player).\nplayer.init(song);\n\n// Generate music...\nlet done = false;\nsetInterval(function () {\n  if (done) {\n    return;\n  }\n\n  done = player.generate() >= 1;\n\n  if (done) {\n    // Put the generated song in an Audio element.\n    let wave = player.createWave();\n    postMessage(wave);\n  }\n}, 10);\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (player);\n\n\n/***/ })\n\n/******/ });\n//# sourceMappingURL=9d71fd9bba6c2a765428.worker.js.map", null);
+};
+
+/***/ })
+
+/******/ });
+//# sourceMappingURL=main.js.map</script>

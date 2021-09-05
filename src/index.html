@@ -1,4 +1,5 @@
 <html>
+  <head><meta charset="UTF-8"></head>
   <style>
     * {
       margin: 0;
@@ -13,11 +14,11 @@
       background: white;
       image-rendering: pixelated;
     }
-    main {
+    div {
       filter: brightness(1);
       transition: 5s filter;
     }
-    main.loaded {
+    div.loaded {
       filter: brightness(1);
     }
     .scanlines {
@@ -67,7 +68,5 @@
       image-rendering: pixelated;
     }
   </style>
-  <main class="scanlines">
-    <canvas id="c" width="128" height="128"></canvas>
-  </main>
+  <div class="scanlines"><canvas id="c" width="128" height="128"></canvas></div>
 </html>
