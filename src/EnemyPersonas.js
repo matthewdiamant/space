@@ -1,4 +1,4 @@
-export const pacifist = ({ enemy, map }) => {
+const laps = (enemy) => {
   if (!enemy.holdLeft && !enemy.holdRight) enemy.holdRight = true;
 
   if (enemy.x < 8 * 2) {
@@ -10,7 +10,9 @@ export const pacifist = ({ enemy, map }) => {
     enemy.holdLeft = true;
     enemy.holdRight = false;
   }
+};
 
+const jumpToLedge = (enemy, map) => {
   if (enemy.jumpTimer > 0) {
     enemy.jumpTimer -= 1;
   } else {
@@ -20,6 +22,11 @@ export const pacifist = ({ enemy, map }) => {
     );
     enemy.jumpTimer = jumpTarget && Math.random() < 0.1 ? 30 : 0;
   }
+};
+
+export const pacifist = ({ enemy, map }) => {
+  laps(enemy);
+  jumpToLedge(enemy, map);
 
   const buttons = {
     left: enemy.holdLeft,
