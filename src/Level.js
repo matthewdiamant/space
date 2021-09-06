@@ -21,6 +21,33 @@ const levelTemplates = [
       pacifist: 10,
     },
   },
+  {
+    concurrentEnemies: 5,
+    enemyCount: 10,
+    spawnPoint: [40, 10],
+    enemySpawnPoint: [249, 20],
+    enemies: {
+      idiot: 10,
+    },
+  },
+  {
+    concurrentEnemies: 5,
+    enemyCount: 10,
+    spawnPoint: [40, 10],
+    enemySpawnPoint: [249, 20],
+    enemies: {
+      runAndGun: 10,
+    },
+  },
+  {
+    concurrentEnemies: 5,
+    enemyCount: 10,
+    spawnPoint: [40, 10],
+    enemySpawnPoint: [249, 20],
+    enemies: {
+      aggro: 10,
+    },
+  },
 ];
 
 const delay = 80;

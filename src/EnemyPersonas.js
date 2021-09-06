@@ -105,14 +105,15 @@ export const idiot = ({ enemy }) => {
   return [buttons, immobile];
 };
 
-export const sentinel = () => {
+export const sentinel = ({ enemy, player }) => {
+  const space = enemy.x - player.x < 30 && enemy.x - player.x > 0;
   const immobile = true;
   return [
     {
       left: false,
       right: false,
       up: false,
-      space: true,
+      space,
     },
     immobile,
   ];

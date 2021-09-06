@@ -1640,14 +1640,15 @@ const idiot = ({ enemy }) => {
   return [buttons, immobile];
 };
 
-const sentinel = () => {
+const sentinel = ({ enemy, player }) => {
+  const space = enemy.x - player.x < 30 && enemy.x - player.x > 0;
   const immobile = true;
   return [
     {
       left: false,
       right: false,
       up: false,
-      space: true,
+      space,
     },
     immobile,
   ];
@@ -1853,6 +1854,33 @@ const levelTemplates = [
     enemySpawnPoint: [249, 20],
     enemies: {
       pacifist: 10,
+    },
+  },
+  {
+    concurrentEnemies: 5,
+    enemyCount: 10,
+    spawnPoint: [40, 10],
+    enemySpawnPoint: [249, 20],
+    enemies: {
+      idiot: 10,
+    },
+  },
+  {
+    concurrentEnemies: 5,
+    enemyCount: 10,
+    spawnPoint: [40, 10],
+    enemySpawnPoint: [249, 20],
+    enemies: {
+      runAndGun: 10,
+    },
+  },
+  {
+    concurrentEnemies: 5,
+    enemyCount: 10,
+    spawnPoint: [40, 10],
+    enemySpawnPoint: [249, 20],
+    enemies: {
+      aggro: 10,
     },
   },
 ];
