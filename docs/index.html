@@ -2272,26 +2272,43 @@ class Package extends _GameObject__WEBPACK_IMPORTED_MODULE_0__["default"] {
   }
 
   draw(drawer) {
-    drawer.rect({
-      fillColor: "#C3732A",
-      rect: [this.x, this.y, 5, 5],
-    });
-
-    [
-      [0, 1],
-      [1, 0],
-      [2, 0],
-      [3, 0],
-      [4, 1],
-      [3, 2],
-      [2, 2],
-      [2, 4],
-    ].forEach(([x, y]) =>
+    if (this.type === "weapon") {
       drawer.rect({
-        fillColor: "yellow",
-        rect: [this.x + x, this.y + y, 1, 1],
-      })
-    );
+        fillColor: "#C3732A",
+        rect: [this.x, this.y, 5, 5],
+      });
+
+      [
+        [0, 1],
+        [1, 0],
+        [2, 0],
+        [3, 0],
+        [4, 1],
+        [3, 2],
+        [2, 2],
+        [2, 4],
+      ].forEach(([x, y]) =>
+        drawer.rect({
+          fillColor: "yellow",
+          rect: [this.x + x, this.y + y, 1, 1],
+        })
+      );
+    } else {
+      drawer.rect({
+        fillColor: "#FFF",
+        rect: [this.x, this.y, 5, 5],
+      });
+
+      [
+        [1, 2, 3, 1],
+        [2, 1, 1, 3],
+      ].forEach(([x, y, dx, dy]) =>
+        drawer.rect({
+          fillColor: "red",
+          rect: [this.x + x, this.y + y, dx, dy],
+        })
+      );
+    }
   }
 }
 
