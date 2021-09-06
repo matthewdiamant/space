@@ -366,7 +366,7 @@ class Background {
   }
   draw(drawer) {
     drawer.draw(() => {
-      drawer.drawBackground("#111");
+      drawer.drawBackground("#112", "#131");
       nearStars.map((star) =>
         drawer.rect({
           rect: [
@@ -920,9 +920,20 @@ class Drawer {
     cx.clearRect(0, 0, this.canvas.width, this.canvas.height);
   }
 
-  drawBackground(color) {
-    cx.fillStyle = color;
+  drawBackground(start, end) {
+    cx.save();
+    var gradient = cx.createLinearGradient(20, 0, 220, 0);
+
+    gradient.addColorStop(0, start);
+    gradient.addColorStop(1, end);
+
+    cx.rotate(Math.PI / 2);
+    cx.translate(0, -this.canvas.height);
+
+    cx.fillStyle = gradient;
+
     cx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+    cx.restore();
   }
 
   rect({

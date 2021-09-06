@@ -14,7 +14,7 @@ export default class Background {
   }
   draw(drawer) {
     drawer.draw(() => {
-      drawer.drawBackground("#111");
+      drawer.drawBackground("#112", "#131");
       nearStars.map((star) =>
         drawer.rect({
           rect: [
