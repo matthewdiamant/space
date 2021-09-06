@@ -1,3 +1,5 @@
+import Music from "./Music";
+
 const levelTemplates = [
   {
     concurrentEnemies: 5,
@@ -9,6 +11,11 @@ const levelTemplates = [
 const delay = 80;
 
 class Level {
+  constructor() {
+    this.music = new Music();
+    this.musicStarted = false;
+  }
+
   initializeLevel(level, { player, enemies, chunks, spurts, packages }) {
     this.level = levelTemplates[level] || levelTemplates[0];
     this.level.level = level;
@@ -21,6 +28,7 @@ class Level {
     enemies.initialize(this.level);
     this.levelOverTimer = 0;
     this.levelFadeIn = 0;
+    this.welcomeMessage = false;
   }
 
   tick({ player, enemies, chunks, spurts, packages }) {
@@ -38,6 +46,13 @@ class Level {
         spurts,
         packages,
       });
+    }
+
+    const oldWelcomeMessage = this.welcomeMessage;
+    this.welcomeMessage =
+      this.level.level === 1 && this.levelOverTimer > delay * 5;
+    if (oldWelcomeMessage !== this.welcomeMessage) {
+      this.music.startMusic();
     }
   }
 
@@ -68,7 +83,7 @@ class Level {
       });
     }
 
-    if (this.level.level === 1 && this.levelOverTimer > delay * 5) {
+    if (this.welcomeMessage) {
       drawer.rect({
         adjusted: false,
         fillColor: "#000",

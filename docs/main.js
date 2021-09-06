@@ -1794,6 +1794,9 @@ class Keyboard {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Music__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Music */ "./src/Music.js");
+
+
 const levelTemplates = [
   {
     concurrentEnemies: 5,
@@ -1805,6 +1808,11 @@ const levelTemplates = [
 const delay = 80;
 
 class Level {
+  constructor() {
+    this.music = new _Music__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    this.musicStarted = false;
+  }
+
   initializeLevel(level, { player, enemies, chunks, spurts, packages }) {
     this.level = levelTemplates[level] || levelTemplates[0];
     this.level.level = level;
@@ -1817,6 +1825,7 @@ class Level {
     enemies.initialize(this.level);
     this.levelOverTimer = 0;
     this.levelFadeIn = 0;
+    this.welcomeMessage = false;
   }
 
   tick({ player, enemies, chunks, spurts, packages }) {
@@ -1834,6 +1843,13 @@ class Level {
         spurts,
         packages,
       });
+    }
+
+    const oldWelcomeMessage = this.welcomeMessage;
+    this.welcomeMessage =
+      this.level.level === 1 && this.levelOverTimer > delay * 5;
+    if (oldWelcomeMessage !== this.welcomeMessage) {
+      this.music.startMusic();
     }
   }
 
@@ -1864,7 +1880,7 @@ class Level {
       });
     }
 
-    if (this.level.level === 1 && this.levelOverTimer > delay * 5) {
+    if (this.welcomeMessage) {
       drawer.rect({
         adjusted: false,
         fillColor: "#000",
@@ -2091,32 +2107,33 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function startMusic() {
-  var myWorker = new _sound_box_worker_js__WEBPACK_IMPORTED_MODULE_0___default.a();
+var myWorker = new _sound_box_worker_js__WEBPACK_IMPORTED_MODULE_0___default.a();
 
-  myWorker.onmessage = function (e) {
-    let wave = e.data;
-    let audio = document.createElement("audio");
-    audio.src = URL.createObjectURL(new Blob([wave], { type: "audio/wav" }));
-    audio.volume = 0.5;
-    audio.loop = true;
+let audio = null;
+
+myWorker.onmessage = (e) => {
+  let wave = e.data;
+  audio = document.createElement("audio");
+  audio.src = URL.createObjectURL(new Blob([wave], { type: "audio/wav" }));
+  audio.volume = 0.7;
+  audio.loop = true;
+};
+
+class Music {
+  constuctor() {}
+
+  startMusic() {
     let playPromise = audio.play();
     (function tryAgain(playPromise) {
       playPromise
-        .then(_ => { })
-        .catch(error => {
+        .then((_) => {})
+        .catch((error) => {
           setTimeout(() => {
             let playPromise = audio.play();
             tryAgain(playPromise);
           }, 1000);
         });
     })(playPromise);
-  };
-}
-
-class Music {
-  constructor() {
-    startMusic();
   }
 }
 
