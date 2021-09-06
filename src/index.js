@@ -58,7 +58,7 @@ window.onload = () => {
     const { camera } = drawer;
     level.tick({ player, enemies, chunks, spurts, packages });
     player.tick({ camera, keyboard, map, projectiles });
-    enemies.tick({ camera, map, projectiles, spurts, chunks });
+    enemies.tick({ camera, map, projectiles, spurts, chunks, player });
     camera.tick({ player, map });
     projectiles.tick();
     spurts.tick();

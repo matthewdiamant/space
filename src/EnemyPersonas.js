@@ -1,18 +1,26 @@
+const runRight = (enemy) => {
+  enemy.holdLeft = false;
+  enemy.holdRight = true;
+};
+
+const runLeft = (enemy) => {
+  enemy.holdLeft = true;
+  enemy.holdRight = false;
+};
+
 const laps = (enemy) => {
   if (!enemy.holdLeft && !enemy.holdRight) enemy.holdRight = true;
 
   if (enemy.x < 8 * 2) {
-    enemy.holdLeft = false;
-    enemy.holdRight = true;
+    runRight(enemy);
   }
 
   if (enemy.x > 8 * 36) {
-    enemy.holdLeft = true;
-    enemy.holdRight = false;
+    runLeft(enemy);
   }
 };
 
-const jumpToLedge = (enemy, map) => {
+const jumpToLedges = (freq, enemy, map) => {
   if (enemy.jumpTimer > 0) {
     enemy.jumpTimer -= 1;
   } else {
@@ -20,13 +28,41 @@ const jumpToLedge = (enemy, map) => {
       enemy.x + 3 * 8 * enemy.facing,
       enemy.y - 2 * 8
     );
-    enemy.jumpTimer = jumpTarget && Math.random() < 0.1 ? 30 : 0;
+    enemy.jumpTimer = jumpTarget && Math.random() < freq ? 30 : 0;
   }
+};
+
+const shootOnSight = (enemy, player) => {
+  let space;
+  if (Math.abs(player.y - enemy.y) < 20) {
+    space = true;
+    if (player.x - enemy.x > 0) {
+      runRight(enemy);
+    } else {
+      runLeft(enemy);
+    }
+  } else {
+    space = false;
+  }
+  return space;
+};
+
+export const runAndGun = ({ enemy, map, player }) => {
+  laps(enemy);
+  jumpToLedges(0.1, enemy, map);
+  const space = shootOnSight(enemy, player);
+  const buttons = {
+    left: enemy.holdLeft,
+    right: enemy.holdRight,
+    up: enemy.jumpTimer > 0,
+    space,
+  };
+  return [buttons, false];
 };
 
 export const pacifist = ({ enemy, map }) => {
   laps(enemy);
-  jumpToLedge(enemy, map);
+  jumpToLedges(0.1, enemy, map);
 
   const buttons = {
     left: enemy.holdLeft,
@@ -37,7 +73,7 @@ export const pacifist = ({ enemy, map }) => {
   return [buttons, false];
 };
 
-export const idiot = (enemy) => {
+export const idiot = ({ enemy }) => {
   const immobile = false;
   let buttons;
   if (enemy.lifespan % 30 === 0) {

@@ -15,8 +15,8 @@ class Enemy extends Character {
     this.persona = persona;
   }
 
-  tick({ camera, map, projectiles }) {
-    const [presses, immobile] = this.persona({ enemy: this, map });
+  tick({ camera, map, projectiles, player }) {
+    const [presses, immobile] = this.persona({ enemy: this, map, player });
     if (presses) this.presses = presses;
     Character.tick.call(this, {
       camera,

@@ -1648,8 +1648,8 @@ class Enemy extends _Character__WEBPACK_IMPORTED_MODULE_0__["default"] {
     this.persona = persona;
   }
 
-  tick({ camera, map, projectiles }) {
-    const [presses, immobile] = this.persona({ enemy: this, map });
+  tick({ camera, map, projectiles, player }) {
+    const [presses, immobile] = this.persona({ enemy: this, map, player });
     if (presses) this.presses = presses;
     _Character__WEBPACK_IMPORTED_MODULE_0__["default"].tick.call(this, {
       camera,
@@ -1716,15 +1716,15 @@ class EnemyCollection {
 
     for (let i = 0; i < concurrentEnemies; i++) {
       this.enemies.push(
-        new _Enemy__WEBPACK_IMPORTED_MODULE_2__["default"](249, 20, 100, Math.random() > 0.5 ? 1 : -1, colors, _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["pacifist"])
+        new _Enemy__WEBPACK_IMPORTED_MODULE_2__["default"](249, 20, 100, Math.random() > 0.5 ? 1 : -1, colors, _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["runAndGun"])
       );
       this.enemyCount -= 1;
     }
   }
 
-  tick({ camera, map, projectiles, spurts, chunks }) {
+  tick({ camera, map, projectiles, spurts, chunks, player }) {
     this.enemies.forEach((enemy) => {
-      enemy.tick({ camera, map, projectiles });
+      enemy.tick({ camera, map, projectiles, player });
     });
 
     this.enemies = this.enemies.reduce((enemies, enemy) => {
@@ -1755,7 +1755,7 @@ class EnemyCollection {
           this.enemies.length <= this.concurrentEnemies &&
           this.enemyCount > 0
         ) {
-          enemies.push(new _Enemy__WEBPACK_IMPORTED_MODULE_2__["default"](249, 20, 100, -1, colors, _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["pacifist"]));
+          enemies.push(new _Enemy__WEBPACK_IMPORTED_MODULE_2__["default"](249, 20, 100, -1, colors, _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["runAndGun"]));
           this.enemyCount -= 1;
         }
       } else {
@@ -1779,29 +1779,38 @@ class EnemyCollection {
 /*!******************************!*\
   !*** ./src/EnemyPersonas.js ***!
   \******************************/
-/*! exports provided: pacifist, idiot, sentinel */
+/*! exports provided: runAndGun, pacifist, idiot, sentinel */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "runAndGun", function() { return runAndGun; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pacifist", function() { return pacifist; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "idiot", function() { return idiot; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sentinel", function() { return sentinel; });
+const runRight = (enemy) => {
+  enemy.holdLeft = false;
+  enemy.holdRight = true;
+};
+
+const runLeft = (enemy) => {
+  enemy.holdLeft = true;
+  enemy.holdRight = false;
+};
+
 const laps = (enemy) => {
   if (!enemy.holdLeft && !enemy.holdRight) enemy.holdRight = true;
 
   if (enemy.x < 8 * 2) {
-    enemy.holdLeft = false;
-    enemy.holdRight = true;
+    runRight(enemy);
   }
 
   if (enemy.x > 8 * 36) {
-    enemy.holdLeft = true;
-    enemy.holdRight = false;
+    runLeft(enemy);
   }
 };
 
-const jumpToLedge = (enemy, map) => {
+const jumpToLedges = (freq, enemy, map) => {
   if (enemy.jumpTimer > 0) {
     enemy.jumpTimer -= 1;
   } else {
@@ -1809,13 +1818,41 @@ const jumpToLedge = (enemy, map) => {
       enemy.x + 3 * 8 * enemy.facing,
       enemy.y - 2 * 8
     );
-    enemy.jumpTimer = jumpTarget && Math.random() < 0.1 ? 30 : 0;
+    enemy.jumpTimer = jumpTarget && Math.random() < freq ? 30 : 0;
   }
+};
+
+const shootOnSight = (enemy, player) => {
+  let space;
+  if (Math.abs(player.y - enemy.y) < 20) {
+    space = true;
+    if (player.x - enemy.x > 0) {
+      runRight(enemy);
+    } else {
+      runLeft(enemy);
+    }
+  } else {
+    space = false;
+  }
+  return space;
+};
+
+const runAndGun = ({ enemy, map, player }) => {
+  laps(enemy);
+  jumpToLedges(0.1, enemy, map);
+  const space = shootOnSight(enemy, player);
+  const buttons = {
+    left: enemy.holdLeft,
+    right: enemy.holdRight,
+    up: enemy.jumpTimer > 0,
+    space,
+  };
+  return [buttons, false];
 };
 
 const pacifist = ({ enemy, map }) => {
   laps(enemy);
-  jumpToLedge(enemy, map);
+  jumpToLedges(0.1, enemy, map);
 
   const buttons = {
     left: enemy.holdLeft,
@@ -1826,7 +1863,7 @@ const pacifist = ({ enemy, map }) => {
   return [buttons, false];
 };
 
-const idiot = (enemy) => {
+const idiot = ({ enemy }) => {
   const immobile = false;
   let buttons;
   if (enemy.lifespan % 30 === 0) {
@@ -3106,7 +3143,7 @@ window.onload = () => {
     const { camera } = drawer;
     level.tick({ player, enemies, chunks, spurts, packages });
     player.tick({ camera, keyboard, map, projectiles });
-    enemies.tick({ camera, map, projectiles, spurts, chunks });
+    enemies.tick({ camera, map, projectiles, spurts, chunks, player });
     camera.tick({ player, map });
     projectiles.tick();
     spurts.tick();
