@@ -9,7 +9,7 @@ export default class Player extends Character {
     this.weapon = new WeaponFactory().create(debugPistol);
   }
 
-  tick({ camera, keyboard, map, projectiles }) {
+  tick({ camera, keyboard, map, projectiles, sound }) {
     Character.tick.call(this, {
       camera,
       map,
@@ -20,6 +20,7 @@ export default class Player extends Character {
         up: keyboard.isDown(keyboard.UP),
         space: keyboard.isDown(keyboard.SPACE),
       },
+      sound,
     });
   }
 

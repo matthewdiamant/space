@@ -1036,7 +1036,7 @@ class Character extends _GameObject__WEBPACK_IMPORTED_MODULE_0__["default"] {
     this.weapon = weaponFactory.random();
   }
 
-  static tick({ camera, map, projectiles, presses, immobile }) {
+  static tick({ camera, map, projectiles, presses, immobile, sound }) {
     this.lifespan += 1;
 
     const { left, right, up, space } = presses;
@@ -1051,7 +1051,8 @@ class Character extends _GameObject__WEBPACK_IMPORTED_MODULE_0__["default"] {
       space,
       projectiles,
       weaponLocation,
-      camera
+      camera,
+      sound
     );
 
     // move x
@@ -1081,6 +1082,9 @@ class Character extends _GameObject__WEBPACK_IMPORTED_MODULE_0__["default"] {
       const onGround = this.grounded || this.airtime < 5;
       const newJump = this.holdJump < 10;
       if (this.jumpHoldTime > 0 || (onGround && newJump)) {
+        if (this.grounded) {
+          // jump sound
+        }
         this.jumpHoldTime += 1;
         if (this.jumpHoldTime < this.maxJumpPress) {
           this.dy = -this.jumpSpeed;
@@ -1648,7 +1652,7 @@ class Enemy extends _Character__WEBPACK_IMPORTED_MODULE_0__["default"] {
     this.persona = persona;
   }
 
-  tick({ camera, map, projectiles, player }) {
+  tick({ camera, map, projectiles, player, sound }) {
     const [presses, immobile] = this.persona({ enemy: this, map, player });
     if (presses) this.presses = presses;
     _Character__WEBPACK_IMPORTED_MODULE_0__["default"].tick.call(this, {
@@ -1656,6 +1660,7 @@ class Enemy extends _Character__WEBPACK_IMPORTED_MODULE_0__["default"] {
       map,
       projectiles,
       presses: this.presses,
+      sound,
       immobile,
     });
   }
@@ -1716,15 +1721,15 @@ class EnemyCollection {
 
     for (let i = 0; i < concurrentEnemies; i++) {
       this.enemies.push(
-        new _Enemy__WEBPACK_IMPORTED_MODULE_2__["default"](249, 20, 100, Math.random() > 0.5 ? 1 : -1, colors, _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["aggro"])
+        new _Enemy__WEBPACK_IMPORTED_MODULE_2__["default"](249, 20, 100, Math.random() > 0.5 ? 1 : -1, colors, _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["pacifist"])
       );
       this.enemyCount -= 1;
     }
   }
 
-  tick({ camera, map, projectiles, spurts, chunks, player }) {
+  tick({ camera, map, projectiles, spurts, chunks, player, sound }) {
     this.enemies.forEach((enemy) => {
-      enemy.tick({ camera, map, projectiles, player });
+      enemy.tick({ camera, map, projectiles, player, sound });
     });
 
     this.enemies = this.enemies.reduce((enemies, enemy) => {
@@ -1755,7 +1760,7 @@ class EnemyCollection {
           this.enemies.length <= this.concurrentEnemies &&
           this.enemyCount > 0
         ) {
-          enemies.push(new _Enemy__WEBPACK_IMPORTED_MODULE_2__["default"](249, 20, 100, -1, colors, _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["aggro"]));
+          enemies.push(new _Enemy__WEBPACK_IMPORTED_MODULE_2__["default"](249, 20, 100, -1, colors, _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["pacifist"]));
           this.enemyCount -= 1;
         }
       } else {
@@ -2540,7 +2545,7 @@ class Player extends _Character__WEBPACK_IMPORTED_MODULE_0__["default"] {
     this.weapon = new _WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["debugPistol"]);
   }
 
-  tick({ camera, keyboard, map, projectiles }) {
+  tick({ camera, keyboard, map, projectiles, sound }) {
     _Character__WEBPACK_IMPORTED_MODULE_0__["default"].tick.call(this, {
       camera,
       map,
@@ -2551,6 +2556,7 @@ class Player extends _Character__WEBPACK_IMPORTED_MODULE_0__["default"] {
         up: keyboard.isDown(keyboard.UP),
         space: keyboard.isDown(keyboard.SPACE),
       },
+      sound,
     });
   }
 
@@ -2725,13 +2731,13 @@ __webpack_require__.r(__webpack_exports__);
 class Sound {
   constructor() {
     this.state = {
-      engine: false
+      engine: false,
     };
   }
 
-  engineOn() { }
+  engineOn() {}
 
-  engineOff() { }
+  engineOff() {}
 
   playSound(url) {
     let soundUrl = jsfxr__WEBPACK_IMPORTED_MODULE_0___default()(url);
@@ -2741,33 +2747,37 @@ class Sound {
     player.play();
   }
 
+  // prettier-ignore
   mainLaser() {
     this.playSound(
       [2,,0.1749,,0.3063,0.713,0.2,-0.2645,,,,,,0.0543,0.1546,,,,1,,,,,0.5]
     );
   }
 
+  // prettier-ignore
   secondaryLaser() {
     this.playSound(
       [2,,0.1426,,0.2251,0.7799,0.2555,-0.2285,,,,,,0.7631,-0.4501,,,,1,,,0.0846,,0.5]
     );
   }
 
+  // prettier-ignore
   missile() {
     this.playSound([3,,0.0937,0.571,0.3803,0.7495,,,,,,,,,,,,,1,,,,,0.5]);
   }
 
+  // prettier-ignore
   projectileHit() {
     this.playSound([3,,0.0867,,0.2283,0.2711,,-0.6853,,,,,,,,,,,1,,,,,0.5]);
   }
 
+  // prettier-ignore
   enemyLaser() {
     this.playSound(
       [0,,0.2934,0.1381,0.2143,0.6919,0.3422,-0.2379,,,,,,0.4281,-0.6711,,,,1,,,0.194,,0.5]
     );
   }
 }
-
 
 
 /***/ }),
@@ -2859,13 +2869,14 @@ class Weapon {
     this.ticksSinceLastFired = cooldown;
   }
 
-  tick(pressSpace, projectiles, location, camera) {
+  tick(pressSpace, projectiles, location, camera, sound) {
     this.ticksSinceLastFired += 1;
     if (
       this.cooldown * this.cooldownMod < this.ticksSinceLastFired &&
       pressSpace
     ) {
       this.fire(projectiles, location);
+      sound.mainLaser();
       if (this.shake) camera.shake(this.shake.force, this.shake.duration);
       return this.knockback;
     }
@@ -3158,8 +3169,8 @@ window.onload = () => {
   let tick = () => {
     const { camera } = drawer;
     level.tick({ player, enemies, chunks, spurts, packages });
-    player.tick({ camera, keyboard, map, projectiles });
-    enemies.tick({ camera, map, projectiles, spurts, chunks, player });
+    player.tick({ camera, keyboard, map, projectiles, sound });
+    enemies.tick({ camera, map, projectiles, spurts, chunks, player, sound });
     camera.tick({ player, map });
     projectiles.tick();
     spurts.tick();

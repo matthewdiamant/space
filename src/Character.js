@@ -81,7 +81,7 @@ class Character extends GameObject {
     this.weapon = weaponFactory.random();
   }
 
-  static tick({ camera, map, projectiles, presses, immobile }) {
+  static tick({ camera, map, projectiles, presses, immobile, sound }) {
     this.lifespan += 1;
 
     const { left, right, up, space } = presses;
@@ -96,7 +96,8 @@ class Character extends GameObject {
       space,
       projectiles,
       weaponLocation,
-      camera
+      camera,
+      sound
     );
 
     // move x
@@ -126,6 +127,9 @@ class Character extends GameObject {
       const onGround = this.grounded || this.airtime < 5;
       const newJump = this.holdJump < 10;
       if (this.jumpHoldTime > 0 || (onGround && newJump)) {
+        if (this.grounded) {
+          // jump sound
+        }
         this.jumpHoldTime += 1;
         if (this.jumpHoldTime < this.maxJumpPress) {
           this.dy = -this.jumpSpeed;

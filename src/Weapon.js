@@ -21,13 +21,14 @@ class Weapon {
     this.ticksSinceLastFired = cooldown;
   }
 
-  tick(pressSpace, projectiles, location, camera) {
+  tick(pressSpace, projectiles, location, camera, sound) {
     this.ticksSinceLastFired += 1;
     if (
       this.cooldown * this.cooldownMod < this.ticksSinceLastFired &&
       pressSpace
     ) {
       this.fire(projectiles, location);
+      sound.mainLaser();
       if (this.shake) camera.shake(this.shake.force, this.shake.duration);
       return this.knockback;
     }
