@@ -7,7 +7,6 @@ const path = require("path");
 const prod = {
   devtool: "",
   mode: "production",
-  /*
   optimization: {
     minimizer: [
       new TerserPlugin({
@@ -21,7 +20,6 @@ const prod = {
       }),
     ],
   },
-  */
 };
 
 const dev = {
