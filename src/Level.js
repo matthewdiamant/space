@@ -5,7 +5,7 @@ const levelTemplates = [
     concurrentEnemies: 1,
     enemyCount: 1,
     spawnPoint: [40, 10],
-    enemySpawnPoint: [50, 10],
+    enemySpawnPoint: [230, 100],
     enemies: {
       sentinel: 1,
     },
