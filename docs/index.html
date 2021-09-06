@@ -853,6 +853,7 @@ class CollisionDetector {
   handleProjectile(projectile, object, spurts) {
     if (
       !(projectile.exploding || object.exploding) &&
+      object.health > 0 &&
       collision(projectile, object)
     ) {
       projectile.destroy();
@@ -2390,6 +2391,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Player; });
 /* harmony import */ var _Character__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Character */ "./src/Character.js");
 /* harmony import */ var _Sprites_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Sprites.js */ "./src/Sprites.js");
+/* harmony import */ var _Blood__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Blood */ "./src/Blood.js");
+/* harmony import */ var _BloodChunk__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./BloodChunk */ "./src/BloodChunk.js");
+
+
 
 
 
@@ -2398,10 +2403,37 @@ class Player extends _Character__WEBPACK_IMPORTED_MODULE_0__["default"] {
     super(x, y, health);
     this.bloodColor = "red";
     this.weapon = null;
+    this.dead = false;
   }
 
-  tick({ camera, keyboard, map, projectiles, sound }) {
-    if (this.health <= 0) return;
+  tick({ camera, keyboard, map, projectiles, sound, spurts, chunks }) {
+    if (this.health <= 0 && !this.dead) {
+      for (let i = 0; i < 200; i++) {
+        spurts.add(
+          new _Blood__WEBPACK_IMPORTED_MODULE_2__["default"](
+            this.x,
+            this.y,
+            Math.random() * 5 - 2.5,
+            Math.random() * 5 - 5,
+            "red",
+          )
+        );
+      }
+      for (let i = 0; i < 10; i++) {
+        chunks.chunks.push(
+          new _BloodChunk__WEBPACK_IMPORTED_MODULE_3__["default"](
+            this.x,
+            this.y - 2,
+            Math.random() * 3 - 1.5,
+            Math.random() * 3 - 1.5,
+            "red"
+          )
+        );
+      }
+      this.dead = true;
+    }
+    if (this.dead) return;
+
     _Character__WEBPACK_IMPORTED_MODULE_0__["default"].tick.call(this, {
       camera,
       map,
@@ -2417,6 +2449,7 @@ class Player extends _Character__WEBPACK_IMPORTED_MODULE_0__["default"] {
   }
 
   draw(drawer) {
+    if (this.dead) return;
     // drawer.rect({ fillColor: "green", rect: [this.x, this.y, 8, 8] }); // hitbox
 
     const colors = {
@@ -3027,7 +3060,7 @@ window.onload = () => {
   let tick = () => {
     const { camera } = drawer;
     level.tick({ player, enemies, chunks, spurts, packages, sound, map });
-    player.tick({ camera, keyboard, map, projectiles, sound });
+    player.tick({ camera, keyboard, map, projectiles, sound, chunks, spurts });
     enemies.tick({ camera, map, projectiles, spurts, chunks, player, sound });
     camera.tick({ player, map });
     projectiles.tick();

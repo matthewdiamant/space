@@ -1,15 +1,44 @@
 import Character from "./Character";
 import { humanoid } from "./Sprites.js";
+import Blood from './Blood';
+import BloodChunk from './BloodChunk';
 
 export default class Player extends Character {
   constructor(x, y, health) {
     super(x, y, health);
     this.bloodColor = "red";
     this.weapon = null;
+    this.dead = false;
   }
 
-  tick({ camera, keyboard, map, projectiles, sound }) {
-    if (this.health <= 0) return;
+  tick({ camera, keyboard, map, projectiles, sound, spurts, chunks }) {
+    if (this.health <= 0 && !this.dead) {
+      for (let i = 0; i < 200; i++) {
+        spurts.add(
+          new Blood(
+            this.x,
+            this.y,
+            Math.random() * 5 - 2.5,
+            Math.random() * 5 - 5,
+            "red",
+          )
+        );
+      }
+      for (let i = 0; i < 10; i++) {
+        chunks.chunks.push(
+          new BloodChunk(
+            this.x,
+            this.y - 2,
+            Math.random() * 3 - 1.5,
+            Math.random() * 3 - 1.5,
+            "red"
+          )
+        );
+      }
+      this.dead = true;
+    }
+    if (this.dead) return;
+
     Character.tick.call(this, {
       camera,
       map,
@@ -25,6 +54,7 @@ export default class Player extends Character {
   }
 
   draw(drawer) {
+    if (this.dead) return;
     // drawer.rect({ fillColor: "green", rect: [this.x, this.y, 8, 8] }); // hitbox
 
     const colors = {
