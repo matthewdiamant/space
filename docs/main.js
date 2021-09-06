@@ -2749,9 +2749,9 @@ const assaultRifle = {
 
 const shotgun = {
   name: "Shotgun",
-  cooldown: 40,
+  cooldown: 30,
   payloadCount: 12,
-  knockback: 2,
+  knockback: 1,
   shake: { force: 2, duration: 8 },
   sound: "shotgun",
   projectileConfig: {
@@ -2764,8 +2764,40 @@ const shotgun = {
   },
 };
 
-const superShotgun = {};
-const sniperRifle = {};
+const superShotgun = {
+  name: "Super Shotgun",
+  cooldown: 60,
+  payloadCount: 24,
+  knockback: 2,
+  shake: { force: 3, duration: 8 },
+  sound: "shotgun",
+  projectileConfig: {
+    color: () => "yellow",
+    speed: 4,
+    spreadX: 1,
+    spreadY: 1.5,
+    damage: 1,
+    blood: 5,
+  },
+};
+
+const sniperRifle = {
+  name: "sniper rifle",
+  cooldown: 60,
+  payloadCount: 1,
+  knockback: 2,
+  shake: { force: 3, duration: 8 },
+  sound: "shotgun",
+  projectileConfig: {
+    color: () => "#eee",
+    speed: 6,
+    spreadX: 0,
+    spreadY: 0,
+    damage: 20,
+    blood: 50,
+  },
+};
+
 const flameThrower = {};
 
 const grenade = {
@@ -2849,7 +2881,8 @@ class WeaponFactory {
   }
 
   random() {
-    const guns = [pistol, assaultRifle, minigun, shotgun, grenade];
+    const guns = [pistol, assaultRifle, minigun, shotgun, superShotgun, sniperRifle, grenade];
+    // const guns = [sniperRifle];
     const base = guns[Math.floor(Math.random() * guns.length)];
     return this.create(base);
   }
