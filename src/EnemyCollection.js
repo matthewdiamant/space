@@ -10,30 +10,44 @@ const colors = {
   body: "orange",
 };
 
+const types = {
+  aggro: { health: 50, persona: aggro },
+  runAndGun: { health: 50, persona: runAndGun },
+  idiot: { health: 50, persona: idiot },
+  pacifist: { health: 50, persona: pacifist },
+  sentinel: { health: 50, persona: sentinel },
+};
+
 class EnemyCollection {
   constructor() {
     this.enemies = [];
+    this.remainingEnemies = [];
     this.enemyCount = 0;
   }
 
-  initialize({ concurrentEnemies, enemyCount, enemySpawnPoint }) {
+  initialize({ concurrentEnemies, enemyCount, enemySpawnPoint, enemies }) {
     this.concurrentEnemies = concurrentEnemies;
     this.enemyCount = enemyCount;
     this.enemySpawnPoint = enemySpawnPoint;
 
-    for (let i = 0; i < concurrentEnemies; i++) {
-      this.enemies.push(
-        new Enemy(
-          this.enemySpawnPoint[0],
-          this.enemySpawnPoint[1],
-          100,
-          Math.random() > 0.5 ? 1 : -1,
-          colors,
-          pacifist
-        )
+    this.remainingEnemies = [];
+    Object.entries(enemies).forEach(([type, count]) => {
+      this.remainingEnemies = this.remainingEnemies.concat(
+        Array(count).fill(type)
       );
-      this.enemyCount -= 1;
+    });
+
+    for (let i = 0; i < concurrentEnemies; i++) {
+      this.enemies.push(this.createEnemy());
     }
+  }
+
+  createEnemy() {
+    this.enemyCount -= 1;
+    const { health, persona } = types[this.remainingEnemies.pop()];
+    const [x, y] = this.enemySpawnPoint;
+    const facing = Math.random() > 0.5 ? 1 : -1;
+    return new Enemy(x, y, health, facing, colors, persona);
   }
 
   tick({ camera, map, projectiles, spurts, chunks, player, sound }) {
@@ -69,17 +83,7 @@ class EnemyCollection {
           this.enemies.length <= this.concurrentEnemies &&
           this.enemyCount > 0
         ) {
-          enemies.push(
-            new Enemy(
-              this.enemySpawnPoint[0],
-              this.enemySpawnPoint[1],
-              100,
-              -1,
-              colors,
-              pacifist
-            )
-          );
-          this.enemyCount -= 1;
+          enemies.push(this.createEnemy());
         }
       } else {
         enemies.push(enemy);

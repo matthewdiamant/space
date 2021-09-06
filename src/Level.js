@@ -6,12 +6,18 @@ const levelTemplates = [
     enemyCount: 1,
     spawnPoint: [40, 10],
     enemySpawnPoint: [50, 10],
+    enemies: {
+      sentinel: 1,
+    },
   },
   {
     concurrentEnemies: 5,
     enemyCount: 10,
     spawnPoint: [40, 10],
     enemySpawnPoint: [249, 20],
+    enemies: {
+      pacifist: 10,
+    },
   },
 ];
 

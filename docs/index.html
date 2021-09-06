@@ -1415,30 +1415,44 @@ const colors = {
   body: "orange",
 };
 
+const types = {
+  aggro: { health: 50, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["aggro"] },
+  runAndGun: { health: 50, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["runAndGun"] },
+  idiot: { health: 50, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["idiot"] },
+  pacifist: { health: 50, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["pacifist"] },
+  sentinel: { health: 50, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["sentinel"] },
+};
+
 class EnemyCollection {
   constructor() {
     this.enemies = [];
+    this.remainingEnemies = [];
     this.enemyCount = 0;
   }
 
-  initialize({ concurrentEnemies, enemyCount, enemySpawnPoint }) {
+  initialize({ concurrentEnemies, enemyCount, enemySpawnPoint, enemies }) {
     this.concurrentEnemies = concurrentEnemies;
     this.enemyCount = enemyCount;
     this.enemySpawnPoint = enemySpawnPoint;
 
-    for (let i = 0; i < concurrentEnemies; i++) {
-      this.enemies.push(
-        new _Enemy__WEBPACK_IMPORTED_MODULE_2__["default"](
-          this.enemySpawnPoint[0],
-          this.enemySpawnPoint[1],
-          100,
-          Math.random() > 0.5 ? 1 : -1,
-          colors,
-          _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["pacifist"]
-        )
+    this.remainingEnemies = [];
+    Object.entries(enemies).forEach(([type, count]) => {
+      this.remainingEnemies = this.remainingEnemies.concat(
+        Array(count).fill(type)
       );
-      this.enemyCount -= 1;
+    });
+
+    for (let i = 0; i < concurrentEnemies; i++) {
+      this.enemies.push(this.createEnemy());
     }
+  }
+
+  createEnemy() {
+    this.enemyCount -= 1;
+    const { health, persona } = types[this.remainingEnemies.pop()];
+    const [x, y] = this.enemySpawnPoint;
+    const facing = Math.random() > 0.5 ? 1 : -1;
+    return new _Enemy__WEBPACK_IMPORTED_MODULE_2__["default"](x, y, health, facing, colors, persona);
   }
 
   tick({ camera, map, projectiles, spurts, chunks, player, sound }) {
@@ -1474,17 +1488,7 @@ class EnemyCollection {
           this.enemies.length <= this.concurrentEnemies &&
           this.enemyCount > 0
         ) {
-          enemies.push(
-            new _Enemy__WEBPACK_IMPORTED_MODULE_2__["default"](
-              this.enemySpawnPoint[0],
-              this.enemySpawnPoint[1],
-              100,
-              -1,
-              colors,
-              _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["pacifist"]
-            )
-          );
-          this.enemyCount -= 1;
+          enemies.push(this.createEnemy());
         }
       } else {
         enemies.push(enemy);
@@ -1820,12 +1824,18 @@ const levelTemplates = [
     enemyCount: 1,
     spawnPoint: [40, 10],
     enemySpawnPoint: [50, 10],
+    enemies: {
+      sentinel: 1,
+    },
   },
   {
     concurrentEnemies: 5,
     enemyCount: 10,
     spawnPoint: [40, 10],
     enemySpawnPoint: [249, 20],
+    enemies: {
+      pacifist: 10,
+    },
   },
 ];
 
