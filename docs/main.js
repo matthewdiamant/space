@@ -1408,19 +1408,27 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const colors = {
+const defaultColors = {
   skin: "red",
   horns: "red",
   eyes: "yellow",
   body: "orange",
 };
 
+const pacifistColors = {
+  ...defaultColors,
+  horns: "beige",
+  eyes: "red",
+  skin: "beige",
+  body: "red",
+}
+
 const types = {
-  aggro: { health: 50, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["aggro"] },
-  runAndGun: { health: 50, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["runAndGun"] },
-  idiot: { health: 50, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["idiot"] },
-  pacifist: { health: 50, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["pacifist"] },
-  sentinel: { health: 50, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["sentinel"] },
+  aggro: { health: 50, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["aggro"], colors: defaultColors },
+  runAndGun: { health: 50, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["runAndGun"], colors: defaultColors },
+  idiot: { health: 50, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["idiot"], colors: defaultColors },
+  pacifist: { health: 50, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["pacifist"], colors: pacifistColors },
+  sentinel: { health: 50, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["sentinel"], colors: defaultColors },
 };
 
 class EnemyCollection {
@@ -1449,7 +1457,7 @@ class EnemyCollection {
 
   createEnemy() {
     this.enemyCount -= 1;
-    const { health, persona } = types[this.remainingEnemies.pop()];
+    const { health, persona, colors } = types[this.remainingEnemies.pop()];
     const [x, y] = this.enemySpawnPoint;
     const facing = Math.random() > 0.5 ? 1 : -1;
     return new _Enemy__WEBPACK_IMPORTED_MODULE_2__["default"](x, y, health, facing, colors, persona);

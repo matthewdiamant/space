@@ -3,19 +3,27 @@ import BloodChunk from "./BloodChunk";
 import Enemy from "./Enemy";
 import { aggro, runAndGun, idiot, pacifist, sentinel } from "./EnemyPersonas";
 
-const colors = {
+const defaultColors = {
   skin: "red",
   horns: "red",
   eyes: "yellow",
   body: "orange",
 };
 
+const pacifistColors = {
+  ...defaultColors,
+  horns: "beige",
+  eyes: "red",
+  skin: "beige",
+  body: "red",
+}
+
 const types = {
-  aggro: { health: 50, persona: aggro },
-  runAndGun: { health: 50, persona: runAndGun },
-  idiot: { health: 50, persona: idiot },
-  pacifist: { health: 50, persona: pacifist },
-  sentinel: { health: 50, persona: sentinel },
+  aggro: { health: 50, persona: aggro, colors: defaultColors },
+  runAndGun: { health: 50, persona: runAndGun, colors: defaultColors },
+  idiot: { health: 50, persona: idiot, colors: defaultColors },
+  pacifist: { health: 50, persona: pacifist, colors: pacifistColors },
+  sentinel: { health: 50, persona: sentinel, colors: defaultColors },
 };
 
 class EnemyCollection {
@@ -44,7 +52,7 @@ class EnemyCollection {
 
   createEnemy() {
     this.enemyCount -= 1;
-    const { health, persona } = types[this.remainingEnemies.pop()];
+    const { health, persona, colors } = types[this.remainingEnemies.pop()];
     const [x, y] = this.enemySpawnPoint;
     const facing = Math.random() > 0.5 ? 1 : -1;
     return new Enemy(x, y, health, facing, colors, persona);
