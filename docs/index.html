@@ -1828,7 +1828,7 @@ class Level {
     this.welcomeMessage = false;
   }
 
-  tick({ player, enemies, chunks, spurts, packages }) {
+  tick({ player, enemies, chunks, spurts, packages, sound }) {
     this.levelFadeIn += 1;
 
     if (enemies.enemies.length <= 0) {
@@ -1850,6 +1850,10 @@ class Level {
       this.level.level === 1 && this.levelOverTimer > delay * 5;
     if (oldWelcomeMessage !== this.welcomeMessage) {
       this.music.startMusic();
+    }
+
+    if ([delay, delay * 2, delay * 3].includes(this.levelOverTimer)) {
+      sound.play("message");
     }
   }
 
@@ -2454,6 +2458,7 @@ __webpack_require__.r(__webpack_exports__);
 let sounds = {
   "gun": [,,131,.02,.02,.08,,1.49,2.3,,,,,,,,,.9,.1],
   "jump": [,,131,.02,.02,.08,,1.49,2.3,,,,,,,,,.9,.1],
+  "message": [,0,1740,,.06,.29,,.77,,,,,,,,,,.76,.07,.06],
   "minigun": [,0,0,,,0,4,0,1e8,,,,,,,.04,,0,.08],
   "shotgun": [,0,0,,,0,4,0,1e8,,,,,,,.055,,0,.3],
   "thrown": [,0,0,,,0,4,0,1e8,,,,,,,.055,,0,.3],
@@ -2792,18 +2797,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _GameContainer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GameContainer */ "./src/GameContainer.js");
 /* harmony import */ var _Keyboard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Keyboard */ "./src/Keyboard.js");
 /* harmony import */ var _Sound__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Sound */ "./src/Sound.js");
-/* harmony import */ var _Music__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Music */ "./src/Music.js");
-/* harmony import */ var _CollisionDetector__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./CollisionDetector */ "./src/CollisionDetector.js");
-/* harmony import */ var _Background__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Background */ "./src/Background.js");
-/* harmony import */ var _Level__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Level */ "./src/Level.js");
-/* harmony import */ var _Map__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Map */ "./src/Map.js");
-/* harmony import */ var _HUD__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./HUD */ "./src/HUD.js");
-/* harmony import */ var _Player__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Player */ "./src/Player.js");
-/* harmony import */ var _EnemyCollection__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./EnemyCollection */ "./src/EnemyCollection.js");
-/* harmony import */ var _ProjectileCollection__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./ProjectileCollection */ "./src/ProjectileCollection.js");
-/* harmony import */ var _BloodCollection__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./BloodCollection */ "./src/BloodCollection.js");
-/* harmony import */ var _PackageCollection__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./PackageCollection */ "./src/PackageCollection.js");
-
+/* harmony import */ var _CollisionDetector__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./CollisionDetector */ "./src/CollisionDetector.js");
+/* harmony import */ var _Background__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Background */ "./src/Background.js");
+/* harmony import */ var _Level__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Level */ "./src/Level.js");
+/* harmony import */ var _Map__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Map */ "./src/Map.js");
+/* harmony import */ var _HUD__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./HUD */ "./src/HUD.js");
+/* harmony import */ var _Player__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Player */ "./src/Player.js");
+/* harmony import */ var _EnemyCollection__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./EnemyCollection */ "./src/EnemyCollection.js");
+/* harmony import */ var _ProjectileCollection__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./ProjectileCollection */ "./src/ProjectileCollection.js");
+/* harmony import */ var _BloodCollection__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./BloodCollection */ "./src/BloodCollection.js");
+/* harmony import */ var _PackageCollection__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./PackageCollection */ "./src/PackageCollection.js");
 
 
 
@@ -2826,23 +2829,22 @@ window.onload = () => {
   let drawer = new _Drawer__WEBPACK_IMPORTED_MODULE_0__["default"](gameContainer.canvas);
   let keyboard = new _Keyboard__WEBPACK_IMPORTED_MODULE_2__["default"]();
   let sound = new _Sound__WEBPACK_IMPORTED_MODULE_3__["default"]();
-  let collisionDetector = new _CollisionDetector__WEBPACK_IMPORTED_MODULE_5__["default"]();
+  let collisionDetector = new _CollisionDetector__WEBPACK_IMPORTED_MODULE_4__["default"]();
 
-  let background = new _Background__WEBPACK_IMPORTED_MODULE_6__["default"]({
+  let background = new _Background__WEBPACK_IMPORTED_MODULE_5__["default"]({
     cw: gameContainer.canvas.width,
     ch: gameContainer.canvas.height,
   });
 
-  let level = new _Level__WEBPACK_IMPORTED_MODULE_7__["default"]();
-  let map = new _Map__WEBPACK_IMPORTED_MODULE_8__["default"](level.level);
-  let hud = new _HUD__WEBPACK_IMPORTED_MODULE_9__["default"]();
-  // let music = new Music();
-  let player = new _Player__WEBPACK_IMPORTED_MODULE_10__["default"](10, 10, 1000);
-  let enemies = new _EnemyCollection__WEBPACK_IMPORTED_MODULE_11__["default"]();
-  let projectiles = new _ProjectileCollection__WEBPACK_IMPORTED_MODULE_12__["default"]();
-  let spurts = new _BloodCollection__WEBPACK_IMPORTED_MODULE_13__["default"]();
+  let level = new _Level__WEBPACK_IMPORTED_MODULE_6__["default"]();
+  let map = new _Map__WEBPACK_IMPORTED_MODULE_7__["default"](level.level);
+  let hud = new _HUD__WEBPACK_IMPORTED_MODULE_8__["default"]();
+  let player = new _Player__WEBPACK_IMPORTED_MODULE_9__["default"](10, 10, 1000);
+  let enemies = new _EnemyCollection__WEBPACK_IMPORTED_MODULE_10__["default"]();
+  let projectiles = new _ProjectileCollection__WEBPACK_IMPORTED_MODULE_11__["default"]();
+  let spurts = new _BloodCollection__WEBPACK_IMPORTED_MODULE_12__["default"]();
   let chunks = { chunks: [] };
-  let packages = new _PackageCollection__WEBPACK_IMPORTED_MODULE_14__["default"]();
+  let packages = new _PackageCollection__WEBPACK_IMPORTED_MODULE_13__["default"]();
 
   gameContainer.initialize();
   level.initializeLevel(1, { player, enemies, chunks, spurts, packages });
@@ -2861,7 +2863,7 @@ window.onload = () => {
 
   let tick = () => {
     const { camera } = drawer;
-    level.tick({ player, enemies, chunks, spurts, packages });
+    level.tick({ player, enemies, chunks, spurts, packages, sound });
     player.tick({ camera, keyboard, map, projectiles, sound });
     enemies.tick({ camera, map, projectiles, spurts, chunks, player, sound });
     camera.tick({ player, map });

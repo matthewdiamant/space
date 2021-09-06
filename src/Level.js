@@ -31,7 +31,7 @@ class Level {
     this.welcomeMessage = false;
   }
 
-  tick({ player, enemies, chunks, spurts, packages }) {
+  tick({ player, enemies, chunks, spurts, packages, sound }) {
     this.levelFadeIn += 1;
 
     if (enemies.enemies.length <= 0) {
@@ -53,6 +53,10 @@ class Level {
       this.level.level === 1 && this.levelOverTimer > delay * 5;
     if (oldWelcomeMessage !== this.welcomeMessage) {
       this.music.startMusic();
+    }
+
+    if ([delay, delay * 2, delay * 3].includes(this.levelOverTimer)) {
+      sound.play("message");
     }
   }
 
