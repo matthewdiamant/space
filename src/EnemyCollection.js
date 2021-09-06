@@ -54,7 +54,7 @@ class EnemyCollection {
     this.enemyCount -= 1;
     const { health, persona, colors } = types[this.remainingEnemies.pop()];
     const [x, y] = this.enemySpawnPoint;
-    return new Enemy(x, y, health, 1, colors, persona);
+    return new Enemy(x, y, health, -1, colors, persona);
   }
 
   tick({ camera, map, projectiles, spurts, chunks, player, sound }) {

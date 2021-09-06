@@ -2,7 +2,7 @@ import Package from "./Package";
 
 class PackageCollection {
   constructor() {
-    this.packages = [new Package(138, 20)];
+    this.packages = [];
     this.lifespan = 0;
   }
 
@@ -12,7 +12,7 @@ class PackageCollection {
     if (!(this.lifespan % 500)) {
       let x = Math.random() * map.mapWidthPixels;
       let y = Math.random() * map.mapHeightPixels;
-      while (map.getTile(x, y)) {
+      while (map.getTile(x, y + 1)) {
         x = Math.random() * map.mapWidthPixels;
         y = Math.random() * map.mapHeightPixels;
       }

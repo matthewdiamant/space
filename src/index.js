@@ -67,7 +67,7 @@ window.onload = () => {
     chunks.chunks.forEach((chunk) => chunk.tick());
 
     hud.tick(player, enemies);
-    packages.tick(map);
+    packages.tick(map, level.level.level);
   };
 
   let collisionDetection = () => {

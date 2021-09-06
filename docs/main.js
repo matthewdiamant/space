@@ -1459,7 +1459,7 @@ class EnemyCollection {
     this.enemyCount -= 1;
     const { health, persona, colors } = types[this.remainingEnemies.pop()];
     const [x, y] = this.enemySpawnPoint;
-    return new _Enemy__WEBPACK_IMPORTED_MODULE_2__["default"](x, y, health, 1, colors, persona);
+    return new _Enemy__WEBPACK_IMPORTED_MODULE_2__["default"](x, y, health, -1, colors, persona);
   }
 
   tick({ camera, map, projectiles, spurts, chunks, player, sound }) {
@@ -2256,7 +2256,7 @@ __webpack_require__.r(__webpack_exports__);
 
 class PackageCollection {
   constructor() {
-    this.packages = [new _Package__WEBPACK_IMPORTED_MODULE_0__["default"](138, 20)];
+    this.packages = [];
     this.lifespan = 0;
   }
 
@@ -2266,7 +2266,7 @@ class PackageCollection {
     if (!(this.lifespan % 500)) {
       let x = Math.random() * map.mapWidthPixels;
       let y = Math.random() * map.mapHeightPixels;
-      while (map.getTile(x, y)) {
+      while (map.getTile(x, y + 1)) {
         x = Math.random() * map.mapWidthPixels;
         y = Math.random() * map.mapHeightPixels;
       }
@@ -2913,7 +2913,7 @@ window.onload = () => {
     chunks.chunks.forEach((chunk) => chunk.tick());
 
     hud.tick(player, enemies);
-    packages.tick(map);
+    packages.tick(map, level.level.level);
   };
 
   let collisionDetection = () => {
