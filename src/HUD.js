@@ -4,19 +4,21 @@ class HUD {
   constructor() {}
 
   tick(player, enemies) {
-    this.weapon = player.weapon.name;
+    if (player.weapon) this.weapon = player.weapon.name;
     this.health = player.health;
     this.maxHealth = player.maxHealth;
     this.enemyCount = enemies.enemyCount + enemies.enemies.length;
   }
 
   draw(drawer) {
-    drawer.text({
-      text: this.weapon,
-      size: 1,
-      x: 2,
-      y: 117,
-    });
+    if (this.weapon) {
+      drawer.text({
+        text: this.weapon,
+        size: 1,
+        x: 2,
+        y: 117,
+      });
+    }
 
     const colors = {
       skin: "red",

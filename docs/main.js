@@ -755,13 +755,17 @@ class Character extends _GameObject__WEBPACK_IMPORTED_MODULE_0__["default"] {
       y: this.y + 5,
       facing: this.facing,
     };
-    const knockback = this.weapon.tick(
-      space,
-      projectiles,
-      weaponLocation,
-      camera,
-      sound
-    );
+
+    let knockback = 0;
+    if (this.weapon) {
+      knockback = this.weapon.tick(
+        space,
+        projectiles,
+        weaponLocation,
+        camera,
+        sound
+      );
+    }
 
     // move x
     if (left) {
@@ -1724,19 +1728,21 @@ class HUD {
   constructor() {}
 
   tick(player, enemies) {
-    this.weapon = player.weapon.name;
+    if (player.weapon) this.weapon = player.weapon.name;
     this.health = player.health;
     this.maxHealth = player.maxHealth;
     this.enemyCount = enemies.enemyCount + enemies.enemies.length;
   }
 
   draw(drawer) {
-    drawer.text({
-      text: this.weapon,
-      size: 1,
-      x: 2,
-      y: 117,
-    });
+    if (this.weapon) {
+      drawer.text({
+        text: this.weapon,
+        size: 1,
+        x: 2,
+        y: 117,
+      });
+    }
 
     const colors = {
       skin: "red",
@@ -1823,6 +1829,10 @@ class Keyboard {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Music__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Music */ "./src/Music.js");
+/* harmony import */ var _Package__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Package */ "./src/Package.js");
+/* harmony import */ var _WeaponFactory__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./WeaponFactory */ "./src/WeaponFactory.js");
+
+
 
 
 const levelTemplates = [
@@ -1863,7 +1873,10 @@ class Level {
     player.y = this.level.spawnPoint[1];
     chunks.chunks = [];
     spurts.spurts = [];
-    packages.packages = [];
+    packages.packages =
+      level === 1
+        ? [new _Package__WEBPACK_IMPORTED_MODULE_1__["default"](146, 90, new _WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["debugPistol"]))]
+        : [];
     enemies.initialize(this.level);
     this.levelOverTimer = 0;
     this.levelFadeIn = 0;
@@ -2196,11 +2209,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class Package extends _GameObject__WEBPACK_IMPORTED_MODULE_0__["default"] {
-  constructor(x, y) {
+  constructor(x, y, weapon) {
     super({ x, y });
 
-    const weaponFactory = new _WeaponFactory__WEBPACK_IMPORTED_MODULE_1__["default"]();
-    this.weapon = weaponFactory.random();
+    this.weapon = weapon || new _WeaponFactory__WEBPACK_IMPORTED_MODULE_1__["default"]().random();
     this.size = 5;
     this.grav = 0.04;
     this.dy = 0.4;
@@ -2261,9 +2273,8 @@ class PackageCollection {
   }
 
   tick(map, level) {
-    if (level === 1) return;
     this.lifespan += 1;
-    if (!(this.lifespan % 500)) {
+    if (!(this.lifespan % 500) && level !== 1) {
       let x = Math.random() * map.mapWidthPixels;
       let y = Math.random() * map.mapHeightPixels;
       while (map.getTile(x, y + 1)) {
@@ -2297,8 +2308,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Player; });
 /* harmony import */ var _Character__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Character */ "./src/Character.js");
 /* harmony import */ var _Sprites_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Sprites.js */ "./src/Sprites.js");
-/* harmony import */ var _WeaponFactory__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./WeaponFactory */ "./src/WeaponFactory.js");
-
 
 
 
@@ -2306,7 +2315,7 @@ class Player extends _Character__WEBPACK_IMPORTED_MODULE_0__["default"] {
   constructor(x, y, health) {
     super(x, y, health);
     this.bloodColor = "red";
-    this.weapon = new _WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["debugPistol"]);
+    this.weapon = null;
   }
 
   tick({ camera, keyboard, map, projectiles, sound }) {

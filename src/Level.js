@@ -1,4 +1,6 @@
 import Music from "./Music";
+import Package from "./Package";
+import WeaponFactory, { debugPistol } from "./WeaponFactory";
 
 const levelTemplates = [
   {
@@ -38,7 +40,10 @@ class Level {
     player.y = this.level.spawnPoint[1];
     chunks.chunks = [];
     spurts.spurts = [];
-    packages.packages = [];
+    packages.packages =
+      level === 1
+        ? [new Package(146, 90, new WeaponFactory().create(debugPistol))]
+        : [];
     enemies.initialize(this.level);
     this.levelOverTimer = 0;
     this.levelFadeIn = 0;

@@ -92,13 +92,17 @@ class Character extends GameObject {
       y: this.y + 5,
       facing: this.facing,
     };
-    const knockback = this.weapon.tick(
-      space,
-      projectiles,
-      weaponLocation,
-      camera,
-      sound
-    );
+
+    let knockback = 0;
+    if (this.weapon) {
+      knockback = this.weapon.tick(
+        space,
+        projectiles,
+        weaponLocation,
+        camera,
+        sound
+      );
+    }
 
     // move x
     if (left) {

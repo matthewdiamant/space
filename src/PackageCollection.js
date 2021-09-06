@@ -7,9 +7,8 @@ class PackageCollection {
   }
 
   tick(map, level) {
-    if (level === 1) return;
     this.lifespan += 1;
-    if (!(this.lifespan % 500)) {
+    if (!(this.lifespan % 500) && level !== 1) {
       let x = Math.random() * map.mapWidthPixels;
       let y = Math.random() * map.mapHeightPixels;
       while (map.getTile(x, y + 1)) {

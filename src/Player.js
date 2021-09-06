@@ -1,12 +1,11 @@
 import Character from "./Character";
 import { humanoid } from "./Sprites.js";
-import WeaponFactory, { debugPistol } from "./WeaponFactory";
 
 export default class Player extends Character {
   constructor(x, y, health) {
     super(x, y, health);
     this.bloodColor = "red";
-    this.weapon = new WeaponFactory().create(debugPistol);
+    this.weapon = null;
   }
 
   tick({ camera, keyboard, map, projectiles, sound }) {
