@@ -10,14 +10,8 @@ const runLeft = (enemy) => {
 
 const laps = (enemy) => {
   if (!enemy.holdLeft && !enemy.holdRight) enemy.holdRight = true;
-
-  if (enemy.x < 8 * 2) {
-    runRight(enemy);
-  }
-
-  if (enemy.x > 8 * 36) {
-    runLeft(enemy);
-  }
+  if (enemy.x < 8 * 2) runRight(enemy);
+  if (enemy.x > 8 * 36) runLeft(enemy);
 };
 
 const jumpToLedges = (freq, enemy, map) => {
@@ -33,18 +27,10 @@ const jumpToLedges = (freq, enemy, map) => {
 };
 
 const shootOnSight = (enemy, player) => {
-  let space;
   if (Math.abs(player.y - enemy.y) < 20) {
-    space = true;
-    if (player.x - enemy.x > 0) {
-      runRight(enemy);
-    } else {
-      runLeft(enemy);
-    }
-  } else {
-    space = false;
+    runTowardsObject(enemy, player);
   }
-  return space;
+  return shootInRange({ enemy, player });
 };
 
 const runTowardsObject = (enemy, object) => {
