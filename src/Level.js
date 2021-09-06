@@ -114,6 +114,17 @@ class Level {
         rect: [0, 0, 128, 128],
       });
     }
+
+    const newLevelTimer = delay * (6 + (this.level.level === 1 ? 3 : 0));
+    if (this.levelOverTimer > newLevelTimer - 50) {
+      drawer.rect({
+        adjusted: false,
+        fillColor: `rgba(0,0,0,${
+          1 - (newLevelTimer - this.levelOverTimer) / 50
+        })`,
+        rect: [0, 0, 128, 128],
+      });
+    }
   }
 }
 
