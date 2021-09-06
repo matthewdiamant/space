@@ -47,6 +47,35 @@ const shootOnSight = (enemy, player) => {
   return space;
 };
 
+const runTowardsObject = (enemy, object) => {
+  if (object.x - enemy.x > 0) {
+    runRight(enemy);
+  } else {
+    runLeft(enemy);
+  }
+};
+
+const jumpTowardsObject = (enemy, object, map) => {
+  if (object.y < enemy.y) {
+    jumpToLedges(1, enemy, map);
+  }
+};
+
+const shootInRange = ({ enemy, player }) => Math.abs(player.y - enemy.y) < 20;
+
+export const aggro = ({ enemy, player, map }) => {
+  runTowardsObject(enemy, player);
+  jumpTowardsObject(enemy, player, map);
+  const space = shootInRange({ enemy, player });
+  const buttons = {
+    left: enemy.holdLeft,
+    right: enemy.holdRight,
+    up: enemy.jumpTimer > 0,
+    space,
+  };
+  return [buttons, false];
+};
+
 export const runAndGun = ({ enemy, map, player }) => {
   laps(enemy);
   jumpToLedges(0.1, enemy, map);

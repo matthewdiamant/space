@@ -1716,7 +1716,7 @@ class EnemyCollection {
 
     for (let i = 0; i < concurrentEnemies; i++) {
       this.enemies.push(
-        new _Enemy__WEBPACK_IMPORTED_MODULE_2__["default"](249, 20, 100, Math.random() > 0.5 ? 1 : -1, colors, _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["runAndGun"])
+        new _Enemy__WEBPACK_IMPORTED_MODULE_2__["default"](249, 20, 100, Math.random() > 0.5 ? 1 : -1, colors, _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["aggro"])
       );
       this.enemyCount -= 1;
     }
@@ -1755,7 +1755,7 @@ class EnemyCollection {
           this.enemies.length <= this.concurrentEnemies &&
           this.enemyCount > 0
         ) {
-          enemies.push(new _Enemy__WEBPACK_IMPORTED_MODULE_2__["default"](249, 20, 100, -1, colors, _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["runAndGun"]));
+          enemies.push(new _Enemy__WEBPACK_IMPORTED_MODULE_2__["default"](249, 20, 100, -1, colors, _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["aggro"]));
           this.enemyCount -= 1;
         }
       } else {
@@ -1779,11 +1779,12 @@ class EnemyCollection {
 /*!******************************!*\
   !*** ./src/EnemyPersonas.js ***!
   \******************************/
-/*! exports provided: runAndGun, pacifist, idiot, sentinel */
+/*! exports provided: aggro, runAndGun, pacifist, idiot, sentinel */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "aggro", function() { return aggro; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "runAndGun", function() { return runAndGun; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pacifist", function() { return pacifist; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "idiot", function() { return idiot; });
@@ -1835,6 +1836,35 @@ const shootOnSight = (enemy, player) => {
     space = false;
   }
   return space;
+};
+
+const runTowardsObject = (enemy, object) => {
+  if (object.x - enemy.x > 0) {
+    runRight(enemy);
+  } else {
+    runLeft(enemy);
+  }
+};
+
+const jumpTowardsObject = (enemy, object, map) => {
+  if (object.y < enemy.y) {
+    jumpToLedges(1, enemy, map);
+  }
+};
+
+const shootInRange = ({ enemy, player }) => Math.abs(player.y - enemy.y) < 20;
+
+const aggro = ({ enemy, player, map }) => {
+  runTowardsObject(enemy, player);
+  jumpTowardsObject(enemy, player, map);
+  const space = shootInRange({ enemy, player });
+  const buttons = {
+    left: enemy.holdLeft,
+    right: enemy.holdRight,
+    up: enemy.jumpTimer > 0,
+    space,
+  };
+  return [buttons, false];
 };
 
 const runAndGun = ({ enemy, map, player }) => {

@@ -1,7 +1,7 @@
 import Blood from "./Blood";
 import BloodChunk from "./BloodChunk";
 import Enemy from "./Enemy";
-import { runAndGun, idiot, pacifist, sentinel } from "./EnemyPersonas";
+import { aggro, runAndGun, idiot, pacifist, sentinel } from "./EnemyPersonas";
 
 const colors = {
   skin: "red",
@@ -22,7 +22,7 @@ class EnemyCollection {
 
     for (let i = 0; i < concurrentEnemies; i++) {
       this.enemies.push(
-        new Enemy(249, 20, 100, Math.random() > 0.5 ? 1 : -1, colors, runAndGun)
+        new Enemy(249, 20, 100, Math.random() > 0.5 ? 1 : -1, colors, aggro)
       );
       this.enemyCount -= 1;
     }
@@ -61,7 +61,7 @@ class EnemyCollection {
           this.enemies.length <= this.concurrentEnemies &&
           this.enemyCount > 0
         ) {
-          enemies.push(new Enemy(249, 20, 100, -1, colors, runAndGun));
+          enemies.push(new Enemy(249, 20, 100, -1, colors, aggro));
           this.enemyCount -= 1;
         }
       } else {
