@@ -1421,13 +1421,21 @@ class EnemyCollection {
     this.enemyCount = 0;
   }
 
-  initialize({ concurrentEnemies, enemyCount }) {
+  initialize({ concurrentEnemies, enemyCount, enemySpawnPoint }) {
     this.concurrentEnemies = concurrentEnemies;
     this.enemyCount = enemyCount;
+    this.enemySpawnPoint = enemySpawnPoint;
 
     for (let i = 0; i < concurrentEnemies; i++) {
       this.enemies.push(
-        new _Enemy__WEBPACK_IMPORTED_MODULE_2__["default"](249, 20, 100, Math.random() > 0.5 ? 1 : -1, colors, _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["pacifist"])
+        new _Enemy__WEBPACK_IMPORTED_MODULE_2__["default"](
+          this.enemySpawnPoint[0],
+          this.enemySpawnPoint[1],
+          100,
+          Math.random() > 0.5 ? 1 : -1,
+          colors,
+          _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["pacifist"]
+        )
       );
       this.enemyCount -= 1;
     }
@@ -1466,7 +1474,16 @@ class EnemyCollection {
           this.enemies.length <= this.concurrentEnemies &&
           this.enemyCount > 0
         ) {
-          enemies.push(new _Enemy__WEBPACK_IMPORTED_MODULE_2__["default"](249, 20, 100, -1, colors, _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["pacifist"]));
+          enemies.push(
+            new _Enemy__WEBPACK_IMPORTED_MODULE_2__["default"](
+              this.enemySpawnPoint[0],
+              this.enemySpawnPoint[1],
+              100,
+              -1,
+              colors,
+              _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["pacifist"]
+            )
+          );
           this.enemyCount -= 1;
         }
       } else {
@@ -1799,9 +1816,16 @@ __webpack_require__.r(__webpack_exports__);
 
 const levelTemplates = [
   {
+    concurrentEnemies: 1,
+    enemyCount: 1,
+    spawnPoint: [40, 10],
+    enemySpawnPoint: [50, 10],
+  },
+  {
     concurrentEnemies: 5,
     enemyCount: 10,
     spawnPoint: [40, 10],
+    enemySpawnPoint: [249, 20],
   },
 ];
 
@@ -1813,9 +1837,10 @@ class Level {
     this.musicStarted = false;
   }
 
-  initializeLevel(level, { player, enemies, chunks, spurts, packages }) {
-    this.level = levelTemplates[level] || levelTemplates[0];
+  initializeLevel(level, { player, enemies, chunks, spurts, packages, map }) {
+    this.level = levelTemplates[level - 1] || levelTemplates[1];
     this.level.level = level;
+    map.loadLevel(level);
     player.health = player.maxHealth;
     player.x = this.level.spawnPoint[0];
     player.y = this.level.spawnPoint[1];
@@ -1828,7 +1853,7 @@ class Level {
     this.welcomeMessage = false;
   }
 
-  tick({ player, enemies, chunks, spurts, packages, sound }) {
+  tick({ player, enemies, chunks, spurts, packages, sound, map }) {
     this.levelFadeIn += 1;
 
     if (enemies.enemies.length <= 0) {
@@ -1842,6 +1867,7 @@ class Level {
         chunks,
         spurts,
         packages,
+        map,
       });
     }
 
@@ -1962,26 +1988,6 @@ const level1 = [
 
 // prettier-ignore
 const level2 = [
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-];
-
-// prettier-ignore
-const level3 = [
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
@@ -2010,7 +2016,7 @@ const level3 = [
 ];
 
 // prettier-ignore
-const level3Hex = [
+const level2Hex = [
   "ffffffffff", "8000000001", "8000000001", "8000000001",
   "8000000001", "87007e00e1", "8000000001", "8000000001",
   "f03c003c0f", "8000000001", "8000000001", "8300c300c1",
@@ -2057,24 +2063,27 @@ const hexToMap = (hex) => {
   });
 };
 
+const defaultMap = hexToMap(level2Hex);
+const a = [level1, defaultMap];
+
 class Map {
-  constructor(level) {
+  constructor() {
     this.drawer = null;
     this.tileSize = 8;
     this.mapTiles = [];
     this.mapHeight = 0;
     this.mapLength = 0;
-    const mapHex = mapToHex(level3);
-    const map = hexToMap(level3Hex);
-    this.loadLevel(map);
-    this.mapWidthPixels = this.tileSize * this.mapLength;
-    this.mapHeightPixels = this.tileSize * this.mapHeight;
   }
 
-  loadLevel(tiles) {
+  loadLevel(level) {
+    const tiles = a[level - 1] || defaultMap;
+
     this.mapTiles = tiles;
     this.mapHeight = tiles.length;
     this.mapLength = tiles[0].length;
+
+    this.mapWidthPixels = this.tileSize * this.mapLength;
+    this.mapHeightPixels = this.tileSize * this.mapHeight;
   }
 
   getTile(x, y) {
@@ -2848,7 +2857,7 @@ window.onload = () => {
   });
 
   let level = new _Level__WEBPACK_IMPORTED_MODULE_6__["default"]();
-  let map = new _Map__WEBPACK_IMPORTED_MODULE_7__["default"](level.level);
+  let map = new _Map__WEBPACK_IMPORTED_MODULE_7__["default"]();
   let hud = new _HUD__WEBPACK_IMPORTED_MODULE_8__["default"]();
   let player = new _Player__WEBPACK_IMPORTED_MODULE_9__["default"](10, 10, 1000);
   let enemies = new _EnemyCollection__WEBPACK_IMPORTED_MODULE_10__["default"]();
@@ -2858,7 +2867,7 @@ window.onload = () => {
   let packages = new _PackageCollection__WEBPACK_IMPORTED_MODULE_13__["default"]();
 
   gameContainer.initialize();
-  level.initializeLevel(1, { player, enemies, chunks, spurts, packages });
+  level.initializeLevel(1, { player, enemies, chunks, spurts, packages, map });
 
   let fps = 60,
     interval = 1000 / fps,
@@ -2874,7 +2883,7 @@ window.onload = () => {
 
   let tick = () => {
     const { camera } = drawer;
-    level.tick({ player, enemies, chunks, spurts, packages, sound });
+    level.tick({ player, enemies, chunks, spurts, packages, sound, map });
     player.tick({ camera, keyboard, map, projectiles, sound });
     enemies.tick({ camera, map, projectiles, spurts, chunks, player, sound });
     camera.tick({ player, map });

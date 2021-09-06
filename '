@@ -2,16 +2,9 @@ import Music from "./Music";
 
 const levelTemplates = [
   {
-    concurrentEnemies: 1,
-    enemyCount: 1,
-    spawnPoint: [40, 10],
-    enemySpawnPoint: [50, 10],
-  },
-  {
     concurrentEnemies: 5,
     enemyCount: 10,
     spawnPoint: [40, 10],
-    enemySpawnPoint: [249, 20],
   },
 ];
 
@@ -23,10 +16,9 @@ class Level {
     this.musicStarted = false;
   }
 
-  initializeLevel(level, { player, enemies, chunks, spurts, packages, map }) {
-    this.level = levelTemplates[level - 1] || levelTemplates[1];
+  initializeLevel(level, { player, enemies, chunks, spurts, packages }) {
+    this.level = levelTemplates[level] || levelTemplates[0];
     this.level.level = level;
-    map.loadLevel(level);
     player.health = player.maxHealth;
     player.x = this.level.spawnPoint[0];
     player.y = this.level.spawnPoint[1];

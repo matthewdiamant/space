@@ -16,13 +16,21 @@ class EnemyCollection {
     this.enemyCount = 0;
   }
 
-  initialize({ concurrentEnemies, enemyCount }) {
+  initialize({ concurrentEnemies, enemyCount, enemySpawnPoint }) {
     this.concurrentEnemies = concurrentEnemies;
     this.enemyCount = enemyCount;
+    this.enemySpawnPoint = enemySpawnPoint;
 
     for (let i = 0; i < concurrentEnemies; i++) {
       this.enemies.push(
-        new Enemy(249, 20, 100, Math.random() > 0.5 ? 1 : -1, colors, pacifist)
+        new Enemy(
+          this.enemySpawnPoint[0],
+          this.enemySpawnPoint[1],
+          100,
+          Math.random() > 0.5 ? 1 : -1,
+          colors,
+          pacifist
+        )
       );
       this.enemyCount -= 1;
     }
@@ -61,7 +69,16 @@ class EnemyCollection {
           this.enemies.length <= this.concurrentEnemies &&
           this.enemyCount > 0
         ) {
-          enemies.push(new Enemy(249, 20, 100, -1, colors, pacifist));
+          enemies.push(
+            new Enemy(
+              this.enemySpawnPoint[0],
+              this.enemySpawnPoint[1],
+              100,
+              -1,
+              colors,
+              pacifist
+            )
+          );
           this.enemyCount -= 1;
         }
       } else {
