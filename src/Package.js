@@ -10,6 +10,7 @@ class Package extends GameObject {
     this.grav = 0.04;
     this.dy = 0.4;
     this.landed = false;
+    this.type = weapon || Math.random() > 0.5 ? "weapon" : "health";
   }
 
   tick() {

@@ -39,7 +39,12 @@ export default class CollisionDetector {
 
   handlePackage(packge, object, packages) {
     if (collision(packge, object)) {
-      object.weapon = packge.weapon;
+      if (packge.type === "weapon") {
+        object.weapon = packge.weapon;
+      } else {
+        object.health += 200;
+        object.health = Math.min(object.maxHealth, object.health);
+      }
       packages.packages = packages.packages.filter((p) => p !== packge);
     }
   }

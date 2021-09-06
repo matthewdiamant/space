@@ -879,7 +879,12 @@ class CollisionDetector {
 
   handlePackage(packge, object, packages) {
     if (collision(packge, object)) {
-      object.weapon = packge.weapon;
+      if (packge.type === "weapon") {
+        object.weapon = packge.weapon;
+      } else {
+        object.health += 200;
+        object.health = Math.min(object.maxHealth, object.health);
+      }
       packages.packages = packages.packages.filter((p) => p !== packge);
     }
   }
@@ -2257,6 +2262,7 @@ class Package extends _GameObject__WEBPACK_IMPORTED_MODULE_0__["default"] {
     this.grav = 0.04;
     this.dy = 0.4;
     this.landed = false;
+    this.type = weapon || Math.random() > 0.5 ? "weapon" : "health";
   }
 
   tick() {
@@ -2959,7 +2965,7 @@ window.onload = () => {
   let level = new _Level__WEBPACK_IMPORTED_MODULE_6__["default"]();
   let map = new _Map__WEBPACK_IMPORTED_MODULE_7__["default"]();
   let hud = new _HUD__WEBPACK_IMPORTED_MODULE_8__["default"]();
-  let player = new _Player__WEBPACK_IMPORTED_MODULE_9__["default"](10, 10, 1000);
+  let player = new _Player__WEBPACK_IMPORTED_MODULE_9__["default"](10, 10, 500);
   let enemies = new _EnemyCollection__WEBPACK_IMPORTED_MODULE_10__["default"]();
   let projectiles = new _ProjectileCollection__WEBPACK_IMPORTED_MODULE_11__["default"]();
   let spurts = new _BloodCollection__WEBPACK_IMPORTED_MODULE_12__["default"]();
