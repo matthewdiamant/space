@@ -720,7 +720,7 @@ const collideRoof = (player, map) => {
 };
 
 class Character extends _GameObject__WEBPACK_IMPORTED_MODULE_0__["default"] {
-  constructor(x, y, health, facing) {
+  constructor(x, y, health, facing, weapon) {
     super({ x, y, maxDx: 1, maxDy: 2, grav: 0.15 });
     this.size = 8;
     this.acc = 0.05;
@@ -740,8 +740,7 @@ class Character extends _GameObject__WEBPACK_IMPORTED_MODULE_0__["default"] {
     this.health = health;
     this.maxHealth = health;
 
-    const weaponFactory = new _WeaponFactory__WEBPACK_IMPORTED_MODULE_1__["default"]();
-    this.weapon = weaponFactory.random();
+    this.weapon = weapon || new _WeaponFactory__WEBPACK_IMPORTED_MODULE_1__["default"]().random();
   }
 
   static tick({ camera, map, projectiles, presses, immobile, sound }) {
@@ -1349,8 +1348,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class Enemy extends _Character__WEBPACK_IMPORTED_MODULE_0__["default"] {
-  constructor(x, y, health, facing, colors, persona) {
-    super(x, y, health, facing);
+  constructor(x, y, health, facing, colors, persona, weapon) {
+    super(x, y, health, facing, weapon);
     this.colors = colors;
     this.bloodColor = "#32CD32";
     this.presses = {
@@ -1407,6 +1406,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _BloodChunk__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BloodChunk */ "./src/BloodChunk.js");
 /* harmony import */ var _Enemy__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Enemy */ "./src/Enemy.js");
 /* harmony import */ var _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./EnemyPersonas */ "./src/EnemyPersonas.js");
+/* harmony import */ var _WeaponFactory__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./WeaponFactory */ "./src/WeaponFactory.js");
+
 
 
 
@@ -1432,7 +1433,7 @@ const types = {
   runAndGun: { health: 50, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["runAndGun"], colors: defaultColors },
   idiot: { health: 50, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["idiot"], colors: defaultColors },
   pacifist: { health: 50, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["pacifist"], colors: pacifistColors },
-  sentinel: { health: 50, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["sentinel"], colors: defaultColors },
+  sentinel: { health: 50, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["sentinel"], colors: defaultColors, weapon: new _WeaponFactory__WEBPACK_IMPORTED_MODULE_4__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_4__["assaultRifle"]) },
 };
 
 class EnemyCollection {
@@ -1461,9 +1462,9 @@ class EnemyCollection {
 
   createEnemy() {
     this.enemyCount -= 1;
-    const { health, persona, colors } = types[this.remainingEnemies.pop()];
+    const { health, persona, colors, weapon } = types[this.remainingEnemies.pop()];
     const [x, y] = this.enemySpawnPoint;
-    return new _Enemy__WEBPACK_IMPORTED_MODULE_2__["default"](x, y, health, -1, colors, persona);
+    return new _Enemy__WEBPACK_IMPORTED_MODULE_2__["default"](x, y, health, -1, colors, persona, weapon);
   }
 
   tick({ camera, map, projectiles, spurts, chunks, player, sound }) {
@@ -2638,7 +2639,7 @@ class Weapon {
 /*!******************************!*\
   !*** ./src/WeaponFactory.js ***!
   \******************************/
-/*! exports provided: debugPistol, pistol, minigun, shotgun, default */
+/*! exports provided: debugPistol, pistol, minigun, assaultRifle, shotgun, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2646,6 +2647,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "debugPistol", function() { return debugPistol; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pistol", function() { return pistol; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "minigun", function() { return minigun; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "assaultRifle", function() { return assaultRifle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "shotgun", function() { return shotgun; });
 /* harmony import */ var _Weapon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Weapon */ "./src/Weapon.js");
 

@@ -51,7 +51,7 @@ export const minigun = {
   },
 };
 
-const assaultRifle = {
+export const assaultRifle = {
   name: "Assault Rifle",
   cooldown: 8,
   payloadCount: 1,

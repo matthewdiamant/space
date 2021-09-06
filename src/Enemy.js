@@ -2,8 +2,8 @@ import Character from "./Character";
 import { humanoid } from "./Sprites";
 
 class Enemy extends Character {
-  constructor(x, y, health, facing, colors, persona) {
-    super(x, y, health, facing);
+  constructor(x, y, health, facing, colors, persona, weapon) {
+    super(x, y, health, facing, weapon);
     this.colors = colors;
     this.bloodColor = "#32CD32";
     this.presses = {

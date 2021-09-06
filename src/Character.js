@@ -57,7 +57,7 @@ const collideRoof = (player, map) => {
 };
 
 class Character extends GameObject {
-  constructor(x, y, health, facing) {
+  constructor(x, y, health, facing, weapon) {
     super({ x, y, maxDx: 1, maxDy: 2, grav: 0.15 });
     this.size = 8;
     this.acc = 0.05;
@@ -77,8 +77,7 @@ class Character extends GameObject {
     this.health = health;
     this.maxHealth = health;
 
-    const weaponFactory = new WeaponFactory();
-    this.weapon = weaponFactory.random();
+    this.weapon = weapon || new WeaponFactory().random();
   }
 
   static tick({ camera, map, projectiles, presses, immobile, sound }) {
