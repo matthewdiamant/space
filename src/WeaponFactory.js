@@ -6,11 +6,13 @@ export const debugPistol = {
   cooldown: 2,
   payloadCount: 1,
   knockback: 0,
+  shake: { force: 1, duration: 2 },
+  sound: "minigun",
   projectileConfig: {
     color: () => "#eee",
     speed: 3,
-    spreadX: 0,
-    spreadY: 0.15,
+    spreadX: 1,
+    spreadY: 0.3,
     damage: 100,
     blood: 5,
   },
@@ -21,6 +23,7 @@ export const pistol = {
   cooldown: 10,
   payloadCount: 1,
   knockback: 0,
+  sound: "gun",
   projectileConfig: {
     color: () => "#eee",
     speed: 3,
@@ -35,8 +38,9 @@ export const minigun = {
   name: "Minigun",
   cooldown: 2,
   payloadCount: 1,
-  knockback: 0.5,
-  shake: { force: 1, duration: 1 },
+  knockback: 0.4,
+  shake: { force: 1, duration: 2 },
+  sound: "minigun",
   projectileConfig: {
     color: () => "#fff",
     speed: 4,
@@ -52,6 +56,7 @@ const assaultRifle = {
   cooldown: 8,
   payloadCount: 1,
   knockback: 0.1,
+  sound: "gun",
   projectileConfig: {
     color: () => "#fff",
     speed: 3,
@@ -68,6 +73,7 @@ export const shotgun = {
   payloadCount: 12,
   knockback: 2,
   shake: { force: 2, duration: 8 },
+  sound: "shotgun",
   projectileConfig: {
     color: () => "yellow",
     speed: 4,
@@ -87,6 +93,7 @@ const grenade = {
   cooldown: 40,
   payloadCount: 1,
   knockback: 0,
+  sound: "thrown",
   projectileConfig: {
     emoji: "💣",
     speed: 2,

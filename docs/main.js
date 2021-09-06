@@ -790,7 +790,7 @@ class Character extends _GameObject__WEBPACK_IMPORTED_MODULE_0__["default"] {
       const onGround = this.grounded || this.airtime < 5;
       const newJump = this.holdJump < 10;
       if (this.jumpHoldTime > 0 || (onGround && newJump)) {
-        if (this.grounded) sound.jump();
+        if (this.grounded) sound.play("jump");
         this.jumpHoldTime += 1;
         if (this.jumpHoldTime < this.maxJumpPress) {
           this.dy = -this.jumpSpeed;
@@ -2433,15 +2433,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var zzfx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! zzfx */ "./node_modules/zzfx/ZzFX.js");
 
 
+// prettier-ignore
+let sounds = {
+  "gun": [,,131,.02,.02,.08,,1.49,2.3,,,,,,,,,.9,.1],
+  "jump": [,,131,.02,.02,.08,,1.49,2.3,,,,,,,,,.9,.1],
+  "minigun": [,0,0,,,0,4,0,1e8,,,,,,,.04,,0,.08],
+  "shotgun": [,0,0,,,0,4,0,1e8,,,,,,,.055,,0,.3],
+  "thrown": [,0,0,,,0,4,0,1e8,,,,,,,.055,,0,.3],
+};
+
 class Sound {
-  // prettier-ignore
-  gun() {
-
-  }
-
-  // prettier-ignore
-  jump() {
-    Object(zzfx__WEBPACK_IMPORTED_MODULE_0__["zzfx"])(...[,,131,.02,.02,.08,,1.49,2.3,,,,,,,,,.9,.1]);
+  play(sound) {
+    Object(zzfx__WEBPACK_IMPORTED_MODULE_0__["zzfx"])(...sounds[sound]);
   }
 }
 
@@ -2542,7 +2545,7 @@ class Weapon {
       pressSpace
     ) {
       this.fire(projectiles, location);
-      sound.gun();
+      sound.play("minigun");
       if (this.shake) camera.shake(this.shake.force, this.shake.duration);
       return this.knockback;
     }
@@ -2585,11 +2588,13 @@ const debugPistol = {
   cooldown: 2,
   payloadCount: 1,
   knockback: 0,
+  shake: { force: 1, duration: 2 },
+  sound: "minigun",
   projectileConfig: {
     color: () => "#eee",
     speed: 3,
-    spreadX: 0,
-    spreadY: 0.15,
+    spreadX: 1,
+    spreadY: 0.3,
     damage: 100,
     blood: 5,
   },
@@ -2600,6 +2605,7 @@ const pistol = {
   cooldown: 10,
   payloadCount: 1,
   knockback: 0,
+  sound: "gun",
   projectileConfig: {
     color: () => "#eee",
     speed: 3,
@@ -2614,8 +2620,9 @@ const minigun = {
   name: "Minigun",
   cooldown: 2,
   payloadCount: 1,
-  knockback: 0.5,
-  shake: { force: 1, duration: 1 },
+  knockback: 0.4,
+  shake: { force: 1, duration: 2 },
+  sound: "minigun",
   projectileConfig: {
     color: () => "#fff",
     speed: 4,
@@ -2631,6 +2638,7 @@ const assaultRifle = {
   cooldown: 8,
   payloadCount: 1,
   knockback: 0.1,
+  sound: "gun",
   projectileConfig: {
     color: () => "#fff",
     speed: 3,
@@ -2647,6 +2655,7 @@ const shotgun = {
   payloadCount: 12,
   knockback: 2,
   shake: { force: 2, duration: 8 },
+  sound: "shotgun",
   projectileConfig: {
     color: () => "yellow",
     speed: 4,
@@ -2666,6 +2675,7 @@ const grenade = {
   cooldown: 40,
   payloadCount: 1,
   knockback: 0,
+  sound: "thrown",
   projectileConfig: {
     emoji: "💣",
     speed: 2,

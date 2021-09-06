@@ -127,7 +127,7 @@ class Character extends GameObject {
       const onGround = this.grounded || this.airtime < 5;
       const newJump = this.holdJump < 10;
       if (this.jumpHoldTime > 0 || (onGround && newJump)) {
-        if (this.grounded) sound.jump();
+        if (this.grounded) sound.play("jump");
         this.jumpHoldTime += 1;
         if (this.jumpHoldTime < this.maxJumpPress) {
           this.dy = -this.jumpSpeed;
