@@ -7,10 +7,13 @@ class HUD {
     if (player.weapon) this.weapon = player.weapon.name;
     this.health = player.health;
     this.maxHealth = player.maxHealth;
+    this.dead = player.dead;
     this.enemyCount = enemies.enemyCount + enemies.enemies.length;
   }
 
   draw(drawer) {
+    if (this.dead) return;
+
     if (this.weapon) {
       drawer.text({
         text: this.weapon,
