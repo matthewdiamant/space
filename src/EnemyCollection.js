@@ -2,29 +2,24 @@ import Blood from "./Blood";
 import BloodChunk from "./BloodChunk";
 import Enemy from "./Enemy";
 import { aggro, runAndGun, idiot, pacifist, sentinel } from "./EnemyPersonas";
-import WeaponFactory, { assaultRifle } from './WeaponFactory';
+import WeaponFactory, { assaultRifle } from "./WeaponFactory";
 
-const defaultColors = {
-  skin: "red",
-  horns: "red",
-  eyes: "yellow",
-  body: "orange",
-};
+const defaultColors = ["red", "red", "yellow", "orange"];
+const pacifistColors = ["beige", "beige", "red", "red"];
 
-const pacifistColors = {
-  ...defaultColors,
-  horns: "beige",
-  eyes: "red",
-  skin: "beige",
-  body: "red",
-}
+const makeColors = ([skin, horns, eyes, body]) => ({ skin, horns, eyes, body });
 
 const types = {
   aggro: { health: 50, persona: aggro, colors: defaultColors },
   runAndGun: { health: 50, persona: runAndGun, colors: defaultColors },
   idiot: { health: 50, persona: idiot, colors: defaultColors },
   pacifist: { health: 50, persona: pacifist, colors: pacifistColors },
-  sentinel: { health: 50, persona: sentinel, colors: defaultColors, weapon: new WeaponFactory().create(assaultRifle) },
+  sentinel: {
+    health: 50,
+    persona: sentinel,
+    colors: defaultColors,
+    weapon: new WeaponFactory().create(assaultRifle),
+  },
 };
 
 class EnemyCollection {
@@ -53,9 +48,11 @@ class EnemyCollection {
 
   createEnemy() {
     this.enemyCount -= 1;
-    const { health, persona, colors, weapon } = types[this.remainingEnemies.pop()];
+    const { health, persona, colors, weapon } = types[
+      this.remainingEnemies.pop()
+    ];
     const [x, y] = this.enemySpawnPoint;
-    return new Enemy(x, y, health, -1, colors, persona, weapon);
+    return new Enemy(x, y, health, -1, makeColors(colors), persona, weapon);
   }
 
   tick({ camera, map, projectiles, spurts, chunks, player, sound }) {
