@@ -28,7 +28,7 @@ class Weapon {
       pressSpace
     ) {
       this.fire(projectiles, location);
-      sound.mainLaser();
+      sound.gun();
       if (this.shake) camera.shake(this.shake.force, this.shake.duration);
       return this.knockback;
     }
