@@ -56,6 +56,7 @@ class Level {
   constructor() {
     this.music = new Music();
     this.musicStarted = false;
+    this.gameOver = false;
   }
 
   initializeLevel(level, { player, enemies, chunks, spurts, packages, map }) {
@@ -78,6 +79,10 @@ class Level {
   }
 
   tick({ player, enemies, chunks, spurts, packages, sound, map }) {
+    if (player.health <= 0) {
+      this.gameOver = true;
+    }
+
     this.levelFadeIn += 1;
 
     if (enemies.enemies.length <= 0) {
@@ -170,6 +175,20 @@ class Level {
           1 - (newLevelTimer - this.levelOverTimer) / 50
         })`,
         rect: [0, 0, 128, 128],
+      });
+    }
+
+    if (this.gameOver) {
+      drawer.rect({
+        adjusted: false,
+        fillColor: "#000",
+        rect: [15, 26, 98, 31],
+      });
+      drawer.text({
+        text: "Game over",
+        size: 2,
+        x: 25,
+        y: 36,
       });
     }
   }

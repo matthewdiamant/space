@@ -30,7 +30,7 @@ window.onload = () => {
   let level = new Level();
   let map = new Map();
   let hud = new HUD();
-  let player = new Player(10, 10, 500);
+  let player = new Player(10, 10, 100);
   let enemies = new EnemyCollection();
   let projectiles = new ProjectileCollection();
   let spurts = new BloodCollection();

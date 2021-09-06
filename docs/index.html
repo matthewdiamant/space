@@ -1907,6 +1907,7 @@ class Level {
   constructor() {
     this.music = new _Music__WEBPACK_IMPORTED_MODULE_0__["default"]();
     this.musicStarted = false;
+    this.gameOver = false;
   }
 
   initializeLevel(level, { player, enemies, chunks, spurts, packages, map }) {
@@ -1929,6 +1930,10 @@ class Level {
   }
 
   tick({ player, enemies, chunks, spurts, packages, sound, map }) {
+    if (player.health <= 0) {
+      this.gameOver = true;
+    }
+
     this.levelFadeIn += 1;
 
     if (enemies.enemies.length <= 0) {
@@ -2021,6 +2026,20 @@ class Level {
           1 - (newLevelTimer - this.levelOverTimer) / 50
         })`,
         rect: [0, 0, 128, 128],
+      });
+    }
+
+    if (this.gameOver) {
+      drawer.rect({
+        adjusted: false,
+        fillColor: "#000",
+        rect: [15, 26, 98, 31],
+      });
+      drawer.text({
+        text: "Game over",
+        size: 2,
+        x: 25,
+        y: 36,
       });
     }
   }
@@ -2382,6 +2401,7 @@ class Player extends _Character__WEBPACK_IMPORTED_MODULE_0__["default"] {
   }
 
   tick({ camera, keyboard, map, projectiles, sound }) {
+    if (this.health <= 0) return;
     _Character__WEBPACK_IMPORTED_MODULE_0__["default"].tick.call(this, {
       camera,
       map,
@@ -2982,7 +3002,7 @@ window.onload = () => {
   let level = new _Level__WEBPACK_IMPORTED_MODULE_6__["default"]();
   let map = new _Map__WEBPACK_IMPORTED_MODULE_7__["default"]();
   let hud = new _HUD__WEBPACK_IMPORTED_MODULE_8__["default"]();
-  let player = new _Player__WEBPACK_IMPORTED_MODULE_9__["default"](10, 10, 500);
+  let player = new _Player__WEBPACK_IMPORTED_MODULE_9__["default"](10, 10, 100);
   let enemies = new _EnemyCollection__WEBPACK_IMPORTED_MODULE_10__["default"]();
   let projectiles = new _ProjectileCollection__WEBPACK_IMPORTED_MODULE_11__["default"]();
   let spurts = new _BloodCollection__WEBPACK_IMPORTED_MODULE_12__["default"]();

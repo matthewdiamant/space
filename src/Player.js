@@ -9,6 +9,7 @@ export default class Player extends Character {
   }
 
   tick({ camera, keyboard, map, projectiles, sound }) {
+    if (this.health <= 0) return;
     Character.tick.call(this, {
       camera,
       map,
