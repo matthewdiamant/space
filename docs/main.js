@@ -2187,20 +2187,56 @@ class Map {
   }
 
   draw(drawer) {
+    const [main, highlight, shadow] = ["#114", "#336", "#003"];
     this.drawer = this.drawer || drawer;
     this.mapTiles.forEach((row, y) => {
       row.forEach((tile, x) => {
-        if (tile === 1) {
-          drawer.rect({
-            fillColor: "darkblue",
-            rect: [
-              x * this.tileSize,
-              y * this.tileSize,
-              this.tileSize,
-              this.tileSize,
-            ],
-          });
-        }
+        if (tile !== 1) return;
+        drawer.rect({
+          fillColor: main,
+          rect: [
+            x * this.tileSize + 1,
+            y * this.tileSize + 1,
+            this.tileSize - 2,
+            this.tileSize - 2,
+          ],
+        });
+        drawer.rect({
+          fillColor: highlight,
+          rect: [
+            x * this.tileSize + 1,
+            y * this.tileSize,
+            this.tileSize - 2,
+            1,
+          ],
+        });
+        drawer.rect({
+          fillColor: shadow,
+          rect: [
+            x * this.tileSize + 1,
+            y * this.tileSize + this.tileSize - 1,
+            this.tileSize - 2,
+            1,
+          ],
+        });
+        drawer.rect({
+          fillColor: highlight,
+          rect: [
+            x * this.tileSize,
+            y * this.tileSize + 1,
+            1,
+            this.tileSize - 2,
+          ],
+        });
+        drawer.rect({
+          fillColor: shadow,
+          rect: [
+            x * this.tileSize + this.tileSize - 1,
+            y * this.tileSize + 1,
+            1,
+            this.tileSize - 2,
+          ],
+        });
       });
     });
   }
