@@ -39,6 +39,8 @@ class Enemy extends Character {
     humanoid(this.x, this.y, this.facing, this.colors).forEach(({ c, r }) =>
       drawer.rect({ fillColor: c, rect: r })
     );
+
+    this.weapon && this.weapon.draw(drawer, { x: this.x, y: this.y });
   }
 }
 

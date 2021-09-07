@@ -67,5 +67,7 @@ export default class Player extends Character {
     humanoid(this.x, this.y, this.facing, colors).forEach(({ c, r }) =>
       drawer.rect({ fillColor: c, rect: r })
     );
+
+    this.weapon && this.weapon.draw(drawer, { x: this.x, y: this.y, facing: this.facing });
   }
 }

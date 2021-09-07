@@ -1367,6 +1367,8 @@ class Enemy extends _Character__WEBPACK_IMPORTED_MODULE_0__["default"] {
     Object(_Sprites__WEBPACK_IMPORTED_MODULE_1__["humanoid"])(this.x, this.y, this.facing, this.colors).forEach(({ c, r }) =>
       drawer.rect({ fillColor: c, rect: r })
     );
+
+    this.weapon && this.weapon.draw(drawer, { x: this.x, y: this.y });
   }
 }
 
@@ -2486,6 +2488,8 @@ class Player extends _Character__WEBPACK_IMPORTED_MODULE_0__["default"] {
     Object(_Sprites_js__WEBPACK_IMPORTED_MODULE_1__["humanoid"])(this.x, this.y, this.facing, colors).forEach(({ c, r }) =>
       drawer.rect({ fillColor: c, rect: r })
     );
+
+    this.weapon && this.weapon.draw(drawer, { x: this.x, y: this.y, facing: this.facing });
   }
 }
 
@@ -2744,10 +2748,12 @@ class Weapon {
     this.projectileConfig = projectileConfig;
 
     this.ticksSinceLastFired = cooldown;
+    this.shooting = false;
   }
 
   tick(pressSpace, projectiles, location, camera, sound) {
     this.ticksSinceLastFired += 1;
+    this.shooting = false;
     if (
       this.cooldown * this.cooldownMod < this.ticksSinceLastFired &&
       pressSpace
@@ -2755,6 +2761,7 @@ class Weapon {
       this.fire(projectiles, location);
       sound.play("minigun");
       if (this.shake) camera.shake(this.shake.force, this.shake.duration);
+      this.shooting = true;
       return this.knockback;
     }
     return 0;
@@ -2765,6 +2772,32 @@ class Weapon {
     for (let i = 0; i < this.payloadCount; i++) {
       const p = new _Projectile__WEBPACK_IMPORTED_MODULE_0__["default"](location, this.projectileConfig);
       projectiles.add(p);
+    }
+  }
+
+  draw(drawer, character) {
+    if (this.shooting) {
+      // prettier-ignore
+      [
+        [character.x + (character.facing === 1 ? 8 : -1), character.y + 3, 1, 1],
+        [character.x + (character.facing === 1 ? 7 : 0), character.y + 4, 2, 3],
+      ].forEach(([x, y, dx, dy]) =>
+        drawer.rect({
+          fillColor: "yellow",
+          rect: [x, y, dx, dy],
+        })
+      );
+
+      // prettier-ignore
+      [
+        [character.x + (character.facing === 1 ? 8 : -1), character.y + 4, 2, 2],
+        [character.x + (character.facing === 1 ? 10 : -3), character.y + 4, 1, 1],
+      ].forEach(([x, y, dx, dy]) =>
+        drawer.rect({
+          fillColor: "white",
+          rect: [x, y, dx, dy],
+        })
+      );
     }
   }
 }
