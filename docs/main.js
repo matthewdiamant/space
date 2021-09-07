@@ -405,6 +405,30 @@ class Background {
           adjusted: false,
         })
       );
+
+      const planets = [
+        [100, 30, 1, 10, "#440"],
+        [30, 50, 1, 4, "#311"],
+      ];
+      planets.forEach((planet) => {
+        drawer.arc({
+          adjusted: false,
+          arc: [
+            mod(
+              planet[0] - drawer.camera.x / (7 + 3 * planet[2]),
+              drawer.canvas.width
+            ),
+            mod(
+              planet[1] - drawer.camera.y / (7 + 3 * planet[2]),
+              drawer.canvas.height
+            ),
+            planet[3],
+            0,
+            2 * Math.PI,
+          ],
+          fillColor: planet[4],
+        });
+      });
     });
   }
 }
@@ -983,13 +1007,20 @@ class Drawer {
     cx.shadowBlur = 0;
   }
 
-  arc({ arc, fillColor, strokeColor, shadowBlur, shadowColor }) {
+  arc({
+    arc,
+    adjusted = true,
+    fillColor,
+    strokeColor,
+    shadowBlur,
+    shadowColor,
+  }) {
+    if (adjusted) {
+      arc[0] = this.camera.adjustX(arc[0], this.canvas.width);
+      arc[1] = this.camera.adjustY(arc[1], this.canvas.height);
+    }
     cx.beginPath();
-    cx.arc(
-      this.camera.adjustX(arc[0], this.canvas.width),
-      this.camera.adjustY(arc[1], this.canvas.height),
-      ...arc.slice(2)
-    );
+    cx.arc(...arc);
     cx.shadowBlur = shadowBlur;
     cx.shadowColor = shadowColor;
     if (fillColor) {

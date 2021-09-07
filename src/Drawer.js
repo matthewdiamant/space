@@ -74,13 +74,20 @@ export default class Drawer {
     cx.shadowBlur = 0;
   }
 
-  arc({ arc, fillColor, strokeColor, shadowBlur, shadowColor }) {
+  arc({
+    arc,
+    adjusted = true,
+    fillColor,
+    strokeColor,
+    shadowBlur,
+    shadowColor,
+  }) {
+    if (adjusted) {
+      arc[0] = this.camera.adjustX(arc[0], this.canvas.width);
+      arc[1] = this.camera.adjustY(arc[1], this.canvas.height);
+    }
     cx.beginPath();
-    cx.arc(
-      this.camera.adjustX(arc[0], this.canvas.width),
-      this.camera.adjustY(arc[1], this.canvas.height),
-      ...arc.slice(2)
-    );
+    cx.arc(...arc);
     cx.shadowBlur = shadowBlur;
     cx.shadowColor = shadowColor;
     if (fillColor) {

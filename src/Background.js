@@ -53,6 +53,30 @@ export default class Background {
           adjusted: false,
         })
       );
+
+      const planets = [
+        [100, 30, 1, 10, "#440"],
+        [30, 50, 1, 4, "#311"],
+      ];
+      planets.forEach((planet) => {
+        drawer.arc({
+          adjusted: false,
+          arc: [
+            mod(
+              planet[0] - drawer.camera.x / (7 + 3 * planet[2]),
+              drawer.canvas.width
+            ),
+            mod(
+              planet[1] - drawer.camera.y / (7 + 3 * planet[2]),
+              drawer.canvas.height
+            ),
+            planet[3],
+            0,
+            2 * Math.PI,
+          ],
+          fillColor: planet[4],
+        });
+      });
     });
   }
 }
