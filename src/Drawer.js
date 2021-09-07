@@ -167,42 +167,6 @@ export default class Drawer {
     }
   }
 
-  fill({
-    path,
-    x,
-    y,
-    fillColor,
-    strokeColor,
-    rotation,
-    adjusted = true,
-    centered = true,
-    size,
-  }) {
-    if (adjusted) {
-      x = this.camera.adjustX(x, this.canvas.width);
-      y = this.camera.adjustY(y, this.canvas.height);
-    }
-    if (rotation) {
-      cx.translate(x, y);
-      cx.rotate(rotation);
-      cx.translate(-1 * x, -1 * y);
-    }
-    cx.translate(x, y);
-    if (!centered) {
-      cx.translate(-size / 2, -size / 2 + 0.5);
-    }
-    if (fillColor) {
-      cx.fillStyle = fillColor;
-      cx.fill(path);
-    }
-    if (strokeColor) {
-      cx.strokeStyle = strokeColor;
-      cx.fillStyle = fillColor || "#131";
-      cx.fill(path);
-      cx.stroke(path);
-    }
-  }
-
   emoji({ emoji, x, y, adjusted = true }) {
     if (adjusted) {
       x = this.camera.adjustX(x, this.canvas.width);

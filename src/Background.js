@@ -12,6 +12,7 @@ export default class Background {
     for (let i = 0; i < 10; i++)
       farStars.push([Math.random() * cw, Math.random() * ch, Math.random()]);
   }
+
   draw(drawer) {
     drawer.draw(() => {
       drawer.drawBackground("#112", "#131");
