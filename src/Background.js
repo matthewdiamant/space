@@ -14,8 +14,9 @@ export default class Background {
   }
 
   draw(drawer) {
+    const [top, bottom] = this.colors;
     drawer.draw(() => {
-      drawer.drawBackground("#112", "#131");
+      drawer.drawBackground(top, bottom);
       nearStars.map((star) =>
         drawer.rect({
           rect: [

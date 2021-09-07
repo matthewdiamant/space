@@ -2,6 +2,17 @@ import Music from "./Music";
 import Package from "./Package";
 import WeaponFactory, { debugPistol } from "./WeaponFactory";
 
+const colorSchemes = [
+  {
+    background: ["#112", "#131"],
+    tiles: ["#114", "#336", "#003"],
+  },
+  {
+    background: ["#33f", "#1f1"],
+    tiles: ["#963", "#c96", "#620"],
+  },
+];
+
 const levelTemplates = [
   {
     concurrentEnemies: 1,
@@ -11,6 +22,7 @@ const levelTemplates = [
     enemies: {
       sentinel: 1,
     },
+    colors: colorSchemes[0],
   },
   {
     concurrentEnemies: 5,
@@ -20,6 +32,7 @@ const levelTemplates = [
     enemies: {
       pacifist: 10,
     },
+    colors: colorSchemes[0],
   },
   {
     concurrentEnemies: 5,
@@ -29,6 +42,7 @@ const levelTemplates = [
     enemies: {
       idiot: 10,
     },
+    colors: colorSchemes[1],
   },
   {
     concurrentEnemies: 5,
@@ -38,6 +52,7 @@ const levelTemplates = [
     enemies: {
       runAndGun: 10,
     },
+    colors: colorSchemes[0],
   },
   {
     concurrentEnemies: 5,
@@ -47,6 +62,7 @@ const levelTemplates = [
     enemies: {
       aggro: 10,
     },
+    colors: colorSchemes[0],
   },
 ];
 
@@ -59,10 +75,14 @@ class Level {
     this.gameOver = false;
   }
 
-  initializeLevel(level, { player, enemies, chunks, spurts, packages, map }) {
+  initializeLevel(
+    level,
+    { player, enemies, chunks, spurts, packages, map, background }
+  ) {
     this.level = levelTemplates[level - 1] || levelTemplates[1];
     this.level.level = level;
-    map.loadLevel(level);
+    map.loadLevel(level, this.level.colors.tiles);
+    background.colors = this.level.colors.background;
     player.health = player.maxHealth;
     player.x = this.level.spawnPoint[0];
     player.y = this.level.spawnPoint[1];
@@ -78,7 +98,7 @@ class Level {
     this.welcomeMessage = false;
   }
 
-  tick({ player, enemies, chunks, spurts, packages, sound, map }) {
+  tick({ player, enemies, chunks, spurts, packages, sound, map, background }) {
     if (player.health <= 0) {
       this.gameOver = true;
     }
@@ -97,6 +117,7 @@ class Level {
         spurts,
         packages,
         map,
+        background,
       });
     }
 

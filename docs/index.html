@@ -366,8 +366,9 @@ class Background {
   }
 
   draw(drawer) {
+    const [top, bottom] = this.colors;
     drawer.draw(() => {
-      drawer.drawBackground("#112", "#131");
+      drawer.drawBackground(top, bottom);
       nearStars.map((star) =>
         drawer.rect({
           rect: [
@@ -1818,6 +1819,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+const colorSchemes = [
+  {
+    background: ["#112", "#131"],
+    tiles: ["#114", "#336", "#003"],
+  },
+  {
+    background: ["#33f", "#1f1"],
+    tiles: ["#963", "#c96", "#620"],
+  },
+];
+
 const levelTemplates = [
   {
     concurrentEnemies: 1,
@@ -1827,6 +1839,7 @@ const levelTemplates = [
     enemies: {
       sentinel: 1,
     },
+    colors: colorSchemes[0],
   },
   {
     concurrentEnemies: 5,
@@ -1836,6 +1849,7 @@ const levelTemplates = [
     enemies: {
       pacifist: 10,
     },
+    colors: colorSchemes[0],
   },
   {
     concurrentEnemies: 5,
@@ -1845,6 +1859,7 @@ const levelTemplates = [
     enemies: {
       idiot: 10,
     },
+    colors: colorSchemes[1],
   },
   {
     concurrentEnemies: 5,
@@ -1854,6 +1869,7 @@ const levelTemplates = [
     enemies: {
       runAndGun: 10,
     },
+    colors: colorSchemes[0],
   },
   {
     concurrentEnemies: 5,
@@ -1863,6 +1879,7 @@ const levelTemplates = [
     enemies: {
       aggro: 10,
     },
+    colors: colorSchemes[0],
   },
 ];
 
@@ -1875,10 +1892,14 @@ class Level {
     this.gameOver = false;
   }
 
-  initializeLevel(level, { player, enemies, chunks, spurts, packages, map }) {
+  initializeLevel(
+    level,
+    { player, enemies, chunks, spurts, packages, map, background }
+  ) {
     this.level = levelTemplates[level - 1] || levelTemplates[1];
     this.level.level = level;
-    map.loadLevel(level);
+    map.loadLevel(level, this.level.colors.tiles);
+    background.colors = this.level.colors.background;
     player.health = player.maxHealth;
     player.x = this.level.spawnPoint[0];
     player.y = this.level.spawnPoint[1];
@@ -1894,7 +1915,7 @@ class Level {
     this.welcomeMessage = false;
   }
 
-  tick({ player, enemies, chunks, spurts, packages, sound, map }) {
+  tick({ player, enemies, chunks, spurts, packages, sound, map, background }) {
     if (player.health <= 0) {
       this.gameOver = true;
     }
@@ -1913,6 +1934,7 @@ class Level {
         spurts,
         packages,
         map,
+        background,
       });
     }
 
@@ -2134,7 +2156,7 @@ class Map {
     this.mapLength = 0;
   }
 
-  loadLevel(level) {
+  loadLevel(level, colorScheme) {
     const tiles = a[level - 1] || defaultMap;
 
     this.mapTiles = tiles;
@@ -2143,6 +2165,8 @@ class Map {
 
     this.mapWidthPixels = this.tileSize * this.mapLength;
     this.mapHeightPixels = this.tileSize * this.mapHeight;
+
+    this.colorScheme = colorScheme;
   }
 
   getTile(x, y) {
@@ -2152,7 +2176,7 @@ class Map {
   }
 
   draw(drawer) {
-    const [main, highlight, shadow] = ["#114", "#336", "#003"];
+    const [main, highlight, shadow] = this.colorScheme;
     this.drawer = this.drawer || drawer;
     this.mapTiles.forEach((row, y) => {
       row.forEach((tile, x) => {
@@ -3043,7 +3067,15 @@ window.onload = () => {
   let packages = new _PackageCollection__WEBPACK_IMPORTED_MODULE_13__["default"]();
 
   gameContainer.initialize();
-  level.initializeLevel(1, { player, enemies, chunks, spurts, packages, map });
+  level.initializeLevel(1, {
+    player,
+    enemies,
+    chunks,
+    spurts,
+    packages,
+    map,
+    background,
+  });
 
   let fps = 60,
     interval = 1000 / fps,
@@ -3059,7 +3091,16 @@ window.onload = () => {
 
   let tick = () => {
     const { camera } = drawer;
-    level.tick({ player, enemies, chunks, spurts, packages, sound, map });
+    level.tick({
+      player,
+      enemies,
+      chunks,
+      spurts,
+      packages,
+      sound,
+      map,
+      background,
+    });
     player.tick({ camera, keyboard, map, projectiles, sound, chunks, spurts });
     enemies.tick({ camera, map, projectiles, spurts, chunks, player, sound });
     camera.tick({ player, map });

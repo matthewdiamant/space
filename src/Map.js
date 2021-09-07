@@ -107,7 +107,7 @@ export default class Map {
     this.mapLength = 0;
   }
 
-  loadLevel(level) {
+  loadLevel(level, colorScheme) {
     const tiles = a[level - 1] || defaultMap;
 
     this.mapTiles = tiles;
@@ -116,6 +116,8 @@ export default class Map {
 
     this.mapWidthPixels = this.tileSize * this.mapLength;
     this.mapHeightPixels = this.tileSize * this.mapHeight;
+
+    this.colorScheme = colorScheme;
   }
 
   getTile(x, y) {
@@ -125,7 +127,7 @@ export default class Map {
   }
 
   draw(drawer) {
-    const [main, highlight, shadow] = ["#114", "#336", "#003"];
+    const [main, highlight, shadow] = this.colorScheme;
     this.drawer = this.drawer || drawer;
     this.mapTiles.forEach((row, y) => {
       row.forEach((tile, x) => {
