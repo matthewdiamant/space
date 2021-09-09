@@ -11,6 +11,17 @@ const prod = {
     minimizer: [
       new TerserPlugin({
         terserOptions: {
+          compress: {
+            passes: 10,
+            keep_fargs: false,
+            pure_getters: true,
+            unsafe: true,
+            unsafe_arrows: true,
+            unsafe_comps: true,
+            unsafe_math: true,
+            unsafe_methods: true,
+            unsafe_symbols: true,
+          },
           mangle: {
             properties: {
               keep_quoted: true,
