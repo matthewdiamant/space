@@ -2,12 +2,13 @@ import Character from "./Character";
 import { humanoid } from "./Sprites.js";
 import Blood from './Blood';
 import BloodChunk from './BloodChunk';
+import WeaponFactory, { debugPistol } from "./WeaponFactory";
 
 export default class Player extends Character {
   constructor(x, y, health) {
     super(x, y, health);
     this.bloodColor = "red";
-    this.weapon = null;
+    this.weapon = new WeaponFactory().create(debugPistol),
     this.dead = false;
   }
 

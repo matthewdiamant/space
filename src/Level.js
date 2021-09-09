@@ -78,8 +78,8 @@ const levelTemplates = [
   {
     concurrentEnemies: 1,
     enemyCount: 1,
-    spawnPoint: [40, 10],
-    enemySpawnPoint: [249, 20],
+    spawnPoint: [10, 156],
+    enemySpawnPoint: [120, 10],
     enemies: {
       boss: 1,
     },

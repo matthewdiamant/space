@@ -1,5 +1,6 @@
 import Blood from "./Blood";
 import BloodChunk from "./BloodChunk";
+import Boss from "./Boss";
 import Enemy from "./Enemy";
 import { aggro, runAndGun, idiot, pacifist, sentinel } from "./EnemyPersonas";
 import WeaponFactory, { assaultRifle } from "./WeaponFactory";
@@ -10,17 +11,33 @@ const pacifistColors = ["beige", "beige", "red", "red"];
 const makeColors = ([skin, horns, eyes, body]) => ({ skin, horns, eyes, body });
 
 const types = {
-  aggro: { health: 50, persona: aggro, colors: defaultColors },
-  runAndGun: { health: 50, persona: runAndGun, colors: defaultColors },
-  idiot: { health: 50, persona: idiot, colors: defaultColors },
-  pacifist: { health: 50, persona: pacifist, colors: pacifistColors },
+  aggro: { type: "aggro", health: 50, persona: aggro, colors: defaultColors },
+  runAndGun: {
+    type: "runAndGun",
+    health: 50,
+    persona: runAndGun,
+    colors: defaultColors,
+  },
+  idiot: { type: "idiot", health: 50, persona: idiot, colors: defaultColors },
+  pacifist: {
+    type: "pacifist",
+    health: 50,
+    persona: pacifist,
+    colors: pacifistColors,
+  },
   sentinel: {
+    type: "sentinel",
     health: 50,
     persona: sentinel,
     colors: defaultColors,
     weapon: new WeaponFactory().create(assaultRifle),
   },
-  boss: { health: 500, persona: pacifist, colors: pacifistColors },
+  boss: {
+    type: "boss",
+    health: 500,
+    persona: sentinel,
+    colors: pacifistColors,
+  },
 };
 
 class EnemyCollection {
@@ -49,11 +66,15 @@ class EnemyCollection {
 
   createEnemy() {
     this.enemyCount -= 1;
-    const { health, persona, colors, weapon } = types[
+    const { type, health, persona, colors, weapon } = types[
       this.remainingEnemies.pop()
     ];
     const [x, y] = this.enemySpawnPoint;
-    return new Enemy(x, y, health, -1, makeColors(colors), persona, weapon);
+    if (type === "boss") {
+      return new Boss(x, y, health, -1);
+    } else {
+      return new Enemy(x, y, health, -1, makeColors(colors), persona, weapon);
+    }
   }
 
   tick({ camera, map, projectiles, spurts, chunks, player, sound }) {

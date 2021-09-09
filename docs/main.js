@@ -584,6 +584,63 @@ class BloodCollection {
 
 /***/ }),
 
+/***/ "./src/Boss.js":
+/*!*********************!*\
+  !*** ./src/Boss.js ***!
+  \*********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Character__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Character */ "./src/Character.js");
+/* harmony import */ var _collisions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./collisions */ "./src/collisions.js");
+/* harmony import */ var _Sprites__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Sprites */ "./src/Sprites.js");
+
+
+
+
+const clamp = (num, min, max) => Math.min(Math.max(min, num), max);
+
+class Boss extends _Character__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor(x, y, health, facing, weapon) {
+    super(x, y, health, facing, weapon);
+    this.bloodColor = "#32CD32";
+    this.size = 80;
+  }
+
+  tick({ map }) {
+    // move y
+    this.dy += this.grav;
+    this.dy = clamp(this.dy, -this.maxDy, this.maxDy);
+    this.y += this.dy;
+
+    if (!Object(_collisions__WEBPACK_IMPORTED_MODULE_1__["collideFloor"])(this, map)) {
+      this.grounded = false;
+      this.airtime += 1;
+    }
+  }
+
+  draw(drawer) {
+    if (this.health < this.maxHealth) {
+      drawer.rect({
+        fillColor: "white",
+        rect: [this.x, this.y - 1, 8 * (this.health / this.maxHealth), 1],
+      });
+    }
+
+    drawer.rect({
+      fillColor: "red",
+      rect: [this.x, this.y, 80, 80],
+    });
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Boss);
+
+
+/***/ }),
+
 /***/ "./src/Camera.js":
 /*!***********************!*\
   !*** ./src/Camera.js ***!
@@ -687,63 +744,12 @@ class Camera {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _GameObject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GameObject */ "./src/GameObject.js");
 /* harmony import */ var _WeaponFactory__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./WeaponFactory */ "./src/WeaponFactory.js");
+/* harmony import */ var _collisions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./collisions */ "./src/collisions.js");
+
 
 
 
 const clamp = (num, min, max) => Math.min(Math.max(min, num), max);
-
-const offset = 1;
-
-const collideSide = (player, map) => {
-  let { x, y, dx, size } = player;
-
-  if (dx > 0) {
-    const rightTopTileType = map.getTile(x + size, y);
-    const rightBottomTileType = map.getTile(x + size, y + size - offset);
-    if (rightTopTileType || rightBottomTileType) {
-      player.dx = 0;
-      player.x = Math.floor(x / 8) * 8;
-    }
-  } else if (dx < 0) {
-    const leftTopTileType = map.getTile(x, y);
-    const leftBottomTileType = map.getTile(x, y + size - offset);
-    if (leftTopTileType || leftBottomTileType) {
-      player.dx = 0;
-      player.x = Math.floor(x / 8) * 8 + 8;
-    }
-  }
-};
-
-const collideFloor = (player, map) => {
-  const { x, y, dy, size } = player;
-
-  if (dy < 0) return false;
-
-  const leftBottomTileType = map.getTile(x, y + size);
-  const rightBottomTileType = map.getTile(x + size - offset, y + size);
-
-  if (leftBottomTileType || rightBottomTileType) {
-    player.dy = 0;
-    player.y = Math.floor(y / 8) * 8;
-    player.grounded = true;
-    player.airtime = 0;
-    return true;
-  } else {
-    return false;
-  }
-};
-
-const collideRoof = (player, map) => {
-  const { x, y, size } = player;
-  const leftTopTileType = map.getTile(x, y);
-  const rightTopTileType = map.getTile(x + size - offset, y);
-
-  if (leftTopTileType || rightTopTileType) {
-    player.dy = 0;
-    player.y = Math.floor((y - size / 2) / 8) * 8 + 8 + size / 2;
-    player.jumpHoldTime = 0;
-  }
-};
 
 class Character extends _GameObject__WEBPACK_IMPORTED_MODULE_0__["default"] {
   constructor(x, y, health, facing, weapon) {
@@ -813,7 +819,7 @@ class Character extends _GameObject__WEBPACK_IMPORTED_MODULE_0__["default"] {
     this.x += immobile ? 0 : this.dx;
 
     // hit walls
-    collideSide(this, map);
+    Object(_collisions__WEBPACK_IMPORTED_MODULE_2__["collideSide"])(this, map);
 
     // jumping
     if (up) {
@@ -835,12 +841,12 @@ class Character extends _GameObject__WEBPACK_IMPORTED_MODULE_0__["default"] {
     this.dy = clamp(this.dy, -this.maxDy, this.maxDy);
     this.y += this.dy;
 
-    if (!collideFloor(this, map)) {
+    if (!Object(_collisions__WEBPACK_IMPORTED_MODULE_2__["collideFloor"])(this, map)) {
       this.grounded = false;
       this.airtime += 1;
     }
 
-    collideRoof(this, map);
+    Object(_collisions__WEBPACK_IMPORTED_MODULE_2__["collideRoof"])(this, map);
   }
 
   static takeDamage(damage) {
@@ -1421,9 +1427,11 @@ class Enemy extends _Character__WEBPACK_IMPORTED_MODULE_0__["default"] {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Blood__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Blood */ "./src/Blood.js");
 /* harmony import */ var _BloodChunk__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BloodChunk */ "./src/BloodChunk.js");
-/* harmony import */ var _Enemy__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Enemy */ "./src/Enemy.js");
-/* harmony import */ var _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./EnemyPersonas */ "./src/EnemyPersonas.js");
-/* harmony import */ var _WeaponFactory__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./WeaponFactory */ "./src/WeaponFactory.js");
+/* harmony import */ var _Boss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Boss */ "./src/Boss.js");
+/* harmony import */ var _Enemy__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Enemy */ "./src/Enemy.js");
+/* harmony import */ var _EnemyPersonas__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./EnemyPersonas */ "./src/EnemyPersonas.js");
+/* harmony import */ var _WeaponFactory__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./WeaponFactory */ "./src/WeaponFactory.js");
+
 
 
 
@@ -1436,17 +1444,33 @@ const pacifistColors = ["beige", "beige", "red", "red"];
 const makeColors = ([skin, horns, eyes, body]) => ({ skin, horns, eyes, body });
 
 const types = {
-  aggro: { health: 50, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["aggro"], colors: defaultColors },
-  runAndGun: { health: 50, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["runAndGun"], colors: defaultColors },
-  idiot: { health: 50, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["idiot"], colors: defaultColors },
-  pacifist: { health: 50, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["pacifist"], colors: pacifistColors },
-  sentinel: {
+  aggro: { type: "aggro", health: 50, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_4__["aggro"], colors: defaultColors },
+  runAndGun: {
+    type: "runAndGun",
     health: 50,
-    persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["sentinel"],
+    persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_4__["runAndGun"],
     colors: defaultColors,
-    weapon: new _WeaponFactory__WEBPACK_IMPORTED_MODULE_4__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_4__["assaultRifle"]),
   },
-  boss: { health: 500, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_3__["pacifist"], colors: pacifistColors },
+  idiot: { type: "idiot", health: 50, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_4__["idiot"], colors: defaultColors },
+  pacifist: {
+    type: "pacifist",
+    health: 50,
+    persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_4__["pacifist"],
+    colors: pacifistColors,
+  },
+  sentinel: {
+    type: "sentinel",
+    health: 50,
+    persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_4__["sentinel"],
+    colors: defaultColors,
+    weapon: new _WeaponFactory__WEBPACK_IMPORTED_MODULE_5__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_5__["assaultRifle"]),
+  },
+  boss: {
+    type: "boss",
+    health: 500,
+    persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_4__["sentinel"],
+    colors: pacifistColors,
+  },
 };
 
 class EnemyCollection {
@@ -1475,11 +1499,15 @@ class EnemyCollection {
 
   createEnemy() {
     this.enemyCount -= 1;
-    const { health, persona, colors, weapon } = types[
+    const { type, health, persona, colors, weapon } = types[
       this.remainingEnemies.pop()
     ];
     const [x, y] = this.enemySpawnPoint;
-    return new _Enemy__WEBPACK_IMPORTED_MODULE_2__["default"](x, y, health, -1, makeColors(colors), persona, weapon);
+    if (type === "boss") {
+      return new _Boss__WEBPACK_IMPORTED_MODULE_2__["default"](x, y, health, -1);
+    } else {
+      return new _Enemy__WEBPACK_IMPORTED_MODULE_3__["default"](x, y, health, -1, makeColors(colors), persona, weapon);
+    }
   }
 
   tick({ camera, map, projectiles, spurts, chunks, player, sound }) {
@@ -1931,8 +1959,8 @@ const levelTemplates = [
   {
     concurrentEnemies: 1,
     enemyCount: 1,
-    spawnPoint: [40, 10],
-    enemySpawnPoint: [249, 20],
+    spawnPoint: [10, 156],
+    enemySpawnPoint: [120, 10],
     enemies: {
       boss: 1,
     },
@@ -2173,13 +2201,13 @@ const bossLevel = [
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
 
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1],
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1],
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
 
@@ -2519,6 +2547,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Sprites_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Sprites.js */ "./src/Sprites.js");
 /* harmony import */ var _Blood__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Blood */ "./src/Blood.js");
 /* harmony import */ var _BloodChunk__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./BloodChunk */ "./src/BloodChunk.js");
+/* harmony import */ var _WeaponFactory__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./WeaponFactory */ "./src/WeaponFactory.js");
+
 
 
 
@@ -2528,7 +2558,7 @@ class Player extends _Character__WEBPACK_IMPORTED_MODULE_0__["default"] {
   constructor(x, y, health) {
     super(x, y, health);
     this.bloodColor = "red";
-    this.weapon = null;
+    this.weapon = new _WeaponFactory__WEBPACK_IMPORTED_MODULE_4__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_4__["debugPistol"]),
     this.dead = false;
   }
 
@@ -3139,6 +3169,74 @@ class WeaponFactory {
 
 /***/ }),
 
+/***/ "./src/collisions.js":
+/*!***************************!*\
+  !*** ./src/collisions.js ***!
+  \***************************/
+/*! exports provided: collideSide, collideFloor, collideRoof */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "collideSide", function() { return collideSide; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "collideFloor", function() { return collideFloor; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "collideRoof", function() { return collideRoof; });
+const offset = 1;
+
+const collideSide = (player, map) => {
+  let { x, y, dx, size } = player;
+
+  if (dx > 0) {
+    const rightTopTileType = map.getTile(x + size, y);
+    const rightBottomTileType = map.getTile(x + size, y + size - offset);
+    if (rightTopTileType || rightBottomTileType) {
+      player.dx = 0;
+      player.x = Math.floor(x / 8) * 8;
+    }
+  } else if (dx < 0) {
+    const leftTopTileType = map.getTile(x, y);
+    const leftBottomTileType = map.getTile(x, y + size - offset);
+    if (leftTopTileType || leftBottomTileType) {
+      player.dx = 0;
+      player.x = Math.floor(x / 8) * 8 + 8;
+    }
+  }
+};
+
+const collideFloor = (player, map) => {
+  const { x, y, dy, size } = player;
+
+  if (dy < 0) return false;
+
+  const leftBottomTileType = map.getTile(x, y + size);
+  const rightBottomTileType = map.getTile(x + size - offset, y + size);
+
+  if (leftBottomTileType || rightBottomTileType) {
+    player.dy = 0;
+    player.y = Math.floor(y / 8) * 8;
+    player.grounded = true;
+    player.airtime = 0;
+    return true;
+  } else {
+    return false;
+  }
+};
+
+const collideRoof = (player, map) => {
+  const { x, y, size } = player;
+  const leftTopTileType = map.getTile(x, y);
+  const rightTopTileType = map.getTile(x + size - offset, y);
+
+  if (leftTopTileType || rightTopTileType) {
+    player.dy = 0;
+    player.y = Math.floor((y - size / 2) / 8) * 8 + 8 + size / 2;
+    player.jumpHoldTime = 0;
+  }
+};
+
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -3202,7 +3300,7 @@ window.onload = () => {
   let packages = new _PackageCollection__WEBPACK_IMPORTED_MODULE_13__["default"]();
 
   gameContainer.initialize();
-  level.initializeLevel(1, {
+  level.initializeLevel(6, {
     player,
     enemies,
     chunks,
