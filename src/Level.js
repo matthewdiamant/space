@@ -154,9 +154,24 @@ class Level {
       this.music.startMusic();
     }
 
-    if ([delay, delay * 2, delay * 3].includes(this.levelOverTimer)) {
+    if (
+      [delay, delay * 2, delay * 3, delay * 4].includes(this.levelOverTimer)
+    ) {
       sound.play("message");
     }
+
+    if (this.levelOverTimer === delay * 5)
+      if ((this.level.level - 1) % 6 >= 0) sound.play("message");
+    if (this.levelOverTimer === delay * 5.1)
+      if ((this.level.level - 1) % 6 >= 1) sound.play("message");
+    if (this.levelOverTimer === delay * 5.2)
+      if ((this.level.level - 1) % 6 >= 2) sound.play("message");
+    if (this.levelOverTimer === delay * 5.3)
+      if ((this.level.level - 1) % 6 >= 3) sound.play("message");
+    if (this.levelOverTimer === delay * 5.4)
+      if ((this.level.level - 1) % 6 >= 4) sound.play("message");
+    if (this.levelOverTimer === delay * 5.5)
+      if ((this.level.level - 1) % 6 >= 5) sound.play("message");
   }
 
   draw(drawer) {
