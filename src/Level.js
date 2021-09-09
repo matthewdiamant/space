@@ -250,19 +250,19 @@ class Level {
       drawer.rect({
         adjusted: false,
         fillColor: "#000",
-        rect: [14, 68, 100, 42],
+        rect: [0, 0, 200, 200],
       });
       drawer.text({
         text: "Welcome",
-        size: 2,
-        x: 32,
-        y: 74,
+        size: 3,
+        x: 17,
+        y: 30,
       });
       drawer.text({
         text: "to space",
-        size: 2,
-        x: 33,
-        y: 94,
+        size: 3,
+        x: 19,
+        y: 60,
       });
     }
 
