@@ -2062,7 +2062,8 @@ class Level {
     spurts.spurts = [];
     packages.packages =
       level === 1
-        ? [new _Package__WEBPACK_IMPORTED_MODULE_1__["default"](146, 90, new _WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["assaultRifle"]))]
+        ? // ? [new Package(146, 90, new WeaponFactory().create(assaultRifle))]
+          [new _Package__WEBPACK_IMPORTED_MODULE_1__["default"](146, 90, new _WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["debugPistol"]))]
         : [];
     enemies.initialize(this.level);
     this.levelOverTimer = 0;
@@ -2689,8 +2690,8 @@ class Player extends _Character__WEBPACK_IMPORTED_MODULE_0__["default"] {
   constructor(x, y, health) {
     super(x, y, health);
     this.bloodColor = "red";
-    // this.weapon = new WeaponFactory().create(debugPistol);
     this.weapon = null;
+    // this.weapon = new WeaponFactory().create(debugPistol);
     this.dead = false;
   }
 
@@ -3375,14 +3376,17 @@ const collideRoof = (player, map) => {
 /*!***************************!*\
   !*** ./src/enemyTypes.js ***!
   \***************************/
-/*! exports provided: pacifistColors, defaultColors, sentinelColors, makeColors, default */
+/*! exports provided: sentinelColors, pacifistColors, idiotColors, runAndGunColors, aggroColors, bossColors, makeColors, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pacifistColors", function() { return pacifistColors; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultColors", function() { return defaultColors; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sentinelColors", function() { return sentinelColors; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pacifistColors", function() { return pacifistColors; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "idiotColors", function() { return idiotColors; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "runAndGunColors", function() { return runAndGunColors; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "aggroColors", function() { return aggroColors; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bossColors", function() { return bossColors; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makeColors", function() { return makeColors; });
 /* harmony import */ var _WeaponFactory__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./WeaponFactory */ "./src/WeaponFactory.js");
 /* harmony import */ var _EnemyPersonas__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EnemyPersonas */ "./src/EnemyPersonas.js");
@@ -3390,9 +3394,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+const sentinelColors = ["#50c878", "#50c878", "#c00", "#a00"];
 const pacifistColors = ["beige", "beige", "red", "red"];
-const defaultColors = ["red", "red", "yellow", "orange"];
-const sentinelColors = ["#50c878", "#50c878", "#a00", "#a00"];
+const idiotColors = ["#c77dff", "#c77dff", "#a1ff0a", "#ff5d8f"];
+const runAndGunColors = ["#4cc9f0", "#4cc9f0", "#f72585", "#4361ee"];
+const aggroColors = ["#dd0", "#dd0", "#09f", "#a30"];
+const bossColors = ["red", "red", "yellow", "orange"];
 
 const makeColors = ([skin, horns, eyes, body]) => ({
   skin,
@@ -3402,20 +3409,6 @@ const makeColors = ([skin, horns, eyes, body]) => ({
 });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  aggro: { type: "aggro", health: 25, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_1__["aggro"], colors: defaultColors },
-  runAndGun: {
-    type: "runAndGun",
-    health: 25,
-    persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_1__["runAndGun"],
-    colors: defaultColors,
-  },
-  idiot: { type: "idiot", health: 25, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_1__["idiot"], colors: defaultColors },
-  pacifist: {
-    type: "pacifist",
-    health: 25,
-    persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_1__["pacifist"],
-    colors: pacifistColors,
-  },
   sentinel: {
     type: "sentinel",
     health: 25,
@@ -3423,11 +3416,25 @@ const makeColors = ([skin, horns, eyes, body]) => ({
     colors: sentinelColors,
     weapon: new _WeaponFactory__WEBPACK_IMPORTED_MODULE_0__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_0__["assaultRifle"]),
   },
+  pacifist: {
+    type: "pacifist",
+    health: 25,
+    persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_1__["pacifist"],
+    colors: pacifistColors,
+  },
+  idiot: { type: "idiot", health: 25, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_1__["idiot"], colors: idiotColors },
+  runAndGun: {
+    type: "runAndGun",
+    health: 25,
+    persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_1__["runAndGun"],
+    colors: runAndGunColors,
+  },
+  aggro: { type: "aggro", health: 25, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_1__["aggro"], colors: aggroColors },
   boss: {
     type: "boss",
     health: 250,
     persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_1__["sentinel"],
-    colors: pacifistColors,
+    colors: bossColors,
   },
 });
 

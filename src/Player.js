@@ -8,8 +8,8 @@ export default class Player extends Character {
   constructor(x, y, health) {
     super(x, y, health);
     this.bloodColor = "red";
-    // this.weapon = new WeaponFactory().create(debugPistol);
     this.weapon = null;
+    // this.weapon = new WeaponFactory().create(debugPistol);
     this.dead = false;
   }
 
