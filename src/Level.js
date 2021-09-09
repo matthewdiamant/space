@@ -17,7 +17,6 @@ const colorSchemes = [
 
 const level1 = {
   concurrentEnemies: 1,
-  enemyCount: 1,
   spawnPoint: [40, 0],
   enemySpawnPoint: [230, 100],
   enemies: {
@@ -29,7 +28,6 @@ const level1 = {
 const levelTemplates = [
   {
     concurrentEnemies: 5,
-    enemyCount: 10,
     spawnPoint: [40, 10],
     enemySpawnPoint: [230, 100],
     enemies: {
@@ -39,7 +37,6 @@ const levelTemplates = [
   },
   {
     concurrentEnemies: 5,
-    enemyCount: 10,
     spawnPoint: [40, 150],
     enemySpawnPoint: [249, 20],
     enemies: {
@@ -49,7 +46,6 @@ const levelTemplates = [
   },
   {
     concurrentEnemies: 5,
-    enemyCount: 10,
     spawnPoint: [40, 150],
     enemySpawnPoint: [249, 20],
     enemies: {
@@ -59,7 +55,6 @@ const levelTemplates = [
   },
   {
     concurrentEnemies: 5,
-    enemyCount: 10,
     spawnPoint: [40, 150],
     enemySpawnPoint: [249, 20],
     enemies: {
@@ -69,7 +64,6 @@ const levelTemplates = [
   },
   {
     concurrentEnemies: 5,
-    enemyCount: 10,
     spawnPoint: [40, 150],
     enemySpawnPoint: [249, 20],
     enemies: {
@@ -79,7 +73,6 @@ const levelTemplates = [
   },
   {
     concurrentEnemies: 1,
-    enemyCount: 1,
     spawnPoint: [20, 156],
     enemySpawnPoint: [120, 10],
     enemies: {
@@ -103,12 +96,12 @@ class Level {
     level,
     { player, enemies, chunks, spurts, packages, map, background }
   ) {
-    if (level === 1) {
-      this.level = level1;
-    } else {
-      this.level = levelTemplates[(level - 1) % 6];
-    }
+    this.level = level === 1 ? level1 : levelTemplates[(level - 1) % 6];
     this.level.level = level;
+    this.level.enemyCount = Object.entries(this.level.enemies).reduce(
+      (sum, [k, v]) => sum + v,
+      0
+    );
     map.loadLevel(level, this.level.colors.tiles);
     background.colors = this.level.colors.background;
     player.health = player.maxHealth;
