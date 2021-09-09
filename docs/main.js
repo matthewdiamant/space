@@ -2082,6 +2082,7 @@ class Level {
     this.music = new _Music__WEBPACK_IMPORTED_MODULE_0__["default"]();
     this.musicStarted = false;
     this.gameOver = false;
+    this.totalEnemies = 0;
   }
 
   initializeLevel(
@@ -2109,6 +2110,7 @@ class Level {
     this.levelOverTimer = 0;
     this.levelFadeIn = 0;
     this.welcomeMessage = false;
+    this.totalEnemies += this.level.enemyCount;
   }
 
   tick({ player, enemies, chunks, spurts, packages, sound, map, background }) {
@@ -2181,9 +2183,9 @@ class Level {
 
     if (this.levelOverTimer > delay * 3) {
       drawer.text({
-        text: `${this.level.enemyCount} aliens defeated`,
+        text: `${this.totalEnemies} aliens defeated`,
         size: 1,
-        x: 31 - (this.level.enemyCount >= 10 ? 2 : 0),
+        x: 31 - (this.totalEnemies >= 10 ? 2 : 0),
         y: 45,
       });
     }
