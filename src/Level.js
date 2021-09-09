@@ -13,14 +13,25 @@ const colorSchemes = [
   },
 ];
 
+const level1 = {
+  concurrentEnemies: 1,
+  enemyCount: 1,
+  spawnPoint: [40, 10],
+  enemySpawnPoint: [230, 100],
+  enemies: {
+    sentinel: 1,
+  },
+  colors: colorSchemes[0],
+};
+
 const levelTemplates = [
   {
-    concurrentEnemies: 1,
-    enemyCount: 1,
+    concurrentEnemies: 5,
+    enemyCount: 10,
     spawnPoint: [40, 10],
     enemySpawnPoint: [230, 100],
     enemies: {
-      sentinel: 1,
+      sentinel: 10,
     },
     colors: colorSchemes[0],
   },
@@ -64,6 +75,16 @@ const levelTemplates = [
     },
     colors: colorSchemes[0],
   },
+  {
+    concurrentEnemies: 1,
+    enemyCount: 1,
+    spawnPoint: [40, 10],
+    enemySpawnPoint: [249, 20],
+    enemies: {
+      boss: 1,
+    },
+    colors: colorSchemes[0],
+  },
 ];
 
 const delay = 80;
@@ -79,7 +100,11 @@ class Level {
     level,
     { player, enemies, chunks, spurts, packages, map, background }
   ) {
-    this.level = levelTemplates[level - 1] || levelTemplates[1];
+    if (level === 1) {
+      this.level = level1;
+    } else {
+      this.level = levelTemplates[(level - 1) % 6];
+    }
     this.level.level = level;
     map.loadLevel(level, this.level.colors.tiles);
     background.colors = this.level.colors.background;

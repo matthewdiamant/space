@@ -20,6 +20,7 @@ const types = {
     colors: defaultColors,
     weapon: new WeaponFactory().create(assaultRifle),
   },
+  boss: { health: 500, persona: pacifist, colors: pacifistColors },
 };
 
 class EnemyCollection {
