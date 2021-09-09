@@ -1,3 +1,5 @@
+import Blood from "./Blood";
+import BloodChunk from "./BloodChunk";
 import Character from "./Character";
 import { humanoid } from "./Sprites";
 
@@ -26,6 +28,31 @@ class Enemy extends Character {
       sound,
       immobile,
     });
+  }
+
+  explode({ spurts, chunks }) {
+    for (let i = 0; i < 100; i++) {
+      spurts.add(
+        new Blood(
+          this.x,
+          this.y,
+          Math.random() * 5 - 2.5,
+          Math.random() * 5 - 5,
+          this.bloodColor
+        )
+      );
+    }
+    for (let i = 0; i < 5; i++) {
+      chunks.chunks.push(
+        new BloodChunk(
+          this.x,
+          this.y - 2,
+          Math.random() * 3 - 1.5,
+          Math.random() * 3 - 1.5,
+          "red"
+        )
+      );
+    }
   }
 
   draw(drawer) {

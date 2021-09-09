@@ -1,3 +1,5 @@
+import Blood from "./Blood";
+import BloodChunk from "./BloodChunk";
 import Character from "./Character";
 import { collideSide, collideFloor, collideRoof } from "./collisions";
 import { humanoid } from "./Sprites";
@@ -20,6 +22,31 @@ class Boss extends Character {
     if (!collideFloor(this, map)) {
       this.grounded = false;
       this.airtime += 1;
+    }
+  }
+
+  explode({ spurts, chunks }) {
+    for (let i = 0; i < 300; i++) {
+      spurts.add(
+        new Blood(
+          this.x + Math.random() * 60,
+          this.y + Math.random() * 60,
+          Math.random() * 5 - 2.5,
+          Math.random() * 5 - 5,
+          this.bloodColor
+        )
+      );
+    }
+    for (let i = 0; i < 40; i++) {
+      chunks.chunks.push(
+        new BloodChunk(
+          this.x + Math.random() * 60,
+          this.y + Math.random() * 60,
+          Math.random() * 3 - 1.5,
+          Math.random() * 3 - 1.5,
+          "red"
+        )
+      );
     }
   }
 

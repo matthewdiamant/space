@@ -593,16 +593,20 @@ class BloodCollection {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Character__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Character */ "./src/Character.js");
-/* harmony import */ var _collisions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./collisions */ "./src/collisions.js");
-/* harmony import */ var _Sprites__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Sprites */ "./src/Sprites.js");
+/* harmony import */ var _Blood__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Blood */ "./src/Blood.js");
+/* harmony import */ var _BloodChunk__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BloodChunk */ "./src/BloodChunk.js");
+/* harmony import */ var _Character__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Character */ "./src/Character.js");
+/* harmony import */ var _collisions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./collisions */ "./src/collisions.js");
+/* harmony import */ var _Sprites__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Sprites */ "./src/Sprites.js");
+
+
 
 
 
 
 const clamp = (num, min, max) => Math.min(Math.max(min, num), max);
 
-class Boss extends _Character__WEBPACK_IMPORTED_MODULE_0__["default"] {
+class Boss extends _Character__WEBPACK_IMPORTED_MODULE_2__["default"] {
   constructor(x, y, health, facing, weapon) {
     super(x, y, health, facing, weapon);
     this.bloodColor = "#32CD32";
@@ -615,9 +619,34 @@ class Boss extends _Character__WEBPACK_IMPORTED_MODULE_0__["default"] {
     this.dy = clamp(this.dy, -this.maxDy, this.maxDy);
     this.y += this.dy;
 
-    if (!Object(_collisions__WEBPACK_IMPORTED_MODULE_1__["collideFloor"])(this, map)) {
+    if (!Object(_collisions__WEBPACK_IMPORTED_MODULE_3__["collideFloor"])(this, map)) {
       this.grounded = false;
       this.airtime += 1;
+    }
+  }
+
+  explode({ spurts, chunks }) {
+    for (let i = 0; i < 300; i++) {
+      spurts.add(
+        new _Blood__WEBPACK_IMPORTED_MODULE_0__["default"](
+          this.x + Math.random() * 60,
+          this.y + Math.random() * 60,
+          Math.random() * 5 - 2.5,
+          Math.random() * 5 - 5,
+          this.bloodColor
+        )
+      );
+    }
+    for (let i = 0; i < 40; i++) {
+      chunks.chunks.push(
+        new _BloodChunk__WEBPACK_IMPORTED_MODULE_1__["default"](
+          this.x + Math.random() * 60,
+          this.y + Math.random() * 60,
+          Math.random() * 3 - 1.5,
+          Math.random() * 3 - 1.5,
+          "red"
+        )
+      );
     }
   }
 
@@ -1363,12 +1392,16 @@ letters["9"] = [
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Character__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Character */ "./src/Character.js");
-/* harmony import */ var _Sprites__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Sprites */ "./src/Sprites.js");
+/* harmony import */ var _Blood__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Blood */ "./src/Blood.js");
+/* harmony import */ var _BloodChunk__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BloodChunk */ "./src/BloodChunk.js");
+/* harmony import */ var _Character__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Character */ "./src/Character.js");
+/* harmony import */ var _Sprites__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Sprites */ "./src/Sprites.js");
 
 
 
-class Enemy extends _Character__WEBPACK_IMPORTED_MODULE_0__["default"] {
+
+
+class Enemy extends _Character__WEBPACK_IMPORTED_MODULE_2__["default"] {
   constructor(x, y, health, facing, colors, persona, weapon) {
     super(x, y, health, facing, weapon);
     this.colors = colors;
@@ -1385,7 +1418,7 @@ class Enemy extends _Character__WEBPACK_IMPORTED_MODULE_0__["default"] {
   tick({ camera, map, projectiles, player, sound }) {
     const [presses, immobile] = this.persona({ enemy: this, map, player });
     if (presses) this.presses = presses;
-    _Character__WEBPACK_IMPORTED_MODULE_0__["default"].tick.call(this, {
+    _Character__WEBPACK_IMPORTED_MODULE_2__["default"].tick.call(this, {
       camera,
       map,
       projectiles,
@@ -1393,6 +1426,31 @@ class Enemy extends _Character__WEBPACK_IMPORTED_MODULE_0__["default"] {
       sound,
       immobile,
     });
+  }
+
+  explode({ spurts, chunks }) {
+    for (let i = 0; i < 100; i++) {
+      spurts.add(
+        new _Blood__WEBPACK_IMPORTED_MODULE_0__["default"](
+          this.x,
+          this.y,
+          Math.random() * 5 - 2.5,
+          Math.random() * 5 - 5,
+          this.bloodColor
+        )
+      );
+    }
+    for (let i = 0; i < 5; i++) {
+      chunks.chunks.push(
+        new _BloodChunk__WEBPACK_IMPORTED_MODULE_1__["default"](
+          this.x,
+          this.y - 2,
+          Math.random() * 3 - 1.5,
+          Math.random() * 3 - 1.5,
+          "red"
+        )
+      );
+    }
   }
 
   draw(drawer) {
@@ -1403,7 +1461,7 @@ class Enemy extends _Character__WEBPACK_IMPORTED_MODULE_0__["default"] {
       });
     }
 
-    Object(_Sprites__WEBPACK_IMPORTED_MODULE_1__["humanoid"])(this.x, this.y, this.facing, this.colors).forEach(({ c, r }) =>
+    Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(this.x, this.y, this.facing, this.colors).forEach(({ c, r }) =>
       drawer.rect({ fillColor: c, rect: r })
     );
 
@@ -1517,28 +1575,7 @@ class EnemyCollection {
 
     this.enemies = this.enemies.reduce((enemies, enemy) => {
       if (enemy.health <= 0) {
-        for (let i = 0; i < 100; i++) {
-          spurts.add(
-            new _Blood__WEBPACK_IMPORTED_MODULE_0__["default"](
-              enemy.x,
-              enemy.y,
-              Math.random() * 5 - 2.5,
-              Math.random() * 5 - 5,
-              enemy.bloodColor
-            )
-          );
-        }
-        for (let i = 0; i < 5; i++) {
-          chunks.chunks.push(
-            new _BloodChunk__WEBPACK_IMPORTED_MODULE_1__["default"](
-              enemy.x,
-              enemy.y - 2,
-              Math.random() * 3 - 1.5,
-              Math.random() * 3 - 1.5,
-              "red"
-            )
-          );
-        }
+        enemy.explode({ spurts, chunks });
         if (
           this.enemies.length <= this.concurrentEnemies &&
           this.enemyCount > 0
