@@ -1,19 +1,85 @@
 import Blood from "./Blood";
 import BloodChunk from "./BloodChunk";
 import Character from "./Character";
-import { collideSide, collideFloor, collideRoof } from "./collisions";
+import Weapon from "./Weapon";
+
+import { collideFloor } from "./collisions";
 import { humanoid } from "./Sprites";
+import { minigun } from "./WeaponFactory";
 
 const clamp = (num, min, max) => Math.min(Math.max(min, num), max);
+
+const anglerProjectiles = {
+  color: () => "yellow",
+  speed: 1.5,
+  lift: -0.6,
+  grav: 0,
+  spreadY: 0.3,
+  explosion: 3,
+  size: 5,
+  damage: 10,
+  blood: 5,
+};
+
+const angler = {
+  cooldown: 15,
+  payloadCount: 1,
+  shake: { force: 1, duration: 15 },
+  projectileConfig: anglerProjectiles,
+};
+
+const angler2 = Object.assign({}, angler);
+angler2.projectileConfig = Object.assign({}, anglerProjectiles);
+angler2.projectileConfig.lift = 0.6;
+
+const makeMini = (lift) => {
+  const proj = Object.assign({}, minigun.projectileConfig);
+  proj.lift = lift;
+  const mini = Object.assign({}, minigun);
+  mini.projectileConfig = proj;
+  return mini;
+};
+
+// prettier-ignore
+const weapons = [
+  { weapon: new Weapon(makeMini(0.8)),  y: 25,  x: 40, shoot: 40, offset: 70 },
+  { weapon: new Weapon(makeMini(0.4)),  y: 28, x: 40, shoot: 40, offset: 60 },
+  { weapon: new Weapon(minigun),        y: 31, x: 40, shoot: 40, offset: 50 },
+  { weapon: new Weapon(makeMini(0)),    y: 33, x: 40, shoot: 40, offset: 40 },
+  { weapon: new Weapon(makeMini(-0.4)), y: 36, x: 40, shoot: 40, offset: 30 },
+  { weapon: new Weapon(makeMini(-0.8)), y: 39, x: 40, shoot: 40, offset: 20 },
+
+  { weapon: new Weapon(angler), y: 30, x: 0, shoot: 100, offset: 200 },
+  { weapon: new Weapon(angler2), y: 10, x: 0, shoot: 100, offset: 200 },
+];
+
+const death = {
+  cooldown: 15,
+  payloadCount: 0,
+  shake: { force: 4, duration: 200 },
+  projectileConfig: {
+    color: () => "yellow",
+    speed: 1.5,
+    lift: -0.6,
+    grav: 0,
+    spreadY: 0.3,
+    explosion: 3,
+    size: 5,
+    damage: 10,
+    blood: 5,
+  },
+};
 
 class Boss extends Character {
   constructor(x, y, health, facing, weapon) {
     super(x, y, health, facing, weapon);
     this.bloodColor = "#32CD32";
-    this.size = 80;
+    this.size = 56;
   }
 
-  tick({ map }) {
+  tick({ map, projectiles, camera, sound, player }) {
+    this.lifespan += 1;
+
     // move y
     this.dy += this.grav;
     this.dy = clamp(this.dy, -this.maxDy, this.maxDy);
@@ -22,6 +88,34 @@ class Boss extends Character {
     if (!collideFloor(this, map)) {
       this.grounded = false;
       this.airtime += 1;
+    }
+
+    if (!(this.lifespan % 200))
+      this.facing = player.x > this.x + this.size / 2 ? 1 : -1;
+
+    weapons.forEach(({ weapon, x, y, shoot, offset }) => {
+      if (this.lifespan <= 100) return;
+      const weaponLocation = {
+        x: this.x + x,
+        y: this.y + y,
+        facing: this.facing,
+      };
+
+      const space = (this.lifespan + offset) % 400 < shoot;
+      weapon.tick(space, projectiles, weaponLocation, camera, sound, this);
+    });
+
+    if (this.health <= 0) {
+      const space = true;
+      const weaponLocation = {};
+      new Weapon(death).tick(
+        space,
+        projectiles,
+        weaponLocation,
+        camera,
+        sound,
+        this
+      );
     }
   }
 
@@ -44,7 +138,7 @@ class Boss extends Character {
           this.y + Math.random() * 60,
           Math.random() * 3 - 1.5,
           Math.random() * 3 - 1.5,
-          "red"
+          this.bloodColor
         )
       );
     }
@@ -58,10 +152,16 @@ class Boss extends Character {
       });
     }
 
-    drawer.rect({
-      fillColor: "red",
-      rect: [this.x, this.y, 80, 80],
+    const colors = ["red", "red", "yellow", "orange"];
+    const makeColors = ([skin, horns, eyes, body]) => ({
+      skin,
+      horns,
+      eyes,
+      body,
     });
+    humanoid(this.x - 26, this.y - 40, this.facing, makeColors(colors), {
+      huge: true,
+    }).forEach(({ c, r }) => drawer.rect({ fillColor: c, rect: r }));
   }
 }
 

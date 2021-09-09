@@ -31,9 +31,11 @@ export const humanoid = (x, y, facing, colors, options = {}) => {
       [horns, [5, 2, 1, 1]], // horn right
     ]);
 
+  const mult = options.huge ? 12 : 1;
+  // prettier-ignore
   parts = parts.map(([c, r]) => ({
     c,
-    r: [facing === 1 ? x + r[0] : 8 - (r[0] + r[2]) + x, y + r[1], r[2], r[3]],
+    r: [facing === 1 ? x + (r[0] * mult) : 8 * mult - ((r[0] + r[2]) * mult) + x, y + r[1] * mult, r[2] * mult, r[3] * mult],
   }));
 
   return parts;
