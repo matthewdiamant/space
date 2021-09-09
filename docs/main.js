@@ -1199,40 +1199,10 @@ class Drawer {
       });
   }
 
-  lines({
-    lines,
-    shadowBlur = 0,
-    shadowColor,
-    rotation,
-    x,
-    y,
-    fillColor,
-    strokeColor,
-  }) {
-    if (rotation) {
-      cx.translate(
-        this.camera.adjustX(x, this.canvas.width),
-        this.camera.adjustY(y, this.canvas.height)
-      );
-      cx.rotate(rotation);
-      cx.translate(
-        -1 * this.camera.adjustX(x, this.canvas.width),
-        -1 * this.camera.adjustY(y, this.canvas.height)
-      );
-    }
+  lines({ lines, shadowBlur = 0, shadowColor, fillColor, strokeColor }) {
     cx.beginPath();
-    cx.moveTo(
-      this.camera.adjustX(lines[0][0], this.canvas.width),
-      this.camera.adjustY(lines[0][1], this.canvas.height)
-    );
-    lines
-      .slice(1)
-      .map((line) =>
-        cx.lineTo(
-          this.camera.adjustX(line[0], this.canvas.width),
-          this.camera.adjustY(line[1], this.canvas.height)
-        )
-      );
+    cx.moveTo(lines[0][0], lines[0][1]);
+    lines.slice(1).map((line) => cx.lineTo(line[0], line[1]));
     cx.closePath();
     cx.shadowBlur = shadowBlur;
     cx.shadowColor = shadowColor;
@@ -2014,6 +1984,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Music__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Music */ "./src/Music.js");
 /* harmony import */ var _Package__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Package */ "./src/Package.js");
 /* harmony import */ var _WeaponFactory__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./WeaponFactory */ "./src/WeaponFactory.js");
+/* harmony import */ var _Sprites__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Sprites */ "./src/Sprites.js");
+
 
 
 
@@ -2150,7 +2122,7 @@ class Level {
       this.levelOverTimer += 1;
     }
 
-    if (this.levelOverTimer > delay * (6 + (this.level.level === 1 ? 3 : 0))) {
+    if (this.levelOverTimer > delay * (7 + (this.level.level === 1 ? 3 : 0))) {
       this.initializeLevel(this.level.level + 1, {
         player,
         enemies,
@@ -2164,7 +2136,7 @@ class Level {
 
     const oldWelcomeMessage = this.welcomeMessage;
     this.welcomeMessage =
-      this.level.level === 1 && this.levelOverTimer > delay * 5;
+      this.level.level === 1 && this.levelOverTimer > delay * 7;
     if (oldWelcomeMessage !== this.welcomeMessage) {
       this.music.startMusic();
     }
@@ -2179,7 +2151,7 @@ class Level {
       drawer.rect({
         adjusted: false,
         fillColor: "rgba(0,0,0,0.9)",
-        rect: [20, 20, 88, 42],
+        rect: [20, 20, 88, 62],
       });
     }
 
@@ -2200,6 +2172,66 @@ class Level {
         y: 45,
       });
     }
+
+    const colors = {
+      skin: "white",
+      horns: "white",
+      eyes: "green",
+    };
+
+    if (this.levelOverTimer > delay * 4) {
+      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(32, 60, 1, colors, { bodyless: true }).forEach(({ c, r }) =>
+        drawer.rect({ adjusted: false, fillColor: c, rect: r })
+      );
+      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(42, 60, 1, colors, { bodyless: true }).forEach(({ c, r }) =>
+        drawer.rect({ adjusted: false, fillColor: c, rect: r })
+      );
+      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(52, 60, 1, colors, { bodyless: true }).forEach(({ c, r }) =>
+        drawer.rect({ adjusted: false, fillColor: c, rect: r })
+      );
+      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(62, 60, 1, colors, { bodyless: true }).forEach(({ c, r }) =>
+        drawer.rect({ adjusted: false, fillColor: c, rect: r })
+      );
+      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(72, 60, 1, colors, { bodyless: true }).forEach(({ c, r }) =>
+        drawer.rect({ adjusted: false, fillColor: c, rect: r })
+      );
+      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(82, 55, 1, colors, {
+        bodyless: true,
+        big: true,
+      }).forEach(({ c, r }) =>
+        drawer.rect({ adjusted: false, fillColor: c, rect: r })
+      );
+    }
+
+    const drawX = (x) => {
+      drawer.lines({
+        lines: [
+          [x, 61],
+          [x + 7, 67],
+        ],
+        strokeColor: "red",
+      });
+      drawer.lines({
+        lines: [
+          [x + 7, 61],
+          [x, 67],
+        ],
+        strokeColor: "red",
+      });
+    };
+
+    if (this.levelOverTimer > delay * 5)
+      if ((this.level.level - 1) % 6 >= 0) drawX(32);
+    if (this.levelOverTimer > delay * 5.1)
+      if ((this.level.level - 1) % 6 >= 1) drawX(42);
+    if (this.levelOverTimer > delay * 5.2)
+      if ((this.level.level - 1) % 6 >= 2) drawX(52);
+    if (this.levelOverTimer > delay * 5.3)
+      if ((this.level.level - 1) % 6 >= 3) drawX(62);
+    if (this.levelOverTimer > delay * 5.4)
+      if ((this.level.level - 1) % 6 >= 4) drawX(72);
+    if (this.levelOverTimer > delay * 5.5)
+      if ((this.level.level - 1) % 6 >= 5) drawX(82);
 
     if (this.welcomeMessage) {
       drawer.rect({
@@ -2229,7 +2261,7 @@ class Level {
       });
     }
 
-    const newLevelTimer = delay * (6 + (this.level.level === 1 ? 3 : 0));
+    const newLevelTimer = delay * (7 + (this.level.level === 1 ? 3 : 0));
     if (this.levelOverTimer > newLevelTimer - 50) {
       drawer.rect({
         adjusted: false,
@@ -2973,7 +3005,7 @@ const humanoid = (x, y, facing, colors, options = {}) => {
       [horns, [5, 2, 1, 1]], // horn right
     ]);
 
-  const mult = options.huge ? 12 : 1;
+  const mult = options.huge ? 12 : options.big ? 2 : 1;
   // prettier-ignore
   parts = parts.map(([c, r]) => ({
     c,
@@ -3437,7 +3469,7 @@ window.onload = () => {
   let packages = new _PackageCollection__WEBPACK_IMPORTED_MODULE_13__["default"]();
 
   gameContainer.initialize();
-  level.initializeLevel(6, {
+  level.initializeLevel(1, {
     player,
     enemies,
     chunks,

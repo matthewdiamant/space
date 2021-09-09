@@ -127,40 +127,10 @@ export default class Drawer {
       });
   }
 
-  lines({
-    lines,
-    shadowBlur = 0,
-    shadowColor,
-    rotation,
-    x,
-    y,
-    fillColor,
-    strokeColor,
-  }) {
-    if (rotation) {
-      cx.translate(
-        this.camera.adjustX(x, this.canvas.width),
-        this.camera.adjustY(y, this.canvas.height)
-      );
-      cx.rotate(rotation);
-      cx.translate(
-        -1 * this.camera.adjustX(x, this.canvas.width),
-        -1 * this.camera.adjustY(y, this.canvas.height)
-      );
-    }
+  lines({ lines, shadowBlur = 0, shadowColor, fillColor, strokeColor }) {
     cx.beginPath();
-    cx.moveTo(
-      this.camera.adjustX(lines[0][0], this.canvas.width),
-      this.camera.adjustY(lines[0][1], this.canvas.height)
-    );
-    lines
-      .slice(1)
-      .map((line) =>
-        cx.lineTo(
-          this.camera.adjustX(line[0], this.canvas.width),
-          this.camera.adjustY(line[1], this.canvas.height)
-        )
-      );
+    cx.moveTo(lines[0][0], lines[0][1]);
+    lines.slice(1).map((line) => cx.lineTo(line[0], line[1]));
     cx.closePath();
     cx.shadowBlur = shadowBlur;
     cx.shadowColor = shadowColor;
