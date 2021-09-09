@@ -1,42 +1,6 @@
 import Boss from "./Boss";
 import Enemy from "./Enemy";
-import { aggro, runAndGun, idiot, pacifist, sentinel } from "./EnemyPersonas";
-import WeaponFactory, { assaultRifle } from "./WeaponFactory";
-
-const defaultColors = ["red", "red", "yellow", "orange"];
-const pacifistColors = ["beige", "beige", "red", "red"];
-
-const makeColors = ([skin, horns, eyes, body]) => ({ skin, horns, eyes, body });
-
-const types = {
-  aggro: { type: "aggro", health: 25, persona: aggro, colors: defaultColors },
-  runAndGun: {
-    type: "runAndGun",
-    health: 25,
-    persona: runAndGun,
-    colors: defaultColors,
-  },
-  idiot: { type: "idiot", health: 25, persona: idiot, colors: defaultColors },
-  pacifist: {
-    type: "pacifist",
-    health: 25,
-    persona: pacifist,
-    colors: pacifistColors,
-  },
-  sentinel: {
-    type: "sentinel",
-    health: 25,
-    persona: sentinel,
-    colors: defaultColors,
-    weapon: new WeaponFactory().create(assaultRifle),
-  },
-  boss: {
-    type: "boss",
-    health: 250,
-    persona: sentinel,
-    colors: pacifistColors,
-  },
-};
+import types, { makeColors } from "./enemyTypes";
 
 class EnemyCollection {
   constructor() {

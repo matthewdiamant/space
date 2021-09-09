@@ -1557,47 +1557,10 @@ class Enemy extends _Character__WEBPACK_IMPORTED_MODULE_2__["default"] {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Boss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Boss */ "./src/Boss.js");
 /* harmony import */ var _Enemy__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Enemy */ "./src/Enemy.js");
-/* harmony import */ var _EnemyPersonas__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./EnemyPersonas */ "./src/EnemyPersonas.js");
-/* harmony import */ var _WeaponFactory__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./WeaponFactory */ "./src/WeaponFactory.js");
+/* harmony import */ var _enemyTypes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./enemyTypes */ "./src/enemyTypes.js");
 
 
 
-
-
-const defaultColors = ["red", "red", "yellow", "orange"];
-const pacifistColors = ["beige", "beige", "red", "red"];
-
-const makeColors = ([skin, horns, eyes, body]) => ({ skin, horns, eyes, body });
-
-const types = {
-  aggro: { type: "aggro", health: 25, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_2__["aggro"], colors: defaultColors },
-  runAndGun: {
-    type: "runAndGun",
-    health: 25,
-    persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_2__["runAndGun"],
-    colors: defaultColors,
-  },
-  idiot: { type: "idiot", health: 25, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_2__["idiot"], colors: defaultColors },
-  pacifist: {
-    type: "pacifist",
-    health: 25,
-    persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_2__["pacifist"],
-    colors: pacifistColors,
-  },
-  sentinel: {
-    type: "sentinel",
-    health: 25,
-    persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_2__["sentinel"],
-    colors: defaultColors,
-    weapon: new _WeaponFactory__WEBPACK_IMPORTED_MODULE_3__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_3__["assaultRifle"]),
-  },
-  boss: {
-    type: "boss",
-    health: 250,
-    persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_2__["sentinel"],
-    colors: pacifistColors,
-  },
-};
 
 class EnemyCollection {
   constructor() {
@@ -1625,14 +1588,14 @@ class EnemyCollection {
 
   createEnemy() {
     this.enemyCount -= 1;
-    const { type, health, persona, colors, weapon } = types[
+    const { type, health, persona, colors, weapon } = _enemyTypes__WEBPACK_IMPORTED_MODULE_2__["default"][
       this.remainingEnemies.pop()
     ];
     const [x, y] = this.enemySpawnPoint;
     if (type === "boss") {
       return new _Boss__WEBPACK_IMPORTED_MODULE_0__["default"](x, y, health, -1);
     } else {
-      return new _Enemy__WEBPACK_IMPORTED_MODULE_1__["default"](x, y, health, -1, makeColors(colors), persona, weapon);
+      return new _Enemy__WEBPACK_IMPORTED_MODULE_1__["default"](x, y, health, -1, Object(_enemyTypes__WEBPACK_IMPORTED_MODULE_2__["makeColors"])(colors), persona, weapon);
     }
   }
 
@@ -1985,6 +1948,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Package__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Package */ "./src/Package.js");
 /* harmony import */ var _WeaponFactory__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./WeaponFactory */ "./src/WeaponFactory.js");
 /* harmony import */ var _Sprites__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Sprites */ "./src/Sprites.js");
+/* harmony import */ var _enemyTypes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./enemyTypes */ "./src/enemyTypes.js");
+
 
 
 
@@ -2148,19 +2113,6 @@ class Level {
     ) {
       sound.play("message");
     }
-
-    if (this.levelOverTimer === delay * 5)
-      if ((this.level.level - 1) % 6 >= 0) sound.play("message");
-    if (this.levelOverTimer === delay * 5.1)
-      if ((this.level.level - 1) % 6 >= 1) sound.play("message");
-    if (this.levelOverTimer === delay * 5.2)
-      if ((this.level.level - 1) % 6 >= 2) sound.play("message");
-    if (this.levelOverTimer === delay * 5.3)
-      if ((this.level.level - 1) % 6 >= 3) sound.play("message");
-    if (this.levelOverTimer === delay * 5.4)
-      if ((this.level.level - 1) % 6 >= 4) sound.play("message");
-    if (this.levelOverTimer === delay * 5.5)
-      if ((this.level.level - 1) % 6 >= 5) sound.play("message");
   }
 
   draw(drawer) {
@@ -2197,7 +2149,9 @@ class Level {
     };
 
     if (this.levelOverTimer > delay * 4) {
-      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(32, 60, 1, colors, { bodyless: true }).forEach(({ c, r }) =>
+      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(32, 60, 1, Object(_enemyTypes__WEBPACK_IMPORTED_MODULE_4__["makeColors"])(_enemyTypes__WEBPACK_IMPORTED_MODULE_4__["sentinelColors"]), {
+        bodyless: true,
+      }).forEach(({ c, r }) =>
         drawer.rect({ adjusted: false, fillColor: c, rect: r })
       );
       Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(42, 60, 1, colors, { bodyless: true }).forEach(({ c, r }) =>
@@ -3420,6 +3374,69 @@ const collideRoof = (player, map) => {
     player.jumpHoldTime = 0;
   }
 };
+
+
+/***/ }),
+
+/***/ "./src/enemyTypes.js":
+/*!***************************!*\
+  !*** ./src/enemyTypes.js ***!
+  \***************************/
+/*! exports provided: pacifistColors, defaultColors, sentinelColors, makeColors, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pacifistColors", function() { return pacifistColors; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultColors", function() { return defaultColors; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sentinelColors", function() { return sentinelColors; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makeColors", function() { return makeColors; });
+/* harmony import */ var _WeaponFactory__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./WeaponFactory */ "./src/WeaponFactory.js");
+/* harmony import */ var _EnemyPersonas__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EnemyPersonas */ "./src/EnemyPersonas.js");
+
+
+
+
+const pacifistColors = ["beige", "beige", "red", "red"];
+const defaultColors = ["red", "red", "yellow", "orange"];
+const sentinelColors = ["#50c878", "#50c878", "#a00", "#a00"];
+
+const makeColors = ([skin, horns, eyes, body]) => ({
+  skin,
+  horns,
+  eyes,
+  body,
+});
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  aggro: { type: "aggro", health: 25, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_1__["aggro"], colors: defaultColors },
+  runAndGun: {
+    type: "runAndGun",
+    health: 25,
+    persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_1__["runAndGun"],
+    colors: defaultColors,
+  },
+  idiot: { type: "idiot", health: 25, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_1__["idiot"], colors: defaultColors },
+  pacifist: {
+    type: "pacifist",
+    health: 25,
+    persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_1__["pacifist"],
+    colors: pacifistColors,
+  },
+  sentinel: {
+    type: "sentinel",
+    health: 25,
+    persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_1__["sentinel"],
+    colors: sentinelColors,
+    weapon: new _WeaponFactory__WEBPACK_IMPORTED_MODULE_0__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_0__["assaultRifle"]),
+  },
+  boss: {
+    type: "boss",
+    health: 250,
+    persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_1__["sentinel"],
+    colors: pacifistColors,
+  },
+});
 
 
 /***/ }),

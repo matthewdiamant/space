@@ -2,6 +2,7 @@ import Music from "./Music";
 import Package from "./Package";
 import WeaponFactory, { assaultRifle, debugPistol } from "./WeaponFactory";
 import { humanoid } from "./Sprites";
+import { makeColors, sentinelColors } from "./enemyTypes";
 
 const colorSchemes = [
   {
@@ -161,19 +162,6 @@ class Level {
     ) {
       sound.play("message");
     }
-
-    if (this.levelOverTimer === delay * 5)
-      if ((this.level.level - 1) % 6 >= 0) sound.play("message");
-    if (this.levelOverTimer === delay * 5.1)
-      if ((this.level.level - 1) % 6 >= 1) sound.play("message");
-    if (this.levelOverTimer === delay * 5.2)
-      if ((this.level.level - 1) % 6 >= 2) sound.play("message");
-    if (this.levelOverTimer === delay * 5.3)
-      if ((this.level.level - 1) % 6 >= 3) sound.play("message");
-    if (this.levelOverTimer === delay * 5.4)
-      if ((this.level.level - 1) % 6 >= 4) sound.play("message");
-    if (this.levelOverTimer === delay * 5.5)
-      if ((this.level.level - 1) % 6 >= 5) sound.play("message");
   }
 
   draw(drawer) {
@@ -210,7 +198,9 @@ class Level {
     };
 
     if (this.levelOverTimer > delay * 4) {
-      humanoid(32, 60, 1, colors, { bodyless: true }).forEach(({ c, r }) =>
+      humanoid(32, 60, 1, makeColors(sentinelColors), {
+        bodyless: true,
+      }).forEach(({ c, r }) =>
         drawer.rect({ adjusted: false, fillColor: c, rect: r })
       );
       humanoid(42, 60, 1, colors, { bodyless: true }).forEach(({ c, r }) =>
