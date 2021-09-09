@@ -2004,7 +2004,7 @@ const colorSchemes = [
 const level1 = {
   concurrentEnemies: 1,
   enemyCount: 1,
-  spawnPoint: [40, 10],
+  spawnPoint: [40, 0],
   enemySpawnPoint: [230, 100],
   enemies: {
     sentinel: 1,
@@ -2026,7 +2026,7 @@ const levelTemplates = [
   {
     concurrentEnemies: 5,
     enemyCount: 10,
-    spawnPoint: [40, 10],
+    spawnPoint: [40, 150],
     enemySpawnPoint: [249, 20],
     enemies: {
       pacifist: 10,
@@ -2036,7 +2036,7 @@ const levelTemplates = [
   {
     concurrentEnemies: 5,
     enemyCount: 10,
-    spawnPoint: [40, 10],
+    spawnPoint: [40, 150],
     enemySpawnPoint: [249, 20],
     enemies: {
       idiot: 10,
@@ -2046,7 +2046,7 @@ const levelTemplates = [
   {
     concurrentEnemies: 5,
     enemyCount: 10,
-    spawnPoint: [40, 10],
+    spawnPoint: [40, 150],
     enemySpawnPoint: [249, 20],
     enemies: {
       runAndGun: 10,
@@ -2056,7 +2056,7 @@ const levelTemplates = [
   {
     concurrentEnemies: 5,
     enemyCount: 10,
-    spawnPoint: [40, 10],
+    spawnPoint: [40, 150],
     enemySpawnPoint: [249, 20],
     enemies: {
       aggro: 10,
