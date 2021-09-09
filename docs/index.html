@@ -788,7 +788,8 @@ class Character extends _GameObject__WEBPACK_IMPORTED_MODULE_0__["default"] {
         projectiles,
         weaponLocation,
         camera,
-        sound
+        sound,
+        this
       );
     }
 
@@ -880,6 +881,7 @@ class CollisionDetector {
     if (
       !(projectile.exploding || object.exploding) &&
       object.health > 0 &&
+      projectile.owner !== object &&
       collision(projectile, object)
     ) {
       projectile.destroy();
@@ -2552,7 +2554,8 @@ class Projectile {
       blood,
       size,
       emoji,
-    }
+    },
+    owner
   ) {
     this.size = size || 1;
     this.x = x - this.size / 2;
@@ -2570,6 +2573,7 @@ class Projectile {
     this.damageMod = damageMod || 1;
     this.blood = blood;
     this.emoji = emoji;
+    this.owner = owner;
   }
 
   destroy() {
@@ -2782,14 +2786,14 @@ class Weapon {
     this.shooting = false;
   }
 
-  tick(pressSpace, projectiles, location, camera, sound) {
+  tick(pressSpace, projectiles, location, camera, sound, owner) {
     this.ticksSinceLastFired += 1;
     this.shooting = false;
     if (
       this.cooldown * this.cooldownMod < this.ticksSinceLastFired &&
       pressSpace
     ) {
-      this.fire(projectiles, location);
+      this.fire(projectiles, location, owner);
       sound.play("minigun");
       if (this.shake) camera.shake(this.shake.force, this.shake.duration);
       this.shooting = true;
@@ -2798,10 +2802,10 @@ class Weapon {
     return 0;
   }
 
-  fire(projectiles, location) {
+  fire(projectiles, location, owner) {
     this.ticksSinceLastFired = 0;
     for (let i = 0; i < this.payloadCount; i++) {
-      const p = new _Projectile__WEBPACK_IMPORTED_MODULE_0__["default"](location, this.projectileConfig);
+      const p = new _Projectile__WEBPACK_IMPORTED_MODULE_0__["default"](location, this.projectileConfig, owner);
       projectiles.add(p);
     }
   }
@@ -3182,7 +3186,7 @@ window.onload = () => {
 
   let collisionDetection = () => {
     projectiles.projectiles
-      .filter((p) => !p.exploding && p.lifespan > 2)
+      .filter((p) => !p.exploding)
       .forEach((projectile) => {
         // map
         if (map.getTile(projectile.x, projectile.y)) {

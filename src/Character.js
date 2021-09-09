@@ -99,7 +99,8 @@ class Character extends GameObject {
         projectiles,
         weaponLocation,
         camera,
-        sound
+        sound,
+        this
       );
     }
 

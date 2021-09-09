@@ -14,6 +14,7 @@ export default class CollisionDetector {
     if (
       !(projectile.exploding || object.exploding) &&
       object.health > 0 &&
+      projectile.owner !== object &&
       collision(projectile, object)
     ) {
       projectile.destroy();

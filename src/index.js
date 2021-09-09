@@ -89,7 +89,7 @@ window.onload = () => {
 
   let collisionDetection = () => {
     projectiles.projectiles
-      .filter((p) => !p.exploding && p.lifespan > 2)
+      .filter((p) => !p.exploding)
       .forEach((projectile) => {
         // map
         if (map.getTile(projectile.x, projectile.y)) {

@@ -22,14 +22,14 @@ class Weapon {
     this.shooting = false;
   }
 
-  tick(pressSpace, projectiles, location, camera, sound) {
+  tick(pressSpace, projectiles, location, camera, sound, owner) {
     this.ticksSinceLastFired += 1;
     this.shooting = false;
     if (
       this.cooldown * this.cooldownMod < this.ticksSinceLastFired &&
       pressSpace
     ) {
-      this.fire(projectiles, location);
+      this.fire(projectiles, location, owner);
       sound.play("minigun");
       if (this.shake) camera.shake(this.shake.force, this.shake.duration);
       this.shooting = true;
@@ -38,10 +38,10 @@ class Weapon {
     return 0;
   }
 
-  fire(projectiles, location) {
+  fire(projectiles, location, owner) {
     this.ticksSinceLastFired = 0;
     for (let i = 0; i < this.payloadCount; i++) {
-      const p = new Projectile(location, this.projectileConfig);
+      const p = new Projectile(location, this.projectileConfig, owner);
       projectiles.add(p);
     }
   }

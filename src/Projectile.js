@@ -14,7 +14,8 @@ class Projectile {
       blood,
       size,
       emoji,
-    }
+    },
+    owner
   ) {
     this.size = size || 1;
     this.x = x - this.size / 2;
@@ -32,6 +33,7 @@ class Projectile {
     this.damageMod = damageMod || 1;
     this.blood = blood;
     this.emoji = emoji;
+    this.owner = owner;
   }
 
   destroy() {
