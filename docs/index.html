@@ -1570,30 +1570,30 @@ const pacifistColors = ["beige", "beige", "red", "red"];
 const makeColors = ([skin, horns, eyes, body]) => ({ skin, horns, eyes, body });
 
 const types = {
-  aggro: { type: "aggro", health: 50, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_2__["aggro"], colors: defaultColors },
+  aggro: { type: "aggro", health: 25, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_2__["aggro"], colors: defaultColors },
   runAndGun: {
     type: "runAndGun",
-    health: 50,
+    health: 25,
     persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_2__["runAndGun"],
     colors: defaultColors,
   },
-  idiot: { type: "idiot", health: 50, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_2__["idiot"], colors: defaultColors },
+  idiot: { type: "idiot", health: 25, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_2__["idiot"], colors: defaultColors },
   pacifist: {
     type: "pacifist",
-    health: 50,
+    health: 25,
     persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_2__["pacifist"],
     colors: pacifistColors,
   },
   sentinel: {
     type: "sentinel",
-    health: 50,
+    health: 25,
     persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_2__["sentinel"],
     colors: defaultColors,
     weapon: new _WeaponFactory__WEBPACK_IMPORTED_MODULE_3__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_3__["assaultRifle"]),
   },
   boss: {
     type: "boss",
-    health: 500,
+    health: 250,
     persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_2__["sentinel"],
     colors: pacifistColors,
   },
@@ -2104,7 +2104,7 @@ class Level {
     spurts.spurts = [];
     packages.packages =
       level === 1
-        ? [new _Package__WEBPACK_IMPORTED_MODULE_1__["default"](146, 90, new _WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["debugPistol"]))]
+        ? [new _Package__WEBPACK_IMPORTED_MODULE_1__["default"](146, 90, new _WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["assaultRifle"]))]
         : [];
     enemies.initialize(this.level);
     this.levelOverTimer = 0;
@@ -2742,7 +2742,8 @@ class Player extends _Character__WEBPACK_IMPORTED_MODULE_0__["default"] {
   constructor(x, y, health) {
     super(x, y, health);
     this.bloodColor = "red";
-    this.weapon = new _WeaponFactory__WEBPACK_IMPORTED_MODULE_4__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_4__["debugPistol"]),
+    // this.weapon = new WeaponFactory().create(debugPistol);
+    this.weapon = null;
     this.dead = false;
   }
 
@@ -3478,7 +3479,7 @@ window.onload = () => {
   let level = new _Level__WEBPACK_IMPORTED_MODULE_6__["default"]();
   let map = new _Map__WEBPACK_IMPORTED_MODULE_7__["default"]();
   let hud = new _HUD__WEBPACK_IMPORTED_MODULE_8__["default"]();
-  let player = new _Player__WEBPACK_IMPORTED_MODULE_9__["default"](10, 10, 100);
+  let player = new _Player__WEBPACK_IMPORTED_MODULE_9__["default"](10, 10, 350);
   let enemies = new _EnemyCollection__WEBPACK_IMPORTED_MODULE_10__["default"]();
   let projectiles = new _ProjectileCollection__WEBPACK_IMPORTED_MODULE_11__["default"]();
   let spurts = new _BloodCollection__WEBPACK_IMPORTED_MODULE_12__["default"]();

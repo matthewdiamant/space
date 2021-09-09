@@ -1,6 +1,6 @@
 import Music from "./Music";
 import Package from "./Package";
-import WeaponFactory, { debugPistol } from "./WeaponFactory";
+import WeaponFactory, { assaultRifle, debugPistol } from "./WeaponFactory";
 import { humanoid } from "./Sprites";
 
 const colorSchemes = [
@@ -117,7 +117,7 @@ class Level {
     spurts.spurts = [];
     packages.packages =
       level === 1
-        ? [new Package(146, 90, new WeaponFactory().create(debugPistol))]
+        ? [new Package(146, 90, new WeaponFactory().create(assaultRifle))]
         : [];
     enemies.initialize(this.level);
     this.levelOverTimer = 0;

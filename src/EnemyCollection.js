@@ -9,30 +9,30 @@ const pacifistColors = ["beige", "beige", "red", "red"];
 const makeColors = ([skin, horns, eyes, body]) => ({ skin, horns, eyes, body });
 
 const types = {
-  aggro: { type: "aggro", health: 50, persona: aggro, colors: defaultColors },
+  aggro: { type: "aggro", health: 25, persona: aggro, colors: defaultColors },
   runAndGun: {
     type: "runAndGun",
-    health: 50,
+    health: 25,
     persona: runAndGun,
     colors: defaultColors,
   },
-  idiot: { type: "idiot", health: 50, persona: idiot, colors: defaultColors },
+  idiot: { type: "idiot", health: 25, persona: idiot, colors: defaultColors },
   pacifist: {
     type: "pacifist",
-    health: 50,
+    health: 25,
     persona: pacifist,
     colors: pacifistColors,
   },
   sentinel: {
     type: "sentinel",
-    health: 50,
+    health: 25,
     persona: sentinel,
     colors: defaultColors,
     weapon: new WeaponFactory().create(assaultRifle),
   },
   boss: {
     type: "boss",
-    health: 500,
+    health: 250,
     persona: sentinel,
     colors: pacifistColors,
   },
