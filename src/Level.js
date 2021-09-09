@@ -216,18 +216,18 @@ class Level {
       );
     }
 
-    const drawX = (x) => {
+    const drawX = (x, offset = 0) => {
       drawer.lines({
         lines: [
-          [x, 61],
-          [x + 7, 67],
+          [x + offset / 2, 61 - offset],
+          [x + 7 + offset * 3, 67 + offset],
         ],
         strokeColor: "red",
       });
       drawer.lines({
         lines: [
-          [x + 7, 61],
-          [x, 67],
+          [x + 7 + offset * 3, 61 - offset],
+          [x + offset / 2, 67 + offset],
         ],
         strokeColor: "red",
       });
@@ -244,7 +244,7 @@ class Level {
     if (this.levelOverTimer > delay * 5.4)
       if ((this.level.level - 1) % 6 >= 4) drawX(72);
     if (this.levelOverTimer > delay * 5.5)
-      if ((this.level.level - 1) % 6 >= 5) drawX(82);
+      if ((this.level.level - 1) % 6 >= 5) drawX(82, 2);
 
     if (this.welcomeMessage) {
       drawer.rect({
