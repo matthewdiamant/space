@@ -34,7 +34,7 @@ const level1 = {
 };
 
 const levelTemplates = [
-  {
+  (level) => ({
     concurrentEnemies: 5,
     spawnPoint: [40, 10],
     enemyColor: sentinelColors,
@@ -43,48 +43,48 @@ const levelTemplates = [
       sentinel: 10,
     },
     colors: colorSchemes[0],
-  },
-  {
+  }),
+  (level) => ({
     concurrentEnemies: 5,
     spawnPoint: [40, 150],
     enemyColor: pacifistColors,
-    enemySpawnPoint: [249, 20],
+    enemySpawnPoint: [249, 10],
     enemies: {
       pacifist: 10,
     },
     colors: colorSchemes[0],
-  },
-  {
+  }),
+  (level) => ({
     concurrentEnemies: 5,
     spawnPoint: [40, 150],
     enemyColor: idiotColors,
-    enemySpawnPoint: [249, 20],
+    enemySpawnPoint: [249, 10],
     enemies: {
       idiot: 10,
     },
     colors: colorSchemes[1],
-  },
-  {
+  }),
+  (level) => ({
     concurrentEnemies: 5,
     spawnPoint: [40, 150],
     enemyColor: runAndGunColors,
-    enemySpawnPoint: [249, 20],
+    enemySpawnPoint: [249, 10],
     enemies: {
       runAndGun: 10,
     },
     colors: colorSchemes[0],
-  },
-  {
+  }),
+  (level) => ({
     concurrentEnemies: 5,
     spawnPoint: [40, 150],
     enemyColor: aggroColors,
-    enemySpawnPoint: [249, 20],
+    enemySpawnPoint: [249, 10],
     enemies: {
       aggro: 10,
     },
     colors: colorSchemes[0],
-  },
-  {
+  }),
+  (level) => ({
     concurrentEnemies: 1,
     spawnPoint: [20, 156],
     enemyColor: bossColors,
@@ -93,7 +93,7 @@ const levelTemplates = [
       boss: 1,
     },
     colors: colorSchemes[0],
-  },
+  }),
 ];
 
 const delay = 80;
@@ -110,7 +110,7 @@ class Level {
     level,
     { player, enemies, chunks, spurts, packages, map, background }
   ) {
-    this.level = level === 1 ? level1 : levelTemplates[(level - 1) % 6];
+    this.level = level === 1 ? level1 : levelTemplates[(level - 1) % 6](level);
     this.level.level = level;
     this.level.enemyCount = Object.entries(this.level.enemies).reduce(
       (sum, [k, v]) => sum + v,
