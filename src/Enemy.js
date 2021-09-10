@@ -6,6 +6,7 @@ import { humanoid } from "./Sprites";
 class Enemy extends Character {
   constructor(x, y, health, facing, colors, persona, weapon) {
     super(x, y, health, facing, weapon);
+    this.maxDx = 0.8;
     this.colors = colors;
     this.bloodColor = "#32CD32";
     this.presses = {

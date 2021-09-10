@@ -1472,6 +1472,7 @@ __webpack_require__.r(__webpack_exports__);
 class Enemy extends _Character__WEBPACK_IMPORTED_MODULE_2__["default"] {
   constructor(x, y, health, facing, colors, persona, weapon) {
     super(x, y, health, facing, weapon);
+    this.maxDx = 0.8;
     this.colors = colors;
     this.bloodColor = "#32CD32";
     this.presses = {
