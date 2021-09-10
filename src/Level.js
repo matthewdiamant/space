@@ -43,7 +43,7 @@ const level1 = {
 
 const levelTemplates = [
   (level) => ({
-    concurrentEnemies: 3,
+    concurrentEnemies: 3 + Math.floor(level / 6),
     spawnPoint: [40, 10],
     enemyColor: sentinelColors,
     enemySpawnPoints: [
@@ -54,12 +54,12 @@ const levelTemplates = [
       [249, 10],
     ],
     enemies: {
-      sentinel: 10,
+      sentinel: 10 + Math.floor(level / 6) * 3,
     },
     colors: colorSchemes[0],
   }),
   (level) => ({
-    concurrentEnemies: 3,
+    concurrentEnemies: 3 + Math.floor(level / 6),
     spawnPoint: [40, 150],
     enemyColor: pacifistColors,
     enemySpawnPoints: [
@@ -70,12 +70,12 @@ const levelTemplates = [
       [249, 10],
     ],
     enemies: {
-      pacifist: 10,
+      pacifist: 10 + Math.floor(level / 6) * 3,
     },
     colors: colorSchemes[0],
   }),
   (level) => ({
-    concurrentEnemies: 3,
+    concurrentEnemies: 3 + Math.floor(level / 6),
     spawnPoint: [40, 150],
     enemyColor: idiotColors,
     enemySpawnPoints: [
@@ -86,12 +86,12 @@ const levelTemplates = [
       [249, 10],
     ],
     enemies: {
-      idiot: 10,
+      idiot: 10 + Math.floor(level / 6) * 3,
     },
     colors: colorSchemes[1],
   }),
   (level) => ({
-    concurrentEnemies: 3,
+    concurrentEnemies: 3 + Math.floor(level / 6),
     spawnPoint: [40, 150],
     enemyColor: runAndGunColors,
     enemySpawnPoints: [
@@ -102,12 +102,12 @@ const levelTemplates = [
       [249, 10],
     ],
     enemies: {
-      runAndGun: 10,
+      runAndGun: 10 + Math.floor(level / 6) * 3,
     },
     colors: colorSchemes[0],
   }),
   (level) => ({
-    concurrentEnemies: 3,
+    concurrentEnemies: 3 + Math.floor(level / 6),
     spawnPoint: [40, 150],
     enemyColor: aggroColors,
     enemySpawnPoints: [
@@ -118,7 +118,7 @@ const levelTemplates = [
       [249, 10],
     ],
     enemies: {
-      aggro: 10,
+      aggro: 10 + Math.floor(level / 6) * 3,
     },
     colors: colorSchemes[0],
   }),
