@@ -51,8 +51,8 @@ const weapons = [
   { weapon: new Weapon(makeMini(-0.4)), y: 36, x: 40, shoot: 40, offset: 30 },
   { weapon: new Weapon(makeMini(-0.8)), y: 39, x: 40, shoot: 40, offset: 20 },
 
-  { weapon: new Weapon(angler), y: 30, x: 0, shoot: 100, offset: 200 },
-  { weapon: new Weapon(angler2), y: 10, x: 0, shoot: 100, offset: 200 },
+  { weapon: new Weapon(angler), y: 30, x: 28, shoot: 100, offset: 200 },
+  { weapon: new Weapon(angler2), y: 10, x: 28, shoot: 100, offset: 200 },
 ];
 
 const death = {
@@ -78,10 +78,17 @@ class Boss extends Character {
     super(x, y, health, facing, weapon);
     this.bloodColor = "#32CD32";
     this.size = 56;
+    this.dx = 0.2;
   }
 
   tick({ map, projectiles, camera, sound, player }) {
     this.lifespan += 1;
+
+    // move x
+    const maxLeft = 105;
+    const maxRight = 160;
+    this.x += this.facing * this.dx;
+    this.x = Math.max(Math.min(this.x, maxRight), maxLeft);
 
     // move y
     this.dy += this.grav;
