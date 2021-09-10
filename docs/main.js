@@ -1564,10 +1564,11 @@ class EnemyCollection {
     this.enemyCount = 0;
   }
 
-  initialize({ concurrentEnemies, enemyCount, enemySpawnPoint, enemies }) {
+  initialize({ concurrentEnemies, enemyCount, enemySpawnPoints, enemies }) {
     this.concurrentEnemies = concurrentEnemies;
     this.enemyCount = enemyCount;
-    this.enemySpawnPoint = enemySpawnPoint;
+    this.enemySpawnPoint = () =>
+      enemySpawnPoints[Math.floor(Math.random() * enemySpawnPoints.length)];
 
     this.remainingEnemies = [];
     Object.entries(enemies).forEach(([type, count]) => {
@@ -1586,7 +1587,7 @@ class EnemyCollection {
     const { type, health, persona, colors, weapon } = _enemyTypes__WEBPACK_IMPORTED_MODULE_2__["default"][
       this.remainingEnemies.pop()
     ];
-    const [x, y] = this.enemySpawnPoint;
+    const [x, y] = this.enemySpawnPoint();
     if (type === "boss") {
       return new _Boss__WEBPACK_IMPORTED_MODULE_0__["default"](x, y, health, -1);
     } else {
@@ -1961,7 +1962,7 @@ const level1 = {
   concurrentEnemies: 1,
   spawnPoint: [40, 0],
   enemyColor: _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["sentinelColors"],
-  enemySpawnPoint: [230, 100],
+  enemySpawnPoints: [[230, 100]],
   enemies: {
     sentinel: 1,
   },
@@ -1973,7 +1974,13 @@ const levelTemplates = [
     concurrentEnemies: 5,
     spawnPoint: [40, 10],
     enemyColor: _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["sentinelColors"],
-    enemySpawnPoint: [230, 100],
+    enemySpawnPoints: [
+      [50, 10],
+      [100, 10],
+      [150, 10],
+      [200, 10],
+      [249, 10],
+    ],
     enemies: {
       sentinel: 10,
     },
@@ -1983,7 +1990,13 @@ const levelTemplates = [
     concurrentEnemies: 5,
     spawnPoint: [40, 150],
     enemyColor: _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["pacifistColors"],
-    enemySpawnPoint: [249, 10],
+    enemySpawnPoints: [
+      [50, 10],
+      [100, 10],
+      [150, 10],
+      [200, 10],
+      [249, 10],
+    ],
     enemies: {
       pacifist: 10,
     },
@@ -1993,7 +2006,13 @@ const levelTemplates = [
     concurrentEnemies: 5,
     spawnPoint: [40, 150],
     enemyColor: _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["idiotColors"],
-    enemySpawnPoint: [249, 10],
+    enemySpawnPoints: [
+      [50, 10],
+      [100, 10],
+      [150, 10],
+      [200, 10],
+      [249, 10],
+    ],
     enemies: {
       idiot: 10,
     },
@@ -2003,7 +2022,13 @@ const levelTemplates = [
     concurrentEnemies: 5,
     spawnPoint: [40, 150],
     enemyColor: _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["runAndGunColors"],
-    enemySpawnPoint: [249, 10],
+    enemySpawnPoints: [
+      [50, 10],
+      [100, 10],
+      [150, 10],
+      [200, 10],
+      [249, 10],
+    ],
     enemies: {
       runAndGun: 10,
     },
@@ -2013,7 +2038,13 @@ const levelTemplates = [
     concurrentEnemies: 5,
     spawnPoint: [40, 150],
     enemyColor: _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["aggroColors"],
-    enemySpawnPoint: [249, 10],
+    enemySpawnPoints: [
+      [50, 10],
+      [100, 10],
+      [150, 10],
+      [200, 10],
+      [249, 10],
+    ],
     enemies: {
       aggro: 10,
     },
@@ -2023,7 +2054,7 @@ const levelTemplates = [
     concurrentEnemies: 1,
     spawnPoint: [20, 156],
     enemyColor: _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["bossColors"],
-    enemySpawnPoint: [120, 10],
+    enemySpawnPoints: [[120, 10]],
     enemies: {
       boss: 1,
     },

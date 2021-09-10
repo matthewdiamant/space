@@ -9,10 +9,11 @@ class EnemyCollection {
     this.enemyCount = 0;
   }
 
-  initialize({ concurrentEnemies, enemyCount, enemySpawnPoint, enemies }) {
+  initialize({ concurrentEnemies, enemyCount, enemySpawnPoints, enemies }) {
     this.concurrentEnemies = concurrentEnemies;
     this.enemyCount = enemyCount;
-    this.enemySpawnPoint = enemySpawnPoint;
+    this.enemySpawnPoint = () =>
+      enemySpawnPoints[Math.floor(Math.random() * enemySpawnPoints.length)];
 
     this.remainingEnemies = [];
     Object.entries(enemies).forEach(([type, count]) => {
@@ -31,7 +32,7 @@ class EnemyCollection {
     const { type, health, persona, colors, weapon } = types[
       this.remainingEnemies.pop()
     ];
-    const [x, y] = this.enemySpawnPoint;
+    const [x, y] = this.enemySpawnPoint();
     if (type === "boss") {
       return new Boss(x, y, health, -1);
     } else {
