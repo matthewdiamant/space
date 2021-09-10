@@ -2091,7 +2091,7 @@ class Level {
     spurts.spurts = [];
     packages.packages =
       level === 1
-        ? [new _Package__WEBPACK_IMPORTED_MODULE_1__["default"](146, 90, new _WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["minigun"]))]
+        ? [new _Package__WEBPACK_IMPORTED_MODULE_1__["default"](146, 90, new _WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["shotgun"]))]
         : // [new Package(146, 90, new WeaponFactory().create(debugPistol))]
           [];
     enemies.initialize(this.level);
@@ -2946,8 +2946,8 @@ let sounds = {
   "message": [,0,1740,,.06,.29,,.77,,,,,,,,,,.76,.07,.06],
   "minigun": [0.6,0,0,,,0,4,0,1e8,,,,,,,.04,,0,.08],
   "pickup": [,,548,.08,.36,.47,1,1.79,,,236,.03,.08,,,,,.83],
-  "shotgun": [,,300,,,.9,4,.5,,,,,,10,74,.2,,2],
-  "sniper": [,,300,,,1.2,4,.5,,,,,,10,74,.1,,2],
+  "shotgun": [0.8,,300,,,.9,4,.5,,,,,,10,74,.2,,2],
+  "sniper": [0.8,,300,,,1.2,4,.5,,,,,,10,74,.1,,2],
   "thrown": [,0,0,,,0,4,0,1e8,,,,,,,.055,,0,.3],
 };
 
