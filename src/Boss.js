@@ -19,7 +19,7 @@ const anglerProjectiles = {
   explosion: 3,
   size: 5,
   damage: 10,
-  blood: 5,
+  blood: 20,
 };
 
 const angler = {
@@ -152,13 +152,19 @@ class Boss extends Character {
     if (this.health < this.maxHealth) {
       drawer.rect({
         fillColor: "white",
-        rect: [this.x, this.y - 1, 8 * (this.health / this.maxHealth), 1],
+        rect: [this.x - 2, this.y - 22, 60 * (this.health / this.maxHealth), 2],
       });
     }
 
-    humanoid(this.x - 26, this.y - 40, this.facing, bossColors, {
-      huge: true,
-    }).forEach(({ c, r }) => drawer.rect({ fillColor: c, rect: r }));
+    humanoid(
+      this.x - (this.facing === 1 ? 13 : 26),
+      this.y - 40,
+      this.facing,
+      bossColors,
+      {
+        huge: true,
+      }
+    ).forEach(({ c, r }) => drawer.rect({ fillColor: c, rect: r }));
   }
 }
 

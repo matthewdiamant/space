@@ -17,7 +17,7 @@ export const idiotColors = makeColors(["#c77dff", "#c77dff", "#a1ff0a", "#ff5d8f
 // prettier-ignore
 export const runAndGunColors = makeColors(["#4cc9f0", "#4cc9f0", "#f72585", "#4361ee"]);
 export const aggroColors = makeColors(["#dd0", "#dd0", "#09f", "#a30"]);
-export const bossColors = makeColors(["red", "red", "yellow", "orange"]);
+export const bossColors = makeColors(["#a00", "#a00", "yellow", "#a60"]);
 
 export default {
   sentinel: {

@@ -622,7 +622,7 @@ const anglerProjectiles = {
   explosion: 3,
   size: 5,
   damage: 10,
-  blood: 5,
+  blood: 20,
 };
 
 const angler = {
@@ -755,13 +755,19 @@ class Boss extends _Character__WEBPACK_IMPORTED_MODULE_2__["default"] {
     if (this.health < this.maxHealth) {
       drawer.rect({
         fillColor: "white",
-        rect: [this.x, this.y - 1, 8 * (this.health / this.maxHealth), 1],
+        rect: [this.x - 2, this.y - 22, 60 * (this.health / this.maxHealth), 2],
       });
     }
 
-    Object(_Sprites__WEBPACK_IMPORTED_MODULE_5__["humanoid"])(this.x - 26, this.y - 40, this.facing, _enemyTypes__WEBPACK_IMPORTED_MODULE_7__["bossColors"], {
-      huge: true,
-    }).forEach(({ c, r }) => drawer.rect({ fillColor: c, rect: r }));
+    Object(_Sprites__WEBPACK_IMPORTED_MODULE_5__["humanoid"])(
+      this.x - (this.facing === 1 ? 13 : 26),
+      this.y - 40,
+      this.facing,
+      _enemyTypes__WEBPACK_IMPORTED_MODULE_7__["bossColors"],
+      {
+        huge: true,
+      }
+    ).forEach(({ c, r }) => drawer.rect({ fillColor: c, rect: r }));
   }
 }
 
@@ -2106,7 +2112,7 @@ class Level {
     spurts.spurts = [];
     packages.packages =
       level === 1
-        ? [new _Package__WEBPACK_IMPORTED_MODULE_1__["default"](146, 90, new _WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["debugPistol"]))]
+        ? [new _Package__WEBPACK_IMPORTED_MODULE_1__["default"](146, 90, new _WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["assaultRifle"]))]
         : [];
     enemies.initialize(this.level);
     this.levelOverTimer = 0;
@@ -2658,7 +2664,7 @@ class Package extends _GameObject__WEBPACK_IMPORTED_MODULE_0__["default"] {
     this.grav = 0.04;
     this.dy = 0.4;
     this.landed = false;
-    this.type = weapon || Math.random() > 0.5 ? "weapon" : "health";
+    this.type = weapon || Math.random() > 0.66 ? "weapon" : "health";
   }
 
   tick() {
@@ -3531,7 +3537,7 @@ const idiotColors = makeColors(["#c77dff", "#c77dff", "#a1ff0a", "#ff5d8f"]);
 // prettier-ignore
 const runAndGunColors = makeColors(["#4cc9f0", "#4cc9f0", "#f72585", "#4361ee"]);
 const aggroColors = makeColors(["#dd0", "#dd0", "#09f", "#a30"]);
-const bossColors = makeColors(["red", "red", "yellow", "orange"]);
+const bossColors = makeColors(["#a00", "#a00", "yellow", "#a60"]);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   sentinel: {
@@ -3629,7 +3635,7 @@ window.onload = () => {
   let packages = new _PackageCollection__WEBPACK_IMPORTED_MODULE_13__["default"]();
 
   gameContainer.initialize();
-  level.initializeLevel(1, {
+  level.initializeLevel(6, {
     player,
     enemies,
     chunks,
