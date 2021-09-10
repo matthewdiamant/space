@@ -2091,7 +2091,7 @@ class Level {
     spurts.spurts = [];
     packages.packages =
       level === 1
-        ? [new _Package__WEBPACK_IMPORTED_MODULE_1__["default"](146, 90, new _WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["assaultRifle"]))]
+        ? [new _Package__WEBPACK_IMPORTED_MODULE_1__["default"](146, 90, new _WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["shotgun"]))]
         : // [new Package(146, 90, new WeaponFactory().create(debugPistol))]
           [];
     enemies.initialize(this.level);
@@ -2944,7 +2944,7 @@ let sounds = {
   "jump": [,,131,.02,.02,.08,,1.49,2.3,,,,,,,,,.9,.1],
   "message": [,0,1740,,.06,.29,,.77,,,,,,,,,,.76,.07,.06],
   "minigun": [,0,0,,,0,4,0,1e8,,,,,,,.04,,0,.08],
-  "shotgun": [,0,0,,,0,4,0,1e8,,,,,,,.055,,0,.3],
+  "shotgun": [,,300,,.25,.5,4,2.8,1,.2,,,,,74,.2,,2],
   "thrown": [,0,0,,,0,4,0,1e8,,,,,,,.055,,0,.3],
 };
 
@@ -3033,6 +3033,7 @@ class Weapon {
     payloadCount,
     knockback,
     shake,
+    sound,
     projectileConfig,
   }) {
     this.name = name;
@@ -3041,6 +3042,7 @@ class Weapon {
     this.payloadCount = payloadCount;
     this.knockback = knockback;
     this.shake = shake;
+    this.sound = sound;
     this.projectileConfig = projectileConfig;
 
     this.ticksSinceLastFired = cooldown;
@@ -3055,7 +3057,7 @@ class Weapon {
       pressSpace
     ) {
       this.fire(projectiles, location, owner);
-      sound.play("minigun");
+      sound.play(this.sound);
       if (this.shake) camera.shake(this.shake.force, this.shake.duration);
       this.shooting = true;
       return this.knockback;

@@ -8,6 +8,7 @@ class Weapon {
     payloadCount,
     knockback,
     shake,
+    sound,
     projectileConfig,
   }) {
     this.name = name;
@@ -16,6 +17,7 @@ class Weapon {
     this.payloadCount = payloadCount;
     this.knockback = knockback;
     this.shake = shake;
+    this.sound = sound;
     this.projectileConfig = projectileConfig;
 
     this.ticksSinceLastFired = cooldown;
@@ -30,7 +32,7 @@ class Weapon {
       pressSpace
     ) {
       this.fire(projectiles, location, owner);
-      sound.play("minigun");
+      sound.play(this.sound);
       if (this.shake) camera.shake(this.shake.force, this.shake.duration);
       this.shooting = true;
       return this.knockback;

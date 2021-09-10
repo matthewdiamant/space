@@ -1,6 +1,10 @@
 import Music from "./Music";
 import Package from "./Package";
-import WeaponFactory, { assaultRifle, debugPistol } from "./WeaponFactory";
+import WeaponFactory, {
+  assaultRifle,
+  debugPistol,
+  shotgun,
+} from "./WeaponFactory";
 import { humanoid } from "./Sprites";
 import {
   sentinelColors,
@@ -155,7 +159,7 @@ class Level {
     spurts.spurts = [];
     packages.packages =
       level === 1
-        ? [new Package(146, 90, new WeaponFactory().create(assaultRifle))]
+        ? [new Package(146, 90, new WeaponFactory().create(shotgun))]
         : // [new Package(146, 90, new WeaponFactory().create(debugPistol))]
           [];
     enemies.initialize(this.level);
