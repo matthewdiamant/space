@@ -1545,7 +1545,7 @@ class Enemy extends _Character__WEBPACK_IMPORTED_MODULE_2__["default"] {
       drawer.rect({ fillColor: c, rect: r })
     );
 
-    this.weapon && this.weapon.draw(drawer, { x: this.x, y: this.y });
+    this.weapon && this.weapon.draw(drawer, { x: this.x, y: this.y, facing: this.facing });
   }
 }
 
