@@ -952,7 +952,7 @@ class Character extends _GameObject__WEBPACK_IMPORTED_MODULE_0__["default"] {
       const onGround = this.grounded || this.airtime < 5;
       const newJump = this.holdJump < 10;
       if (this.jumpHoldTime > 0 || (onGround && newJump)) {
-        if (this.grounded) sound.play("jump");
+        if (this.jumpHoldTime === 0) sound.play("jump");
         this.jumpHoldTime += 1;
         if (this.jumpHoldTime < this.maxJumpPress) {
           this.dy = -this.jumpSpeed;
@@ -2091,7 +2091,7 @@ class Level {
     spurts.spurts = [];
     packages.packages =
       level === 1
-        ? [new _Package__WEBPACK_IMPORTED_MODULE_1__["default"](146, 90, new _WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["shotgun"]))]
+        ? [new _Package__WEBPACK_IMPORTED_MODULE_1__["default"](146, 90, new _WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["assaultRifle"]))]
         : // [new Package(146, 90, new WeaponFactory().create(debugPistol))]
           [];
     enemies.initialize(this.level);
