@@ -47,7 +47,7 @@ class EnemyCollection {
 
     this.enemies = this.enemies.reduce((enemies, enemy) => {
       if (enemy.health <= 0) {
-        enemy.explode({ spurts, chunks });
+        enemy.explode({ spurts, chunks, sound });
         if (
           this.enemies.length <= this.concurrentEnemies &&
           this.enemyCount > 0

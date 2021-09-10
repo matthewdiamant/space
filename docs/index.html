@@ -723,7 +723,8 @@ class Boss extends _Character__WEBPACK_IMPORTED_MODULE_2__["default"] {
     }
   }
 
-  explode({ spurts, chunks }) {
+  explode({ spurts, chunks, sound }) {
+    sound.play("death");
     for (let i = 0; i < 300; i++) {
       spurts.add(
         new _Blood__WEBPACK_IMPORTED_MODULE_0__["default"](
@@ -1495,7 +1496,8 @@ class Enemy extends _Character__WEBPACK_IMPORTED_MODULE_2__["default"] {
     });
   }
 
-  explode({ spurts, chunks }) {
+  explode({ spurts, chunks, sound }) {
+    sound.play("death");
     for (let i = 0; i < 100; i++) {
       spurts.add(
         new _Blood__WEBPACK_IMPORTED_MODULE_0__["default"](
@@ -1602,7 +1604,7 @@ class EnemyCollection {
 
     this.enemies = this.enemies.reduce((enemies, enemy) => {
       if (enemy.health <= 0) {
-        enemy.explode({ spurts, chunks });
+        enemy.explode({ spurts, chunks, sound });
         if (
           this.enemies.length <= this.concurrentEnemies &&
           this.enemyCount > 0

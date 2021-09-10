@@ -30,7 +30,8 @@ class Enemy extends Character {
     });
   }
 
-  explode({ spurts, chunks }) {
+  explode({ spurts, chunks, sound }) {
+    sound.play("death");
     for (let i = 0; i < 100; i++) {
       spurts.add(
         new Blood(
