@@ -776,7 +776,7 @@ class Boss extends _Character__WEBPACK_IMPORTED_MODULE_2__["default"] {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-const pullThreshold = 16;
+const pullThreshold = 10;
 const HUDSize = 15;
 
 class Camera {

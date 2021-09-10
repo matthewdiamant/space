@@ -1,4 +1,4 @@
-const pullThreshold = 16;
+const pullThreshold = 10;
 const HUDSize = 15;
 
 class Camera {
