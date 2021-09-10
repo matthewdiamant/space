@@ -17,6 +17,7 @@ import {
   aggroColors,
   bossColors,
 } from "./enemyTypes";
+import { canvasWidth, canvasHeight } from "./constants";
 
 const colorSchemes = [
   {
@@ -162,9 +163,8 @@ class Level {
     spurts.spurts = [];
     packages.packages =
       level === 1
-        ? [new Package(146, 90, new WeaponFactory().create(grenade))]
-        : // [new Package(146, 90, new WeaponFactory().create(debugPistol))]
-          [];
+        ? [new Package(146, 90, new WeaponFactory().create(debugPistol))]
+        : [];
     enemies.initialize(this.level);
     this.levelOverTimer = 0;
     this.levelFadeIn = 0;
@@ -209,7 +209,7 @@ class Level {
     }
   }
 
-  draw(drawer) {
+  endOfLevelScreen(drawer) {
     if (this.levelOverTimer > delay) {
       drawer.rect({
         adjusted: false,
@@ -297,6 +297,10 @@ class Level {
       if ((this.level.level - 1) % 6 >= 4) drawX(72);
     if (this.levelOverTimer > delay * 5.5)
       if ((this.level.level - 1) % 6 >= 5) drawX(82, 2);
+  }
+
+  draw(drawer) {
+    this.endOfLevelScreen(drawer);
 
     if (this.welcomeMessage) {
       drawer.rect({
@@ -322,7 +326,7 @@ class Level {
       drawer.rect({
         adjusted: false,
         fillColor: `rgba(0,0,0,${1 - this.levelFadeIn / 200})`,
-        rect: [0, 0, 128, 128],
+        rect: [0, 0, canvasWidth, canvasHeight],
       });
     }
 

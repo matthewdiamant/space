@@ -1,3 +1,4 @@
+import { canvasWidth, canvasHeight } from "./constants";
 import { humanoid } from "./Sprites";
 
 class HUD {
@@ -20,11 +21,11 @@ class HUD {
         text: this.weapon,
         size: 1,
         x: 2,
-        y: 117,
+        y: canvasHeight - 11,
       });
     }
 
-    humanoid(113, 115, 1, this.enemyColor, {
+    humanoid(canvasWidth - 15, canvasHeight - 13, 1, this.enemyColor, {
       bodyless: true,
     }).forEach(({ c, r }) =>
       drawer.rect({ adjusted: false, fillColor: c, rect: r })
@@ -33,8 +34,8 @@ class HUD {
     drawer.text({
       text: `${this.enemyCount}`,
       size: 1,
-      x: 120,
-      y: 117,
+      x: canvasWidth - 8,
+      y: canvasHeight - 11,
     });
 
     drawer.rect({
@@ -42,7 +43,12 @@ class HUD {
       fillColor: `rgb(${255 * (1 - this.health / this.maxHealth)}, ${
         255 * (this.health / this.maxHealth)
       }, 0)`,
-      rect: [2, 124, 124 * (this.health / this.maxHealth), 2],
+      rect: [
+        2,
+        canvasHeight - 4,
+        canvasWidth * (this.health / this.maxHealth) - 4,
+        2,
+      ],
     });
   }
 }

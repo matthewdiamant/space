@@ -1,4 +1,4 @@
-<html><head><meta charset="UTF-8"><style>*{margin:0}body{align-items:center;background:black;display:flex;justify-content:center}canvas{background:white;image-rendering:pixelated}div{filter:brightness(1);transition:5s filter}div.loaded{filter:brightness(1)}.scanlines{position:relative;overflow:hidden}.scanlines:before,.scanlines:after{display:block;pointer-events:none;content:"";position:absolute}.scanlines:before {width:100%;height:2px;z-index:2147483649;background:rgba(57, 255, 20, 0.12);opacity:0.75;animation:scanline 6s linear infinite}.scanlines:after{top:0;right:0;bottom:0;left:0;z-index:2147483648;background:linear-gradient(to bottom,transparent 50%,rgba(57, 255, 20, 0.12) 51%);background-size:100% 4px;animation:scanlines 1s steps(60) infinite}@keyframes scanline{0%{transform:translate3d(0,200000%,0)}}@keyframes scanlines{0%{background-position:0 50%}}canvas {image-rendering: crisp-edges; image-rendering: pixelated; }</style></head><div class="scanlines"><canvas id="c" width="128" height="128"></canvas></div></html><script>/******/ (function(modules) { // webpackBootstrap
+<html><head><meta charset="UTF-8"><style>*{margin:0}body{align-items:center;background:black;display:flex;justify-content:center}canvas{background:white;image-rendering:pixelated}div{filter:brightness(1);transition:5s filter}div.loaded{filter:brightness(1)}.scanlines{position:relative;overflow:hidden}.scanlines:before,.scanlines:after{display:block;pointer-events:none;content:"";position:absolute}.scanlines:before {width:100%;height:2px;z-index:2147483649;background:rgba(57, 255, 20, 0.12);opacity:0.75;animation:scanline 6s linear infinite}.scanlines:after{top:0;right:0;bottom:0;left:0;z-index:2147483648;background:linear-gradient(to bottom,transparent 50%,rgba(57, 255, 20, 0.12) 51%);background-size:100% 4px;animation:scanlines 1s steps(60) infinite}@keyframes scanline{0%{transform:translate3d(0,200000%,0)}}@keyframes scanlines{0%{background-position:0 50%}}canvas {image-rendering: crisp-edges; image-rendering: pixelated; }</style></head><div class="scanlines"><canvas id="c" width="160" height="160"></canvas></div></html><script>/******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -1834,7 +1834,9 @@ class GameObject {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Sprites__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Sprites */ "./src/Sprites.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./constants */ "./src/constants.js");
+/* harmony import */ var _Sprites__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Sprites */ "./src/Sprites.js");
+
 
 
 class HUD {
@@ -1857,11 +1859,11 @@ class HUD {
         text: this.weapon,
         size: 1,
         x: 2,
-        y: 117,
+        y: _constants__WEBPACK_IMPORTED_MODULE_0__["canvasHeight"] - 11,
       });
     }
 
-    Object(_Sprites__WEBPACK_IMPORTED_MODULE_0__["humanoid"])(113, 115, 1, this.enemyColor, {
+    Object(_Sprites__WEBPACK_IMPORTED_MODULE_1__["humanoid"])(_constants__WEBPACK_IMPORTED_MODULE_0__["canvasWidth"] - 15, _constants__WEBPACK_IMPORTED_MODULE_0__["canvasHeight"] - 13, 1, this.enemyColor, {
       bodyless: true,
     }).forEach(({ c, r }) =>
       drawer.rect({ adjusted: false, fillColor: c, rect: r })
@@ -1870,8 +1872,8 @@ class HUD {
     drawer.text({
       text: `${this.enemyCount}`,
       size: 1,
-      x: 120,
-      y: 117,
+      x: _constants__WEBPACK_IMPORTED_MODULE_0__["canvasWidth"] - 8,
+      y: _constants__WEBPACK_IMPORTED_MODULE_0__["canvasHeight"] - 11,
     });
 
     drawer.rect({
@@ -1879,7 +1881,12 @@ class HUD {
       fillColor: `rgb(${255 * (1 - this.health / this.maxHealth)}, ${
         255 * (this.health / this.maxHealth)
       }, 0)`,
-      rect: [2, 124, 124 * (this.health / this.maxHealth), 2],
+      rect: [
+        2,
+        _constants__WEBPACK_IMPORTED_MODULE_0__["canvasHeight"] - 4,
+        _constants__WEBPACK_IMPORTED_MODULE_0__["canvasWidth"] * (this.health / this.maxHealth) - 4,
+        2,
+      ],
     });
   }
 }
@@ -1945,6 +1952,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _WeaponFactory__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./WeaponFactory */ "./src/WeaponFactory.js");
 /* harmony import */ var _Sprites__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Sprites */ "./src/Sprites.js");
 /* harmony import */ var _enemyTypes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./enemyTypes */ "./src/enemyTypes.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./constants */ "./src/constants.js");
+
 
 
 
@@ -2095,9 +2104,8 @@ class Level {
     spurts.spurts = [];
     packages.packages =
       level === 1
-        ? [new _Package__WEBPACK_IMPORTED_MODULE_1__["default"](146, 90, new _WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["grenade"]))]
-        : // [new Package(146, 90, new WeaponFactory().create(debugPistol))]
-          [];
+        ? [new _Package__WEBPACK_IMPORTED_MODULE_1__["default"](146, 90, new _WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["debugPistol"]))]
+        : [];
     enemies.initialize(this.level);
     this.levelOverTimer = 0;
     this.levelFadeIn = 0;
@@ -2142,7 +2150,7 @@ class Level {
     }
   }
 
-  draw(drawer) {
+  endOfLevelScreen(drawer) {
     if (this.levelOverTimer > delay) {
       drawer.rect({
         adjusted: false,
@@ -2230,6 +2238,10 @@ class Level {
       if ((this.level.level - 1) % 6 >= 4) drawX(72);
     if (this.levelOverTimer > delay * 5.5)
       if ((this.level.level - 1) % 6 >= 5) drawX(82, 2);
+  }
+
+  draw(drawer) {
+    this.endOfLevelScreen(drawer);
 
     if (this.welcomeMessage) {
       drawer.rect({
@@ -2255,7 +2267,7 @@ class Level {
       drawer.rect({
         adjusted: false,
         fillColor: `rgba(0,0,0,${1 - this.levelFadeIn / 200})`,
-        rect: [0, 0, 128, 128],
+        rect: [0, 0, _constants__WEBPACK_IMPORTED_MODULE_5__["canvasWidth"], _constants__WEBPACK_IMPORTED_MODULE_5__["canvasHeight"]],
       });
     }
 
@@ -3416,6 +3428,23 @@ const collideRoof = (player, map) => {
     player.jumpHoldTime = 0;
   }
 };
+
+
+/***/ }),
+
+/***/ "./src/constants.js":
+/*!**************************!*\
+  !*** ./src/constants.js ***!
+  \**************************/
+/*! exports provided: canvasWidth, canvasHeight */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "canvasWidth", function() { return canvasWidth; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "canvasHeight", function() { return canvasHeight; });
+const canvasWidth = 160;
+const canvasHeight = 160;
 
 
 /***/ }),
