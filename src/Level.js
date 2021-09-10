@@ -189,7 +189,12 @@ class Level {
       this.levelOverTimer += 1;
     }
 
+    if (this.levelOverTimer === delay) {
+      sound.setGlobalVolume(0.2);
+    }
+
     if (this.levelOverTimer > delay * (7 + (this.level.level === 1 ? 3 : 0))) {
+      sound.setGlobalVolume(1);
       this.initializeLevel(this.level.level + 1, {
         player,
         enemies,

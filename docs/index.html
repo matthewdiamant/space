@@ -2150,7 +2150,12 @@ class Level {
       this.levelOverTimer += 1;
     }
 
+    if (this.levelOverTimer === delay) {
+      sound.setGlobalVolume(0.2);
+    }
+
     if (this.levelOverTimer > delay * (7 + (this.level.level === 1 ? 3 : 0))) {
+      sound.setGlobalVolume(1);
       this.initializeLevel(this.level.level + 1, {
         player,
         enemies,
@@ -3031,7 +3036,7 @@ let sounds = {
   "death": [2.45,,608,.02,.09,.38,2,1.24,.6,,,,,.3,,.4,.03,.51,.05],
   "gun": [0.4,0,0,,,0,4,0,500,,,,,,,.1,,0,.15],
   "jump": [,,131,.02,.02,.08,,1.49,2.3,,,,,,,,,.9,.1],
-  "message": [,0,1740,,.06,.29,,.77,,,,,,,,,,.76,.07,.06],
+  "message": [2,0,1740,,.06,.29,,.77,,,,,,,,,,.76,.07,.06],
   "minigun": [0.6,0,0,,,0,4,0,1e8,,,,,,,.04,,0,.08],
   "pickup": [,,548,.08,.36,.47,1,1.79,,,236,.03,.08,,,,,.83],
   "shotgun": [0.8,,300,,,.9,4,.5,,,,,,10,74,.2,,2],
@@ -3040,10 +3045,18 @@ let sounds = {
 };
 
 class Sound {
+  constructor() {
+    this.volume = 1;
+  }
+
   play(sound, volume) {
     const newSound = [...sounds[sound]];
-    if (volume) newSound[0] *= volume;
+    if (volume) newSound[0] *= volume * this.volume;
     Object(zzfx__WEBPACK_IMPORTED_MODULE_0__["zzfx"])(...newSound);
+  }
+
+  setGlobalVolume(volume) {
+    this.volume = volume;
   }
 }
 
