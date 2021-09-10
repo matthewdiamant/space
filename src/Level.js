@@ -214,7 +214,7 @@ class Level {
       drawer.rect({
         adjusted: false,
         fillColor: "rgba(0,0,0,0.9)",
-        rect: [20, 20, 88, 62],
+        rect: [(canvasWidth - 88) / 2, (canvasHeight - 62) / 2, 88, 62],
       });
     }
 
@@ -222,8 +222,8 @@ class Level {
       drawer.text({
         text: `level ${this.level.level} complete`,
         size: 1,
-        x: 32 - (this.level.level >= 10 ? 2 : 0),
-        y: 30,
+        x: (canvasWidth - 88) / 2 + 11 - (this.level.level >= 10 ? 2 : 0),
+        y: (canvasHeight - 62) / 2 + 10,
       });
     }
 
@@ -233,37 +233,77 @@ class Level {
           this.totalEnemies !== 1 ? "s" : ""
         } defeated`,
         size: 1,
-        x: 31 - (this.totalEnemies >= 10 ? 2 : 0),
-        y: 45,
+        x: (canvasWidth - 88) / 2 + 11 - (this.totalEnemies >= 10 ? 2 : 0),
+        y: (canvasHeight - 62) / 2 + 25,
       });
     }
 
     if (this.levelOverTimer > delay * 4) {
-      humanoid(32, 60, 1, sentinelColors, {
-        bodyless: true,
-      }).forEach(({ c, r }) =>
+      humanoid(
+        (canvasWidth - 88) / 2 + 12,
+        (canvasHeight - 62) / 2 + 40,
+        1,
+        sentinelColors,
+        {
+          bodyless: true,
+        }
+      ).forEach(({ c, r }) =>
         drawer.rect({ adjusted: false, fillColor: c, rect: r })
       );
-      humanoid(42, 60, 1, pacifistColors, {
-        bodyless: true,
-      }).forEach(({ c, r }) =>
+      humanoid(
+        (canvasWidth - 88) / 2 + 22,
+        (canvasHeight - 62) / 2 + 40,
+        1,
+        pacifistColors,
+        {
+          bodyless: true,
+        }
+      ).forEach(({ c, r }) =>
         drawer.rect({ adjusted: false, fillColor: c, rect: r })
       );
-      humanoid(52, 60, 1, idiotColors, { bodyless: true }).forEach(({ c, r }) =>
+      humanoid(
+        (canvasWidth - 88) / 2 + 32,
+        (canvasHeight - 62) / 2 + 40,
+        1,
+        idiotColors,
+        {
+          bodyless: true,
+        }
+      ).forEach(({ c, r }) =>
         drawer.rect({ adjusted: false, fillColor: c, rect: r })
       );
-      humanoid(62, 60, 1, runAndGunColors, {
-        bodyless: true,
-      }).forEach(({ c, r }) =>
+      humanoid(
+        (canvasWidth - 88) / 2 + 42,
+        (canvasHeight - 62) / 2 + 40,
+        1,
+        runAndGunColors,
+        {
+          bodyless: true,
+        }
+      ).forEach(({ c, r }) =>
         drawer.rect({ adjusted: false, fillColor: c, rect: r })
       );
-      humanoid(72, 60, 1, aggroColors, { bodyless: true }).forEach(({ c, r }) =>
+      humanoid(
+        (canvasWidth - 88) / 2 + 52,
+        (canvasHeight - 62) / 2 + 40,
+        1,
+        aggroColors,
+        {
+          bodyless: true,
+        }
+      ).forEach(({ c, r }) =>
         drawer.rect({ adjusted: false, fillColor: c, rect: r })
       );
-      humanoid(82, 55, 1, bossColors, {
-        bodyless: true,
-        big: true,
-      }).forEach(({ c, r }) =>
+      humanoid(
+        (canvasWidth - 88) / 2 + 62,
+        (canvasHeight - 62) / 2 + 35,
+        1,
+        bossColors,
+        {
+          bodyless: true,
+          big: true,
+        }
+      ).forEach(({ c, r }) =>
         drawer.rect({ adjusted: false, fillColor: c, rect: r })
       );
     }
@@ -271,32 +311,33 @@ class Level {
     const drawX = (x, offset = 0) => {
       drawer.lines({
         lines: [
-          [x + offset / 2, 61 - offset],
-          [x + 7 + offset * 3, 67 + offset],
+          [x + offset / 2, (canvasHeight - 62) / 2 + 41 - offset],
+          [x + 7 + offset * 3, (canvasHeight - 62) / 2 + 47 + offset],
         ],
         strokeColor: "red",
       });
       drawer.lines({
         lines: [
-          [x + 7 + offset * 3, 61 - offset],
-          [x + offset / 2, 67 + offset],
+          [x + 7 + offset * 3, (canvasHeight - 62) / 2 + 41 - offset],
+          [x + offset / 2, (canvasHeight - 62) / 2 + 47 + offset],
         ],
         strokeColor: "red",
       });
     };
 
     if (this.levelOverTimer > delay * 5)
-      if ((this.level.level - 1) % 6 >= 0) drawX(32);
+      if ((this.level.level - 1) % 6 >= 0) drawX((canvasWidth - 88) / 2 + 12);
     if (this.levelOverTimer > delay * 5.1)
-      if ((this.level.level - 1) % 6 >= 1) drawX(42);
+      if ((this.level.level - 1) % 6 >= 1) drawX((canvasWidth - 88) / 2 + 22);
     if (this.levelOverTimer > delay * 5.2)
-      if ((this.level.level - 1) % 6 >= 2) drawX(52);
+      if ((this.level.level - 1) % 6 >= 2) drawX((canvasWidth - 88) / 2 + 32);
     if (this.levelOverTimer > delay * 5.3)
-      if ((this.level.level - 1) % 6 >= 3) drawX(62);
+      if ((this.level.level - 1) % 6 >= 3) drawX((canvasWidth - 88) / 2 + 42);
     if (this.levelOverTimer > delay * 5.4)
-      if ((this.level.level - 1) % 6 >= 4) drawX(72);
+      if ((this.level.level - 1) % 6 >= 4) drawX((canvasWidth - 88) / 2 + 52);
     if (this.levelOverTimer > delay * 5.5)
-      if ((this.level.level - 1) % 6 >= 5) drawX(82, 2);
+      if ((this.level.level - 1) % 6 >= 5)
+        drawX((canvasWidth - 88) / 2 + 62, 2);
   }
 
   draw(drawer) {

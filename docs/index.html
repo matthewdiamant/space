@@ -2155,7 +2155,7 @@ class Level {
       drawer.rect({
         adjusted: false,
         fillColor: "rgba(0,0,0,0.9)",
-        rect: [20, 20, 88, 62],
+        rect: [(_constants__WEBPACK_IMPORTED_MODULE_5__["canvasWidth"] - 88) / 2, (_constants__WEBPACK_IMPORTED_MODULE_5__["canvasHeight"] - 62) / 2, 88, 62],
       });
     }
 
@@ -2163,8 +2163,8 @@ class Level {
       drawer.text({
         text: `level ${this.level.level} complete`,
         size: 1,
-        x: 32 - (this.level.level >= 10 ? 2 : 0),
-        y: 30,
+        x: (_constants__WEBPACK_IMPORTED_MODULE_5__["canvasWidth"] - 88) / 2 + 11 - (this.level.level >= 10 ? 2 : 0),
+        y: (_constants__WEBPACK_IMPORTED_MODULE_5__["canvasHeight"] - 62) / 2 + 10,
       });
     }
 
@@ -2174,37 +2174,77 @@ class Level {
           this.totalEnemies !== 1 ? "s" : ""
         } defeated`,
         size: 1,
-        x: 31 - (this.totalEnemies >= 10 ? 2 : 0),
-        y: 45,
+        x: (_constants__WEBPACK_IMPORTED_MODULE_5__["canvasWidth"] - 88) / 2 + 11 - (this.totalEnemies >= 10 ? 2 : 0),
+        y: (_constants__WEBPACK_IMPORTED_MODULE_5__["canvasHeight"] - 62) / 2 + 25,
       });
     }
 
     if (this.levelOverTimer > delay * 4) {
-      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(32, 60, 1, _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["sentinelColors"], {
-        bodyless: true,
-      }).forEach(({ c, r }) =>
+      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(
+        (_constants__WEBPACK_IMPORTED_MODULE_5__["canvasWidth"] - 88) / 2 + 12,
+        (_constants__WEBPACK_IMPORTED_MODULE_5__["canvasHeight"] - 62) / 2 + 40,
+        1,
+        _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["sentinelColors"],
+        {
+          bodyless: true,
+        }
+      ).forEach(({ c, r }) =>
         drawer.rect({ adjusted: false, fillColor: c, rect: r })
       );
-      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(42, 60, 1, _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["pacifistColors"], {
-        bodyless: true,
-      }).forEach(({ c, r }) =>
+      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(
+        (_constants__WEBPACK_IMPORTED_MODULE_5__["canvasWidth"] - 88) / 2 + 22,
+        (_constants__WEBPACK_IMPORTED_MODULE_5__["canvasHeight"] - 62) / 2 + 40,
+        1,
+        _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["pacifistColors"],
+        {
+          bodyless: true,
+        }
+      ).forEach(({ c, r }) =>
         drawer.rect({ adjusted: false, fillColor: c, rect: r })
       );
-      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(52, 60, 1, _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["idiotColors"], { bodyless: true }).forEach(({ c, r }) =>
+      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(
+        (_constants__WEBPACK_IMPORTED_MODULE_5__["canvasWidth"] - 88) / 2 + 32,
+        (_constants__WEBPACK_IMPORTED_MODULE_5__["canvasHeight"] - 62) / 2 + 40,
+        1,
+        _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["idiotColors"],
+        {
+          bodyless: true,
+        }
+      ).forEach(({ c, r }) =>
         drawer.rect({ adjusted: false, fillColor: c, rect: r })
       );
-      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(62, 60, 1, _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["runAndGunColors"], {
-        bodyless: true,
-      }).forEach(({ c, r }) =>
+      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(
+        (_constants__WEBPACK_IMPORTED_MODULE_5__["canvasWidth"] - 88) / 2 + 42,
+        (_constants__WEBPACK_IMPORTED_MODULE_5__["canvasHeight"] - 62) / 2 + 40,
+        1,
+        _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["runAndGunColors"],
+        {
+          bodyless: true,
+        }
+      ).forEach(({ c, r }) =>
         drawer.rect({ adjusted: false, fillColor: c, rect: r })
       );
-      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(72, 60, 1, _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["aggroColors"], { bodyless: true }).forEach(({ c, r }) =>
+      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(
+        (_constants__WEBPACK_IMPORTED_MODULE_5__["canvasWidth"] - 88) / 2 + 52,
+        (_constants__WEBPACK_IMPORTED_MODULE_5__["canvasHeight"] - 62) / 2 + 40,
+        1,
+        _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["aggroColors"],
+        {
+          bodyless: true,
+        }
+      ).forEach(({ c, r }) =>
         drawer.rect({ adjusted: false, fillColor: c, rect: r })
       );
-      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(82, 55, 1, _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["bossColors"], {
-        bodyless: true,
-        big: true,
-      }).forEach(({ c, r }) =>
+      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(
+        (_constants__WEBPACK_IMPORTED_MODULE_5__["canvasWidth"] - 88) / 2 + 62,
+        (_constants__WEBPACK_IMPORTED_MODULE_5__["canvasHeight"] - 62) / 2 + 35,
+        1,
+        _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["bossColors"],
+        {
+          bodyless: true,
+          big: true,
+        }
+      ).forEach(({ c, r }) =>
         drawer.rect({ adjusted: false, fillColor: c, rect: r })
       );
     }
@@ -2212,32 +2252,33 @@ class Level {
     const drawX = (x, offset = 0) => {
       drawer.lines({
         lines: [
-          [x + offset / 2, 61 - offset],
-          [x + 7 + offset * 3, 67 + offset],
+          [x + offset / 2, (_constants__WEBPACK_IMPORTED_MODULE_5__["canvasHeight"] - 62) / 2 + 41 - offset],
+          [x + 7 + offset * 3, (_constants__WEBPACK_IMPORTED_MODULE_5__["canvasHeight"] - 62) / 2 + 47 + offset],
         ],
         strokeColor: "red",
       });
       drawer.lines({
         lines: [
-          [x + 7 + offset * 3, 61 - offset],
-          [x + offset / 2, 67 + offset],
+          [x + 7 + offset * 3, (_constants__WEBPACK_IMPORTED_MODULE_5__["canvasHeight"] - 62) / 2 + 41 - offset],
+          [x + offset / 2, (_constants__WEBPACK_IMPORTED_MODULE_5__["canvasHeight"] - 62) / 2 + 47 + offset],
         ],
         strokeColor: "red",
       });
     };
 
     if (this.levelOverTimer > delay * 5)
-      if ((this.level.level - 1) % 6 >= 0) drawX(32);
+      if ((this.level.level - 1) % 6 >= 0) drawX((_constants__WEBPACK_IMPORTED_MODULE_5__["canvasWidth"] - 88) / 2 + 12);
     if (this.levelOverTimer > delay * 5.1)
-      if ((this.level.level - 1) % 6 >= 1) drawX(42);
+      if ((this.level.level - 1) % 6 >= 1) drawX((_constants__WEBPACK_IMPORTED_MODULE_5__["canvasWidth"] - 88) / 2 + 22);
     if (this.levelOverTimer > delay * 5.2)
-      if ((this.level.level - 1) % 6 >= 2) drawX(52);
+      if ((this.level.level - 1) % 6 >= 2) drawX((_constants__WEBPACK_IMPORTED_MODULE_5__["canvasWidth"] - 88) / 2 + 32);
     if (this.levelOverTimer > delay * 5.3)
-      if ((this.level.level - 1) % 6 >= 3) drawX(62);
+      if ((this.level.level - 1) % 6 >= 3) drawX((_constants__WEBPACK_IMPORTED_MODULE_5__["canvasWidth"] - 88) / 2 + 42);
     if (this.levelOverTimer > delay * 5.4)
-      if ((this.level.level - 1) % 6 >= 4) drawX(72);
+      if ((this.level.level - 1) % 6 >= 4) drawX((_constants__WEBPACK_IMPORTED_MODULE_5__["canvasWidth"] - 88) / 2 + 52);
     if (this.levelOverTimer > delay * 5.5)
-      if ((this.level.level - 1) % 6 >= 5) drawX(82, 2);
+      if ((this.level.level - 1) % 6 >= 5)
+        drawX((_constants__WEBPACK_IMPORTED_MODULE_5__["canvasWidth"] - 88) / 2 + 62, 2);
   }
 
   draw(drawer) {
