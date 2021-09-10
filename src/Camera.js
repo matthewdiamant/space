@@ -1,3 +1,4 @@
+import { canvasWidth, canvasHeight } from "./constants";
 const pullThreshold = 10;
 const HUDSize = 15;
 
@@ -22,8 +23,8 @@ class Camera {
   clampX(map) {
     this.position_x = Math.round(
       Math.min(
-        Math.max(8 * map.tileSize, this.position_x),
-        (map.mapLength - 8) * map.tileSize
+        Math.max((canvasWidth / 8 / 2) * map.tileSize, this.position_x),
+        (map.mapLength - canvasWidth / 8 / 2) * map.tileSize
       )
     );
   }
@@ -31,8 +32,8 @@ class Camera {
   clampY(map) {
     this.position_y = Math.round(
       Math.min(
-        Math.max(8 * map.tileSize, this.position_y),
-        (map.mapHeight - 8) * map.tileSize + HUDSize
+        Math.max((canvasHeight / 8 / 2) * map.tileSize, this.position_y),
+        (map.mapHeight - canvasHeight / 8 / 2) * map.tileSize + HUDSize
       )
     );
   }

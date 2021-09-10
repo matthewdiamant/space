@@ -779,6 +779,8 @@ class Boss extends _Character__WEBPACK_IMPORTED_MODULE_2__["default"] {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./constants */ "./src/constants.js");
+
 const pullThreshold = 10;
 const HUDSize = 15;
 
@@ -803,8 +805,8 @@ class Camera {
   clampX(map) {
     this.position_x = Math.round(
       Math.min(
-        Math.max(8 * map.tileSize, this.position_x),
-        (map.mapLength - 8) * map.tileSize
+        Math.max((_constants__WEBPACK_IMPORTED_MODULE_0__["canvasWidth"] / 8 / 2) * map.tileSize, this.position_x),
+        (map.mapLength - _constants__WEBPACK_IMPORTED_MODULE_0__["canvasWidth"] / 8 / 2) * map.tileSize
       )
     );
   }
@@ -812,8 +814,8 @@ class Camera {
   clampY(map) {
     this.position_y = Math.round(
       Math.min(
-        Math.max(8 * map.tileSize, this.position_y),
-        (map.mapHeight - 8) * map.tileSize + HUDSize
+        Math.max((_constants__WEBPACK_IMPORTED_MODULE_0__["canvasHeight"] / 8 / 2) * map.tileSize, this.position_y),
+        (map.mapHeight - _constants__WEBPACK_IMPORTED_MODULE_0__["canvasHeight"] / 8 / 2) * map.tileSize + HUDSize
       )
     );
   }
@@ -2357,6 +2359,8 @@ __webpack_require__.r(__webpack_exports__);
 // prettier-ignore
 const level1 = [
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
