@@ -3563,7 +3563,7 @@ const bossColors = makeColors(["#a00", "#a00", "yellow", "#a60"]);
   aggro: { type: "aggro", health: 22, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_1__["aggro"], colors: aggroColors },
   boss: {
     type: "boss",
-    health: 250,
+    health: 400,
     persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_1__["sentinel"],
     colors: bossColors,
   },
@@ -3635,7 +3635,7 @@ window.onload = () => {
   let packages = new _PackageCollection__WEBPACK_IMPORTED_MODULE_13__["default"]();
 
   gameContainer.initialize();
-  level.initializeLevel(6, {
+  level.initializeLevel(1, {
     player,
     enemies,
     chunks,

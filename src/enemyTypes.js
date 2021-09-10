@@ -43,7 +43,7 @@ export default {
   aggro: { type: "aggro", health: 22, persona: aggro, colors: aggroColors },
   boss: {
     type: "boss",
-    health: 250,
+    health: 400,
     persona: sentinel,
     colors: bossColors,
   },
