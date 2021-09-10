@@ -225,7 +225,7 @@ class Level {
       drawer.rect({
         adjusted: false,
         fillColor: "rgba(0,0,0,0.9)",
-        rect: [(canvasWidth - 88) / 2, (canvasHeight - 62) / 2, 88, 62],
+        rect: [(canvasWidth - 88) / 2, (canvasHeight - 62) / 2, 88, 60],
       });
     }
 
