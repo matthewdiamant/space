@@ -2095,7 +2095,7 @@ class Level {
     spurts.spurts = [];
     packages.packages =
       level === 1
-        ? [new _Package__WEBPACK_IMPORTED_MODULE_1__["default"](146, 90, new _WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["assaultRifle"]))]
+        ? [new _Package__WEBPACK_IMPORTED_MODULE_1__["default"](146, 90, new _WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["grenade"]))]
         : // [new Package(146, 90, new WeaponFactory().create(debugPistol))]
           [];
     enemies.initialize(this.level);
@@ -3116,7 +3116,7 @@ class Weapon {
 /*!******************************!*\
   !*** ./src/WeaponFactory.js ***!
   \******************************/
-/*! exports provided: debugPistol, pistol, minigun, assaultRifle, shotgun, sniperRifle, default */
+/*! exports provided: debugPistol, pistol, minigun, assaultRifle, shotgun, sniperRifle, grenade, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3127,6 +3127,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "assaultRifle", function() { return assaultRifle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "shotgun", function() { return shotgun; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sniperRifle", function() { return sniperRifle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "grenade", function() { return grenade; });
 /* harmony import */ var _Weapon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Weapon */ "./src/Weapon.js");
 
 
@@ -3258,12 +3259,12 @@ const grenade = {
   sound: "thrown",
   projectileConfig: {
     emoji: "💣",
-    speed: 2,
-    lift: 4,
-    grav: 0.3,
+    speed: 3,
+    lift: 1.5,
+    grav: 0.1,
     explosion: 3,
     size: 3,
-    damage: 20,
+    damage: 12,
     blood: 5,
   },
 };
@@ -3554,7 +3555,7 @@ window.onload = () => {
   let packages = new _PackageCollection__WEBPACK_IMPORTED_MODULE_13__["default"]();
 
   gameContainer.initialize();
-  level.initializeLevel(6, {
+  level.initializeLevel(1, {
     player,
     enemies,
     chunks,

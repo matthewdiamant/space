@@ -120,7 +120,7 @@ export const sniperRifle = {
 
 const flameThrower = {};
 
-const grenade = {
+export const grenade = {
   name: "Grenade",
   cooldown: 40,
   payloadCount: 1,
@@ -128,12 +128,12 @@ const grenade = {
   sound: "thrown",
   projectileConfig: {
     emoji: "💣",
-    speed: 2,
-    lift: 4,
-    grav: 0.3,
+    speed: 3,
+    lift: 1.5,
+    grav: 0.1,
     explosion: 3,
     size: 3,
-    damage: 20,
+    damage: 12,
     blood: 5,
   },
 };
