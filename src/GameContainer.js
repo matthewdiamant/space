@@ -6,8 +6,8 @@ export default class GameContainer {
 
   initialize() {
     let container = document.querySelector("body");
-    let resize = e => {
-      container.clientWidth / container.clientHeight > 128 / 128
+    let resize = (e) => {
+      container.clientWidth / container.clientHeight > 1
         ? (canvas.style.height = "100vh") && (canvas.style.width = "auto")
         : (canvas.style.height = "auto") && (canvas.style.width = "100vw");
     };
@@ -15,4 +15,3 @@ export default class GameContainer {
     container.onresize = resize;
   }
 }
-
