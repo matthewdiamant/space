@@ -125,9 +125,9 @@ class Level {
     spurts.spurts = [];
     packages.packages =
       level === 1
-        ? // ? [new Package(146, 90, new WeaponFactory().create(assaultRifle))]
-          [new Package(146, 90, new WeaponFactory().create(debugPistol))]
-        : [];
+        ? [new Package(146, 90, new WeaponFactory().create(assaultRifle))]
+        : // [new Package(146, 90, new WeaponFactory().create(debugPistol))]
+          [];
     enemies.initialize(this.level);
     this.levelOverTimer = 0;
     this.levelFadeIn = 0;
@@ -192,7 +192,9 @@ class Level {
 
     if (this.levelOverTimer > delay * 3) {
       drawer.text({
-        text: `${this.totalEnemies} aliens defeated`,
+        text: `${this.totalEnemies} alien${
+          this.totalEnemies !== 1 ? "s" : ""
+        } defeated`,
         size: 1,
         x: 31 - (this.totalEnemies >= 10 ? 2 : 0),
         y: 45,
