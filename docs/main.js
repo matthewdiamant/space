@@ -3548,17 +3548,12 @@ window.onload = () => {
 
   let fps = 60,
     interval = 1000 / fps,
-    lastTime = new Date().getTime(),
-    currentTime = 0,
+    lastTime = 0,
     delta = 0;
 
-  let gameLoop = () => {
+  let gameLoop = (currentTime) => {
     window.requestAnimationFrame(gameLoop);
-
-    currentTime = new Date().getTime();
-    delta = currentTime - lastTime;
-
-    if (delta > interval) {
+    if (currentTime - lastTime) {
       tick();
       collisionDetection();
       drawer.clearBackground();
