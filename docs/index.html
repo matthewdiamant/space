@@ -2091,7 +2091,7 @@ class Level {
     spurts.spurts = [];
     packages.packages =
       level === 1
-        ? [new _Package__WEBPACK_IMPORTED_MODULE_1__["default"](146, 90, new _WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["shotgun"]))]
+        ? [new _Package__WEBPACK_IMPORTED_MODULE_1__["default"](146, 90, new _WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["sniperRifle"]))]
         : // [new Package(146, 90, new WeaponFactory().create(debugPistol))]
           [];
     enemies.initialize(this.level);
@@ -2945,6 +2945,7 @@ let sounds = {
   "message": [,0,1740,,.06,.29,,.77,,,,,,,,,,.76,.07,.06],
   "minigun": [,0,0,,,0,4,0,1e8,,,,,,,.04,,0,.08],
   "shotgun": [,,300,,,.9,4,.5,,,,,,10,74,.2,,2],
+  "sniper": [,,300,,,1.2,4,.5,,,,,,10,74,.1,,2],
   "thrown": [,0,0,,,0,4,0,1e8,,,,,,,.055,,0,.3],
 };
 
@@ -3109,7 +3110,7 @@ class Weapon {
 /*!******************************!*\
   !*** ./src/WeaponFactory.js ***!
   \******************************/
-/*! exports provided: debugPistol, pistol, minigun, assaultRifle, shotgun, default */
+/*! exports provided: debugPistol, pistol, minigun, assaultRifle, shotgun, sniperRifle, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3119,6 +3120,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "minigun", function() { return minigun; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "assaultRifle", function() { return assaultRifle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "shotgun", function() { return shotgun; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sniperRifle", function() { return sniperRifle; });
 /* harmony import */ var _Weapon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Weapon */ "./src/Weapon.js");
 
 
@@ -3229,7 +3231,7 @@ const sniperRifle = {
   payloadCount: 1,
   knockback: 2,
   shake: { force: 3, duration: 8 },
-  sound: "shotgun",
+  sound: "sniper",
   projectileConfig: {
     color: () => "#eee",
     speed: 6,
@@ -3323,7 +3325,15 @@ class WeaponFactory {
   }
 
   random() {
-    const guns = [pistol, assaultRifle, minigun, shotgun, superShotgun, sniperRifle, grenade];
+    const guns = [
+      pistol,
+      assaultRifle,
+      minigun,
+      shotgun,
+      superShotgun,
+      sniperRifle,
+      grenade,
+    ];
     // const guns = [sniperRifle];
     const base = guns[Math.floor(Math.random() * guns.length)];
     return this.create(base);

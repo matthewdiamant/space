@@ -101,13 +101,13 @@ const superShotgun = {
   },
 };
 
-const sniperRifle = {
+export const sniperRifle = {
   name: "sniper rifle",
   cooldown: 60,
   payloadCount: 1,
   knockback: 2,
   shake: { force: 3, duration: 8 },
-  sound: "shotgun",
+  sound: "sniper",
   projectileConfig: {
     color: () => "#eee",
     speed: 6,
@@ -201,7 +201,15 @@ class WeaponFactory {
   }
 
   random() {
-    const guns = [pistol, assaultRifle, minigun, shotgun, superShotgun, sniperRifle, grenade];
+    const guns = [
+      pistol,
+      assaultRifle,
+      minigun,
+      shotgun,
+      superShotgun,
+      sniperRifle,
+      grenade,
+    ];
     // const guns = [sniperRifle];
     const base = guns[Math.floor(Math.random() * guns.length)];
     return this.create(base);

@@ -4,6 +4,7 @@ import WeaponFactory, {
   assaultRifle,
   debugPistol,
   shotgun,
+  sniperRifle,
 } from "./WeaponFactory";
 import { humanoid } from "./Sprites";
 import {
@@ -159,7 +160,7 @@ class Level {
     spurts.spurts = [];
     packages.packages =
       level === 1
-        ? [new Package(146, 90, new WeaponFactory().create(shotgun))]
+        ? [new Package(146, 90, new WeaponFactory().create(sniperRifle))]
         : // [new Package(146, 90, new WeaponFactory().create(debugPistol))]
           [];
     enemies.initialize(this.level);
