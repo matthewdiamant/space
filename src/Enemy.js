@@ -69,7 +69,8 @@ class Enemy extends Character {
       drawer.rect({ fillColor: c, rect: r })
     );
 
-    this.weapon && this.weapon.draw(drawer, { x: this.x, y: this.y, facing: this.facing });
+    this.weapon &&
+      this.weapon.draw(drawer, { x: this.x, y: this.y, facing: this.facing });
   }
 }
 
