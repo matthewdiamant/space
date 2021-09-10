@@ -347,19 +347,19 @@ class Level {
       drawer.rect({
         adjusted: false,
         fillColor: "#000",
-        rect: [0, 0, 200, 200],
+        rect: [0, 0, canvasWidth, canvasHeight],
       });
       drawer.text({
         text: "Welcome",
-        size: 3,
+        size: 4,
         x: 17,
-        y: 30,
+        y: 40,
       });
       drawer.text({
         text: "to space",
-        size: 3,
+        size: 4,
         x: 19,
-        y: 60,
+        y: 70,
       });
     }
 
@@ -378,7 +378,7 @@ class Level {
         fillColor: `rgba(0,0,0,${
           1 - (newLevelTimer - this.levelOverTimer) / 50
         })`,
-        rect: [0, 0, 128, 128],
+        rect: [0, 0, canvasWidth, canvasHeight],
       });
     }
 
