@@ -55,9 +55,18 @@ window.onload = () => {
     delta = 0;
 
   let gameLoop = () => {
-    tick();
-    collisionDetection();
-    draw();
+    window.requestAnimationFrame(gameLoop);
+
+    currentTime = new Date().getTime();
+    delta = currentTime - lastTime;
+
+    if (delta > interval) {
+      tick();
+      collisionDetection();
+      drawer.clearBackground();
+      drawObjects().map((object) => object.draw(drawer));
+      lastTime = currentTime - (delta % interval);
+    }
   };
 
   let tick = () => {
@@ -117,19 +126,6 @@ window.onload = () => {
         collisionDetector.handlePackage(packge, object, packages);
       });
     });
-  };
-
-  let draw = () => {
-    window.requestAnimationFrame(gameLoop);
-
-    currentTime = new Date().getTime();
-    delta = currentTime - lastTime;
-
-    if (delta > interval) {
-      drawer.clearBackground();
-      drawObjects().map((object) => object.draw(drawer));
-      lastTime = currentTime - (delta % interval);
-    }
   };
 
   let drawObjects = () => [

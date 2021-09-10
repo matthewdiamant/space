@@ -1,1 +1,3663 @@
-!function(t){var s={};function i(e){if(s[e])return s[e].t;var o=s[e]={s:e,i:!1,t:{}};return t[e].call(o.t,o,o.t,i),o.i=!0,o.t}i.o=t,i.c=s,i.d=function(t,s,e){i.h(t,s)||Object.defineProperty(t,s,{l:!0,get:e})},i.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"u",{value:!0})},i.p=function(t,s){if(1&s&&(t=i(t)),8&s)return t;if(4&s&&"object"==typeof t&&t&&t.u)return t;var e=Object.create(null);if(i.r(e),Object.defineProperty(e,"default",{l:!0,value:t}),2&s&&"string"!=typeof t)for(var o in t)i.d(e,o,function(s){return t[s]}.bind(null,o));return e},i.n=function(t){var s=t&&t.u?function(){return t.default}:function(){return t};return i.d(s,"a",s),s},i.h=function(t,s){return Object.prototype.hasOwnProperty.call(t,s)},i.m="",i(i.g=2)}([function(t,s,i){t.t=function(){return i(1)('!function(n){var t={};function r(f){if(t[f])return t[f].t;var e=t[f]={u:f,i:!1,t:{}};return n[f].call(e.t,e,e.t,r),e.i=!0,e.t}r.o=n,r.c=t,r.d=function(n,t,f){r.v(n,t)||Object.defineProperty(n,t,{l:!0,get:f})},r.r=function(n){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(n,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(n,"s",{value:!0})},r.h=function(n,t){if(1&t&&(n=r(n)),8&t)return n;if(4&t&&"object"==typeof n&&n&&n.s)return n;var f=Object.create(null);if(r.r(f),Object.defineProperty(f,"default",{l:!0,value:n}),2&t&&"string"!=typeof n)for(var e in n)r.d(f,e,function(t){return n[t]}.bind(null,e));return f},r.n=function(n){var t=n&&n.s?function(){return n.default}:function(){return n};return r.d(t,"a",t),t},r.v=function(n,t){return Object.prototype.hasOwnProperty.call(n,t)},r.p="",r(r.M=0)}([function(n,t,r){"use strict";r.r(t);var f={j:[{u:[0,100,128,0,1,201,128,0,0,0,0,8,28,0,0,0,194,4,1,3,25,191,115,244,147,6,43,4],p:[5,1,2,2,1,1,1,1,3,4,1,2,1,2,1,2,,,7,7,7,7,7,7,7,7],c:[{n:[132,132,134,134,135,135,132,132,137,137,135,135,134,134,135,135,139,139,137,137,135,135,137,137,134,,133,,132,,131],f:[21,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,48]},{n:[132,132,134,134,135,135,132,132,137,137,135,135,134,134,135,135,139,139,137,137,135,135,137,137,139,139,135,135,134,134,130,130],f:[,,,,,,,,,,,,,,,,,,,,,,,,,,,11,13,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,31]},{n:[],f:[]},{n:[159,,,,,,,,158,,,,,,,,157,,,,,,,,156,155,154,153,152,151,150,149],f:[13,,,,,,,,,,,,,,,,,,,,,,,,13,,13,,13,,13,11,29,,,,,,,,,,,,,,,,,,,,,,,,32,,41,,29,,25,15]},{n:[132,132,134,134,135,135,132,132,137,137,135,135,134,134,135,135,139,139,137,137,135,135,137,137,139,139,135,135,134,134,130,130],f:[13,11,21,17,,,,,,,,,,,,,,,,,,,,,,,,,,,,17,29,,25,113,,,,,,,,,,,,,,,,,,,,,,,,,,,,194]},{n:[120,,,,,,,,132,,,,,,,,120,,,,,,,,108],f:[]},{n:[132,144,134,146,132,144,135,147,132,144,137,149,132,144,139,151,140,152,139,151,137,149,139,151,138,150,137,149,135,147,134,146],f:[]}]},{u:[0,255,117,1,0,255,110,0,1,0,4,6,35,0,0,0,0,0,0,2,14,1,1,39,76,5,0,0],p:[,,1,3,1,3,1,3,2,,,,1,3,1,3,1,3,,,1,3,1,3,1,3],c:[{n:[147,,,,,,147,,,,147,,,,,,147,,,,,,147,,,,147,,,,147],f:[]},{n:[147],f:[]},{n:[147,,,,,,147,,,,147,,,,147,,147,,,,,,147,,,,147,,,,147,147],f:[]}]},{u:[0,0,140,0,0,0,140,0,0,60,4,10,68,0,0,0,187,5,0,1,239,135,0,32,108,5,16,4],p:[,,1,1,2,3,2,3,4,,,,2,3,2,3,2,3,,,5,5,5,5,5,5],c:[{n:[,,,,147,,,,,,,,148,,,,,,,,147,,,,,,,,147],f:[13,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,35]},{n:[,,,,147,,,147,,,,,148,,,,,,,,147,,,147,,,147,,,,147],f:[13,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,35]},{n:[,,,,147,,,147,,,,,148,,,,,,,,147,,,147,,,147,,,147,147,147],f:[13,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,35]},{n:[147],f:[13,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,68]},{n:[147,,,147,,,147,,147,,,147,,147,,147,147,,,147,,,147,,147,,,147,,147,,147],f:[13,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,35]}]},{u:[2,192,128,0,2,192,140,18,0,0,107,115,138,0,0,0,136,5,1,2,8,93,22,56,148,5,85,8],p:[3,,2,1,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2],c:[{n:[120],f:[]},{n:[120],f:[]},{n:[120],f:[,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,24,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,56]}]},{u:[3,0,127,0,3,68,127,0,1,218,11,0,40,0,0,1,55,4,1,2,67,115,124,190,67,6,39,1],p:[,,,2,1,2,1,2,3,,,,1,2,1,2,1,2,,,1,4,1,4,1,4],c:[{n:[,,,,147,,,,,,,,147,,,,,,,,147,,,,,,,,147],f:[]},{n:[,,,,147,,,,,,147,,147,,,,,,,,147,,,,,,,,147],f:[]},{n:[147],f:[]},{n:[,,,,147,,,,,,,,147,,,,,,,,147,,,,,,,,147,,,147],f:[]}]},{u:[3,91,128,0,0,95,128,12,0,0,12,0,67,0,0,0,0,0,0,2,255,15,0,32,83,3,51,4],p:[,,,,1,2,1,2,1,2,,,1,2,3,2,1,2,,,,,5,4,5,4],c:[{n:[156,,,164,,,163,,161,,,,,,,,,,158,,159,,161,,159,,158,,159,,154,,159],f:[5,13,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,67]},{n:[144,,,147,,,149,,151,,,,,,,,,,149,,151,,152,,151,,151,,147,,147,,139],f:[]},{n:[156,,,156,,,156,,154,,,154,,,154,,152,,,152,,,152,,151,,,147,,,146,,,,151,,,151,,151,,,146,,,146,,146,,,144,,,144,,144,,,142,,,139,,137],f:[5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3]},{n:[163,,164,,166,,163,,163,,164,,166,,163,,163,,164,,166,,163,,163,,164,,166,,163],f:[13,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,25]},{n:[168,,170,,171,,168,,168,,170,,171,,168,,159,,159,,158,,158,,157,,157,,156,,156],f:[,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,13,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,67]}]},{u:[0,146,140,0,1,224,128,3,0,0,61,0,63,0,0,3,179,5,1,3,37,162,0,67,150,3,37,2],p:[,1,,,,,,,,,1,2,3,,1,2,1,2,3,,4,5],c:[{n:[,,,,,,,,,,,,,,,,,,,,,,,,122,,121,,120,,119],f:[]},{n:[,,,,,,,,,,,,110,109,,,,,,,,,,,,,,,132,144,120,108],f:[11,,,,,,,,,,,,,,,,,,,,,,,,,,,,11,,,,95,,,,,,,,,,,,,,,,,,,,,,,,,,,,29]},{n:[123],f:[24,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,24,52,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,67]},{n:[120,,,,,,120,,120,,,,,,,,,,,,,,,,,,,,,,,,123,,,,,,123,,123,,,,,,,,,,,,,,,,,,,,,,,,125,,,,,,125,,125],f:[11,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,95]},{n:[120,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,123,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,125],f:[]}]},{u:[2,138,116,0,2,138,128,4,0,0,47,48,107,124,3,0,139,4,1,3,64,160,3,32,147,4,121,5],p:[,,,,,,,,1,,,,,,,,,,1],c:[{n:[156,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,168],f:[]}]}],m:5513,O:32,A:25,g:8};let e=new function(){var n,t,r,f,e,u=function(n){return Math.sin(6.283184*n)},i=function(n){return.003959503758*Math.pow(2,(n-128)/12)},a=function(n,t,r){var f,e,u,a,c,v,l,s=o[n.u[0]],h=n.u[1],p=n.u[3],b=o[n.u[4]],M=n.u[5],y=n.u[8],j=n.u[9],d=n.u[10]*n.u[10]*4,m=n.u[11]*n.u[11]*4,w=n.u[12]*n.u[12]*4,O=1/w,A=n.u[13],g=r*Math.pow(2,2-n.u[14]),I=new Int32Array(d+m+w),S=0,L=0;for(f=0,e=0;d+m+w>f;f++,e++)0>e||(e-=g,v=i(t+(15&(A=A>>8|(255&A)<<4))+n.u[2]-128),l=i(t+(15&A)+n.u[6]-128)*(1+8e-4*n.u[7])),u=1,d>f?u=f/d:d+m>f||(u-=(f-d-m)*O),a=v,p&&(a*=u*u),c=s(S+=a)*h,a=l,y&&(a*=u*u),c+=b(L+=a)*M,j&&(c+=(2*Math.random()-1)*j),I[f]=80*c*u|0;return I},o=[u,function(n){return.5>n%1?1:-1},function(n){return n%1*2-1},function(n){var t=n%1*4;return 2>t?t-1:3-t}];this.init=function(u){n=u,r=0,f=u.m*u.O*((t=u.A)+1)*2,e=new Int32Array(f)},this.I=function(){var i,c,v,l,s,h,p,b,M,y,j,d,m,w,O=new Int32Array(f),A=n.j[r],g=n.m,I=n.O,S=0,L=0,_=!1,x=[];for(v=0;t>=v;++v)for(p=A.p[v],l=0;I>l;++l){var C=p?A.c[p-1].f[l]:0;C&&(A.u[C-1]=A.c[p-1].f[l+I]||0,16>C&&(x=[]));var D=o[A.u[15]],P=A.u[16]/512,U=Math.pow(2,A.u[17]-9)/g,k=A.u[18],q=A.u[19],z=135.82764118168*A.u[20]/44100,B=1-A.u[21]/255,E=1e-5*A.u[22],F=A.u[23]/32,G=A.u[24]/512,H=6.283184*Math.pow(2,A.u[25]-9)/g,J=A.u[26]/255,K=A.u[27]*g&-2;for(j=(v*I+l)*g,s=0;4>s;++s)if(h=p?A.c[p-1].n[l+s*I]:0){x[h]||(x[h]=a(A,h,g));var N=x[h];for(c=0,i=2*j;N.length>c;c++,i+=2)O[i]+=N[c]}for(c=0;g>c;c++)(y=O[b=2*(j+c)])||_?(d=z,k&&(d*=D(U*b)*P+.5),L+=(d=1.5*Math.sin(d))*(m=B*(y-L)-(S+=d*L)),y=3==q?L:1==q?m:S,E&&(y=1>(y*=E)?y>-1?u(.25*y):-1:1,y/=E),_=(y*=F)*y>1e-5,w=y*(1-(M=Math.sin(H*b)*G+.5)),y*=M):w=0,K>b||(w+=O[b-K+1]*J,y+=O[b-K]*J),O[b]=0|w,O[b+1]=0|y,e[b]+=0|w,e[b+1]+=0|y}return++r/n.g},this.S=function(){var n=44+2*f-8,t=n-36,r=new Uint8Array(44+2*f);r.set([82,73,70,70,255&n,n>>8&255,n>>16&255,n>>24&255,87,65,86,69,102,109,116,32,16,0,0,0,1,0,2,0,68,172,0,0,16,177,2,0,4,0,16,0,100,97,116,97,255&t,t>>8&255,t>>16&255,t>>24&255]);for(var u=0,i=44;f>u;++u){var a=e[u];r[i++]=255&(a=-32767>a?-32767:a>32767?32767:a),r[i++]=a>>8&255}return r},this.getData=function(n,t){for(var r=2*Math.floor(44100*n),f=Array(t),u=0;2*t>u;u+=1){var i=r+u;f[u]=n>0&&e.length>i?e[i]/32768:0}return f}};e.init(f),e.init(f);let u=!1;setInterval((function(){if(!u&&(u=e.I()>=1,u)){let n=e.S();postMessage(n)}}),10),t.default=e}]);',null)}},function(t){"use strict";var s=window.URL||window.webkitURL;t.t=function(t,i){try{try{var e;try{(e=new(window.BlobBuilder||window.WebKitBlobBuilder||window.MozBlobBuilder||window.MSBlobBuilder)).append(t),e=e.getBlob()}catch(s){e=new Blob([t])}return new Worker(s.createObjectURL(e))}catch(s){return new Worker("data:application/javascript,"+encodeURIComponent(t))}}catch(t){if(!i)throw Error("Inline worker is not supported");return new Worker(i)}}},function(t,s,i){"use strict";i.r(s);let e=null;class o{constructor(t){this.canvas=t,e=this.canvas.getContext("2d"),this.k=new class{constructor(){this.x=0,this.y=128,this.j=0,this.v=128,this.$=0,this._=0}q(t,s){return t-this.x+s/2}tt(t,s){return t-this.y+s/2}st(t){this.j=Math.round(Math.min(Math.max(8*t.it,this.j),(t.et-8)*t.it))}ot(t){this.v=Math.round(Math.min(Math.max(8*t.it,this.v),(t.ht-8)*t.it+15))}nt(t){t.x-this.j>16&&(this.j=t.x-16),-16>t.x-this.j&&(this.j=t.x+16),t.y-this.v>16&&(this.v=t.y-16),-16>t.y-this.v&&(this.v=t.y+16)}rt(t,s){this.$=s,this._=t}at(){if(this.$=Math.max(0,this.$-1),!this.$)return;const t=Math.random()*this._*2-this._,s=Math.random()*this._*2-this._;this.x+=t,this.y+=s}lt({ct:t,map:s}){this.nt(t,s),this.st(s),this.ot(s),this.x=this.j,this.y=this.v,this.at()}}}ut(t){e.save(),t(),e.restore()}ft(){e.clearRect(0,0,this.canvas.width,this.canvas.height)}dt(t,s){e.save();var i=e.createLinearGradient(20,0,220,0);i.addColorStop(0,t),i.addColorStop(1,s),e.rotate(Math.PI/2),e.translate(0,-this.canvas.height),e.fillStyle=i,e.fillRect(0,0,this.canvas.width,this.canvas.height),e.restore()}rect({rect:t,pt:s,wt:i,shadowBlur:o=0,shadowColor:h="none",lineWidth:n=1,yt:r=!0,rotation:a,size:l,gt:c=!0}){c&&(t[0]=Math.floor(t[0]),t[1]=Math.floor(t[1])),r&&(t[0]=this.k.q(t[0],this.canvas.width),t[1]=this.k.tt(t[1],this.canvas.height)),a&&(e.translate(t[0]+l/2,t[1]+l/2),e.rotate(a),e.translate(-1*t[0]-l/2,-1*t[1]-l/2)),e.shadowBlur=o,e.shadowColor=h,s&&(e.fillStyle=s,e.fillRect(t[0],t[1],...t.slice(2))),i&&(e.strokeStyle=i,e.lineWidth=n,e.strokeRect(t[0],t[1],...t.slice(2))),e.shadowBlur=0}arc({arc:t,yt:s=!0,pt:i,wt:o,shadowBlur:h,shadowColor:n}){s&&(t[0]=this.k.q(t[0],this.canvas.width),t[1]=this.k.tt(t[1],this.canvas.height)),e.beginPath(),e.arc(...t),e.shadowBlur=h,e.shadowColor=n,i&&(e.fillStyle=i,e.fill()),o&&(e.strokeStyle=o,e.stroke()),e.shadowBlur=0}text({text:t,x:s,y:i,pt:o="#fff",size:n=1}){e.fillStyle=o;let r=0;t.toUpperCase().split("").map(t=>(h[t]||console.log(t),h[t])).forEach(t=>{let o=0,h=0;t.forEach(t=>{t.forEach((t,h)=>{t&&e.fillRect(r+h*n+s,o+i,n,n)}),h=Math.max(h,t.length*n),o+=n}),r+=n+h})}Mt({Mt:t,shadowBlur:s=0,shadowColor:i,pt:o,wt:h}){e.beginPath(),e.moveTo(t[0][0],t[0][1]),t.slice(1).map(t=>e.lineTo(t[0],t[1])),e.closePath(),e.shadowBlur=s,e.shadowColor=i,h&&(e.strokeStyle=h,e.stroke()),o&&(e.fillStyle=o,e.fill())}bt({bt:t,x:s,y:i,yt:o=!0}){o&&(s=this.k.q(s,this.canvas.width),i=this.k.tt(i,this.canvas.height)),e.font="4px serif",e.fillText(t,s,i)}Ct({x:t,y:s,size:i}){this.rect({rect:[t-i/2,s-i/2,i,i],color:"#f00"})}}const h={A:[[,1],[1,,1],[1,,1],[1,1,1],[1,,1]],B:[[1,1],[1,,1],[1,1,1],[1,,1],[1,1]],C:[[1,1,1],[1],[1],[1],[1,1,1]],D:[[1,1],[1,,1],[1,,1],[1,,1],[1,1]],E:[[1,1,1],[1],[1,1,1],[1],[1,1,1]],F:[[1,1,1],[1],[1,1],[1],[1]],G:[[,1,1],[1],[1,,1,1],[1,,,1],[,1,1]],H:[[1,,1],[1,,1],[1,1,1],[1,,1],[1,,1]],I:[[1,1,1],[,1],[,1],[,1],[1,1,1]],J:[[1,1,1],[,,1],[,,1],[1,,1],[1,1,1]],K:[[1,,,1],[1,,1],[1,1],[1,,1],[1,,,1]],L:[[1],[1],[1],[1],[1,1,1]],M:[[1,1,1,1,1],[1,,1,,1],[1,,1,,1],[1,,,,1],[1,,,,1]],N:[[1,,,1],[1,1,,1],[1,,1,1],[1,,,1],[1,,,1]],O:[[1,1,1],[1,,1],[1,,1],[1,,1],[1,1,1]],P:[[1,1,1],[1,,1],[1,1,1],[1],[1]],Q:[[0,1,1],[1,,,1],[1,,,1],[1,,1,1],[1,1,1,1]],R:[[1,1],[1,,1],[1,,1],[1,1],[1,,1]],S:[[1,1,1],[1],[1,1,1],[,,1],[1,1,1]],T:[[1,1,1],[,1],[,1],[,1],[,1]],U:[[1,,1],[1,,1],[1,,1],[1,,1],[1,1,1]],V:[[1,,,,1],[1,,,,1],[,1,,1],[,1,,1],[,,1]],W:[[1,,,,1],[1,,,,1],[1,,,,1],[1,,1,,1],[1,1,1,1,1]],X:[[1,,,,1],[,1,,1],[,,1],[,1,,1],[1,,,,1]],Y:[[1,,1],[1,,1],[,1],[,1],[,1]],Z:[[1,1,1,1,1],[,,,1],[,,1],[,1],[1,1,1,1,1]]," ":[[,,],[,,],[,,],[,,],[,,]],0:[[1,1,1],[1,,1],[1,,1],[1,,1],[1,1,1]],1:[[,1],[,1],[,1],[,1],[,1]],2:[[1,1,1],[0,0,1],[1,1,1],[1,0,0],[1,1,1]],3:[[1,1,1],[0,0,1],[1,1,1],[0,0,1],[1,1,1]],4:[[1,0,1],[1,0,1],[1,1,1],[0,0,1],[0,0,1]],5:[[1,1,1],[1,0,0],[1,1,1],[0,0,1],[1,1,1]],6:[[1,1,1],[1,0,0],[1,1,1],[1,0,1],[1,1,1]],7:[[1,1,1],[0,0,1],[0,0,1],[0,0,1],[0,0,1]],8:[[1,1,1],[1,0,1],[1,1,1],[1,0,1],[1,1,1]],9:[[1,1,1],[1,0,1],[1,1,1],[0,0,1],[1,1,1]]};let n=document.getElementById("c");class r{constructor(){this.canvas=n}initialize(){let t=document.querySelector("body"),s=()=>{t.clientWidth/t.clientHeight>1?(n.style.height="100vh")&&(n.style.width="auto"):(n.style.height="auto")&&(n.style.width="100vw")};s(),t.onresize=s}}const a={volume:.3,sampleRate:44100,x:new(window.AudioContext||webkitAudioContext),play:function(...t){return this.kt(this.jt(...t))},kt:function(...t){const s=this.x.createBuffer(t.length,t[0].length,this.sampleRate),i=this.x.createBufferSource();return t.map((t,i)=>s.getChannelData(i).set(t)),i.buffer=s,i.connect(this.x.destination),i.start(),i},jt:function(t=1,s=.05,i=220,e=0,o=0,h=.1,n=0,r=1,a=0,l=0,c=0,u=0,f=0,d=0,p=0,w=0,y=0,m=1,g=0,M=0){const b=2*Math.PI;let C,k,j=this.sampleRate,x=a*=500*b/j/j,v=i*=(1+2*s*Math.random()-s)*b/j,A=[],O=0,S=0,F=0,P=1,z=0,I=0,D=0;for(l*=500*b/j**3,p*=b/j,c*=b/j,u*=j,f=f*j|0,k=(e=e*j+9)+(g*=j)+(o*=j)+(h*=j)+(y*=j)|0;k>F;A[F++]=D)++I%(100*w|0)||(D=n?n>1?n>2?n>3?Math.sin((O%b)**3):Math.max(Math.min(Math.tan(O),1),-1):1-(2*O/b%2+2)%2:1-4*Math.abs(Math.round(O/b)-O/b):Math.sin(O),D=(f?1-M+M*Math.sin(b*F/f):1)*(D>0?1:-1)*Math.abs(D)**r*t*this.volume*(e>F?F/e:e+g>F?1-(F-e)/g*(1-m):e+g+o>F?m:k-y>F?(k-F-y)/h*m:0),D=y?D/2+(y>F?0:(k-y>F?1:(k-F)/y)*A[F-y|0]/2):D),C=(i+=a+=l)*Math.cos(p*S++),O+=C-C*d*(1-1e9*(Math.sin(F)+1)%2),P&&++P>u&&(i+=c,v+=c,P=0),!f||++z%f||(i=v,a=x,P=P||1);return A},xt:function(t=0,s=440){return s*2**(t/12)}};let l={gun:[,,131,.02,.02,.08,,1.49,2.3,,,,,,,,,.9,.1],jump:[,,131,.02,.02,.08,,1.49,2.3,,,,,,,,,.9,.1],message:[,0,1740,,.06,.29,,.77,,,,,,,,,,.76,.07,.06],minigun:[,0,0,,,0,4,0,1e8,,,,,,,.04,,0,.08],shotgun:[,0,0,,,0,4,0,1e8,,,,,,,.055,,0,.3],thrown:[,0,0,,,0,4,0,1e8,,,,,,,.055,,0,.3]};class c{play(t){!function(...t){a.play(...t)}(...l[t])}}class u{constructor({x:t,y:s,vt:i,At:e,Ot:o}){this.x=t,this.y=s,this.dx=0,this.dy=0,this.vt=i,this.At=e,this.Ot=o}}var f=class extends u{constructor(t,s,i,e,o){super({x:t,y:s,Ot:.1}),this.dx=i,this.dy=e,this.color=o,this.St=!1}Ft(){this.St=!0}lt(){this.St||(this.x+=this.dx,this.dy+=this.Ot,this.y+=this.dy)}ut(t){t.rect({pt:this.color,rect:[this.x,this.y,1,1]})}},d=class{constructor({x:t,y:s,Pt:i},{color:e,speed:o,zt:h=0,It:n=0,Dt:r=0,Ot:a=0,Et:l,Bt:c,Yt:u,Lt:f,size:d,bt:p},w){this.size=d||1,this.x=t-this.size/2,this.y=s,this.dx=i*o+(Math.random()-h/2)*h,this.dy=(Math.random()-n/2)*n-r,this.Ot=a,this.color=e,this.Yt=u||1,this.Xt=0,this.$t=!1,this.Gt=!1,this.Kt=null,this.Et=l,this.Bt=c||1,this.Lt=f,this.bt=p,this.Nt=w}Rt(){this.Gt=!0,this.Kt=2}lt(){this.Xt+=1,this.Kt&&(this.Kt-=1,0===this.Kt&&(this.$t=!0)),this.Gt||(this.x+=this.dx,this.dy+=this.Ot,this.y+=this.dy)}ut(t){this.Gt?t.arc({arc:[this.x,this.y,2/this.Kt*this.Yt,0,2*Math.PI],pt:"#ff8",shadowBlur:10,shadowColor:"#ff0"}):this.bt?t.bt({x:this.x,y:this.y,bt:this.bt}):1===this.size?t.rect({pt:this.color(),rect:[this.x,this.y,this.size,this.size]}):t.arc({arc:[this.x,this.y,this.size,0,2*Math.PI],pt:this.color(),shadowBlur:this.size,shadowColor:"#ff0"})}},p=class{constructor({name:t,Ut:s,Wt:i=1,Tt:e,_t:o,rt:h,Jt:n}){this.name=t,this.Ut=s,this.Wt=i,this.Tt=e,this._t=o,this.rt=h,this.Jt=n,this.qt=s,this.Ht=!1}lt(t,s,i,e,o,h){return this.qt+=1,this.Ht=!1,this.qt>this.Ut*this.Wt&&t?(this.Qt(s,i,h),o.play("minigun"),this.rt&&e.rt(this.rt.Vt,this.rt.duration),this.Ht=!0,this._t):0}Qt(t,s,i){this.qt=0;for(let e=0;this.Tt>e;e++){const e=new d(s,this.Jt,i);t.add(e)}}ut(t,s){this.Ht&&([[s.x+(1===s.Pt?8:-1),s.y+3,1,1],[s.x+(1===s.Pt?7:0),s.y+4,2,3]].forEach(([s,i,e,o])=>t.rect({pt:"yellow",rect:[s,i,e,o]})),[[s.x+(1===s.Pt?8:-1),s.y+4,2,2],[s.x+(1===s.Pt?10:-3),s.y+4,1,1]].forEach(([s,i,e,o])=>t.rect({pt:"white",rect:[s,i,e,o]})))}};const w={name:"Pistol",Ut:10,Tt:1,_t:0,Zt:"gun",Jt:{color:()=>"#eee",speed:3,zt:0,It:.15,Et:10,Lt:5}},y={name:"Minigun",Ut:2,Tt:1,_t:.4,rt:{Vt:1,duration:2},Zt:"minigun",Jt:{color:()=>"#fff",speed:4,zt:1,It:.3,Et:2,Lt:5}},m={name:"Assault Rifle",Ut:8,Tt:1,_t:.1,Zt:"gun",Jt:{color:()=>"#fff",speed:3,zt:0,It:.3,Et:4,Lt:5}},g={name:"Shotgun",Ut:30,Tt:12,_t:1,rt:{Vt:2,duration:8},Zt:"shotgun",Jt:{color:()=>"yellow",speed:4,zt:.7,It:1,Et:1,Lt:5}},M={name:"Super Shotgun",Ut:60,Tt:24,_t:2,rt:{Vt:3,duration:8},Zt:"shotgun",Jt:{color:()=>"yellow",speed:4,zt:1,It:1.5,Et:1,Lt:5}},b={name:"sniper rifle",Ut:60,Tt:1,_t:2,rt:{Vt:3,duration:8},Zt:"shotgun",Jt:{color:()=>"#eee",speed:6,zt:0,It:0,Et:20,Lt:50}},C={name:"Grenade",Ut:40,Tt:1,_t:0,Zt:"thrown",Jt:{bt:"💣",speed:2,Dt:4,Ot:.3,Yt:3,size:3,Et:20,Lt:5}},k=[{prefix:"Rainbow",Jt:{color:()=>["#FF0000","#FFAC00","#FFF100","#0BFF00","#00F6FF"][Math.floor(6*Math.random())]}},{prefix:"Collosal",Wt:3,Jt:{color:()=>"yellow",Bt:3,Yt:5,size:5}},{prefix:"Shrimp",Jt:{bt:"🍤",Yt:3,size:3}},{prefix:"Bomb",Jt:{bt:"💣",Yt:3,size:3}}];var j=class{constructor(){}create(t){const s=Math.random()>.9?k[Math.floor(Math.random()*k.length)]:{Jt:{}},i={...t.Jt,...s.Jt},e={...t,...s,Jt:i,name:`${s.prefix?s.prefix+" ":""}${t.name}`};return new p(e)}random(){const t=[w,m,y,g,M,b,C],s=t[Math.floor(Math.random()*t.length)];return this.create(s)}};const x=(t,s)=>{const{x:i,y:e,dy:o,size:h}=t;if(0>o)return!1;const n=s.ts(i,e+h),r=s.ts(i+h-1,e+h);return!(!n&&!r||(t.dy=0,t.y=8*Math.floor(e/8),t.ss=!0,t.es=0,0))},v=(t,s,i)=>Math.min(Math.max(s,t),i);var A=class extends u{constructor(t,s,i,e,o){super({x:t,y:s,vt:1,At:2,Ot:.15}),this.size=8,this.os=.05,this.hs=.8,this.ns=1,this.ss=!0,this.Pt=e||1,this.Xt=0,this.rs=0,this.es=0,this.as=0,this.ls=2,this.cs=12,this.us=i,this.fs=i,this.ds=o||(new j).random()}static lt({k:t,map:s,ps:i,ws:e,ys:o,Zt:h}){this.Xt+=1;const{left:n,right:r,ms:a,gs:l}=e;this.rs=a?this.rs+1:0;let c=0;if(this.ds&&(c=this.ds.lt(l,i,{x:this.x+(1===this.Pt?this.size-1:1),y:this.y+5,Pt:this.Pt},t,h,this)),n?(this.dx-=this.os,this.Pt=-1):r?(this.dx+=this.os,this.Pt=1):this.dx*=this.ss?this.hs:this.ns,.01>Math.abs(this.dx)&&(this.dx=0),this.dx=v(this.dx,-this.vt,this.vt),this.dx+=c*-this.Pt,this.x+=o?0:this.dx,((t,s)=>{let{x:i,y:e,dx:o,size:h}=t;if(o>0){const o=s.ts(i+h,e),n=s.ts(i+h,e+h-1);(o||n)&&(t.dx=0,t.x=8*Math.floor(i/8))}else if(0>o){const o=s.ts(i,e),n=s.ts(i,e+h-1);(o||n)&&(t.dx=0,t.x=8*Math.floor(i/8)+8)}})(this,s),a){const t=this.ss||5>this.es,s=10>this.rs;(this.as>0||t&&s)&&(this.ss&&h.play("jump"),this.as+=1,this.cs>this.as&&(this.dy=-this.ls))}else this.as=0;this.dy+=this.Ot,this.dy=v(this.dy,-this.At,this.At),this.y+=this.dy,x(this,s)||(this.ss=!1,this.es+=1),((t,s)=>{const{x:i,y:e,size:o}=t,h=s.ts(i,e),n=s.ts(i+o-1,e);(h||n)&&(t.dy=0,t.y=8*Math.floor((e-o/2)/8)+8+o/2,t.as=0)})(this,s)}static Ms(t){this.us-=t}};const O=(t,s)=>s.x+s.size>t.x&&t.x+t.size>s.x&&s.y+s.size>t.y&&t.y+t.size>s.y;class S{bs(t,s,i){if(!t.Gt&&!s.Gt&&s.us>0&&t.Nt!==s&&O(t,s)){t.Rt(),A.Ms.call(s,t.Et*t.Bt);for(let e=0;t.Lt>e;e++)i.add(new f(t.x,t.y,t.dx/3*Math.random()*2,-1.5*Math.random(),s.Cs));return!0}return!1}ks(t,s,i){O(t,s)&&("weapon"===t.type?s.ds=t.ds:(s.us+=200,s.us=Math.min(s.fs,s.us)),i.js=i.js.filter(s=>s!==t))}}let F=[],P=[];function z(t,s){return(t%s+s)%s}class I{constructor({xs:t,ch:s}){for(let i=0;10>i;i++)F.push([Math.random()*t,Math.random()*s,Math.random()]);for(let i=0;10>i;i++)P.push([Math.random()*t,Math.random()*s,Math.random()])}ut(t){const[s,i]=this.vs;t.ut(()=>{t.dt(s,i),F.map(s=>t.rect({rect:[z(s[0]-t.k.x/(3+3*s[2]),t.canvas.width),z(s[1]-t.k.y/(3+3*s[2]),t.canvas.height),1,1],pt:"rgba(255, 255, 255, 0.6)",yt:!1})),P.map(s=>t.rect({rect:[z(s[0]-t.k.x/(7+3*s[2]),t.canvas.width),z(s[1]-t.k.y/(7+3*s[2]),t.canvas.height),1,1],pt:"rgba(255, 255, 255, 0.3)",yt:!1})),[[100,30,1,10,"#440"],[30,50,1,4,"#311"]].forEach(s=>{t.arc({yt:!1,arc:[z(s[0]-t.k.x/(7+3*s[2]),t.canvas.width),z(s[1]-t.k.y/(7+3*s[2]),t.canvas.height),s[3],0,2*Math.PI],pt:s[4]})})})}}var D=i(0),E=new(i.n(D).a);let B=null;E.onmessage=t=>{let s=t.data;B=document.createElement("audio"),B.src=URL.createObjectURL(new Blob([s],{type:"audio/wav"})),B.volume=.7,B.loop=!0};class Y{As(){}Os(){!function t(s){s.then(()=>{}).catch(()=>{setTimeout(()=>{let s=B.play();t(s)},1e3)})}(B.play())}}var L=class extends u{constructor(t,s,i){super({x:t,y:s}),this.ds=i||(new j).random(),this.size=5,this.Ot=.04,this.dy=.4,this.Ss=!1,this.type=i||Math.random()>.5?"weapon":"health"}lt(){this.Ss||(this.dy+=this.Ot,this.y+=this.dy)}ut(t){"weapon"===this.type?(t.rect({pt:"#C3732A",rect:[this.x,this.y,5,5]}),[[0,1],[1,0],[2,0],[3,0],[4,1],[3,2],[2,2],[2,4]].forEach(([s,i])=>t.rect({pt:"yellow",rect:[this.x+s,this.y+i,1,1]}))):(t.rect({pt:"#FFF",rect:[this.x,this.y,5,5]}),[[1,2,3,1],[2,1,1,3]].forEach(([s,i,e,o])=>t.rect({pt:"red",rect:[this.x+s,this.y+i,e,o]})))}};const X=(t,s,i,e,o={})=>{const{Fs:h,Ps:n,zs:r,Is:a,body:l}=e;let c=[];c=c.concat([[h,[1,3,5,3]],[a,[2,4,1,1]],[a,[5,4,1,1]]]),o.Ds||(c=c.concat([[l,[1,7,3,1]],[h,[1,7,1,1]],[h,[4,7,1,1]]])),n&&(c=c.concat([[n,[2,1,4,1]],[n,[1,2,6,1]]])),r&&(c=c.concat([[r,[1,2,1,1]],[r,[5,2,1,1]]]));const u=o.Es?12:o.big?2:1;return c=c.map(([e,o])=>({c:e,r:[1===i?t+o[0]*u:8*u-(o[0]+o[2])*u+t,s+o[1]*u,o[2]*u,o[3]*u]})),c},$=t=>{t.Bs=!1,t.Ys=!0},G=t=>{t.Bs=!0,t.Ys=!1},K=t=>{t.Bs||t.Ys||(t.Ys=!0),16>t.x&&$(t),t.x>288&&G(t)},N=(t,s,i)=>{if(s.Ls>0)s.Ls-=1;else{const e=i.ts(s.x+24*s.Pt,s.y-16);s.Ls=e&&Math.random()<t?30:0}},R=(t,s)=>{s.x-t.x>0?$(t):G(t)},U=({Xs:t,ct:s})=>20>Math.abs(s.y-t.y),W=({Xs:t,ct:s})=>[{left:!1,right:!1,ms:!1,gs:30>t.x-s.x&&t.x-s.x>0},!0],T=([t,s,i,e])=>({Fs:t,zs:s,Is:i,body:e}),_=T(["#50c878","#50c878","#c00","#a00"]),J=T(["beige","beige","red","red"]),q=T(["#c77dff","#c77dff","#a1ff0a","#ff5d8f"]),H=T(["#4cc9f0","#4cc9f0","#f72585","#4361ee"]),Q=T(["#dd0","#dd0","#09f","#a30"]),V=T(["red","red","yellow","orange"]);var Z={$s:{type:"sentinel",us:25,Gs:W,vs:_,ds:(new j).create(m)},Ks:{type:"pacifist",us:25,Gs:({Xs:t,map:s})=>(K(t),N(.1,t,s),[{left:t.Bs,right:t.Ys,ms:t.Ls>0},!1]),vs:J},Ns:{type:"idiot",us:25,Gs:({Xs:t})=>{let s;if(t.Xt%30==0){const t=.5>Math.random();s={left:t,right:!t,ms:.5>Math.random(),gs:.7>Math.random()}}else s=null;return[s,!1]},vs:q},Rs:{type:"runAndGun",us:25,Gs:({Xs:t,map:s,ct:i})=>{K(t),N(.1,t,s);const e=((t,s)=>(20>Math.abs(s.y-t.y)&&R(t,s),U({Xs:t,ct:s})))(t,i);return[{left:t.Bs,right:t.Ys,ms:t.Ls>0,gs:e},!1]},vs:H},Us:{type:"aggro",us:25,Gs:({Xs:t,ct:s,map:i})=>{R(t,s),((t,s,i)=>{t.y>s.y&&N(1,t,i)})(t,s,i);const e=U({Xs:t,ct:s});return[{left:t.Bs,right:t.Ys,ms:t.Ls>0,gs:e},!1]},vs:Q},Ws:{type:"boss",us:250,Gs:W,vs:V}};const tt=[{background:["#112","#131"],Ts:["#114","#336","#003"]},{background:["#33f","#1f1"],Ts:["#963","#c96","#620"]}],st={_s:1,Js:[40,0],qs:_,Hs:[[230,100]],Qs:{$s:1},vs:tt[0]},it=[()=>({_s:5,Js:[40,10],qs:_,Hs:[[50,10],[100,10],[150,10],[200,10],[249,10]],Qs:{$s:10},vs:tt[0]}),()=>({_s:5,Js:[40,150],qs:J,Hs:[[50,10],[100,10],[150,10],[200,10],[249,10]],Qs:{Ks:10},vs:tt[0]}),()=>({_s:5,Js:[40,150],qs:q,Hs:[[50,10],[100,10],[150,10],[200,10],[249,10]],Qs:{Ns:10},vs:tt[1]}),()=>({_s:5,Js:[40,150],qs:H,Hs:[[50,10],[100,10],[150,10],[200,10],[249,10]],Qs:{Rs:10},vs:tt[0]}),()=>({_s:5,Js:[40,150],qs:Q,Hs:[[50,10],[100,10],[150,10],[200,10],[249,10]],Qs:{Us:10},vs:tt[0]}),()=>({_s:1,Js:[20,156],qs:V,Hs:[[120,10]],Qs:{Ws:1},vs:tt[0]})],et=80,ot=[[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]],ht=["ffffffffff","8000000001","8000000001","8000000001","8000000001","87007e00e1","8000000001","8000000001","f03c003c0f","8000000001","8000000001","8300c300c1","8000000001","8000000001","8fc07e03f1","8000000001","8000000001","e00f00f007","8000000001","8000000001","ffffffffff"].map(t=>parseInt(t,16).toString(2).split("").map(Number)),nt=[ht,ht,ht,ht,ht,[[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,1,1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,1,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]]];class rt{constructor(){this.Vs=null,this.it=8,this.Zs=[],this.ht=0,this.et=0}ti(t,s){let i;i=1===t?ot:nt[(t-1)%6]||ht,this.Zs=i,this.ht=i.length,this.et=i[0].length,this.si=this.it*this.et,this.ii=this.it*this.ht,this.ei=s}ts(t,s){const i=this.Zs[Math.floor(s/this.it)];return i?i[Math.floor(t/this.it)]:1}ut(t){const[s,i,e]=this.ei;this.Vs=this.Vs||t,this.Zs.forEach((o,h)=>{o.forEach((o,n)=>{1===o&&(t.rect({pt:s,rect:[n*this.it+1,h*this.it+1,this.it-2,this.it-2]}),t.rect({pt:i,rect:[n*this.it+1,h*this.it,this.it-2,1]}),t.rect({pt:e,rect:[n*this.it+1,h*this.it+this.it-1,this.it-2,1]}),t.rect({pt:i,rect:[n*this.it,h*this.it+1,1,this.it-2]}),t.rect({pt:e,rect:[n*this.it+this.it-1,h*this.it+1,1,this.it-2]}))})})}}var at=class extends u{constructor(t,s,i,e,o){super({x:t,y:s}),this.dx=i,this.dy=e,this.Ot=.1,this.color=o,this.St=!1}Ft(){this.St=!0}lt(){this.St||(this.x+=this.dx,this.dy+=this.Ot,this.y+=this.dy)}ut(t){t.rect({pt:this.color,rect:[this.x,this.y-2,2,3]}),[[1,2],[2,3]].forEach(([s,i])=>{t.rect({pt:this.color,rect:[this.x+s-2,this.y+i-2,1,1]})}),[[2,0],[1,1],[0,2],[1,3]].forEach(([s,i])=>{t.rect({pt:"#FF77A8",rect:[this.x+s-2,this.y+i-2,1,1]})})}};class lt extends A{constructor(t,s,i){super(t,s,i),this.Cs="red",this.ds=null,this.oi=!1}lt({k:t,hi:s,map:i,ps:e,Zt:o,ni:h,ri:n}){if(0>=this.us&&!this.oi){for(let t=0;200>t;t++)h.add(new f(this.x,this.y,5*Math.random()-2.5,5*Math.random()-5,"red"));for(let t=0;10>t;t++)n.ri.push(new at(this.x,this.y-2,3*Math.random()-1.5,3*Math.random()-1.5,"red"));this.oi=!0}this.oi||A.lt.call(this,{k:t,map:i,ps:e,ws:{left:s.ai(s.li),right:s.ai(s.ci),ms:s.ai(s.ui),gs:s.ai(s.fi)},Zt:o})}ut(t){this.oi||(X(this.x,this.y,this.Pt,{Fs:"#FFCCAA",Ps:"#FFA300",Is:"#008751",body:"#29ADFF"}).forEach(({c:s,r:i})=>t.rect({pt:s,rect:i})),this.ds&&this.ds.ut(t,{x:this.x,y:this.y,Pt:this.Pt}))}}const ct={color:()=>"yellow",speed:1.5,Dt:-.6,Ot:0,It:.3,Yt:3,size:5,Et:10,Lt:5},ut={Ut:15,Tt:1,rt:{Vt:1,duration:15},Jt:ct},ft=Object.assign({},ut);ft.Jt=Object.assign({},ct),ft.Jt.Dt=.6;const dt=t=>{const s=Object.assign({},y.Jt);s.Dt=t;const i=Object.assign({},y);return i.Jt=s,i},pt=[{ds:new p(dt(.8)),y:25,x:40,di:40,offset:70},{ds:new p(dt(.4)),y:28,x:40,di:40,offset:60},{ds:new p(y),y:31,x:40,di:40,offset:50},{ds:new p(dt(0)),y:33,x:40,di:40,offset:40},{ds:new p(dt(-.4)),y:36,x:40,di:40,offset:30},{ds:new p(dt(-.8)),y:39,x:40,di:40,offset:20},{ds:new p(ut),y:30,x:0,di:100,offset:200},{ds:new p(ft),y:10,x:0,di:100,offset:200}],wt={Ut:15,Tt:0,rt:{Vt:4,duration:200},Jt:{color:()=>"yellow",speed:1.5,Dt:-.6,Ot:0,It:.3,Yt:3,size:5,Et:10,Lt:5}};var yt=class extends A{constructor(t,s,i,e,o){super(t,s,i,e,o),this.Cs="#32CD32",this.size=56}lt({map:t,ps:s,k:i,Zt:e,ct:o}){var h;if(this.Xt+=1,this.dy+=this.Ot,this.dy=(h=this.At,Math.min(Math.max(-this.At,this.dy),h)),this.y+=this.dy,x(this,t)||(this.ss=!1,this.es+=1),this.Xt%200||(this.Pt=o.x>this.x+this.size/2?1:-1),pt.forEach(({ds:t,x:o,y:h,di:n,offset:r})=>{this.Xt>100&&t.lt(n>(this.Xt+r)%400,s,{x:this.x+o,y:this.y+h,Pt:this.Pt},i,e,this)}),0>=this.us){const t=!0,o={};new p(wt).lt(t,s,o,i,e,this)}}pi({ni:t,ri:s}){for(let s=0;300>s;s++)t.add(new f(this.x+60*Math.random(),this.y+60*Math.random(),5*Math.random()-2.5,5*Math.random()-5,this.Cs));for(let t=0;40>t;t++)s.ri.push(new at(this.x+60*Math.random(),this.y+60*Math.random(),3*Math.random()-1.5,3*Math.random()-1.5,this.Cs))}ut(t){this.fs>this.us&&t.rect({pt:"white",rect:[this.x,this.y-1,this.us/this.fs*8,1]}),X(this.x-26,this.y-40,this.Pt,V,{Es:!0}).forEach(({c:s,r:i})=>t.rect({pt:s,rect:i}))}},mt=class extends A{constructor(t,s,i,e,o,h,n){super(t,s,i,e,n),this.vs=o,this.Cs="#32CD32",this.ws={left:!1,right:!1,ms:!1,gs:!1},this.Gs=h}lt({k:t,map:s,ps:i,ct:e,Zt:o}){const[h,n]=this.Gs({Xs:this,map:s,ct:e});h&&(this.ws=h),A.lt.call(this,{k:t,map:s,ps:i,ws:this.ws,Zt:o,ys:n})}pi({ni:t,ri:s}){for(let s=0;100>s;s++)t.add(new f(this.x,this.y,5*Math.random()-2.5,5*Math.random()-5,this.Cs));for(let t=0;5>t;t++)s.ri.push(new at(this.x,this.y-2,3*Math.random()-1.5,3*Math.random()-1.5,"red"))}ut(t){this.fs>this.us&&t.rect({pt:"white",rect:[this.x,this.y-1,this.us/this.fs*8,1]}),X(this.x,this.y,this.Pt,this.vs).forEach(({c:s,r:i})=>t.rect({pt:s,rect:i})),this.ds&&this.ds.ut(t,{x:this.x,y:this.y})}};window.onload=()=>{let t=new r,s=new o(t.canvas),i=new class{constructor(){document.addEventListener("keyup",t=>this.wi(t)),document.addEventListener("keydown",t=>this.yi(t)),this.mi={},this.gi=[13],this.fi=[32],this.li=[37,65],this.ui=[38,87],this.ci=[39,68],this.Mi=[40,83]}ai(t){return t.some(t=>this.mi[t])||!1}yi(t){this.mi[t.keyCode]=!0}wi(t){delete this.mi[t.keyCode]}},e=new c,h=new S,n=new I({xs:t.canvas.width,ch:t.canvas.height}),a=new class{constructor(){this.bi=new Y,this.Ci=!1,this.ki=!1,this.ji=0}xi(t,{ct:s,Qs:i,ri:e,ni:o,js:h,map:n,background:r}){this.level=1===t?st:it[(t-1)%6](t),this.level.level=t,this.level.vi=Object.entries(this.level.Qs).reduce((t,[s,i])=>t+i,0),n.ti(t,this.level.vs.Ts),r.vs=this.level.vs.background,s.us=s.fs,s.x=this.level.Js[0],s.y=this.level.Js[1],e.ri=[],o.ni=[],h.js=1===t?[new L(146,90,(new j).create(m))]:[],i.initialize(this.level),this.Ai=0,this.Oi=0,this.Si=!1,this.ji+=this.level.vi}lt({ct:t,Qs:s,ri:i,ni:e,js:o,Zt:h,map:n,background:r}){t.us>0||(this.ki=!0),this.Oi+=1,s.Qs.length>0||(this.Ai+=1),this.Ai>et*(7+(1===this.level.level?3:0))&&this.xi(this.level.level+1,{ct:t,Qs:s,ri:i,ni:e,js:o,map:n,background:r});const a=this.Si;this.Si=1===this.level.level&&this.Ai>7*et,a!==this.Si&&this.bi.Os(),[et,2*et,3*et,4*et].includes(this.Ai)&&h.play("message")}ut(t){this.Ai>et&&t.rect({yt:!1,pt:"rgba(0,0,0,0.9)",rect:[20,20,88,62]}),this.Ai>2*et&&t.text({text:`level ${this.level.level} complete`,size:1,x:32-(10>this.level.level?0:2),y:30}),this.Ai>3*et&&t.text({text:`${this.ji} alien${1!==this.ji?"s":""} defeated`,size:1,x:31-(10>this.ji?0:2),y:45}),this.Ai>4*et&&(X(32,60,1,_,{Ds:!0}).forEach(({c:s,r:i})=>t.rect({yt:!1,pt:s,rect:i})),X(42,60,1,J,{Ds:!0}).forEach(({c:s,r:i})=>t.rect({yt:!1,pt:s,rect:i})),X(52,60,1,q,{Ds:!0}).forEach(({c:s,r:i})=>t.rect({yt:!1,pt:s,rect:i})),X(62,60,1,H,{Ds:!0}).forEach(({c:s,r:i})=>t.rect({yt:!1,pt:s,rect:i})),X(72,60,1,Q,{Ds:!0}).forEach(({c:s,r:i})=>t.rect({yt:!1,pt:s,rect:i})),X(82,55,1,V,{Ds:!0,big:!0}).forEach(({c:s,r:i})=>t.rect({yt:!1,pt:s,rect:i})));const s=(s,i=0)=>{t.Mt({Mt:[[s+i/2,61-i],[s+7+3*i,67+i]],wt:"red"}),t.Mt({Mt:[[s+7+3*i,61-i],[s+i/2,67+i]],wt:"red"})};this.Ai>5*et&&(0>(this.level.level-1)%6||s(32)),this.Ai>5.1*et&&(1>(this.level.level-1)%6||s(42)),this.Ai>5.2*et&&(2>(this.level.level-1)%6||s(52)),this.Ai>5.3*et&&(3>(this.level.level-1)%6||s(62)),this.Ai>5.4*et&&(4>(this.level.level-1)%6||s(72)),this.Ai>5.5*et&&(5>(this.level.level-1)%6||s(82,2)),this.Si&&(t.rect({yt:!1,pt:"#000",rect:[0,0,200,200]}),t.text({text:"Welcome",size:3,x:17,y:30}),t.text({text:"to space",size:3,x:19,y:60})),200>this.Oi&&t.rect({yt:!1,pt:`rgba(0,0,0,${1-this.Oi/200})`,rect:[0,0,128,128]});const i=et*(7+(1===this.level.level?3:0));this.Ai>i-50&&t.rect({yt:!1,pt:`rgba(0,0,0,${1-(i-this.Ai)/50})`,rect:[0,0,128,128]}),this.ki&&(t.rect({yt:!1,pt:"#000",rect:[15,26,98,31]}),t.text({text:"Game over",size:2,x:25,y:36}))}},l=new rt,u=new class{constructor(){}lt(t,s,i){t.ds&&(this.ds=t.ds.name),this.us=t.us,this.fs=t.fs,this.oi=t.oi,this.vi=s.vi+s.Qs.length,this.qs=i}ut(t){this.oi||(this.ds&&t.text({text:this.ds,size:1,x:2,y:117}),X(113,115,1,this.qs,{Ds:!0}).forEach(({c:s,r:i})=>t.rect({yt:!1,pt:s,rect:i})),t.text({text:""+this.vi,size:1,x:120,y:117}),t.rect({yt:!1,pt:`rgb(${255*(1-this.us/this.fs)}, ${this.us/this.fs*255}, 0)`,rect:[2,124,this.us/this.fs*124,2]}))}},f=new lt(10,10,350),d=new class{constructor(){this.Qs=[],this.Fi=[],this.vi=0}initialize({_s:t,vi:s,Hs:i,Qs:e}){this._s=t,this.vi=s,this.Pi=()=>i[Math.floor(Math.random()*i.length)],this.Fi=[],Object.entries(e).forEach(([t,s])=>{this.Fi=this.Fi.concat(Array(s).fill(t))});for(let s=0;t>s;s++)this.Qs.push(this.zi())}zi(){this.vi-=1;const{type:t,us:s,Gs:i,vs:e,ds:o}=Z[this.Fi.pop()],[h,n]=this.Pi();return"boss"===t?new yt(h,n,s,-1):new mt(h,n,s,-1,e,i,o)}lt({k:t,map:s,ps:i,ni:e,ri:o,ct:h,Zt:n}){this.Qs.forEach(e=>{e.lt({k:t,map:s,ps:i,ct:h,Zt:n})}),this.Qs=this.Qs.reduce((t,s)=>(s.us>0?t.push(s):(s.pi({ni:e,ri:o}),this._s>=this.Qs.length&&this.vi>0&&t.push(this.zi())),t),[])}ut(t){this.Qs.forEach(s=>s.ut(t))}},p=new class{constructor(){this.ps=[]}add(t){this.ps.push(t)}lt(){this.ps.map(t=>t.lt()),this.ps=this.ps.filter(t=>!t.$t)}ut(t){this.ps.map(s=>s.ut(t))}},w=new class{constructor(){this.ni=[]}add(t){this.ni.push(t)}lt(){this.ni.length>1e3&&(this.ni=this.ni.slice(this.ni.length-1e3)),this.ni.forEach(t=>t.lt())}ut(t){this.ni.forEach(s=>s.ut(t))}},y={ri:[]},g=new class{constructor(){this.js=[],this.Xt=0}lt(t,s){if(this.Xt+=1,!(this.Xt%500)&&1!==s){let s=Math.random()*t.si,i=Math.random()*t.ii;for(;t.ts(s,i+1);)s=Math.random()*t.si,i=Math.random()*t.ii;this.js.push(new L(s,i))}this.js.forEach(t=>t.lt())}ut(t){this.js.forEach(s=>s.ut(t))}};t.initialize(),a.xi(1,{ct:f,Qs:d,ri:y,ni:w,js:g,map:l,background:n});let M=(new Date).getTime(),b=0,C=0,k=()=>{x(),v(),A()},x=()=>{const{k:t}=s;a.lt({ct:f,Qs:d,ri:y,ni:w,js:g,Zt:e,map:l,background:n}),f.lt({k:t,hi:i,map:l,ps:p,Zt:e,ri:y,ni:w}),d.lt({k:t,map:l,ps:p,ni:w,ri:y,ct:f,Zt:e}),t.lt({ct:f,map:l}),p.lt(),w.lt(),y.ri.length>1e3&&(y.ri=y.ri.slice(y.ri.length-1e3)),y.ri.forEach(t=>t.lt()),u.lt(f,d,a.level.qs),g.lt(l,a.level.level)},v=()=>{p.ps.filter(t=>!t.Gt).forEach(t=>{l.ts(t.x,t.y)&&t.Rt(),d.Qs.concat([f]).forEach(s=>{h.bs(t,s,w)})}),w.ni.concat(y.ri).forEach(t=>{l.ts(t.x,t.y)&&t.Ft()}),g.js.forEach(t=>{l.ts(t.x,t.y+t.size)&&(t.Ss=!0),d.Qs.concat([f]).forEach(s=>{h.ks(t,s,g)})})},A=()=>{window.requestAnimationFrame(k),b=(new Date).getTime(),C=b-M,C>1e3/60&&(s.ft(),O().map(t=>t.ut(s)),M=b-C%(1e3/60))},O=()=>[n,l,d,f,g,p,w,...y.ri,u,a];document.querySelector("div").className+=" loaded",k()}}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./node_modules/worker-loader/dist/workers/InlineWorker.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/worker-loader/dist/workers/InlineWorker.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+// http://stackoverflow.com/questions/10343913/how-to-create-a-web-worker-from-a-string
+
+var URL = window.URL || window.webkitURL;
+
+module.exports = function (content, url) {
+  try {
+    try {
+      var blob;
+
+      try {
+        // BlobBuilder = Deprecated, but widely implemented
+        var BlobBuilder = window.BlobBuilder || window.WebKitBlobBuilder || window.MozBlobBuilder || window.MSBlobBuilder;
+
+        blob = new BlobBuilder();
+
+        blob.append(content);
+
+        blob = blob.getBlob();
+      } catch (e) {
+        // The proposed API
+        blob = new Blob([content]);
+      }
+
+      return new Worker(URL.createObjectURL(blob));
+    } catch (e) {
+      return new Worker('data:application/javascript,' + encodeURIComponent(content));
+    }
+  } catch (e) {
+    if (!url) {
+      throw Error('Inline worker is not supported');
+    }
+
+    return new Worker(url);
+  }
+};
+
+/***/ }),
+
+/***/ "./node_modules/zzfx/ZzFX.js":
+/*!***********************************!*\
+  !*** ./node_modules/zzfx/ZzFX.js ***!
+  \***********************************/
+/*! exports provided: zzfx, ZZFX */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "zzfx", function() { return zzfx; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ZZFX", function() { return ZZFX; });
+/*
+
+ZzFX - Zuper Zmall Zound Zynth v1.1.8
+By Frank Force 2019
+https://github.com/KilledByAPixel/ZzFX
+
+ZzFX Features
+
+- Tiny synth engine with 20 controllable parameters.
+- Play sounds via code, no need for sound assed files!
+- Compatible with most modern web browsers.
+- Small code footprint, the micro version is under 1 kilobyte.
+- Can produce a huge variety of sound effect types.
+- Sounds can be played with a short call. zzfx(...[,,,,.1,,,,9])
+- A small bit of randomness appied to sounds when played.
+- Use ZZFX.GetNote to get frequencies on a standard diatonic scale.
+- Sounds can be saved out as wav files for offline playback.
+- No additional libraries or dependencies are required.
+
+*/
+/*
+
+  ZzFX MIT License
+  
+  Copyright (c) 2019 - Frank Force
+  
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+  
+  The above copyright notice and this permission notice shall be included in all
+  copies or substantial portions of the Software.
+  
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+  
+*/
+
+
+
+// play a zzfx sound
+function zzfx(...parameters) { return ZZFX.play(...parameters) }
+
+// zzfx object with some extra functionalty
+const ZZFX =
+{
+    // master volume scale
+    volume: .3,
+    
+    // sample rate for audio
+    sampleRate: 44100,
+    
+    // create shared audio context
+    x: new (window.AudioContext || webkitAudioContext),
+
+    // play a sound from zzfx paramerters
+    play: function(...parameters)
+    {
+        // build samples and start sound
+        return this.playSamples(this.buildSamples(...parameters));
+    },
+
+    // play an array of samples
+    playSamples: function(...samples)
+    {
+        // create buffer and source
+        const buffer = this.x.createBuffer(samples.length, samples[0].length, this.sampleRate);
+        const source = this.x.createBufferSource();
+
+        samples.map((d,i)=> buffer.getChannelData(i).set(d));
+        source.buffer = buffer;
+        source.connect(this.x.destination);
+        source.start();
+        return source;
+    },
+
+    // build an array of samples
+    buildSamples: function
+    (
+        volume = 1, 
+        randomness = .05,
+        frequency = 220,
+        attack = 0,
+        sustain = 0,
+        release = .1,
+        shape = 0,
+        shapeCurve = 1,
+        slide = 0, 
+        deltaSlide = 0, 
+        pitchJump = 0, 
+        pitchJumpTime = 0, 
+        repeatTime = 0, 
+        noise = 0,
+        modulation = 0,
+        bitCrush = 0,
+        delay = 0,
+        sustainVolume = 1,
+        decay = 0,
+        tremolo = 0
+    )
+    {
+        // init parameters
+        const PI2 = Math.PI*2;
+        let sampleRate = this.sampleRate,
+        sign = v => v>0?1:-1,
+        startSlide = slide *= 500 * PI2 / sampleRate / sampleRate,
+        startFrequency = 
+            frequency *= (1 + randomness*2*Math.random() - randomness) * PI2 / sampleRate,
+        b=[], t=0, tm=0, i=0, j=1, r=0, c=0, s=0, f, length;
+
+        // scale by sample rate
+        attack = attack * sampleRate + 9; // minimum attack to prevent pop
+        decay *= sampleRate;
+        sustain *= sampleRate;
+        release *= sampleRate;
+        delay *= sampleRate;
+        deltaSlide *= 500 * PI2 / sampleRate**3;
+        modulation *= PI2 / sampleRate;
+        pitchJump *= PI2 / sampleRate;
+        pitchJumpTime *= sampleRate;
+        repeatTime = repeatTime * sampleRate | 0;
+
+        // generate waveform
+        for(length = attack + decay + sustain + release + delay | 0;
+            i < length; b[i++] = s)
+        {
+            if (!(++c%(bitCrush*100|0)))                      // bit crush
+            { 
+                s = shape? shape>1? shape>2? shape>3?         // wave shape
+                    Math.sin((t%PI2)**3) :                    // 4 noise
+                    Math.max(Math.min(Math.tan(t),1),-1):     // 3 tan
+                    1-(2*t/PI2%2+2)%2:                        // 2 saw
+                    1-4*Math.abs(Math.round(t/PI2)-t/PI2):    // 1 triangle
+                    Math.sin(t);                              // 0 sin
+
+                s = (repeatTime ?
+                        1 - tremolo + tremolo*Math.sin(PI2*i/repeatTime) // tremolo
+                        : 1) *
+                    sign(s)*(Math.abs(s)**shapeCurve) *       // curve 0=square, 2=pointy
+                    volume * this.volume * (                  // envelope
+                    i < attack ? i/attack :                   // attack
+                    i < attack + decay ?                      // decay
+                    1-((i-attack)/decay)*(1-sustainVolume) :  // decay falloff
+                    i < attack  + decay + sustain ?           // sustain
+                    sustainVolume :                           // sustain volume
+                    i < length - delay ?                      // release
+                    (length - i - delay)/release *            // release falloff
+                    sustainVolume :                           // release volume
+                    0);                                       // post release
+
+                s = delay ? s/2 + (delay > i ? 0 :            // delay
+                    (i<length-delay? 1 : (length-i)/delay) *  // release delay 
+                    b[i-delay|0]/2) : s;                      // sample delay
+            }
+
+            f = (frequency += slide += deltaSlide) *          // frequency
+                Math.cos(modulation*tm++);                    // modulation
+            t += f - f*noise*(1 - (Math.sin(i)+1)*1e9%2);     // noise
+
+            if (j && ++j > pitchJumpTime)       // pitch jump
+            {
+                frequency += pitchJump;         // apply pitch jump
+                startFrequency += pitchJump;    // also apply to start
+                j = 0;                          // stop pitch jump time
+            }
+
+            if (repeatTime && !(++r % repeatTime)) // repeat
+            {
+                frequency = startFrequency;     // reset frequency
+                slide = startSlide;             // reset slide
+                j = j || 1;                     // reset pitch jump time
+            }
+        }
+
+        return b;
+    },
+    
+    // get frequency of a musical note on a diatonic scale
+    getNote: function(semitoneOffset=0, rootNoteFrequency=440)
+    {
+        return rootNoteFrequency * 2**(semitoneOffset/12);
+    }
+
+} // ZZFX
+
+/***/ }),
+
+/***/ "./src/Background.js":
+/*!***************************!*\
+  !*** ./src/Background.js ***!
+  \***************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Background; });
+let nearStars = [];
+let farStars = [];
+
+function mod(n, m) {
+  return ((n % m) + m) % m;
+}
+
+class Background {
+  constructor({ cw, ch }) {
+    for (let i = 0; i < 10; i++)
+      nearStars.push([Math.random() * cw, Math.random() * ch, Math.random()]);
+    for (let i = 0; i < 10; i++)
+      farStars.push([Math.random() * cw, Math.random() * ch, Math.random()]);
+  }
+
+  draw(drawer) {
+    const [top, bottom] = this.colors;
+    drawer.draw(() => {
+      drawer.drawBackground(top, bottom);
+      nearStars.map((star) =>
+        drawer.rect({
+          rect: [
+            mod(
+              star[0] - drawer.camera.x / (3 + 3 * star[2]),
+              drawer.canvas.width
+            ),
+            mod(
+              star[1] - drawer.camera.y / (3 + 3 * star[2]),
+              drawer.canvas.height
+            ),
+            1,
+            1,
+          ],
+          fillColor: "rgba(255, 255, 255, 0.6)",
+          adjusted: false,
+        })
+      );
+      farStars.map((star) =>
+        drawer.rect({
+          rect: [
+            mod(
+              star[0] - drawer.camera.x / (7 + 3 * star[2]),
+              drawer.canvas.width
+            ),
+            mod(
+              star[1] - drawer.camera.y / (7 + 3 * star[2]),
+              drawer.canvas.height
+            ),
+            1,
+            1,
+          ],
+          fillColor: "rgba(255, 255, 255, 0.3)",
+          adjusted: false,
+        })
+      );
+
+      const planets = [
+        [100, 30, 1, 10, "#440"],
+        [30, 50, 1, 4, "#311"],
+      ];
+      planets.forEach((planet) => {
+        drawer.arc({
+          adjusted: false,
+          arc: [
+            mod(
+              planet[0] - drawer.camera.x / (7 + 3 * planet[2]),
+              drawer.canvas.width
+            ),
+            mod(
+              planet[1] - drawer.camera.y / (7 + 3 * planet[2]),
+              drawer.canvas.height
+            ),
+            planet[3],
+            0,
+            2 * Math.PI,
+          ],
+          fillColor: planet[4],
+        });
+      });
+    });
+  }
+}
+
+
+/***/ }),
+
+/***/ "./src/Blood.js":
+/*!**********************!*\
+  !*** ./src/Blood.js ***!
+  \**********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _GameObject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GameObject */ "./src/GameObject.js");
+
+
+class Blood extends _GameObject__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor(x, y, dx, dy, color) {
+    super({ x, y, grav: 0.1 });
+    this.dx = dx;
+    this.dy = dy;
+    this.color = color;
+    this.stuck = false;
+  }
+
+  stick() {
+    this.stuck = true;
+  }
+
+  tick() {
+    if (this.stuck) return;
+    this.x += this.dx;
+    this.dy += this.grav;
+    this.y += this.dy;
+  }
+
+  draw(drawer) {
+    drawer.rect({
+      fillColor: this.color,
+      rect: [this.x, this.y, 1, 1],
+    });
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Blood);
+
+
+/***/ }),
+
+/***/ "./src/BloodChunk.js":
+/*!***************************!*\
+  !*** ./src/BloodChunk.js ***!
+  \***************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _GameObject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GameObject */ "./src/GameObject.js");
+
+
+class BloodChunk extends _GameObject__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor(x, y, dx, dy, color) {
+    super({ x, y });
+    this.dx = dx;
+    this.dy = dy;
+    this.grav = 0.1;
+    this.color = color;
+    this.stuck = false;
+  }
+
+  stick() {
+    this.stuck = true;
+  }
+
+  tick() {
+    if (this.stuck) return;
+    this.x += this.dx;
+    this.dy += this.grav;
+    this.y += this.dy;
+  }
+
+  draw(drawer) {
+    drawer.rect({
+      fillColor: this.color,
+      rect: [this.x, this.y - 2, 2, 3],
+    });
+
+    [
+      [1, 2],
+      [2, 3],
+    ].forEach(([x, y]) => {
+      drawer.rect({
+        fillColor: this.color,
+        rect: [this.x + x - 2, this.y + y - 2, 1, 1],
+      });
+    });
+
+    [
+      [2, 0],
+      [1, 1],
+      [0, 2],
+      [1, 3],
+    ].forEach(([x, y]) => {
+      drawer.rect({
+        fillColor: "#FF77A8",
+        rect: [this.x + x - 2, this.y + y - 2, 1, 1],
+      });
+    });
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (BloodChunk);
+
+
+/***/ }),
+
+/***/ "./src/BloodCollection.js":
+/*!********************************!*\
+  !*** ./src/BloodCollection.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+class BloodCollection {
+  constructor() {
+    this.spurts = [];
+  }
+
+  add(blood) {
+    this.spurts.push(blood);
+  }
+
+  tick() {
+    if (this.spurts.length > 1000) {
+      this.spurts = this.spurts.slice(this.spurts.length - 1000);
+    }
+    this.spurts.forEach((s) => s.tick());
+  }
+
+  draw(drawer) {
+    this.spurts.forEach((s) => s.draw(drawer));
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (BloodCollection);
+
+
+/***/ }),
+
+/***/ "./src/Boss.js":
+/*!*********************!*\
+  !*** ./src/Boss.js ***!
+  \*********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Blood__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Blood */ "./src/Blood.js");
+/* harmony import */ var _BloodChunk__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BloodChunk */ "./src/BloodChunk.js");
+/* harmony import */ var _Character__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Character */ "./src/Character.js");
+/* harmony import */ var _Weapon__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Weapon */ "./src/Weapon.js");
+/* harmony import */ var _collisions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./collisions */ "./src/collisions.js");
+/* harmony import */ var _Sprites__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Sprites */ "./src/Sprites.js");
+/* harmony import */ var _WeaponFactory__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./WeaponFactory */ "./src/WeaponFactory.js");
+/* harmony import */ var _enemyTypes__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./enemyTypes */ "./src/enemyTypes.js");
+
+
+
+
+
+
+
+
+
+
+const clamp = (num, min, max) => Math.min(Math.max(min, num), max);
+
+const anglerProjectiles = {
+  color: () => "yellow",
+  speed: 1.5,
+  lift: -0.6,
+  grav: 0,
+  spreadY: 0.3,
+  explosion: 3,
+  size: 5,
+  damage: 10,
+  blood: 5,
+};
+
+const angler = {
+  cooldown: 15,
+  payloadCount: 1,
+  shake: { force: 1, duration: 15 },
+  projectileConfig: anglerProjectiles,
+};
+
+const angler2 = Object.assign({}, angler);
+angler2.projectileConfig = Object.assign({}, anglerProjectiles);
+angler2.projectileConfig.lift = 0.6;
+
+const makeMini = (lift) => {
+  const proj = Object.assign({}, _WeaponFactory__WEBPACK_IMPORTED_MODULE_6__["minigun"].projectileConfig);
+  proj.lift = lift;
+  const mini = Object.assign({}, _WeaponFactory__WEBPACK_IMPORTED_MODULE_6__["minigun"]);
+  mini.projectileConfig = proj;
+  return mini;
+};
+
+// prettier-ignore
+const weapons = [
+  { weapon: new _Weapon__WEBPACK_IMPORTED_MODULE_3__["default"](makeMini(0.8)),  y: 25,  x: 40, shoot: 40, offset: 70 },
+  { weapon: new _Weapon__WEBPACK_IMPORTED_MODULE_3__["default"](makeMini(0.4)),  y: 28, x: 40, shoot: 40, offset: 60 },
+  { weapon: new _Weapon__WEBPACK_IMPORTED_MODULE_3__["default"](_WeaponFactory__WEBPACK_IMPORTED_MODULE_6__["minigun"]),        y: 31, x: 40, shoot: 40, offset: 50 },
+  { weapon: new _Weapon__WEBPACK_IMPORTED_MODULE_3__["default"](makeMini(0)),    y: 33, x: 40, shoot: 40, offset: 40 },
+  { weapon: new _Weapon__WEBPACK_IMPORTED_MODULE_3__["default"](makeMini(-0.4)), y: 36, x: 40, shoot: 40, offset: 30 },
+  { weapon: new _Weapon__WEBPACK_IMPORTED_MODULE_3__["default"](makeMini(-0.8)), y: 39, x: 40, shoot: 40, offset: 20 },
+
+  { weapon: new _Weapon__WEBPACK_IMPORTED_MODULE_3__["default"](angler), y: 30, x: 0, shoot: 100, offset: 200 },
+  { weapon: new _Weapon__WEBPACK_IMPORTED_MODULE_3__["default"](angler2), y: 10, x: 0, shoot: 100, offset: 200 },
+];
+
+const death = {
+  cooldown: 15,
+  payloadCount: 0,
+  shake: { force: 4, duration: 200 },
+  projectileConfig: {
+    color: () => "yellow",
+    speed: 1.5,
+    lift: -0.6,
+    grav: 0,
+    spreadY: 0.3,
+    explosion: 3,
+    size: 5,
+    damage: 10,
+    blood: 5,
+  },
+};
+
+class Boss extends _Character__WEBPACK_IMPORTED_MODULE_2__["default"] {
+  constructor(x, y, health, facing, weapon) {
+    super(x, y, health, facing, weapon);
+    this.bloodColor = "#32CD32";
+    this.size = 56;
+  }
+
+  tick({ map, projectiles, camera, sound, player }) {
+    this.lifespan += 1;
+
+    // move y
+    this.dy += this.grav;
+    this.dy = clamp(this.dy, -this.maxDy, this.maxDy);
+    this.y += this.dy;
+
+    if (!Object(_collisions__WEBPACK_IMPORTED_MODULE_4__["collideFloor"])(this, map)) {
+      this.grounded = false;
+      this.airtime += 1;
+    }
+
+    if (!(this.lifespan % 200))
+      this.facing = player.x > this.x + this.size / 2 ? 1 : -1;
+
+    weapons.forEach(({ weapon, x, y, shoot, offset }) => {
+      if (this.lifespan <= 100) return;
+      const weaponLocation = {
+        x: this.x + x,
+        y: this.y + y,
+        facing: this.facing,
+      };
+
+      const space = (this.lifespan + offset) % 400 < shoot;
+      weapon.tick(space, projectiles, weaponLocation, camera, sound, this);
+    });
+
+    if (this.health <= 0) {
+      const space = true;
+      const weaponLocation = {};
+      new _Weapon__WEBPACK_IMPORTED_MODULE_3__["default"](death).tick(
+        space,
+        projectiles,
+        weaponLocation,
+        camera,
+        sound,
+        this
+      );
+    }
+  }
+
+  explode({ spurts, chunks }) {
+    for (let i = 0; i < 300; i++) {
+      spurts.add(
+        new _Blood__WEBPACK_IMPORTED_MODULE_0__["default"](
+          this.x + Math.random() * 60,
+          this.y + Math.random() * 60,
+          Math.random() * 5 - 2.5,
+          Math.random() * 5 - 5,
+          this.bloodColor
+        )
+      );
+    }
+    for (let i = 0; i < 40; i++) {
+      chunks.chunks.push(
+        new _BloodChunk__WEBPACK_IMPORTED_MODULE_1__["default"](
+          this.x + Math.random() * 60,
+          this.y + Math.random() * 60,
+          Math.random() * 3 - 1.5,
+          Math.random() * 3 - 1.5,
+          this.bloodColor
+        )
+      );
+    }
+  }
+
+  draw(drawer) {
+    if (this.health < this.maxHealth) {
+      drawer.rect({
+        fillColor: "white",
+        rect: [this.x, this.y - 1, 8 * (this.health / this.maxHealth), 1],
+      });
+    }
+
+    Object(_Sprites__WEBPACK_IMPORTED_MODULE_5__["humanoid"])(this.x - 26, this.y - 40, this.facing, _enemyTypes__WEBPACK_IMPORTED_MODULE_7__["bossColors"], {
+      huge: true,
+    }).forEach(({ c, r }) => drawer.rect({ fillColor: c, rect: r }));
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Boss);
+
+
+/***/ }),
+
+/***/ "./src/Camera.js":
+/*!***********************!*\
+  !*** ./src/Camera.js ***!
+  \***********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const pullThreshold = 16;
+const HUDSize = 15;
+
+class Camera {
+  constructor() {
+    this.x = 0;
+    this.y = 128;
+    this.position_x = 0;
+    this.position_y = 128;
+    this.shakeRemaining = 0;
+    this.shakeForce = 0;
+  }
+
+  adjustX(x, width) {
+    return x - this.x + width / 2;
+  }
+
+  adjustY(y, height) {
+    return y - this.y + height / 2;
+  }
+
+  clampX(map) {
+    this.position_x = Math.round(
+      Math.min(
+        Math.max(8 * map.tileSize, this.position_x),
+        (map.mapLength - 8) * map.tileSize
+      )
+    );
+  }
+
+  clampY(map) {
+    this.position_y = Math.round(
+      Math.min(
+        Math.max(8 * map.tileSize, this.position_y),
+        (map.mapHeight - 8) * map.tileSize + HUDSize
+      )
+    );
+  }
+
+  followSubject(subject) {
+    if (subject.x - this.position_x > pullThreshold) {
+      this.position_x = subject.x - pullThreshold;
+    }
+    if (subject.x - this.position_x < -pullThreshold) {
+      this.position_x = subject.x + pullThreshold;
+    }
+    if (subject.y - this.position_y > pullThreshold) {
+      this.position_y = subject.y - pullThreshold;
+    }
+    if (subject.y - this.position_y < -pullThreshold) {
+      this.position_y = subject.y + pullThreshold;
+    }
+  }
+
+  shake(force, duration) {
+    this.shakeRemaining = duration;
+    this.shakeForce = force;
+  }
+
+  applyShake() {
+    this.shakeRemaining = Math.max(0, this.shakeRemaining - 1);
+    if (!this.shakeRemaining) return;
+    const shakeX = Math.random() * this.shakeForce * 2 - this.shakeForce;
+    const shakeY = Math.random() * this.shakeForce * 2 - this.shakeForce;
+    this.x += shakeX;
+    this.y += shakeY;
+  }
+
+  tick({ player, map }) {
+    this.followSubject(player, map);
+    this.clampX(map);
+    this.clampY(map);
+    this.x = this.position_x;
+    this.y = this.position_y;
+    this.applyShake();
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Camera);
+
+
+/***/ }),
+
+/***/ "./src/Character.js":
+/*!**************************!*\
+  !*** ./src/Character.js ***!
+  \**************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _GameObject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GameObject */ "./src/GameObject.js");
+/* harmony import */ var _WeaponFactory__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./WeaponFactory */ "./src/WeaponFactory.js");
+/* harmony import */ var _collisions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./collisions */ "./src/collisions.js");
+
+
+
+
+const clamp = (num, min, max) => Math.min(Math.max(min, num), max);
+
+class Character extends _GameObject__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor(x, y, health, facing, weapon) {
+    super({ x, y, maxDx: 1, maxDy: 2, grav: 0.15 });
+    this.size = 8;
+    this.acc = 0.05;
+    this.dcc = 0.8;
+    this.airDcc = 1;
+    this.grounded = true;
+    this.facing = facing || 1;
+    this.lifespan = 0;
+
+    // jumping
+    this.holdJump = 0;
+    this.airtime = 0;
+    this.jumpHoldTime = 0;
+    this.jumpSpeed = 2;
+    this.maxJumpPress = 12;
+
+    this.health = health;
+    this.maxHealth = health;
+
+    this.weapon = weapon || new _WeaponFactory__WEBPACK_IMPORTED_MODULE_1__["default"]().random();
+  }
+
+  static tick({ camera, map, projectiles, presses, immobile, sound }) {
+    this.lifespan += 1;
+
+    const { left, right, up, space } = presses;
+    this.holdJump = up ? this.holdJump + 1 : 0;
+
+    const weaponLocation = {
+      x: this.x + (this.facing === 1 ? this.size - 1 : 1),
+      y: this.y + 5,
+      facing: this.facing,
+    };
+
+    let knockback = 0;
+    if (this.weapon) {
+      knockback = this.weapon.tick(
+        space,
+        projectiles,
+        weaponLocation,
+        camera,
+        sound,
+        this
+      );
+    }
+
+    // move x
+    if (left) {
+      this.dx -= this.acc;
+      this.facing = -1;
+    } else if (right) {
+      this.dx += this.acc;
+      this.facing = 1;
+    } else {
+      if (this.grounded) {
+        this.dx *= this.dcc;
+      } else {
+        this.dx *= this.airDcc;
+      }
+    }
+    if (Math.abs(this.dx) < 0.01) this.dx = 0;
+    this.dx = clamp(this.dx, -this.maxDx, this.maxDx);
+    this.dx += knockback * -this.facing;
+    this.x += immobile ? 0 : this.dx;
+
+    // hit walls
+    Object(_collisions__WEBPACK_IMPORTED_MODULE_2__["collideSide"])(this, map);
+
+    // jumping
+    if (up) {
+      const onGround = this.grounded || this.airtime < 5;
+      const newJump = this.holdJump < 10;
+      if (this.jumpHoldTime > 0 || (onGround && newJump)) {
+        if (this.grounded) sound.play("jump");
+        this.jumpHoldTime += 1;
+        if (this.jumpHoldTime < this.maxJumpPress) {
+          this.dy = -this.jumpSpeed;
+        }
+      }
+    } else {
+      this.jumpHoldTime = 0;
+    }
+
+    // move y
+    this.dy += this.grav;
+    this.dy = clamp(this.dy, -this.maxDy, this.maxDy);
+    this.y += this.dy;
+
+    if (!Object(_collisions__WEBPACK_IMPORTED_MODULE_2__["collideFloor"])(this, map)) {
+      this.grounded = false;
+      this.airtime += 1;
+    }
+
+    Object(_collisions__WEBPACK_IMPORTED_MODULE_2__["collideRoof"])(this, map);
+  }
+
+  static takeDamage(damage) {
+    this.health -= damage;
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Character);
+
+
+/***/ }),
+
+/***/ "./src/CollisionDetector.js":
+/*!**********************************!*\
+  !*** ./src/CollisionDetector.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return CollisionDetector; });
+/* harmony import */ var _Blood__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Blood */ "./src/Blood.js");
+/* harmony import */ var _Character__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Character */ "./src/Character.js");
+
+
+
+const collision = (a, b) => {
+  return (
+    a.x < b.x + b.size &&
+    a.x + a.size > b.x &&
+    a.y < b.y + b.size &&
+    a.y + a.size > b.y
+  );
+};
+class CollisionDetector {
+  handleProjectile(projectile, object, spurts) {
+    if (
+      !(projectile.exploding || object.exploding) &&
+      object.health > 0 &&
+      projectile.owner !== object &&
+      collision(projectile, object)
+    ) {
+      projectile.destroy();
+      _Character__WEBPACK_IMPORTED_MODULE_1__["default"].takeDamage.call(
+        object,
+        projectile.damage * projectile.damageMod
+      );
+      for (let i = 0; i < projectile.blood; i++) {
+        spurts.add(
+          new _Blood__WEBPACK_IMPORTED_MODULE_0__["default"](
+            projectile.x,
+            projectile.y,
+            (projectile.dx / 3) * Math.random() * 2,
+            -1.5 * Math.random(),
+            object.bloodColor
+          )
+        );
+      }
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  handlePackage(packge, object, packages) {
+    if (collision(packge, object)) {
+      if (packge.type === "weapon") {
+        object.weapon = packge.weapon;
+      } else {
+        object.health += 200;
+        object.health = Math.min(object.maxHealth, object.health);
+      }
+      packages.packages = packages.packages.filter((p) => p !== packge);
+    }
+  }
+}
+
+
+/***/ }),
+
+/***/ "./src/Drawer.js":
+/*!***********************!*\
+  !*** ./src/Drawer.js ***!
+  \***********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Drawer; });
+/* harmony import */ var _Camera__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Camera */ "./src/Camera.js");
+
+
+let cx = null;
+
+class Drawer {
+  constructor(canvas) {
+    this.canvas = canvas;
+    cx = this.canvas.getContext("2d");
+    this.camera = new _Camera__WEBPACK_IMPORTED_MODULE_0__["default"]();
+  }
+
+  draw(d) {
+    cx.save();
+    d();
+    cx.restore();
+  }
+
+  clearBackground() {
+    cx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+  }
+
+  drawBackground(start, end) {
+    cx.save();
+    var gradient = cx.createLinearGradient(20, 0, 220, 0);
+
+    gradient.addColorStop(0, start);
+    gradient.addColorStop(1, end);
+
+    cx.rotate(Math.PI / 2);
+    cx.translate(0, -this.canvas.height);
+
+    cx.fillStyle = gradient;
+
+    cx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+    cx.restore();
+  }
+
+  rect({
+    rect,
+    fillColor,
+    strokeColor,
+    shadowBlur = 0,
+    shadowColor = "none",
+    lineWidth = 1,
+    adjusted = true,
+    rotation,
+    size,
+    crisp = true,
+  }) {
+    if (crisp) {
+      rect[0] = Math.floor(rect[0]);
+      rect[1] = Math.floor(rect[1]);
+    }
+    if (adjusted) {
+      rect[0] = this.camera.adjustX(rect[0], this.canvas.width);
+      rect[1] = this.camera.adjustY(rect[1], this.canvas.height);
+    }
+    if (rotation) {
+      cx.translate(rect[0] + size / 2, rect[1] + size / 2);
+      cx.rotate(rotation);
+      cx.translate(-1 * rect[0] - size / 2, -1 * rect[1] - size / 2);
+    }
+    cx.shadowBlur = shadowBlur;
+    cx.shadowColor = shadowColor;
+    if (fillColor) {
+      cx.fillStyle = fillColor;
+      cx.fillRect(...[rect[0], rect[1], ...rect.slice(2)]);
+    }
+    if (strokeColor) {
+      cx.strokeStyle = strokeColor;
+      cx.lineWidth = lineWidth;
+      cx.strokeRect(...[rect[0], rect[1], ...rect.slice(2)]);
+    }
+    cx.shadowBlur = 0;
+  }
+
+  arc({
+    arc,
+    adjusted = true,
+    fillColor,
+    strokeColor,
+    shadowBlur,
+    shadowColor,
+  }) {
+    if (adjusted) {
+      arc[0] = this.camera.adjustX(arc[0], this.canvas.width);
+      arc[1] = this.camera.adjustY(arc[1], this.canvas.height);
+    }
+    cx.beginPath();
+    cx.arc(...arc);
+    cx.shadowBlur = shadowBlur;
+    cx.shadowColor = shadowColor;
+    if (fillColor) {
+      cx.fillStyle = fillColor;
+      cx.fill();
+    }
+    if (strokeColor) {
+      cx.strokeStyle = strokeColor;
+      cx.stroke();
+    }
+    cx.shadowBlur = 0;
+  }
+
+  text({ text, x, y, fillColor = "#fff", size = 1 }) {
+    cx.fillStyle = fillColor;
+
+    let currX = 0;
+
+    text
+      .toUpperCase()
+      .split("")
+      .map((c) => {
+        if (!letters[c]) console.log(c);
+        return letters[c];
+      })
+      .forEach((letter) => {
+        let currY = 0;
+        let addX = 0;
+        letter.forEach((row) => {
+          row.forEach((bit, i) => {
+            bit && cx.fillRect(currX + i * size + x, currY + y, size, size);
+          });
+          addX = Math.max(addX, row.length * size);
+          currY += size;
+        });
+        currX += size + addX;
+      });
+  }
+
+  lines({ lines, shadowBlur = 0, shadowColor, fillColor, strokeColor }) {
+    cx.beginPath();
+    cx.moveTo(lines[0][0], lines[0][1]);
+    lines.slice(1).map((line) => cx.lineTo(line[0], line[1]));
+    cx.closePath();
+    cx.shadowBlur = shadowBlur;
+    cx.shadowColor = shadowColor;
+    if (strokeColor) {
+      cx.strokeStyle = strokeColor;
+      cx.stroke();
+    }
+    if (fillColor) {
+      cx.fillStyle = fillColor;
+      cx.fill();
+    }
+  }
+
+  emoji({ emoji, x, y, adjusted = true }) {
+    if (adjusted) {
+      x = this.camera.adjustX(x, this.canvas.width);
+      y = this.camera.adjustY(y, this.canvas.height);
+    }
+    cx.font = "4px serif";
+    cx.fillText(emoji, x, y);
+  }
+
+  hitbox({ x, y, size }) {
+    this.rect({
+      rect: [x - size / 2, y - size / 2, size, size],
+      color: "#f00",
+    });
+  }
+}
+
+const letters = {};
+letters["A"] = [
+  [, 1],
+  [1, , 1],
+  [1, , 1],
+  [1, 1, 1],
+  [1, , 1],
+];
+letters["B"] = [
+  [1, 1],
+  [1, , 1],
+  [1, 1, 1],
+  [1, , 1],
+  [1, 1],
+];
+letters["C"] = [[1, 1, 1], [1], [1], [1], [1, 1, 1]];
+letters["D"] = [
+  [1, 1],
+  [1, , 1],
+  [1, , 1],
+  [1, , 1],
+  [1, 1],
+];
+letters["E"] = [[1, 1, 1], [1], [1, 1, 1], [1], [1, 1, 1]];
+letters["F"] = [[1, 1, 1], [1], [1, 1], [1], [1]];
+letters["G"] = [[, 1, 1], [1], [1, , 1, 1], [1, , , 1], [, 1, 1]];
+letters["H"] = [
+  [1, , 1],
+  [1, , 1],
+  [1, 1, 1],
+  [1, , 1],
+  [1, , 1],
+];
+letters["I"] = [
+  [1, 1, 1],
+  [, 1],
+  [, 1],
+  [, 1],
+  [1, 1, 1],
+];
+letters["J"] = [
+  [1, 1, 1],
+  [, , 1],
+  [, , 1],
+  [1, , 1],
+  [1, 1, 1],
+];
+letters["K"] = [
+  [1, , , 1],
+  [1, , 1],
+  [1, 1],
+  [1, , 1],
+  [1, , , 1],
+];
+letters["L"] = [[1], [1], [1], [1], [1, 1, 1]];
+letters["M"] = [
+  [1, 1, 1, 1, 1],
+  [1, , 1, , 1],
+  [1, , 1, , 1],
+  [1, , , , 1],
+  [1, , , , 1],
+];
+letters["N"] = [
+  [1, , , 1],
+  [1, 1, , 1],
+  [1, , 1, 1],
+  [1, , , 1],
+  [1, , , 1],
+];
+letters["O"] = [
+  [1, 1, 1],
+  [1, , 1],
+  [1, , 1],
+  [1, , 1],
+  [1, 1, 1],
+];
+letters["P"] = [[1, 1, 1], [1, , 1], [1, 1, 1], [1], [1]];
+letters["Q"] = [
+  [0, 1, 1],
+  [1, , , 1],
+  [1, , , 1],
+  [1, , 1, 1],
+  [1, 1, 1, 1],
+];
+letters["R"] = [
+  [1, 1],
+  [1, , 1],
+  [1, , 1],
+  [1, 1],
+  [1, , 1],
+];
+letters["S"] = [[1, 1, 1], [1], [1, 1, 1], [, , 1], [1, 1, 1]];
+letters["T"] = [
+  [1, 1, 1],
+  [, 1],
+  [, 1],
+  [, 1],
+  [, 1],
+];
+letters["U"] = [
+  [1, , 1],
+  [1, , 1],
+  [1, , 1],
+  [1, , 1],
+  [1, 1, 1],
+];
+letters["V"] = [
+  [1, , , , 1],
+  [1, , , , 1],
+  [, 1, , 1],
+  [, 1, , 1],
+  [, , 1],
+];
+letters["W"] = [
+  [1, , , , 1],
+  [1, , , , 1],
+  [1, , , , 1],
+  [1, , 1, , 1],
+  [1, 1, 1, 1, 1],
+];
+letters["X"] = [
+  [1, , , , 1],
+  [, 1, , 1],
+  [, , 1],
+  [, 1, , 1],
+  [1, , , , 1],
+];
+letters["Y"] = [
+  [1, , 1],
+  [1, , 1],
+  [, 1],
+  [, 1],
+  [, 1],
+];
+letters["Z"] = [
+  [1, 1, 1, 1, 1],
+  [, , , 1],
+  [, , 1],
+  [, 1],
+  [1, 1, 1, 1, 1],
+];
+letters[" "] = [
+  [, ,],
+  [, ,],
+  [, ,],
+  [, ,],
+  [, ,],
+];
+letters["0"] = [
+  [1, 1, 1],
+  [1, , 1],
+  [1, , 1],
+  [1, , 1],
+  [1, 1, 1],
+];
+letters["1"] = [
+  [, 1],
+  [, 1],
+  [, 1],
+  [, 1],
+  [, 1],
+];
+letters["2"] = [
+  [1, 1, 1],
+  [0, 0, 1],
+  [1, 1, 1],
+  [1, 0, 0],
+  [1, 1, 1],
+];
+letters["3"] = [
+  [1, 1, 1],
+  [0, 0, 1],
+  [1, 1, 1],
+  [0, 0, 1],
+  [1, 1, 1],
+];
+letters["4"] = [
+  [1, 0, 1],
+  [1, 0, 1],
+  [1, 1, 1],
+  [0, 0, 1],
+  [0, 0, 1],
+];
+letters["5"] = [
+  [1, 1, 1],
+  [1, 0, 0],
+  [1, 1, 1],
+  [0, 0, 1],
+  [1, 1, 1],
+];
+letters["6"] = [
+  [1, 1, 1],
+  [1, 0, 0],
+  [1, 1, 1],
+  [1, 0, 1],
+  [1, 1, 1],
+];
+letters["7"] = [
+  [1, 1, 1],
+  [0, 0, 1],
+  [0, 0, 1],
+  [0, 0, 1],
+  [0, 0, 1],
+];
+letters["8"] = [
+  [1, 1, 1],
+  [1, 0, 1],
+  [1, 1, 1],
+  [1, 0, 1],
+  [1, 1, 1],
+];
+letters["9"] = [
+  [1, 1, 1],
+  [1, 0, 1],
+  [1, 1, 1],
+  [0, 0, 1],
+  [1, 1, 1],
+];
+
+
+/***/ }),
+
+/***/ "./src/Enemy.js":
+/*!**********************!*\
+  !*** ./src/Enemy.js ***!
+  \**********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Blood__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Blood */ "./src/Blood.js");
+/* harmony import */ var _BloodChunk__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BloodChunk */ "./src/BloodChunk.js");
+/* harmony import */ var _Character__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Character */ "./src/Character.js");
+/* harmony import */ var _Sprites__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Sprites */ "./src/Sprites.js");
+
+
+
+
+
+class Enemy extends _Character__WEBPACK_IMPORTED_MODULE_2__["default"] {
+  constructor(x, y, health, facing, colors, persona, weapon) {
+    super(x, y, health, facing, weapon);
+    this.colors = colors;
+    this.bloodColor = "#32CD32";
+    this.presses = {
+      left: false,
+      right: false,
+      up: false,
+      space: false,
+    };
+    this.persona = persona;
+  }
+
+  tick({ camera, map, projectiles, player, sound }) {
+    const [presses, immobile] = this.persona({ enemy: this, map, player });
+    if (presses) this.presses = presses;
+    _Character__WEBPACK_IMPORTED_MODULE_2__["default"].tick.call(this, {
+      camera,
+      map,
+      projectiles,
+      presses: this.presses,
+      sound,
+      immobile,
+    });
+  }
+
+  explode({ spurts, chunks }) {
+    for (let i = 0; i < 100; i++) {
+      spurts.add(
+        new _Blood__WEBPACK_IMPORTED_MODULE_0__["default"](
+          this.x,
+          this.y,
+          Math.random() * 5 - 2.5,
+          Math.random() * 5 - 5,
+          this.bloodColor
+        )
+      );
+    }
+    for (let i = 0; i < 5; i++) {
+      chunks.chunks.push(
+        new _BloodChunk__WEBPACK_IMPORTED_MODULE_1__["default"](
+          this.x,
+          this.y - 2,
+          Math.random() * 3 - 1.5,
+          Math.random() * 3 - 1.5,
+          "red"
+        )
+      );
+    }
+  }
+
+  draw(drawer) {
+    if (this.health < this.maxHealth) {
+      drawer.rect({
+        fillColor: "white",
+        rect: [this.x, this.y - 1, 8 * (this.health / this.maxHealth), 1],
+      });
+    }
+
+    Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(this.x, this.y, this.facing, this.colors).forEach(({ c, r }) =>
+      drawer.rect({ fillColor: c, rect: r })
+    );
+
+    this.weapon && this.weapon.draw(drawer, { x: this.x, y: this.y });
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Enemy);
+
+
+/***/ }),
+
+/***/ "./src/EnemyCollection.js":
+/*!********************************!*\
+  !*** ./src/EnemyCollection.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Boss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Boss */ "./src/Boss.js");
+/* harmony import */ var _Enemy__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Enemy */ "./src/Enemy.js");
+/* harmony import */ var _enemyTypes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./enemyTypes */ "./src/enemyTypes.js");
+
+
+
+
+class EnemyCollection {
+  constructor() {
+    this.enemies = [];
+    this.remainingEnemies = [];
+    this.enemyCount = 0;
+  }
+
+  initialize({ concurrentEnemies, enemyCount, enemySpawnPoints, enemies }) {
+    this.concurrentEnemies = concurrentEnemies;
+    this.enemyCount = enemyCount;
+    this.enemySpawnPoint = () =>
+      enemySpawnPoints[Math.floor(Math.random() * enemySpawnPoints.length)];
+
+    this.remainingEnemies = [];
+    Object.entries(enemies).forEach(([type, count]) => {
+      this.remainingEnemies = this.remainingEnemies.concat(
+        Array(count).fill(type)
+      );
+    });
+
+    for (let i = 0; i < concurrentEnemies; i++) {
+      this.enemies.push(this.createEnemy());
+    }
+  }
+
+  createEnemy() {
+    this.enemyCount -= 1;
+    const { type, health, persona, colors, weapon } = _enemyTypes__WEBPACK_IMPORTED_MODULE_2__["default"][
+      this.remainingEnemies.pop()
+    ];
+    const [x, y] = this.enemySpawnPoint();
+    if (type === "boss") {
+      return new _Boss__WEBPACK_IMPORTED_MODULE_0__["default"](x, y, health, -1);
+    } else {
+      return new _Enemy__WEBPACK_IMPORTED_MODULE_1__["default"](x, y, health, -1, colors, persona, weapon);
+    }
+  }
+
+  tick({ camera, map, projectiles, spurts, chunks, player, sound }) {
+    this.enemies.forEach((enemy) => {
+      enemy.tick({ camera, map, projectiles, player, sound });
+    });
+
+    this.enemies = this.enemies.reduce((enemies, enemy) => {
+      if (enemy.health <= 0) {
+        enemy.explode({ spurts, chunks });
+        if (
+          this.enemies.length <= this.concurrentEnemies &&
+          this.enemyCount > 0
+        ) {
+          enemies.push(this.createEnemy());
+        }
+      } else {
+        enemies.push(enemy);
+      }
+      return enemies;
+    }, []);
+  }
+
+  draw(drawer) {
+    this.enemies.forEach((e) => e.draw(drawer));
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (EnemyCollection);
+
+
+/***/ }),
+
+/***/ "./src/EnemyPersonas.js":
+/*!******************************!*\
+  !*** ./src/EnemyPersonas.js ***!
+  \******************************/
+/*! exports provided: aggro, runAndGun, pacifist, idiot, sentinel */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "aggro", function() { return aggro; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "runAndGun", function() { return runAndGun; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pacifist", function() { return pacifist; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "idiot", function() { return idiot; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sentinel", function() { return sentinel; });
+const runRight = (enemy) => {
+  enemy.holdLeft = false;
+  enemy.holdRight = true;
+};
+
+const runLeft = (enemy) => {
+  enemy.holdLeft = true;
+  enemy.holdRight = false;
+};
+
+const laps = (enemy) => {
+  if (!enemy.holdLeft && !enemy.holdRight) enemy.holdRight = true;
+  if (enemy.x < 8 * 2) runRight(enemy);
+  if (enemy.x > 8 * 36) runLeft(enemy);
+};
+
+const jumpToLedges = (freq, enemy, map) => {
+  if (enemy.jumpTimer > 0) {
+    enemy.jumpTimer -= 1;
+  } else {
+    const jumpTarget = map.getTile(
+      enemy.x + 3 * 8 * enemy.facing,
+      enemy.y - 2 * 8
+    );
+    enemy.jumpTimer = jumpTarget && Math.random() < freq ? 30 : 0;
+  }
+};
+
+const shootOnSight = (enemy, player) => {
+  if (Math.abs(player.y - enemy.y) < 20) {
+    runTowardsObject(enemy, player);
+  }
+  return shootInRange({ enemy, player });
+};
+
+const runTowardsObject = (enemy, object) => {
+  if (object.x - enemy.x > 0) {
+    runRight(enemy);
+  } else {
+    runLeft(enemy);
+  }
+};
+
+const jumpTowardsObject = (enemy, object, map) => {
+  if (object.y < enemy.y) {
+    jumpToLedges(1, enemy, map);
+  }
+};
+
+const shootInRange = ({ enemy, player }) => Math.abs(player.y - enemy.y) < 20;
+
+const aggro = ({ enemy, player, map }) => {
+  runTowardsObject(enemy, player);
+  jumpTowardsObject(enemy, player, map);
+  const space = shootInRange({ enemy, player });
+  const buttons = {
+    left: enemy.holdLeft,
+    right: enemy.holdRight,
+    up: enemy.jumpTimer > 0,
+    space,
+  };
+  return [buttons, false];
+};
+
+const runAndGun = ({ enemy, map, player }) => {
+  laps(enemy);
+  jumpToLedges(0.1, enemy, map);
+  const space = shootOnSight(enemy, player);
+  const buttons = {
+    left: enemy.holdLeft,
+    right: enemy.holdRight,
+    up: enemy.jumpTimer > 0,
+    space,
+  };
+  return [buttons, false];
+};
+
+const pacifist = ({ enemy, map }) => {
+  laps(enemy);
+  jumpToLedges(0.1, enemy, map);
+
+  const buttons = {
+    left: enemy.holdLeft,
+    right: enemy.holdRight,
+    up: enemy.jumpTimer > 0,
+  };
+
+  return [buttons, false];
+};
+
+const idiot = ({ enemy }) => {
+  const immobile = false;
+  let buttons;
+  if (enemy.lifespan % 30 === 0) {
+    const left = Math.random() < 0.5;
+    buttons = {
+      left: left,
+      right: !left,
+      up: Math.random() < 0.5,
+      space: Math.random() < 0.7,
+    };
+  } else {
+    buttons = null;
+  }
+  return [buttons, immobile];
+};
+
+const sentinel = ({ enemy, player }) => {
+  const space = enemy.x - player.x < 30 && enemy.x - player.x > 0;
+  const immobile = true;
+  return [
+    {
+      left: false,
+      right: false,
+      up: false,
+      space,
+    },
+    immobile,
+  ];
+};
+
+
+/***/ }),
+
+/***/ "./src/GameContainer.js":
+/*!******************************!*\
+  !*** ./src/GameContainer.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return GameContainer; });
+let canvas = document.getElementById("c");
+class GameContainer {
+  constructor() {
+    this.canvas = canvas;
+  }
+
+  initialize() {
+    let container = document.querySelector("body");
+    let resize = e => {
+      container.clientWidth / container.clientHeight > 128 / 128
+        ? (canvas.style.height = "100vh") && (canvas.style.width = "auto")
+        : (canvas.style.height = "auto") && (canvas.style.width = "100vw");
+    };
+    resize();
+    container.onresize = resize;
+  }
+}
+
+
+
+/***/ }),
+
+/***/ "./src/GameObject.js":
+/*!***************************!*\
+  !*** ./src/GameObject.js ***!
+  \***************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return GameObject; });
+class GameObject {
+  constructor({ x, y, maxDx, maxDy, grav }) {
+    this.x = x;
+    this.y = y;
+    this.dx = 0;
+    this.dy = 0;
+    this.maxDx = maxDx;
+    this.maxDy = maxDy;
+    this.grav = grav;
+  }
+}
+
+
+/***/ }),
+
+/***/ "./src/HUD.js":
+/*!********************!*\
+  !*** ./src/HUD.js ***!
+  \********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Sprites__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Sprites */ "./src/Sprites.js");
+
+
+class HUD {
+  constructor() {}
+
+  tick(player, enemies, enemyColor) {
+    if (player.weapon) this.weapon = player.weapon.name;
+    this.health = player.health;
+    this.maxHealth = player.maxHealth;
+    this.dead = player.dead;
+    this.enemyCount = enemies.enemyCount + enemies.enemies.length;
+    this.enemyColor = enemyColor;
+  }
+
+  draw(drawer) {
+    if (this.dead) return;
+
+    if (this.weapon) {
+      drawer.text({
+        text: this.weapon,
+        size: 1,
+        x: 2,
+        y: 117,
+      });
+    }
+
+    Object(_Sprites__WEBPACK_IMPORTED_MODULE_0__["humanoid"])(113, 115, 1, this.enemyColor, {
+      bodyless: true,
+    }).forEach(({ c, r }) =>
+      drawer.rect({ adjusted: false, fillColor: c, rect: r })
+    );
+
+    drawer.text({
+      text: `${this.enemyCount}`,
+      size: 1,
+      x: 120,
+      y: 117,
+    });
+
+    drawer.rect({
+      adjusted: false,
+      fillColor: `rgb(${255 * (1 - this.health / this.maxHealth)}, ${
+        255 * (this.health / this.maxHealth)
+      }, 0)`,
+      rect: [2, 124, 124 * (this.health / this.maxHealth), 2],
+    });
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (HUD);
+
+
+/***/ }),
+
+/***/ "./src/Keyboard.js":
+/*!*************************!*\
+  !*** ./src/Keyboard.js ***!
+  \*************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+class Keyboard {
+  constructor() {
+    document.addEventListener("keyup", (event) => this.onKeyup(event));
+    document.addEventListener("keydown", (event) => this.onKeydown(event));
+
+    this._pressed = {};
+
+    this.ENTER = [13];
+    this.SPACE = [32];
+    this.LEFT = [37, 65];
+    this.UP = [38, 87];
+    this.RIGHT = [39, 68];
+    this.DOWN = [40, 83];
+  }
+
+  isDown(keyCode) {
+    return keyCode.some((key) => this._pressed[key]) || false;
+  }
+
+  onKeydown(event) {
+    this._pressed[event.keyCode] = true;
+  }
+
+  onKeyup(event) {
+    delete this._pressed[event.keyCode];
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Keyboard);
+
+
+/***/ }),
+
+/***/ "./src/Level.js":
+/*!**********************!*\
+  !*** ./src/Level.js ***!
+  \**********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Music__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Music */ "./src/Music.js");
+/* harmony import */ var _Package__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Package */ "./src/Package.js");
+/* harmony import */ var _WeaponFactory__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./WeaponFactory */ "./src/WeaponFactory.js");
+/* harmony import */ var _Sprites__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Sprites */ "./src/Sprites.js");
+/* harmony import */ var _enemyTypes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./enemyTypes */ "./src/enemyTypes.js");
+
+
+
+
+
+
+const colorSchemes = [
+  {
+    background: ["#112", "#131"],
+    tiles: ["#114", "#336", "#003"],
+  },
+  {
+    background: ["#33f", "#1f1"],
+    tiles: ["#963", "#c96", "#620"],
+  },
+];
+
+const level1 = {
+  concurrentEnemies: 1,
+  spawnPoint: [40, 0],
+  enemyColor: _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["sentinelColors"],
+  enemySpawnPoints: [[230, 100]],
+  enemies: {
+    sentinel: 1,
+  },
+  colors: colorSchemes[0],
+};
+
+const levelTemplates = [
+  (level) => ({
+    concurrentEnemies: 5,
+    spawnPoint: [40, 10],
+    enemyColor: _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["sentinelColors"],
+    enemySpawnPoints: [
+      [50, 10],
+      [100, 10],
+      [150, 10],
+      [200, 10],
+      [249, 10],
+    ],
+    enemies: {
+      sentinel: 10,
+    },
+    colors: colorSchemes[0],
+  }),
+  (level) => ({
+    concurrentEnemies: 5,
+    spawnPoint: [40, 150],
+    enemyColor: _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["pacifistColors"],
+    enemySpawnPoints: [
+      [50, 10],
+      [100, 10],
+      [150, 10],
+      [200, 10],
+      [249, 10],
+    ],
+    enemies: {
+      pacifist: 10,
+    },
+    colors: colorSchemes[0],
+  }),
+  (level) => ({
+    concurrentEnemies: 5,
+    spawnPoint: [40, 150],
+    enemyColor: _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["idiotColors"],
+    enemySpawnPoints: [
+      [50, 10],
+      [100, 10],
+      [150, 10],
+      [200, 10],
+      [249, 10],
+    ],
+    enemies: {
+      idiot: 10,
+    },
+    colors: colorSchemes[1],
+  }),
+  (level) => ({
+    concurrentEnemies: 5,
+    spawnPoint: [40, 150],
+    enemyColor: _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["runAndGunColors"],
+    enemySpawnPoints: [
+      [50, 10],
+      [100, 10],
+      [150, 10],
+      [200, 10],
+      [249, 10],
+    ],
+    enemies: {
+      runAndGun: 10,
+    },
+    colors: colorSchemes[0],
+  }),
+  (level) => ({
+    concurrentEnemies: 5,
+    spawnPoint: [40, 150],
+    enemyColor: _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["aggroColors"],
+    enemySpawnPoints: [
+      [50, 10],
+      [100, 10],
+      [150, 10],
+      [200, 10],
+      [249, 10],
+    ],
+    enemies: {
+      aggro: 10,
+    },
+    colors: colorSchemes[0],
+  }),
+  (level) => ({
+    concurrentEnemies: 1,
+    spawnPoint: [20, 156],
+    enemyColor: _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["bossColors"],
+    enemySpawnPoints: [[120, 10]],
+    enemies: {
+      boss: 1,
+    },
+    colors: colorSchemes[0],
+  }),
+];
+
+const delay = 80;
+
+class Level {
+  constructor() {
+    this.music = new _Music__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    this.musicStarted = false;
+    this.gameOver = false;
+    this.totalEnemies = 0;
+  }
+
+  initializeLevel(
+    level,
+    { player, enemies, chunks, spurts, packages, map, background }
+  ) {
+    this.level = level === 1 ? level1 : levelTemplates[(level - 1) % 6](level);
+    this.level.level = level;
+    this.level.enemyCount = Object.entries(this.level.enemies).reduce(
+      (sum, [k, v]) => sum + v,
+      0
+    );
+    map.loadLevel(level, this.level.colors.tiles);
+    background.colors = this.level.colors.background;
+    player.health = player.maxHealth;
+    player.x = this.level.spawnPoint[0];
+    player.y = this.level.spawnPoint[1];
+    chunks.chunks = [];
+    spurts.spurts = [];
+    packages.packages =
+      level === 1
+        ? [new _Package__WEBPACK_IMPORTED_MODULE_1__["default"](146, 90, new _WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["assaultRifle"]))]
+        : // [new Package(146, 90, new WeaponFactory().create(debugPistol))]
+          [];
+    enemies.initialize(this.level);
+    this.levelOverTimer = 0;
+    this.levelFadeIn = 0;
+    this.welcomeMessage = false;
+    this.totalEnemies += this.level.enemyCount;
+  }
+
+  tick({ player, enemies, chunks, spurts, packages, sound, map, background }) {
+    if (player.health <= 0) {
+      this.gameOver = true;
+    }
+
+    this.levelFadeIn += 1;
+
+    if (enemies.enemies.length <= 0) {
+      this.levelOverTimer += 1;
+    }
+
+    if (this.levelOverTimer > delay * (7 + (this.level.level === 1 ? 3 : 0))) {
+      this.initializeLevel(this.level.level + 1, {
+        player,
+        enemies,
+        chunks,
+        spurts,
+        packages,
+        map,
+        background,
+      });
+    }
+
+    const oldWelcomeMessage = this.welcomeMessage;
+    this.welcomeMessage =
+      this.level.level === 1 && this.levelOverTimer > delay * 7;
+    if (oldWelcomeMessage !== this.welcomeMessage) {
+      this.music.startMusic();
+    }
+
+    if (
+      [delay, delay * 2, delay * 3, delay * 4].includes(this.levelOverTimer)
+    ) {
+      sound.play("message");
+    }
+  }
+
+  draw(drawer) {
+    if (this.levelOverTimer > delay) {
+      drawer.rect({
+        adjusted: false,
+        fillColor: "rgba(0,0,0,0.9)",
+        rect: [20, 20, 88, 62],
+      });
+    }
+
+    if (this.levelOverTimer > delay * 2) {
+      drawer.text({
+        text: `level ${this.level.level} complete`,
+        size: 1,
+        x: 32 - (this.level.level >= 10 ? 2 : 0),
+        y: 30,
+      });
+    }
+
+    if (this.levelOverTimer > delay * 3) {
+      drawer.text({
+        text: `${this.totalEnemies} alien${
+          this.totalEnemies !== 1 ? "s" : ""
+        } defeated`,
+        size: 1,
+        x: 31 - (this.totalEnemies >= 10 ? 2 : 0),
+        y: 45,
+      });
+    }
+
+    if (this.levelOverTimer > delay * 4) {
+      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(32, 60, 1, _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["sentinelColors"], {
+        bodyless: true,
+      }).forEach(({ c, r }) =>
+        drawer.rect({ adjusted: false, fillColor: c, rect: r })
+      );
+      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(42, 60, 1, _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["pacifistColors"], {
+        bodyless: true,
+      }).forEach(({ c, r }) =>
+        drawer.rect({ adjusted: false, fillColor: c, rect: r })
+      );
+      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(52, 60, 1, _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["idiotColors"], { bodyless: true }).forEach(({ c, r }) =>
+        drawer.rect({ adjusted: false, fillColor: c, rect: r })
+      );
+      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(62, 60, 1, _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["runAndGunColors"], {
+        bodyless: true,
+      }).forEach(({ c, r }) =>
+        drawer.rect({ adjusted: false, fillColor: c, rect: r })
+      );
+      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(72, 60, 1, _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["aggroColors"], { bodyless: true }).forEach(({ c, r }) =>
+        drawer.rect({ adjusted: false, fillColor: c, rect: r })
+      );
+      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(82, 55, 1, _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["bossColors"], {
+        bodyless: true,
+        big: true,
+      }).forEach(({ c, r }) =>
+        drawer.rect({ adjusted: false, fillColor: c, rect: r })
+      );
+    }
+
+    const drawX = (x, offset = 0) => {
+      drawer.lines({
+        lines: [
+          [x + offset / 2, 61 - offset],
+          [x + 7 + offset * 3, 67 + offset],
+        ],
+        strokeColor: "red",
+      });
+      drawer.lines({
+        lines: [
+          [x + 7 + offset * 3, 61 - offset],
+          [x + offset / 2, 67 + offset],
+        ],
+        strokeColor: "red",
+      });
+    };
+
+    if (this.levelOverTimer > delay * 5)
+      if ((this.level.level - 1) % 6 >= 0) drawX(32);
+    if (this.levelOverTimer > delay * 5.1)
+      if ((this.level.level - 1) % 6 >= 1) drawX(42);
+    if (this.levelOverTimer > delay * 5.2)
+      if ((this.level.level - 1) % 6 >= 2) drawX(52);
+    if (this.levelOverTimer > delay * 5.3)
+      if ((this.level.level - 1) % 6 >= 3) drawX(62);
+    if (this.levelOverTimer > delay * 5.4)
+      if ((this.level.level - 1) % 6 >= 4) drawX(72);
+    if (this.levelOverTimer > delay * 5.5)
+      if ((this.level.level - 1) % 6 >= 5) drawX(82, 2);
+
+    if (this.welcomeMessage) {
+      drawer.rect({
+        adjusted: false,
+        fillColor: "#000",
+        rect: [0, 0, 200, 200],
+      });
+      drawer.text({
+        text: "Welcome",
+        size: 3,
+        x: 17,
+        y: 30,
+      });
+      drawer.text({
+        text: "to space",
+        size: 3,
+        x: 19,
+        y: 60,
+      });
+    }
+
+    if (this.levelFadeIn < 200) {
+      drawer.rect({
+        adjusted: false,
+        fillColor: `rgba(0,0,0,${1 - this.levelFadeIn / 200})`,
+        rect: [0, 0, 128, 128],
+      });
+    }
+
+    const newLevelTimer = delay * (7 + (this.level.level === 1 ? 3 : 0));
+    if (this.levelOverTimer > newLevelTimer - 50) {
+      drawer.rect({
+        adjusted: false,
+        fillColor: `rgba(0,0,0,${
+          1 - (newLevelTimer - this.levelOverTimer) / 50
+        })`,
+        rect: [0, 0, 128, 128],
+      });
+    }
+
+    if (this.gameOver) {
+      drawer.rect({
+        adjusted: false,
+        fillColor: "#000",
+        rect: [15, 26, 98, 31],
+      });
+      drawer.text({
+        text: "Game over",
+        size: 2,
+        x: 25,
+        y: 36,
+      });
+    }
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Level);
+
+
+/***/ }),
+
+/***/ "./src/Map.js":
+/*!********************!*\
+  !*** ./src/Map.js ***!
+  \********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Map; });
+// prettier-ignore
+const level1 = [
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+];
+
+// prettier-ignore
+const level2 = [
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+];
+
+// prettier-ignore
+const bossLevel = [
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+];
+
+// prettier-ignore
+const level2Hex = [
+  "ffffffffff", "8000000001", "8000000001", "8000000001",
+  "8000000001", "87007e00e1", "8000000001", "8000000001",
+  "f03c003c0f", "8000000001", "8000000001", "8300c300c1",
+  "8000000001", "8000000001", "8fc07e03f1", "8000000001",
+  "8000000001", "e00f00f007", "8000000001", "8000000001",
+  "ffffffffff",
+];
+
+// quads are 10x12
+// prettier-ignore
+const emptyQuad = [
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+];
+
+const quad1 = [
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+];
+
+const mapToHex = (map) => {
+  return map.map((r) => parseInt(r.join(""), 2).toString(16));
+};
+
+const hexToMap = (hex) => {
+  return hex.map((h) => {
+    return parseInt(h, 16).toString(2).split("").map(Number);
+  });
+};
+
+const defaultMap = hexToMap(level2Hex);
+const levels = [
+  defaultMap,
+  defaultMap,
+  defaultMap,
+  defaultMap,
+  defaultMap,
+  bossLevel,
+];
+
+class Map {
+  constructor() {
+    this.drawer = null;
+    this.tileSize = 8;
+    this.mapTiles = [];
+    this.mapHeight = 0;
+    this.mapLength = 0;
+  }
+
+  loadLevel(level, colorScheme) {
+    let tiles;
+    if (level === 1) {
+      tiles = level1;
+    } else {
+      tiles = levels[(level - 1) % 6] || defaultMap;
+    }
+
+    this.mapTiles = tiles;
+    this.mapHeight = tiles.length;
+    this.mapLength = tiles[0].length;
+
+    this.mapWidthPixels = this.tileSize * this.mapLength;
+    this.mapHeightPixels = this.tileSize * this.mapHeight;
+
+    this.colorScheme = colorScheme;
+  }
+
+  getTile(x, y) {
+    const row = this.mapTiles[Math.floor(y / this.tileSize)];
+    if (!row) return 1;
+    return row[Math.floor(x / this.tileSize)];
+  }
+
+  draw(drawer) {
+    const [main, highlight, shadow] = this.colorScheme;
+    this.drawer = this.drawer || drawer;
+    this.mapTiles.forEach((row, y) => {
+      row.forEach((tile, x) => {
+        if (tile !== 1) return;
+        drawer.rect({
+          fillColor: main,
+          rect: [
+            x * this.tileSize + 1,
+            y * this.tileSize + 1,
+            this.tileSize - 2,
+            this.tileSize - 2,
+          ],
+        });
+        drawer.rect({
+          fillColor: highlight,
+          rect: [
+            x * this.tileSize + 1,
+            y * this.tileSize,
+            this.tileSize - 2,
+            1,
+          ],
+        });
+        drawer.rect({
+          fillColor: shadow,
+          rect: [
+            x * this.tileSize + 1,
+            y * this.tileSize + this.tileSize - 1,
+            this.tileSize - 2,
+            1,
+          ],
+        });
+        drawer.rect({
+          fillColor: highlight,
+          rect: [
+            x * this.tileSize,
+            y * this.tileSize + 1,
+            1,
+            this.tileSize - 2,
+          ],
+        });
+        drawer.rect({
+          fillColor: shadow,
+          rect: [
+            x * this.tileSize + this.tileSize - 1,
+            y * this.tileSize + 1,
+            1,
+            this.tileSize - 2,
+          ],
+        });
+      });
+    });
+  }
+}
+
+
+/***/ }),
+
+/***/ "./src/Music.js":
+/*!**********************!*\
+  !*** ./src/Music.js ***!
+  \**********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Music; });
+/* harmony import */ var _sound_box_worker_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sound-box.worker.js */ "./src/sound-box.worker.js");
+/* harmony import */ var _sound_box_worker_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_sound_box_worker_js__WEBPACK_IMPORTED_MODULE_0__);
+// https://sb.bitsnbites.eu/?data=U0JveAwC7d1NbxtFGMDxZ3Z2Q4QbSpGCGokIS1VVEAcqgUQPrYrkHLkhTgj1wq2hEkkQDn1blcVms1FleeM4hDQBilAFR45IgHrjK3DiG3DhHmbWa0NNvCPRbGLD_7c7b35mrNn15jTaSTwrMifVaXk3FPVLKMb0cyZ76Cs999PyH-nUS36gPE8Z2leePUSeyEVRo9FsRlEcN5u2liS2FscN-UQi-VjKNuuIn3fER80_SWz7zh3H8DJVZhwdnnfEJ8FeXu7m5b283Pl8-7Ot7mbngCGHatQ9nukdlfkR8aq8KPMyd_K4n5-ZyuypgvApM8f3C-IP63klyst-e_GAzuMoajXaUauZRq24E7WS7vpW0o07SXdtM-4000bbNf64Ld2SW0vmHC5XQglXZGnVNR4AAAAAAAAAUJL9D5TsXxMl_tSZ3ifeU0qdeyOwVaXt4Q1q_TLNOqZ5-nv-12fjbPxnWGz4fg-1J_3yAAAAAAAAAAAAjsF6L130n1wwtR8CUb83pboYPO2LKOVpT5uK2NLTIkHGjusvzWzkZTpUlsn1PtYZR9xK86luPNI-mlW_Uueflr9q9rjzL32CDq75Lzji_XudZ-lw2zH8sbnm77r_AAAAAAAAAADgn7yfQ5PWnxG5urxm2p8Gypt-59kLG8Fb01o81dubcfioy2Rj_qU67YhfcMQBAAAAAAAAAACOnJbbohdui_q1Ii-IqNd85dWWb_xYmzqnTDhbI9Om0v_PZsq3hx05_G7ZUb5rdhj6uxpO4vwnYY4uBc_Pf-HyAAAAAAAAAADAhNFvhyJXwhMiJ6TW-8jbPynVN_Ur2drYYLXM01kpEviBvyPytch9-XLwPbuyZ1p7WbltUrkC1xZ1teJwK1uZ6Uh38Imtb5nUzdbRkoKx42AnP7eld25J7-xm19U2PbqSXYytt23WsqfJ7oq5uNj1_S6BI64d8fvm8fnG5KPKsrkenzlH_IF8K9-ZvF_uZU_-rtwzx479aY6X6_Icfx0AAAAAAAAAAPxPtddF_RZqkUtyWUR_Hyh99iupbeqznqh-J_u-We-tM79wweQjWZW6fFjUZexce-_RdtSqLx7c8_BUHLErBfF5k64XxI-CYwvG068Wx2u9HSbrI3eavJ7no67zZp7fHBF3Kbr_VtH9t1w7ZLp-n387bwAAAAAAAAAAUB5vbcWk0Bd5-fzVG1oSX-nXv9DV1F8drI8NFs8GNdfbNA8ccQAAAAAAAAAAAGCc_Ak
+
+
+
+var myWorker = new _sound_box_worker_js__WEBPACK_IMPORTED_MODULE_0___default.a();
+
+let audio = null;
+
+myWorker.onmessage = (e) => {
+  let wave = e.data;
+  audio = document.createElement("audio");
+  audio.src = URL.createObjectURL(new Blob([wave], { type: "audio/wav" }));
+  audio.volume = 0.7;
+  audio.loop = true;
+};
+
+class Music {
+  constuctor() {}
+
+  startMusic() {
+    let playPromise = audio.play();
+    (function tryAgain(playPromise) {
+      playPromise
+        .then((_) => {})
+        .catch((error) => {
+          setTimeout(() => {
+            let playPromise = audio.play();
+            tryAgain(playPromise);
+          }, 1000);
+        });
+    })(playPromise);
+  }
+}
+
+
+/***/ }),
+
+/***/ "./src/Package.js":
+/*!************************!*\
+  !*** ./src/Package.js ***!
+  \************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _GameObject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GameObject */ "./src/GameObject.js");
+/* harmony import */ var _WeaponFactory__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./WeaponFactory */ "./src/WeaponFactory.js");
+
+
+
+class Package extends _GameObject__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor(x, y, weapon) {
+    super({ x, y });
+
+    this.weapon = weapon || new _WeaponFactory__WEBPACK_IMPORTED_MODULE_1__["default"]().random();
+    this.size = 5;
+    this.grav = 0.04;
+    this.dy = 0.4;
+    this.landed = false;
+    this.type = weapon || Math.random() > 0.5 ? "weapon" : "health";
+  }
+
+  tick() {
+    if (this.landed) return;
+    this.dy += this.grav;
+    this.y += this.dy;
+  }
+
+  draw(drawer) {
+    if (this.type === "weapon") {
+      drawer.rect({
+        fillColor: "#C3732A",
+        rect: [this.x, this.y, 5, 5],
+      });
+
+      [
+        [0, 1],
+        [1, 0],
+        [2, 0],
+        [3, 0],
+        [4, 1],
+        [3, 2],
+        [2, 2],
+        [2, 4],
+      ].forEach(([x, y]) =>
+        drawer.rect({
+          fillColor: "yellow",
+          rect: [this.x + x, this.y + y, 1, 1],
+        })
+      );
+    } else {
+      drawer.rect({
+        fillColor: "#FFF",
+        rect: [this.x, this.y, 5, 5],
+      });
+
+      [
+        [1, 2, 3, 1],
+        [2, 1, 1, 3],
+      ].forEach(([x, y, dx, dy]) =>
+        drawer.rect({
+          fillColor: "red",
+          rect: [this.x + x, this.y + y, dx, dy],
+        })
+      );
+    }
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Package);
+
+
+/***/ }),
+
+/***/ "./src/PackageCollection.js":
+/*!**********************************!*\
+  !*** ./src/PackageCollection.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Package__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Package */ "./src/Package.js");
+
+
+class PackageCollection {
+  constructor() {
+    this.packages = [];
+    this.lifespan = 0;
+  }
+
+  tick(map, level) {
+    this.lifespan += 1;
+    if (!(this.lifespan % 500) && level !== 1) {
+      let x = Math.random() * map.mapWidthPixels;
+      let y = Math.random() * map.mapHeightPixels;
+      while (map.getTile(x, y + 1)) {
+        x = Math.random() * map.mapWidthPixels;
+        y = Math.random() * map.mapHeightPixels;
+      }
+      this.packages.push(new _Package__WEBPACK_IMPORTED_MODULE_0__["default"](x, y));
+    }
+    this.packages.forEach((p) => p.tick());
+  }
+
+  draw(drawer) {
+    this.packages.forEach((p) => p.draw(drawer));
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (PackageCollection);
+
+
+/***/ }),
+
+/***/ "./src/Player.js":
+/*!***********************!*\
+  !*** ./src/Player.js ***!
+  \***********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Player; });
+/* harmony import */ var _Character__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Character */ "./src/Character.js");
+/* harmony import */ var _Sprites_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Sprites.js */ "./src/Sprites.js");
+/* harmony import */ var _Blood__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Blood */ "./src/Blood.js");
+/* harmony import */ var _BloodChunk__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./BloodChunk */ "./src/BloodChunk.js");
+/* harmony import */ var _WeaponFactory__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./WeaponFactory */ "./src/WeaponFactory.js");
+
+
+
+
+
+
+class Player extends _Character__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor(x, y, health) {
+    super(x, y, health);
+    this.bloodColor = "red";
+    this.weapon = null;
+    // this.weapon = new WeaponFactory().create(debugPistol);
+    this.dead = false;
+  }
+
+  tick({ camera, keyboard, map, projectiles, sound, spurts, chunks }) {
+    if (this.health <= 0 && !this.dead) {
+      for (let i = 0; i < 200; i++) {
+        spurts.add(
+          new _Blood__WEBPACK_IMPORTED_MODULE_2__["default"](
+            this.x,
+            this.y,
+            Math.random() * 5 - 2.5,
+            Math.random() * 5 - 5,
+            "red",
+          )
+        );
+      }
+      for (let i = 0; i < 10; i++) {
+        chunks.chunks.push(
+          new _BloodChunk__WEBPACK_IMPORTED_MODULE_3__["default"](
+            this.x,
+            this.y - 2,
+            Math.random() * 3 - 1.5,
+            Math.random() * 3 - 1.5,
+            "red"
+          )
+        );
+      }
+      this.dead = true;
+    }
+    if (this.dead) return;
+
+    _Character__WEBPACK_IMPORTED_MODULE_0__["default"].tick.call(this, {
+      camera,
+      map,
+      projectiles,
+      presses: {
+        left: keyboard.isDown(keyboard.LEFT),
+        right: keyboard.isDown(keyboard.RIGHT),
+        up: keyboard.isDown(keyboard.UP),
+        space: keyboard.isDown(keyboard.SPACE),
+      },
+      sound,
+    });
+  }
+
+  draw(drawer) {
+    if (this.dead) return;
+    // drawer.rect({ fillColor: "green", rect: [this.x, this.y, 8, 8] }); // hitbox
+
+    const colors = {
+      skin: "#FFCCAA",
+      hair: "#FFA300",
+      eyes: "#008751",
+      body: "#29ADFF",
+    };
+
+    Object(_Sprites_js__WEBPACK_IMPORTED_MODULE_1__["humanoid"])(this.x, this.y, this.facing, colors).forEach(({ c, r }) =>
+      drawer.rect({ fillColor: c, rect: r })
+    );
+
+    this.weapon && this.weapon.draw(drawer, { x: this.x, y: this.y, facing: this.facing });
+  }
+}
+
+
+/***/ }),
+
+/***/ "./src/Projectile.js":
+/*!***************************!*\
+  !*** ./src/Projectile.js ***!
+  \***************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+class Projectile {
+  constructor(
+    { x, y, facing },
+    {
+      color,
+      speed,
+      spreadX = 0,
+      spreadY = 0,
+      lift = 0,
+      grav = 0,
+      damage,
+      damageMod,
+      explosion,
+      blood,
+      size,
+      emoji,
+    },
+    owner
+  ) {
+    this.size = size || 1;
+    this.x = x - this.size / 2;
+    this.y = y;
+    this.dx = facing * speed + (Math.random() - spreadX / 2) * spreadX;
+    this.dy = (Math.random() - spreadY / 2) * spreadY - lift;
+    this.grav = grav;
+    this.color = color;
+    this.explosion = explosion || 1;
+    this.lifespan = 0;
+    this.shouldDie = false;
+    this.exploding = false;
+    this.lifeleft = null;
+    this.damage = damage;
+    this.damageMod = damageMod || 1;
+    this.blood = blood;
+    this.emoji = emoji;
+    this.owner = owner;
+  }
+
+  destroy() {
+    this.exploding = true;
+    this.lifeleft = 2;
+  }
+
+  tick() {
+    this.lifespan += 1;
+    if (this.lifeleft) {
+      this.lifeleft -= 1;
+      if (this.lifeleft === 0) this.shouldDie = true;
+    }
+    if (this.exploding) return;
+
+    this.x += this.dx;
+    this.dy += this.grav;
+    this.y += this.dy;
+  }
+
+  draw(drawer) {
+    if (this.exploding) {
+      drawer.arc({
+        arc: [
+          this.x,
+          this.y,
+          (2 / this.lifeleft) * this.explosion,
+          0,
+          2 * Math.PI,
+        ],
+        fillColor: "#ff8",
+        shadowBlur: 10,
+        shadowColor: "#ff0",
+      });
+    } else {
+      if (this.emoji) {
+        drawer.emoji({ x: this.x, y: this.y, emoji: this.emoji });
+      } else if (this.size === 1) {
+        drawer.rect({
+          fillColor: this.color(),
+          rect: [this.x, this.y, this.size, this.size],
+        });
+      } else {
+        drawer.arc({
+          arc: [this.x, this.y, this.size, 0, 2 * Math.PI],
+          fillColor: this.color(),
+          shadowBlur: this.size,
+          shadowColor: "#ff0",
+        });
+      }
+    }
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Projectile);
+
+
+/***/ }),
+
+/***/ "./src/ProjectileCollection.js":
+/*!*************************************!*\
+  !*** ./src/ProjectileCollection.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+class ProjectileCollection {
+  constructor() {
+    this.projectiles = [];
+  }
+
+  add(p) {
+    this.projectiles.push(p);
+  }
+
+  tick() {
+    this.projectiles.map((p) => p.tick());
+    this.projectiles = this.projectiles.filter((p) => !p.shouldDie);
+  }
+
+  draw(drawer) {
+    this.projectiles.map((p) => p.draw(drawer));
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (ProjectileCollection);
+
+
+/***/ }),
+
+/***/ "./src/Sound.js":
+/*!**********************!*\
+  !*** ./src/Sound.js ***!
+  \**********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Sound; });
+/* harmony import */ var zzfx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! zzfx */ "./node_modules/zzfx/ZzFX.js");
+
+
+// prettier-ignore
+let sounds = {
+  "gun": [,,131,.02,.02,.08,,1.49,2.3,,,,,,,,,.9,.1],
+  "jump": [,,131,.02,.02,.08,,1.49,2.3,,,,,,,,,.9,.1],
+  "message": [,0,1740,,.06,.29,,.77,,,,,,,,,,.76,.07,.06],
+  "minigun": [,0,0,,,0,4,0,1e8,,,,,,,.04,,0,.08],
+  "shotgun": [,0,0,,,0,4,0,1e8,,,,,,,.055,,0,.3],
+  "thrown": [,0,0,,,0,4,0,1e8,,,,,,,.055,,0,.3],
+};
+
+class Sound {
+  play(sound) {
+    Object(zzfx__WEBPACK_IMPORTED_MODULE_0__["zzfx"])(...sounds[sound]);
+  }
+}
+
+
+/***/ }),
+
+/***/ "./src/Sprites.js":
+/*!************************!*\
+  !*** ./src/Sprites.js ***!
+  \************************/
+/*! exports provided: humanoid */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "humanoid", function() { return humanoid; });
+const humanoid = (x, y, facing, colors, options = {}) => {
+  const { skin, hair, horns, eyes, body } = colors;
+  let parts = [];
+
+  let upper = [
+    [skin, [1, 3, 5, 3]], // head
+    [eyes, [2, 4, 1, 1]], // eye left
+    [eyes, [5, 4, 1, 1]], // eye right
+  ];
+  parts = parts.concat(upper);
+
+  let lower = [
+    [body, [1, 7, 3, 1]], // body
+    [skin, [1, 7, 1, 1]], // left arm
+    [skin, [4, 7, 1, 1]], // right arm
+  ];
+
+  if (!options.bodyless) {
+    parts = parts.concat(lower);
+  }
+
+  if (hair)
+    parts = parts.concat([
+      [hair, [2, 1, 4, 1]], // hair top
+      [hair, [1, 2, 6, 1]], // hair bottom
+    ]);
+
+  if (horns)
+    parts = parts.concat([
+      [horns, [1, 2, 1, 1]], // horn left
+      [horns, [5, 2, 1, 1]], // horn right
+    ]);
+
+  const mult = options.huge ? 12 : options.big ? 2 : 1;
+  // prettier-ignore
+  parts = parts.map(([c, r]) => ({
+    c,
+    r: [facing === 1 ? x + (r[0] * mult) : 8 * mult - ((r[0] + r[2]) * mult) + x, y + r[1] * mult, r[2] * mult, r[3] * mult],
+  }));
+
+  return parts;
+};
+
+
+/***/ }),
+
+/***/ "./src/Weapon.js":
+/*!***********************!*\
+  !*** ./src/Weapon.js ***!
+  \***********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Projectile__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Projectile */ "./src/Projectile.js");
+
+
+class Weapon {
+  constructor({
+    name,
+    cooldown,
+    cooldownMod = 1,
+    payloadCount,
+    knockback,
+    shake,
+    projectileConfig,
+  }) {
+    this.name = name;
+    this.cooldown = cooldown;
+    this.cooldownMod = cooldownMod;
+    this.payloadCount = payloadCount;
+    this.knockback = knockback;
+    this.shake = shake;
+    this.projectileConfig = projectileConfig;
+
+    this.ticksSinceLastFired = cooldown;
+    this.shooting = false;
+  }
+
+  tick(pressSpace, projectiles, location, camera, sound, owner) {
+    this.ticksSinceLastFired += 1;
+    this.shooting = false;
+    if (
+      this.cooldown * this.cooldownMod < this.ticksSinceLastFired &&
+      pressSpace
+    ) {
+      this.fire(projectiles, location, owner);
+      sound.play("minigun");
+      if (this.shake) camera.shake(this.shake.force, this.shake.duration);
+      this.shooting = true;
+      return this.knockback;
+    }
+    return 0;
+  }
+
+  fire(projectiles, location, owner) {
+    this.ticksSinceLastFired = 0;
+    for (let i = 0; i < this.payloadCount; i++) {
+      const p = new _Projectile__WEBPACK_IMPORTED_MODULE_0__["default"](location, this.projectileConfig, owner);
+      projectiles.add(p);
+    }
+  }
+
+  draw(drawer, character) {
+    if (this.shooting) {
+      // prettier-ignore
+      [
+        [character.x + (character.facing === 1 ? 8 : -1), character.y + 3, 1, 1],
+        [character.x + (character.facing === 1 ? 7 : 0), character.y + 4, 2, 3],
+      ].forEach(([x, y, dx, dy]) =>
+        drawer.rect({
+          fillColor: "yellow",
+          rect: [x, y, dx, dy],
+        })
+      );
+
+      // prettier-ignore
+      [
+        [character.x + (character.facing === 1 ? 8 : -1), character.y + 4, 2, 2],
+        [character.x + (character.facing === 1 ? 10 : -3), character.y + 4, 1, 1],
+      ].forEach(([x, y, dx, dy]) =>
+        drawer.rect({
+          fillColor: "white",
+          rect: [x, y, dx, dy],
+        })
+      );
+    }
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Weapon);
+
+
+/***/ }),
+
+/***/ "./src/WeaponFactory.js":
+/*!******************************!*\
+  !*** ./src/WeaponFactory.js ***!
+  \******************************/
+/*! exports provided: debugPistol, pistol, minigun, assaultRifle, shotgun, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "debugPistol", function() { return debugPistol; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pistol", function() { return pistol; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "minigun", function() { return minigun; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "assaultRifle", function() { return assaultRifle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "shotgun", function() { return shotgun; });
+/* harmony import */ var _Weapon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Weapon */ "./src/Weapon.js");
+
+
+// base weapons
+const debugPistol = {
+  name: "Debug Pistol",
+  cooldown: 2,
+  payloadCount: 1,
+  knockback: 0,
+  shake: { force: 1, duration: 2 },
+  sound: "minigun",
+  projectileConfig: {
+    color: () => "#eee",
+    speed: 3,
+    spreadX: 1,
+    spreadY: 0.3,
+    damage: 100,
+    blood: 5,
+  },
+};
+
+const pistol = {
+  name: "Pistol",
+  cooldown: 10,
+  payloadCount: 1,
+  knockback: 0,
+  sound: "gun",
+  projectileConfig: {
+    color: () => "#eee",
+    speed: 3,
+    spreadX: 0,
+    spreadY: 0.15,
+    damage: 10,
+    blood: 5,
+  },
+};
+
+const minigun = {
+  name: "Minigun",
+  cooldown: 2,
+  payloadCount: 1,
+  knockback: 0.4,
+  shake: { force: 1, duration: 2 },
+  sound: "minigun",
+  projectileConfig: {
+    color: () => "#fff",
+    speed: 4,
+    spreadX: 1,
+    spreadY: 0.3,
+    damage: 2,
+    blood: 5,
+  },
+};
+
+const assaultRifle = {
+  name: "Assault Rifle",
+  cooldown: 8,
+  payloadCount: 1,
+  knockback: 0.1,
+  sound: "gun",
+  projectileConfig: {
+    color: () => "#fff",
+    speed: 3,
+    spreadX: 0,
+    spreadY: 0.3,
+    damage: 4,
+    blood: 5,
+  },
+};
+
+const shotgun = {
+  name: "Shotgun",
+  cooldown: 30,
+  payloadCount: 12,
+  knockback: 1,
+  shake: { force: 2, duration: 8 },
+  sound: "shotgun",
+  projectileConfig: {
+    color: () => "yellow",
+    speed: 4,
+    spreadX: 0.7,
+    spreadY: 1,
+    damage: 1,
+    blood: 5,
+  },
+};
+
+const superShotgun = {
+  name: "Super Shotgun",
+  cooldown: 60,
+  payloadCount: 24,
+  knockback: 2,
+  shake: { force: 3, duration: 8 },
+  sound: "shotgun",
+  projectileConfig: {
+    color: () => "yellow",
+    speed: 4,
+    spreadX: 1,
+    spreadY: 1.5,
+    damage: 1,
+    blood: 5,
+  },
+};
+
+const sniperRifle = {
+  name: "sniper rifle",
+  cooldown: 60,
+  payloadCount: 1,
+  knockback: 2,
+  shake: { force: 3, duration: 8 },
+  sound: "shotgun",
+  projectileConfig: {
+    color: () => "#eee",
+    speed: 6,
+    spreadX: 0,
+    spreadY: 0,
+    damage: 20,
+    blood: 50,
+  },
+};
+
+const flameThrower = {};
+
+const grenade = {
+  name: "Grenade",
+  cooldown: 40,
+  payloadCount: 1,
+  knockback: 0,
+  sound: "thrown",
+  projectileConfig: {
+    emoji: "💣",
+    speed: 2,
+    lift: 4,
+    grav: 0.3,
+    explosion: 3,
+    size: 3,
+    damage: 20,
+    blood: 5,
+  },
+};
+
+// cooldown
+const slowCooldown = { cooldown: 2, damage: 2 };
+const fastCooldown = { cooldown: 0.5, damage: 0.5 };
+
+const knockback = { knockback: 1 };
+
+const sniper = { cooldown: 3, damage: 5, speed: 2 };
+
+// attributes
+const rainbow = {
+  prefix: "Rainbow",
+  projectileConfig: {
+    color: () =>
+      ["#FF0000", "#FFAC00", "#FFF100", "#0BFF00", "#00F6FF"][
+        Math.floor(Math.random() * 6)
+      ],
+  },
+};
+
+const collosal = {
+  prefix: "Collosal",
+  cooldownMod: 3,
+  projectileConfig: {
+    color: () => "yellow",
+    damageMod: 3,
+    explosion: 5,
+    size: 5,
+  },
+};
+
+const shrimp = {
+  prefix: "Shrimp",
+  projectileConfig: { emoji: "🍤", explosion: 3, size: 3 },
+};
+const bomb = {
+  prefix: "Bomb",
+  projectileConfig: { emoji: "💣", explosion: 3, size: 3 },
+};
+
+const attributes = [rainbow, collosal, shrimp, bomb];
+const randomAttribute = () =>
+  attributes[Math.floor(Math.random() * attributes.length)];
+
+class WeaponFactory {
+  constructor() {}
+
+  create(base) {
+    const attribute =
+      Math.random() > 0.9 ? randomAttribute() : { projectileConfig: {} };
+    const projectileConfig = {
+      ...base.projectileConfig,
+      ...attribute.projectileConfig,
+    };
+    const final = {
+      ...base,
+      ...attribute,
+      projectileConfig,
+      name: `${attribute.prefix ? `${attribute.prefix} ` : ""}${base.name}`,
+    };
+    return new _Weapon__WEBPACK_IMPORTED_MODULE_0__["default"](final);
+  }
+
+  random() {
+    const guns = [pistol, assaultRifle, minigun, shotgun, superShotgun, sniperRifle, grenade];
+    // const guns = [sniperRifle];
+    const base = guns[Math.floor(Math.random() * guns.length)];
+    return this.create(base);
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (WeaponFactory);
+
+
+/***/ }),
+
+/***/ "./src/collisions.js":
+/*!***************************!*\
+  !*** ./src/collisions.js ***!
+  \***************************/
+/*! exports provided: collideSide, collideFloor, collideRoof */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "collideSide", function() { return collideSide; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "collideFloor", function() { return collideFloor; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "collideRoof", function() { return collideRoof; });
+const offset = 1;
+
+const collideSide = (player, map) => {
+  let { x, y, dx, size } = player;
+
+  if (dx > 0) {
+    const rightTopTileType = map.getTile(x + size, y);
+    const rightBottomTileType = map.getTile(x + size, y + size - offset);
+    if (rightTopTileType || rightBottomTileType) {
+      player.dx = 0;
+      player.x = Math.floor(x / 8) * 8;
+    }
+  } else if (dx < 0) {
+    const leftTopTileType = map.getTile(x, y);
+    const leftBottomTileType = map.getTile(x, y + size - offset);
+    if (leftTopTileType || leftBottomTileType) {
+      player.dx = 0;
+      player.x = Math.floor(x / 8) * 8 + 8;
+    }
+  }
+};
+
+const collideFloor = (player, map) => {
+  const { x, y, dy, size } = player;
+
+  if (dy < 0) return false;
+
+  const leftBottomTileType = map.getTile(x, y + size);
+  const rightBottomTileType = map.getTile(x + size - offset, y + size);
+
+  if (leftBottomTileType || rightBottomTileType) {
+    player.dy = 0;
+    player.y = Math.floor(y / 8) * 8;
+    player.grounded = true;
+    player.airtime = 0;
+    return true;
+  } else {
+    return false;
+  }
+};
+
+const collideRoof = (player, map) => {
+  const { x, y, size } = player;
+  const leftTopTileType = map.getTile(x, y);
+  const rightTopTileType = map.getTile(x + size - offset, y);
+
+  if (leftTopTileType || rightTopTileType) {
+    player.dy = 0;
+    player.y = Math.floor((y - size / 2) / 8) * 8 + 8 + size / 2;
+    player.jumpHoldTime = 0;
+  }
+};
+
+
+/***/ }),
+
+/***/ "./src/enemyTypes.js":
+/*!***************************!*\
+  !*** ./src/enemyTypes.js ***!
+  \***************************/
+/*! exports provided: makeColors, sentinelColors, pacifistColors, idiotColors, runAndGunColors, aggroColors, bossColors, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makeColors", function() { return makeColors; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sentinelColors", function() { return sentinelColors; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pacifistColors", function() { return pacifistColors; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "idiotColors", function() { return idiotColors; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "runAndGunColors", function() { return runAndGunColors; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "aggroColors", function() { return aggroColors; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bossColors", function() { return bossColors; });
+/* harmony import */ var _WeaponFactory__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./WeaponFactory */ "./src/WeaponFactory.js");
+/* harmony import */ var _EnemyPersonas__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EnemyPersonas */ "./src/EnemyPersonas.js");
+
+
+
+
+const makeColors = ([skin, horns, eyes, body]) => ({
+  skin,
+  horns,
+  eyes,
+  body,
+});
+
+// prettier-ignore
+const sentinelColors = makeColors(["#50c878", "#50c878", "#c00", "#a00"]);
+const pacifistColors = makeColors(["beige", "beige", "red", "red"]);
+// prettier-ignore
+const idiotColors = makeColors(["#c77dff", "#c77dff", "#a1ff0a", "#ff5d8f"]);
+// prettier-ignore
+const runAndGunColors = makeColors(["#4cc9f0", "#4cc9f0", "#f72585", "#4361ee"]);
+const aggroColors = makeColors(["#dd0", "#dd0", "#09f", "#a30"]);
+const bossColors = makeColors(["red", "red", "yellow", "orange"]);
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  sentinel: {
+    type: "sentinel",
+    health: 25,
+    persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_1__["sentinel"],
+    colors: sentinelColors,
+    weapon: new _WeaponFactory__WEBPACK_IMPORTED_MODULE_0__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_0__["assaultRifle"]),
+  },
+  pacifist: {
+    type: "pacifist",
+    health: 25,
+    persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_1__["pacifist"],
+    colors: pacifistColors,
+  },
+  idiot: { type: "idiot", health: 25, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_1__["idiot"], colors: idiotColors },
+  runAndGun: {
+    type: "runAndGun",
+    health: 25,
+    persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_1__["runAndGun"],
+    colors: runAndGunColors,
+  },
+  aggro: { type: "aggro", health: 25, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_1__["aggro"], colors: aggroColors },
+  boss: {
+    type: "boss",
+    health: 250,
+    persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_1__["sentinel"],
+    colors: bossColors,
+  },
+});
+
+
+/***/ }),
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Drawer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Drawer */ "./src/Drawer.js");
+/* harmony import */ var _GameContainer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GameContainer */ "./src/GameContainer.js");
+/* harmony import */ var _Keyboard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Keyboard */ "./src/Keyboard.js");
+/* harmony import */ var _Sound__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Sound */ "./src/Sound.js");
+/* harmony import */ var _CollisionDetector__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./CollisionDetector */ "./src/CollisionDetector.js");
+/* harmony import */ var _Background__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Background */ "./src/Background.js");
+/* harmony import */ var _Level__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Level */ "./src/Level.js");
+/* harmony import */ var _Map__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Map */ "./src/Map.js");
+/* harmony import */ var _HUD__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./HUD */ "./src/HUD.js");
+/* harmony import */ var _Player__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Player */ "./src/Player.js");
+/* harmony import */ var _EnemyCollection__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./EnemyCollection */ "./src/EnemyCollection.js");
+/* harmony import */ var _ProjectileCollection__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./ProjectileCollection */ "./src/ProjectileCollection.js");
+/* harmony import */ var _BloodCollection__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./BloodCollection */ "./src/BloodCollection.js");
+/* harmony import */ var _PackageCollection__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./PackageCollection */ "./src/PackageCollection.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+window.onload = () => {
+  let gameContainer = new _GameContainer__WEBPACK_IMPORTED_MODULE_1__["default"]();
+
+  let drawer = new _Drawer__WEBPACK_IMPORTED_MODULE_0__["default"](gameContainer.canvas);
+  let keyboard = new _Keyboard__WEBPACK_IMPORTED_MODULE_2__["default"]();
+  let sound = new _Sound__WEBPACK_IMPORTED_MODULE_3__["default"]();
+  let collisionDetector = new _CollisionDetector__WEBPACK_IMPORTED_MODULE_4__["default"]();
+
+  let background = new _Background__WEBPACK_IMPORTED_MODULE_5__["default"]({
+    cw: gameContainer.canvas.width,
+    ch: gameContainer.canvas.height,
+  });
+
+  let level = new _Level__WEBPACK_IMPORTED_MODULE_6__["default"]();
+  let map = new _Map__WEBPACK_IMPORTED_MODULE_7__["default"]();
+  let hud = new _HUD__WEBPACK_IMPORTED_MODULE_8__["default"]();
+  let player = new _Player__WEBPACK_IMPORTED_MODULE_9__["default"](10, 10, 350);
+  let enemies = new _EnemyCollection__WEBPACK_IMPORTED_MODULE_10__["default"]();
+  let projectiles = new _ProjectileCollection__WEBPACK_IMPORTED_MODULE_11__["default"]();
+  let spurts = new _BloodCollection__WEBPACK_IMPORTED_MODULE_12__["default"]();
+  let chunks = { chunks: [] };
+  let packages = new _PackageCollection__WEBPACK_IMPORTED_MODULE_13__["default"]();
+
+  gameContainer.initialize();
+  level.initializeLevel(1, {
+    player,
+    enemies,
+    chunks,
+    spurts,
+    packages,
+    map,
+    background,
+  });
+
+  let fps = 60,
+    interval = 1000 / fps,
+    lastTime = new Date().getTime(),
+    currentTime = 0,
+    delta = 0;
+
+  let gameLoop = () => {
+    window.requestAnimationFrame(gameLoop);
+
+    currentTime = new Date().getTime();
+    delta = currentTime - lastTime;
+
+    if (delta > interval) {
+      tick();
+      collisionDetection();
+      drawer.clearBackground();
+      drawObjects().map((object) => object.draw(drawer));
+      lastTime = currentTime - (delta % interval);
+    }
+  };
+
+  let tick = () => {
+    const { camera } = drawer;
+    level.tick({
+      player,
+      enemies,
+      chunks,
+      spurts,
+      packages,
+      sound,
+      map,
+      background,
+    });
+    player.tick({ camera, keyboard, map, projectiles, sound, chunks, spurts });
+    enemies.tick({ camera, map, projectiles, spurts, chunks, player, sound });
+    camera.tick({ player, map });
+    projectiles.tick();
+    spurts.tick();
+
+    if (chunks.chunks.length > 1000) {
+      chunks.chunks = chunks.chunks.slice(chunks.chunks.length - 1000);
+    }
+    chunks.chunks.forEach((chunk) => chunk.tick());
+
+    hud.tick(player, enemies, level.level.enemyColor);
+    packages.tick(map, level.level.level);
+  };
+
+  let collisionDetection = () => {
+    projectiles.projectiles
+      .filter((p) => !p.exploding)
+      .forEach((projectile) => {
+        // map
+        if (map.getTile(projectile.x, projectile.y)) {
+          projectile.destroy();
+        }
+
+        // characters
+        enemies.enemies.concat([player]).forEach((object) => {
+          collisionDetector.handleProjectile(projectile, object, spurts);
+        });
+      });
+
+    spurts.spurts.concat(chunks.chunks).forEach((item) => {
+      if (map.getTile(item.x, item.y)) item.stick();
+    });
+
+    packages.packages.forEach((packge) => {
+      // map
+      if (map.getTile(packge.x, packge.y + packge.size)) {
+        packge.landed = true;
+      }
+
+      // characters
+      enemies.enemies.concat([player]).forEach((object) => {
+        collisionDetector.handlePackage(packge, object, packages);
+      });
+    });
+  };
+
+  let drawObjects = () => [
+    background,
+    map,
+    enemies,
+    player,
+    packages,
+    projectiles,
+    spurts,
+    ...chunks.chunks,
+    hud,
+    level,
+  ];
+
+  document.querySelector("div").className += " loaded";
+  gameLoop();
+};
+
+
+/***/ }),
+
+/***/ "./src/sound-box.worker.js":
+/*!*********************************!*\
+  !*** ./src/sound-box.worker.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = function() {
+  return __webpack_require__(/*! !./node_modules/worker-loader/dist/workers/InlineWorker.js */ "./node_modules/worker-loader/dist/workers/InlineWorker.js")("/******/ (function(modules) { // webpackBootstrap\n/******/ \t// The module cache\n/******/ \tvar installedModules = {};\n/******/\n/******/ \t// The require function\n/******/ \tfunction __webpack_require__(moduleId) {\n/******/\n/******/ \t\t// Check if module is in cache\n/******/ \t\tif(installedModules[moduleId]) {\n/******/ \t\t\treturn installedModules[moduleId].exports;\n/******/ \t\t}\n/******/ \t\t// Create a new module (and put it into the cache)\n/******/ \t\tvar module = installedModules[moduleId] = {\n/******/ \t\t\ti: moduleId,\n/******/ \t\t\tl: false,\n/******/ \t\t\texports: {}\n/******/ \t\t};\n/******/\n/******/ \t\t// Execute the module function\n/******/ \t\tmodules[moduleId].call(module.exports, module, module.exports, __webpack_require__);\n/******/\n/******/ \t\t// Flag the module as loaded\n/******/ \t\tmodule.l = true;\n/******/\n/******/ \t\t// Return the exports of the module\n/******/ \t\treturn module.exports;\n/******/ \t}\n/******/\n/******/\n/******/ \t// expose the modules object (__webpack_modules__)\n/******/ \t__webpack_require__.m = modules;\n/******/\n/******/ \t// expose the module cache\n/******/ \t__webpack_require__.c = installedModules;\n/******/\n/******/ \t// define getter function for harmony exports\n/******/ \t__webpack_require__.d = function(exports, name, getter) {\n/******/ \t\tif(!__webpack_require__.o(exports, name)) {\n/******/ \t\t\tObject.defineProperty(exports, name, { enumerable: true, get: getter });\n/******/ \t\t}\n/******/ \t};\n/******/\n/******/ \t// define __esModule on exports\n/******/ \t__webpack_require__.r = function(exports) {\n/******/ \t\tif(typeof Symbol !== 'undefined' && Symbol.toStringTag) {\n/******/ \t\t\tObject.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });\n/******/ \t\t}\n/******/ \t\tObject.defineProperty(exports, '__esModule', { value: true });\n/******/ \t};\n/******/\n/******/ \t// create a fake namespace object\n/******/ \t// mode & 1: value is a module id, require it\n/******/ \t// mode & 2: merge all properties of value into the ns\n/******/ \t// mode & 4: return value when already ns object\n/******/ \t// mode & 8|1: behave like require\n/******/ \t__webpack_require__.t = function(value, mode) {\n/******/ \t\tif(mode & 1) value = __webpack_require__(value);\n/******/ \t\tif(mode & 8) return value;\n/******/ \t\tif((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;\n/******/ \t\tvar ns = Object.create(null);\n/******/ \t\t__webpack_require__.r(ns);\n/******/ \t\tObject.defineProperty(ns, 'default', { enumerable: true, value: value });\n/******/ \t\tif(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));\n/******/ \t\treturn ns;\n/******/ \t};\n/******/\n/******/ \t// getDefaultExport function for compatibility with non-harmony modules\n/******/ \t__webpack_require__.n = function(module) {\n/******/ \t\tvar getter = module && module.__esModule ?\n/******/ \t\t\tfunction getDefault() { return module['default']; } :\n/******/ \t\t\tfunction getModuleExports() { return module; };\n/******/ \t\t__webpack_require__.d(getter, 'a', getter);\n/******/ \t\treturn getter;\n/******/ \t};\n/******/\n/******/ \t// Object.prototype.hasOwnProperty.call\n/******/ \t__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };\n/******/\n/******/ \t// __webpack_public_path__\n/******/ \t__webpack_require__.p = \"\";\n/******/\n/******/\n/******/ \t// Load entry module and return exports\n/******/ \treturn __webpack_require__(__webpack_require__.s = \"./src/sound-box.worker.js\");\n/******/ })\n/************************************************************************/\n/******/ ({\n\n/***/ \"./src/sound-box.worker.js\":\n/*!*********************************!*\\\n  !*** ./src/sound-box.worker.js ***!\n  \\*********************************/\n/*! exports provided: default */\n/***/ (function(module, __webpack_exports__, __webpack_require__) {\n\n\"use strict\";\n__webpack_require__.r(__webpack_exports__);\n/* -*- mode: javascript; tab-width: 4; indent-tabs-mode: nil; -*-\n *\n * Copyright (c) 2011-2013 Marcus Geelnard\n *\n * This software is provided 'as-is', without any express or implied\n * warranty. In no event will the authors be held liable for any damages\n * arising from the use of this software.\n *\n * Permission is granted to anyone to use this software for any purpose,\n * including commercial applications, and to alter it and redistribute it\n * freely, subject to the following restrictions:\n *\n * 1. The origin of this software must not be misrepresented; you must not\n *    claim that you wrote the original software. If you use this software\n *    in a product, an acknowledgment in the product documentation would be\n *    appreciated but is not required.\n *\n * 2. Altered source versions must be plainly marked as such, and must not be\n *    misrepresented as being the original software.\n *\n * 3. This notice may not be removed or altered from any source\n *    distribution.\n *\n */\n\n\n\nlet Soundbox = function () {\n  //--------------------------------------------------------------------------\n  // Private methods\n  //--------------------------------------------------------------------------\n\n  // Oscillators\n  var osc_sin = function (value) {\n    return Math.sin(value * 6.283184);\n  };\n\n  var osc_saw = function (value) {\n    return 2 * (value % 1) - 1;\n  };\n\n  var osc_square = function (value) {\n    return value % 1 < 0.5 ? 1 : -1;\n  };\n\n  var osc_tri = function (value) {\n    var v2 = (value % 1) * 4;\n    if (v2 < 2) return v2 - 1;\n    return 3 - v2;\n  };\n\n  var getnotefreq = function (n) {\n    // 174.61.. / 44100 = 0.003959503758 (F3)\n    return 0.003959503758 * Math.pow(2, (n - 128) / 12);\n  };\n\n  var createNote = function (instr, n, rowLen) {\n    var osc1 = mOscillators[instr.i[0]],\n      o1vol = instr.i[1],\n      o1xenv = instr.i[3],\n      osc2 = mOscillators[instr.i[4]],\n      o2vol = instr.i[5],\n      o2xenv = instr.i[8],\n      noiseVol = instr.i[9],\n      attack = instr.i[10] * instr.i[10] * 4,\n      sustain = instr.i[11] * instr.i[11] * 4,\n      release = instr.i[12] * instr.i[12] * 4,\n      releaseInv = 1 / release,\n      arp = instr.i[13],\n      arpInterval = rowLen * Math.pow(2, 2 - instr.i[14]);\n\n    var noteBuf = new Int32Array(attack + sustain + release);\n\n    // Re-trig oscillators\n    var c1 = 0,\n      c2 = 0;\n\n    // Local variables.\n    var j, j2, e, t, rsample, o1t, o2t;\n\n    // Generate one note (attack + sustain + release)\n    for (j = 0, j2 = 0; j < attack + sustain + release; j++ , j2++) {\n      if (j2 >= 0) {\n        // Switch arpeggio note.\n        arp = (arp >> 8) | ((arp & 255) << 4);\n        j2 -= arpInterval;\n\n        // Calculate note frequencies for the oscillators\n        o1t = getnotefreq(n + (arp & 15) + instr.i[2] - 128);\n        o2t =\n          getnotefreq(n + (arp & 15) + instr.i[6] - 128) *\n          (1 + 0.0008 * instr.i[7]);\n      }\n\n      // Envelope\n      e = 1;\n      if (j < attack) {\n        e = j / attack;\n      } else if (j >= attack + sustain) {\n        e -= (j - attack - sustain) * releaseInv;\n      }\n\n      // Oscillator 1\n      t = o1t;\n      if (o1xenv) {\n        t *= e * e;\n      }\n      c1 += t;\n      rsample = osc1(c1) * o1vol;\n\n      // Oscillator 2\n      t = o2t;\n      if (o2xenv) {\n        t *= e * e;\n      }\n      c2 += t;\n      rsample += osc2(c2) * o2vol;\n\n      // Noise oscillator\n      if (noiseVol) {\n        rsample += (2 * Math.random() - 1) * noiseVol;\n      }\n\n      // Add to (mono) channel buffer\n      noteBuf[j] = (80 * rsample * e) | 0;\n    }\n\n    return noteBuf;\n  };\n\n  //--------------------------------------------------------------------------\n  // Private members\n  //--------------------------------------------------------------------------\n\n  // Array of oscillator functions\n  var mOscillators = [osc_sin, osc_square, osc_saw, osc_tri];\n\n  // Private variables set up by init()\n  var mSong, mLastRow, mCurrentCol, mNumWords, mMixBuf;\n\n  //--------------------------------------------------------------------------\n  // Initialization\n  //--------------------------------------------------------------------------\n\n  this.init = function (song) {\n    // Define the song\n    mSong = song;\n\n    // Init iteration state variables\n    mLastRow = song.endPattern;\n    mCurrentCol = 0;\n\n    // Prepare song info\n    mNumWords = song.rowLen * song.patternLen * (mLastRow + 1) * 2;\n\n    // Create work buffer (initially cleared)\n    mMixBuf = new Int32Array(mNumWords);\n  };\n\n  //--------------------------------------------------------------------------\n  // Public methods\n  //--------------------------------------------------------------------------\n\n  // Generate audio data for a single track\n  this.generate = function () {\n    // Local variables\n    var i,\n      j,\n      b,\n      p,\n      row,\n      col,\n      n,\n      cp,\n      k,\n      t,\n      lfor,\n      e,\n      x,\n      rsample,\n      rowStartSample,\n      f,\n      da;\n\n    // Put performance critical items in local variables\n    var chnBuf = new Int32Array(mNumWords),\n      instr = mSong.songData[mCurrentCol],\n      rowLen = mSong.rowLen,\n      patternLen = mSong.patternLen;\n\n    // Clear effect state\n    var low = 0,\n      band = 0,\n      high;\n    var lsample,\n      filterActive = false;\n\n    // Clear note cache.\n    var noteCache = [];\n\n    // Patterns\n    for (p = 0; p <= mLastRow; ++p) {\n      cp = instr.p[p];\n\n      // Pattern rows\n      for (row = 0; row < patternLen; ++row) {\n        // Execute effect command.\n        var cmdNo = cp ? instr.c[cp - 1].f[row] : 0;\n        if (cmdNo) {\n          instr.i[cmdNo - 1] = instr.c[cp - 1].f[row + patternLen] || 0;\n\n          // Clear the note cache since the instrument has changed.\n          if (cmdNo < 16) {\n            noteCache = [];\n          }\n        }\n\n        // Put performance critical instrument properties in local variables\n        var oscLFO = mOscillators[instr.i[15]],\n          lfoAmt = instr.i[16] / 512,\n          lfoFreq = Math.pow(2, instr.i[17] - 9) / rowLen,\n          fxLFO = instr.i[18],\n          fxFilter = instr.i[19],\n          fxFreq = (instr.i[20] * 43.23529 * 3.141592) / 44100,\n          q = 1 - instr.i[21] / 255,\n          dist = instr.i[22] * 1e-5,\n          drive = instr.i[23] / 32,\n          panAmt = instr.i[24] / 512,\n          panFreq = (6.283184 * Math.pow(2, instr.i[25] - 9)) / rowLen,\n          dlyAmt = instr.i[26] / 255,\n          dly = (instr.i[27] * rowLen) & ~1; // Must be an even number\n\n        // Calculate start sample number for this row in the pattern\n        rowStartSample = (p * patternLen + row) * rowLen;\n\n        // Generate notes for this pattern row\n        for (col = 0; col < 4; ++col) {\n          n = cp ? instr.c[cp - 1].n[row + col * patternLen] : 0;\n          if (n) {\n            if (!noteCache[n]) {\n              noteCache[n] = createNote(instr, n, rowLen);\n            }\n\n            // Copy note from the note cache\n            var noteBuf = noteCache[n];\n            for (\n              j = 0, i = rowStartSample * 2;\n              j < noteBuf.length;\n              j++ , i += 2\n            ) {\n              chnBuf[i] += noteBuf[j];\n            }\n          }\n        }\n\n        // Perform effects for this pattern row\n        for (j = 0; j < rowLen; j++) {\n          // Dry mono-sample\n          k = (rowStartSample + j) * 2;\n          rsample = chnBuf[k];\n\n          // We only do effects if we have some sound input\n          if (rsample || filterActive) {\n            // State variable filter\n            f = fxFreq;\n            if (fxLFO) {\n              f *= oscLFO(lfoFreq * k) * lfoAmt + 0.5;\n            }\n            f = 1.5 * Math.sin(f);\n            low += f * band;\n            high = q * (rsample - band) - low;\n            band += f * high;\n            rsample = fxFilter == 3 ? band : fxFilter == 1 ? high : low;\n\n            // Distortion\n            if (dist) {\n              rsample *= dist;\n              rsample =\n                rsample < 1 ? (rsample > -1 ? osc_sin(rsample * 0.25) : -1) : 1;\n              rsample /= dist;\n            }\n\n            // Drive\n            rsample *= drive;\n\n            // Is the filter active (i.e. still audiable)?\n            filterActive = rsample * rsample > 1e-5;\n\n            // Panning\n            t = Math.sin(panFreq * k) * panAmt + 0.5;\n            lsample = rsample * (1 - t);\n            rsample *= t;\n          } else {\n            lsample = 0;\n          }\n\n          // Delay is always done, since it does not need sound input\n          if (k >= dly) {\n            // Left channel = left + right[-p] * t\n            lsample += chnBuf[k - dly + 1] * dlyAmt;\n\n            // Right channel = right + left[-p] * t\n            rsample += chnBuf[k - dly] * dlyAmt;\n          }\n\n          // Store in stereo channel buffer (needed for the delay effect)\n          chnBuf[k] = lsample | 0;\n          chnBuf[k + 1] = rsample | 0;\n\n          // ...and add to stereo mix buffer\n          mMixBuf[k] += lsample | 0;\n          mMixBuf[k + 1] += rsample | 0;\n        }\n      }\n    }\n\n    // Next iteration. Return progress (1.0 == done!).\n    mCurrentCol++;\n    return mCurrentCol / mSong.numChannels;\n  };\n\n  // Create a WAVE formatted Uint8Array from the generated audio data\n  this.createWave = function () {\n    // Create WAVE header\n    var headerLen = 44;\n    var l1 = headerLen + mNumWords * 2 - 8;\n    var l2 = l1 - 36;\n    var wave = new Uint8Array(headerLen + mNumWords * 2);\n    wave.set([\n      82,\n      73,\n      70,\n      70,\n      l1 & 255,\n      (l1 >> 8) & 255,\n      (l1 >> 16) & 255,\n      (l1 >> 24) & 255,\n      87,\n      65,\n      86,\n      69,\n      102,\n      109,\n      116,\n      32,\n      16,\n      0,\n      0,\n      0,\n      1,\n      0,\n      2,\n      0,\n      68,\n      172,\n      0,\n      0,\n      16,\n      177,\n      2,\n      0,\n      4,\n      0,\n      16,\n      0,\n      100,\n      97,\n      116,\n      97,\n      l2 & 255,\n      (l2 >> 8) & 255,\n      (l2 >> 16) & 255,\n      (l2 >> 24) & 255\n    ]);\n\n    // Append actual wave data\n    for (var i = 0, idx = headerLen; i < mNumWords; ++i) {\n      // Note: We clamp here\n      var y = mMixBuf[i];\n      y = y < -32767 ? -32767 : y > 32767 ? 32767 : y;\n      wave[idx++] = y & 255;\n      wave[idx++] = (y >> 8) & 255;\n    }\n\n    // Return the WAVE formatted typed array\n    return wave;\n  };\n\n  // Get n samples of wave data at time t [s]. Wave data in range [-2,2].\n  this.getData = function (t, n) {\n    var i = 2 * Math.floor(t * 44100);\n    var d = new Array(n);\n    for (var j = 0; j < 2 * n; j += 1) {\n      var k = i + j;\n      d[j] = t > 0 && k < mMixBuf.length ? mMixBuf[k] / 32768 : 0;\n    }\n    return d;\n  };\n};\n\n// This music has been exported by SoundBox. You can use it with\n// http://sb.bitsnbites.eu/player-small.js in your own product.\n\n// See http://sb.bitsnbites.eu/demo.html for an example of how to\n// use it in a demo.\n\n// Song data\nvar song = {\n  songData: [\n    { // Instrument 0\n      i: [\n        0, // OSC1_WAVEFORM\n        100, // OSC1_VOL\n        128, // OSC1_SEMI\n        0, // OSC1_XENV\n        1, // OSC2_WAVEFORM\n        201, // OSC2_VOL\n        128, // OSC2_SEMI\n        0, // OSC2_DETUNE\n        0, // OSC2_XENV\n        0, // NOISE_VOL\n        0, // ENV_ATTACK\n        8, // ENV_SUSTAIN\n        28, // ENV_RELEASE\n        0, // ARP_CHORD\n        0, // ARP_SPEED\n        0, // LFO_WAVEFORM\n        194, // LFO_AMT\n        4, // LFO_FREQ\n        1, // LFO_FX_FREQ\n        3, // FX_FILTER\n        25, // FX_FREQ\n        191, // FX_RESONANCE\n        115, // FX_DIST\n        244, // FX_DRIVE\n        147, // FX_PAN_AMT\n        6, // FX_PAN_FREQ\n        43, // FX_DELAY_AMT\n        4 // FX_DELAY_TIME\n      ],\n      // Patterns\n      p: [5, 1, 2, 2, 1, 1, 1, 1, 3, 4, 1, 2, 1, 2, 1, 2, , , 7, 7, 7, 7, 7, 7, 7, 7],\n      // Columns\n      c: [\n        {\n          n: [132, 132, 134, 134, 135, 135, 132, 132, 137, 137, 135, 135, 134, 134, 135, 135, 139, 139, 137, 137, 135, 135, 137, 137, 134, , 133, , 132, , 131],\n          f: [21, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 48]\n        },\n        {\n          n: [132, 132, 134, 134, 135, 135, 132, 132, 137, 137, 135, 135, 134, 134, 135, 135, 139, 139, 137, 137, 135, 135, 137, 137, 139, 139, 135, 135, 134, 134, 130, 130],\n          f: [, , , , , , , , , , , , , , , , , , , , , , , , , , , 11, 13, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 31]\n        },\n        {\n          n: [],\n          f: []\n        },\n        {\n          n: [159, , , , , , , , 158, , , , , , , , 157, , , , , , , , 156, 155, 154, 153, 152, 151, 150, 149],\n          f: [13, , , , , , , , , , , , , , , , , , , , , , , , 13, , 13, , 13, , 13, 11, 29, , , , , , , , , , , , , , , , , , , , , , , , 32, , 41, , 29, , 25, 15]\n        },\n        {\n          n: [132, 132, 134, 134, 135, 135, 132, 132, 137, 137, 135, 135, 134, 134, 135, 135, 139, 139, 137, 137, 135, 135, 137, 137, 139, 139, 135, 135, 134, 134, 130, 130],\n          f: [13, 11, 21, 17, , , , , , , , , , , , , , , , , , , , , , , , , , , , 17, 29, , 25, 113, , , , , , , , , , , , , , , , , , , , , , , , , , , , 194]\n        },\n        {\n          n: [120, , , , , , , , 132, , , , , , , , 120, , , , , , , , 108],\n          f: []\n        },\n        {\n          n: [132, 144, 134, 146, 132, 144, 135, 147, 132, 144, 137, 149, 132, 144, 139, 151, 140, 152, 139, 151, 137, 149, 139, 151, 138, 150, 137, 149, 135, 147, 134, 146],\n          f: []\n        }\n      ]\n    },\n    { // Instrument 1\n      i: [\n        0, // OSC1_WAVEFORM\n        255, // OSC1_VOL\n        117, // OSC1_SEMI\n        1, // OSC1_XENV\n        0, // OSC2_WAVEFORM\n        255, // OSC2_VOL\n        110, // OSC2_SEMI\n        0, // OSC2_DETUNE\n        1, // OSC2_XENV\n        0, // NOISE_VOL\n        4, // ENV_ATTACK\n        6, // ENV_SUSTAIN\n        35, // ENV_RELEASE\n        0, // ARP_CHORD\n        0, // ARP_SPEED\n        0, // LFO_WAVEFORM\n        0, // LFO_AMT\n        0, // LFO_FREQ\n        0, // LFO_FX_FREQ\n        2, // FX_FILTER\n        14, // FX_FREQ\n        1, // FX_RESONANCE\n        1, // FX_DIST\n        39, // FX_DRIVE\n        76, // FX_PAN_AMT\n        5, // FX_PAN_FREQ\n        0, // FX_DELAY_AMT\n        0 // FX_DELAY_TIME\n      ],\n      // Patterns\n      p: [, , 1, 3, 1, 3, 1, 3, 2, , , , 1, 3, 1, 3, 1, 3, , , 1, 3, 1, 3, 1, 3],\n      // Columns\n      c: [\n        {\n          n: [147, , , , , , 147, , , , 147, , , , , , 147, , , , , , 147, , , , 147, , , , 147],\n          f: []\n        },\n        {\n          n: [147],\n          f: []\n        },\n        {\n          n: [147, , , , , , 147, , , , 147, , , , 147, , 147, , , , , , 147, , , , 147, , , , 147, 147],\n          f: []\n        }\n      ]\n    },\n    { // Instrument 2\n      i: [\n        0, // OSC1_WAVEFORM\n        0, // OSC1_VOL\n        140, // OSC1_SEMI\n        0, // OSC1_XENV\n        0, // OSC2_WAVEFORM\n        0, // OSC2_VOL\n        140, // OSC2_SEMI\n        0, // OSC2_DETUNE\n        0, // OSC2_XENV\n        60, // NOISE_VOL\n        4, // ENV_ATTACK\n        10, // ENV_SUSTAIN\n        68, // ENV_RELEASE\n        0, // ARP_CHORD\n        0, // ARP_SPEED\n        0, // LFO_WAVEFORM\n        187, // LFO_AMT\n        5, // LFO_FREQ\n        0, // LFO_FX_FREQ\n        1, // FX_FILTER\n        239, // FX_FREQ\n        135, // FX_RESONANCE\n        0, // FX_DIST\n        32, // FX_DRIVE\n        108, // FX_PAN_AMT\n        5, // FX_PAN_FREQ\n        16, // FX_DELAY_AMT\n        4 // FX_DELAY_TIME\n      ],\n      // Patterns\n      p: [, , 1, 1, 2, 3, 2, 3, 4, , , , 2, 3, 2, 3, 2, 3, , , 5, 5, 5, 5, 5, 5],\n      // Columns\n      c: [\n        {\n          n: [, , , , 147, , , , , , , , 148, , , , , , , , 147, , , , , , , , 147],\n          f: [13, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 35]\n        },\n        {\n          n: [, , , , 147, , , 147, , , , , 148, , , , , , , , 147, , , 147, , , 147, , , , 147],\n          f: [13, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 35]\n        },\n        {\n          n: [, , , , 147, , , 147, , , , , 148, , , , , , , , 147, , , 147, , , 147, , , 147, 147, 147],\n          f: [13, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 35]\n        },\n        {\n          n: [147],\n          f: [13, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 68]\n        },\n        {\n          n: [147, , , 147, , , 147, , 147, , , 147, , 147, , 147, 147, , , 147, , , 147, , 147, , , 147, , 147, , 147],\n          f: [13, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 35]\n        }\n      ]\n    },\n    { // Instrument 3\n      i: [\n        2, // OSC1_WAVEFORM\n        192, // OSC1_VOL\n        128, // OSC1_SEMI\n        0, // OSC1_XENV\n        2, // OSC2_WAVEFORM\n        192, // OSC2_VOL\n        140, // OSC2_SEMI\n        18, // OSC2_DETUNE\n        0, // OSC2_XENV\n        0, // NOISE_VOL\n        107, // ENV_ATTACK\n        115, // ENV_SUSTAIN\n        138, // ENV_RELEASE\n        0, // ARP_CHORD\n        0, // ARP_SPEED\n        0, // LFO_WAVEFORM\n        136, // LFO_AMT\n        5, // LFO_FREQ\n        1, // LFO_FX_FREQ\n        2, // FX_FILTER\n        8, // FX_FREQ\n        93, // FX_RESONANCE\n        22, // FX_DIST\n        56, // FX_DRIVE\n        148, // FX_PAN_AMT\n        5, // FX_PAN_FREQ\n        85, // FX_DELAY_AMT\n        8 // FX_DELAY_TIME\n      ],\n      // Patterns\n      p: [3, , 2, 1, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2],\n      // Columns\n      c: [\n        {\n          n: [120],\n          f: []\n        },\n        {\n          n: [120],\n          f: []\n        },\n        {\n          n: [120],\n          f: [, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 24, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 56]\n        }\n      ]\n    },\n    { // Instrument 4\n      i: [\n        3, // OSC1_WAVEFORM\n        0, // OSC1_VOL\n        127, // OSC1_SEMI\n        0, // OSC1_XENV\n        3, // OSC2_WAVEFORM\n        68, // OSC2_VOL\n        127, // OSC2_SEMI\n        0, // OSC2_DETUNE\n        1, // OSC2_XENV\n        218, // NOISE_VOL\n        11, // ENV_ATTACK\n        0, // ENV_SUSTAIN\n        40, // ENV_RELEASE\n        0, // ARP_CHORD\n        0, // ARP_SPEED\n        1, // LFO_WAVEFORM\n        55, // LFO_AMT\n        4, // LFO_FREQ\n        1, // LFO_FX_FREQ\n        2, // FX_FILTER\n        67, // FX_FREQ\n        115, // FX_RESONANCE\n        124, // FX_DIST\n        190, // FX_DRIVE\n        67, // FX_PAN_AMT\n        6, // FX_PAN_FREQ\n        39, // FX_DELAY_AMT\n        1 // FX_DELAY_TIME\n      ],\n      // Patterns\n      p: [, , , 2, 1, 2, 1, 2, 3, , , , 1, 2, 1, 2, 1, 2, , , 1, 4, 1, 4, 1, 4],\n      // Columns\n      c: [\n        {\n          n: [, , , , 147, , , , , , , , 147, , , , , , , , 147, , , , , , , , 147],\n          f: []\n        },\n        {\n          n: [, , , , 147, , , , , , 147, , 147, , , , , , , , 147, , , , , , , , 147],\n          f: []\n        },\n        {\n          n: [147],\n          f: []\n        },\n        {\n          n: [, , , , 147, , , , , , , , 147, , , , , , , , 147, , , , , , , , 147, , , 147],\n          f: []\n        }\n      ]\n    },\n    { // Instrument 5\n      i: [\n        3, // OSC1_WAVEFORM\n        91, // OSC1_VOL\n        128, // OSC1_SEMI\n        0, // OSC1_XENV\n        0, // OSC2_WAVEFORM\n        95, // OSC2_VOL\n        128, // OSC2_SEMI\n        12, // OSC2_DETUNE\n        0, // OSC2_XENV\n        0, // NOISE_VOL\n        12, // ENV_ATTACK\n        0, // ENV_SUSTAIN\n        67, // ENV_RELEASE\n        0, // ARP_CHORD\n        0, // ARP_SPEED\n        0, // LFO_WAVEFORM\n        0, // LFO_AMT\n        0, // LFO_FREQ\n        0, // LFO_FX_FREQ\n        2, // FX_FILTER\n        255, // FX_FREQ\n        15, // FX_RESONANCE\n        0, // FX_DIST\n        32, // FX_DRIVE\n        83, // FX_PAN_AMT\n        3, // FX_PAN_FREQ\n        51, // FX_DELAY_AMT\n        4 // FX_DELAY_TIME\n      ],\n      // Patterns\n      p: [, , , , 1, 2, 1, 2, 1, 2, , , 1, 2, 3, 2, 1, 2, , , , , 5, 4, 5, 4],\n      // Columns\n      c: [\n        {\n          n: [156, , , 164, , , 163, , 161, , , , , , , , , , 158, , 159, , 161, , 159, , 158, , 159, , 154, , 159],\n          f: [5, 13, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 67]\n        },\n        {\n          n: [144, , , 147, , , 149, , 151, , , , , , , , , , 149, , 151, , 152, , 151, , 151, , 147, , 147, , 139],\n          f: []\n        },\n        {\n          n: [156, , , 156, , , 156, , 154, , , 154, , , 154, , 152, , , 152, , , 152, , 151, , , 147, , , 146, , , , 151, , , 151, , 151, , , 146, , , 146, , 146, , , 144, , , 144, , 144, , , 142, , , 139, , 137],\n          f: [5, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 3]\n        },\n        {\n          n: [163, , 164, , 166, , 163, , 163, , 164, , 166, , 163, , 163, , 164, , 166, , 163, , 163, , 164, , 166, , 163],\n          f: [13, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 25]\n        },\n        {\n          n: [168, , 170, , 171, , 168, , 168, , 170, , 171, , 168, , 159, , 159, , 158, , 158, , 157, , 157, , 156, , 156],\n          f: [, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 13, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 67]\n        }\n      ]\n    },\n    { // Instrument 6\n      i: [\n        0, // OSC1_WAVEFORM\n        146, // OSC1_VOL\n        140, // OSC1_SEMI\n        0, // OSC1_XENV\n        1, // OSC2_WAVEFORM\n        224, // OSC2_VOL\n        128, // OSC2_SEMI\n        3, // OSC2_DETUNE\n        0, // OSC2_XENV\n        0, // NOISE_VOL\n        61, // ENV_ATTACK\n        0, // ENV_SUSTAIN\n        63, // ENV_RELEASE\n        0, // ARP_CHORD\n        0, // ARP_SPEED\n        3, // LFO_WAVEFORM\n        179, // LFO_AMT\n        5, // LFO_FREQ\n        1, // LFO_FX_FREQ\n        3, // FX_FILTER\n        37, // FX_FREQ\n        162, // FX_RESONANCE\n        0, // FX_DIST\n        67, // FX_DRIVE\n        150, // FX_PAN_AMT\n        3, // FX_PAN_FREQ\n        37, // FX_DELAY_AMT\n        2 // FX_DELAY_TIME\n      ],\n      // Patterns\n      p: [, 1, , , , , , , , , 1, 2, 3, , 1, 2, 1, 2, 3, , 4, 5],\n      // Columns\n      c: [\n        {\n          n: [, , , , , , , , , , , , , , , , , , , , , , , , 122, , 121, , 120, , 119],\n          f: []\n        },\n        {\n          n: [, , , , , , , , , , , , 110, 109, , , , , , , , , , , , , , , 132, 144, 120, 108],\n          f: [11, , , , , , , , , , , , , , , , , , , , , , , , , , , , 11, , , , 95, , , , , , , , , , , , , , , , , , , , , , , , , , , , 29]\n        },\n        {\n          n: [123],\n          f: [24, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 24, 52, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 67]\n        },\n        {\n          n: [120, , , , , , 120, , 120, , , , , , , , , , , , , , , , , , , , , , , , 123, , , , , , 123, , 123, , , , , , , , , , , , , , , , , , , , , , , , 125, , , , , , 125, , 125],\n          f: [11, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 95]\n        },\n        {\n          n: [120, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 123, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 125],\n          f: []\n        }\n      ]\n    },\n    { // Instrument 7\n      i: [\n        2, // OSC1_WAVEFORM\n        138, // OSC1_VOL\n        116, // OSC1_SEMI\n        0, // OSC1_XENV\n        2, // OSC2_WAVEFORM\n        138, // OSC2_VOL\n        128, // OSC2_SEMI\n        4, // OSC2_DETUNE\n        0, // OSC2_XENV\n        0, // NOISE_VOL\n        47, // ENV_ATTACK\n        48, // ENV_SUSTAIN\n        107, // ENV_RELEASE\n        124, // ARP_CHORD\n        3, // ARP_SPEED\n        0, // LFO_WAVEFORM\n        139, // LFO_AMT\n        4, // LFO_FREQ\n        1, // LFO_FX_FREQ\n        3, // FX_FILTER\n        64, // FX_FREQ\n        160, // FX_RESONANCE\n        3, // FX_DIST\n        32, // FX_DRIVE\n        147, // FX_PAN_AMT\n        4, // FX_PAN_FREQ\n        121, // FX_DELAY_AMT\n        5 // FX_DELAY_TIME\n      ],\n      // Patterns\n      p: [, , , , , , , , 1, , , , , , , , , , 1],\n      // Columns\n      c: [\n        {\n          n: [156, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 168],\n          f: []\n        }\n      ]\n    },\n  ],\n  rowLen: 5513,   // In sample lengths\n  patternLen: 32,  // Rows per pattern\n  endPattern: 25,  // End pattern\n  numChannels: 8  // Number of channels\n};\n\nlet player = new Soundbox();\nplayer.init(song);\n\n// Initialize music generation (player).\nplayer.init(song);\n\n// Generate music...\nlet done = false;\nsetInterval(function () {\n  if (done) {\n    return;\n  }\n\n  done = player.generate() >= 1;\n\n  if (done) {\n    // Put the generated song in an Audio element.\n    let wave = player.createWave();\n    postMessage(wave);\n  }\n}, 10);\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (player);\n\n\n/***/ })\n\n/******/ });\n//# sourceMappingURL=9d71fd9bba6c2a765428.worker.js.map", null);
+};
+
+/***/ })
+
+/******/ });
+//# sourceMappingURL=main.js.map
