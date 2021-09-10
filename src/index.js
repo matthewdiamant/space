@@ -38,7 +38,7 @@ window.onload = () => {
   let packages = new PackageCollection();
 
   gameContainer.initialize();
-  level.initializeLevel(1, {
+  level.initializeLevel(3, {
     player,
     enemies,
     chunks,

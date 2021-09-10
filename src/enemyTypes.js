@@ -13,7 +13,7 @@ export const makeColors = ([skin, horns, eyes, body]) => ({
 export const sentinelColors = makeColors(["#50c878", "#50c878", "#c00", "#a00"]);
 export const pacifistColors = makeColors(["beige", "beige", "red", "red"]);
 // prettier-ignore
-export const idiotColors = makeColors(["#c77dff", "#c77dff", "#a1ff0a", "#ff5d8f"]);
+export const idiotColors = makeColors(["#919", "#919", "#be0", "#f58"]);
 // prettier-ignore
 export const runAndGunColors = makeColors(["#4cc9f0", "#4cc9f0", "#f72585", "#4361ee"]);
 export const aggroColors = makeColors(["#dd0", "#dd0", "#09f", "#a30"]);

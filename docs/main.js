@@ -2664,7 +2664,7 @@ class Package extends _GameObject__WEBPACK_IMPORTED_MODULE_0__["default"] {
     this.grav = 0.04;
     this.dy = 0.4;
     this.landed = false;
-    this.type = weapon || Math.random() > 0.66 ? "weapon" : "health";
+    this.type = weapon || Math.random() < 0.66 ? "weapon" : "health";
   }
 
   tick() {
@@ -3533,7 +3533,7 @@ const makeColors = ([skin, horns, eyes, body]) => ({
 const sentinelColors = makeColors(["#50c878", "#50c878", "#c00", "#a00"]);
 const pacifistColors = makeColors(["beige", "beige", "red", "red"]);
 // prettier-ignore
-const idiotColors = makeColors(["#c77dff", "#c77dff", "#a1ff0a", "#ff5d8f"]);
+const idiotColors = makeColors(["#919", "#919", "#be0", "#f58"]);
 // prettier-ignore
 const runAndGunColors = makeColors(["#4cc9f0", "#4cc9f0", "#f72585", "#4361ee"]);
 const aggroColors = makeColors(["#dd0", "#dd0", "#09f", "#a30"]);
@@ -3635,7 +3635,7 @@ window.onload = () => {
   let packages = new _PackageCollection__WEBPACK_IMPORTED_MODULE_13__["default"]();
 
   gameContainer.initialize();
-  level.initializeLevel(1, {
+  level.initializeLevel(3, {
     player,
     enemies,
     chunks,
