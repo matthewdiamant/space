@@ -2,7 +2,14 @@ import Music from "./Music";
 import Package from "./Package";
 import WeaponFactory, { assaultRifle, debugPistol } from "./WeaponFactory";
 import { humanoid } from "./Sprites";
-import { makeColors, sentinelColors } from "./enemyTypes";
+import {
+  sentinelColors,
+  pacifistColors,
+  idiotColors,
+  runAndGunColors,
+  aggroColors,
+  bossColors,
+} from "./enemyTypes";
 
 const colorSchemes = [
   {
@@ -18,6 +25,7 @@ const colorSchemes = [
 const level1 = {
   concurrentEnemies: 1,
   spawnPoint: [40, 0],
+  enemyColor: sentinelColors,
   enemySpawnPoint: [230, 100],
   enemies: {
     sentinel: 1,
@@ -29,6 +37,7 @@ const levelTemplates = [
   {
     concurrentEnemies: 5,
     spawnPoint: [40, 10],
+    enemyColor: sentinelColors,
     enemySpawnPoint: [230, 100],
     enemies: {
       sentinel: 10,
@@ -38,6 +47,7 @@ const levelTemplates = [
   {
     concurrentEnemies: 5,
     spawnPoint: [40, 150],
+    enemyColor: pacifistColors,
     enemySpawnPoint: [249, 20],
     enemies: {
       pacifist: 10,
@@ -47,6 +57,7 @@ const levelTemplates = [
   {
     concurrentEnemies: 5,
     spawnPoint: [40, 150],
+    enemyColor: idiotColors,
     enemySpawnPoint: [249, 20],
     enemies: {
       idiot: 10,
@@ -56,6 +67,7 @@ const levelTemplates = [
   {
     concurrentEnemies: 5,
     spawnPoint: [40, 150],
+    enemyColor: runAndGunColors,
     enemySpawnPoint: [249, 20],
     enemies: {
       runAndGun: 10,
@@ -65,6 +77,7 @@ const levelTemplates = [
   {
     concurrentEnemies: 5,
     spawnPoint: [40, 150],
+    enemyColor: aggroColors,
     enemySpawnPoint: [249, 20],
     enemies: {
       aggro: 10,
@@ -74,6 +87,7 @@ const levelTemplates = [
   {
     concurrentEnemies: 1,
     spawnPoint: [20, 156],
+    enemyColor: bossColors,
     enemySpawnPoint: [120, 10],
     enemies: {
       boss: 1,
@@ -185,31 +199,29 @@ class Level {
       });
     }
 
-    const colors = {
-      skin: "white",
-      horns: "white",
-      eyes: "green",
-    };
-
     if (this.levelOverTimer > delay * 4) {
-      humanoid(32, 60, 1, makeColors(sentinelColors), {
+      humanoid(32, 60, 1, sentinelColors, {
         bodyless: true,
       }).forEach(({ c, r }) =>
         drawer.rect({ adjusted: false, fillColor: c, rect: r })
       );
-      humanoid(42, 60, 1, colors, { bodyless: true }).forEach(({ c, r }) =>
+      humanoid(42, 60, 1, pacifistColors, {
+        bodyless: true,
+      }).forEach(({ c, r }) =>
         drawer.rect({ adjusted: false, fillColor: c, rect: r })
       );
-      humanoid(52, 60, 1, colors, { bodyless: true }).forEach(({ c, r }) =>
+      humanoid(52, 60, 1, idiotColors, { bodyless: true }).forEach(({ c, r }) =>
         drawer.rect({ adjusted: false, fillColor: c, rect: r })
       );
-      humanoid(62, 60, 1, colors, { bodyless: true }).forEach(({ c, r }) =>
+      humanoid(62, 60, 1, runAndGunColors, {
+        bodyless: true,
+      }).forEach(({ c, r }) =>
         drawer.rect({ adjusted: false, fillColor: c, rect: r })
       );
-      humanoid(72, 60, 1, colors, { bodyless: true }).forEach(({ c, r }) =>
+      humanoid(72, 60, 1, aggroColors, { bodyless: true }).forEach(({ c, r }) =>
         drawer.rect({ adjusted: false, fillColor: c, rect: r })
       );
-      humanoid(82, 55, 1, colors, {
+      humanoid(82, 55, 1, bossColors, {
         bodyless: true,
         big: true,
       }).forEach(({ c, r }) =>

@@ -6,6 +6,7 @@ import Weapon from "./Weapon";
 import { collideFloor } from "./collisions";
 import { humanoid } from "./Sprites";
 import { minigun } from "./WeaponFactory";
+import { bossColors } from "./enemyTypes";
 
 const clamp = (num, min, max) => Math.min(Math.max(min, num), max);
 
@@ -152,14 +153,7 @@ class Boss extends Character {
       });
     }
 
-    const colors = ["red", "red", "yellow", "orange"];
-    const makeColors = ([skin, horns, eyes, body]) => ({
-      skin,
-      horns,
-      eyes,
-      body,
-    });
-    humanoid(this.x - 26, this.y - 40, this.facing, makeColors(colors), {
+    humanoid(this.x - 26, this.y - 40, this.facing, bossColors, {
       huge: true,
     }).forEach(({ c, r }) => drawer.rect({ fillColor: c, rect: r }));
   }

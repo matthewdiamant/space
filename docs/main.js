@@ -600,6 +600,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _collisions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./collisions */ "./src/collisions.js");
 /* harmony import */ var _Sprites__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Sprites */ "./src/Sprites.js");
 /* harmony import */ var _WeaponFactory__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./WeaponFactory */ "./src/WeaponFactory.js");
+/* harmony import */ var _enemyTypes__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./enemyTypes */ "./src/enemyTypes.js");
+
 
 
 
@@ -754,14 +756,7 @@ class Boss extends _Character__WEBPACK_IMPORTED_MODULE_2__["default"] {
       });
     }
 
-    const colors = ["red", "red", "yellow", "orange"];
-    const makeColors = ([skin, horns, eyes, body]) => ({
-      skin,
-      horns,
-      eyes,
-      body,
-    });
-    Object(_Sprites__WEBPACK_IMPORTED_MODULE_5__["humanoid"])(this.x - 26, this.y - 40, this.facing, makeColors(colors), {
+    Object(_Sprites__WEBPACK_IMPORTED_MODULE_5__["humanoid"])(this.x - 26, this.y - 40, this.facing, _enemyTypes__WEBPACK_IMPORTED_MODULE_7__["bossColors"], {
       huge: true,
     }).forEach(({ c, r }) => drawer.rect({ fillColor: c, rect: r }));
   }
@@ -1595,7 +1590,7 @@ class EnemyCollection {
     if (type === "boss") {
       return new _Boss__WEBPACK_IMPORTED_MODULE_0__["default"](x, y, health, -1);
     } else {
-      return new _Enemy__WEBPACK_IMPORTED_MODULE_1__["default"](x, y, health, -1, Object(_enemyTypes__WEBPACK_IMPORTED_MODULE_2__["makeColors"])(colors), persona, weapon);
+      return new _Enemy__WEBPACK_IMPORTED_MODULE_1__["default"](x, y, health, -1, colors, persona, weapon);
     }
   }
 
@@ -1840,12 +1835,13 @@ __webpack_require__.r(__webpack_exports__);
 class HUD {
   constructor() {}
 
-  tick(player, enemies) {
+  tick(player, enemies, enemyColor) {
     if (player.weapon) this.weapon = player.weapon.name;
     this.health = player.health;
     this.maxHealth = player.maxHealth;
     this.dead = player.dead;
     this.enemyCount = enemies.enemyCount + enemies.enemies.length;
+    this.enemyColor = enemyColor;
   }
 
   draw(drawer) {
@@ -1969,6 +1965,7 @@ const colorSchemes = [
 const level1 = {
   concurrentEnemies: 1,
   spawnPoint: [40, 0],
+  enemyColor: _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["sentinelColors"],
   enemySpawnPoint: [230, 100],
   enemies: {
     sentinel: 1,
@@ -1980,6 +1977,7 @@ const levelTemplates = [
   {
     concurrentEnemies: 5,
     spawnPoint: [40, 10],
+    enemyColor: _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["sentinelColors"],
     enemySpawnPoint: [230, 100],
     enemies: {
       sentinel: 10,
@@ -1989,6 +1987,7 @@ const levelTemplates = [
   {
     concurrentEnemies: 5,
     spawnPoint: [40, 150],
+    enemyColor: _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["pacifistColors"],
     enemySpawnPoint: [249, 20],
     enemies: {
       pacifist: 10,
@@ -1998,6 +1997,7 @@ const levelTemplates = [
   {
     concurrentEnemies: 5,
     spawnPoint: [40, 150],
+    enemyColor: _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["idiotColors"],
     enemySpawnPoint: [249, 20],
     enemies: {
       idiot: 10,
@@ -2007,6 +2007,7 @@ const levelTemplates = [
   {
     concurrentEnemies: 5,
     spawnPoint: [40, 150],
+    enemyColor: _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["runAndGunColors"],
     enemySpawnPoint: [249, 20],
     enemies: {
       runAndGun: 10,
@@ -2016,6 +2017,7 @@ const levelTemplates = [
   {
     concurrentEnemies: 5,
     spawnPoint: [40, 150],
+    enemyColor: _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["aggroColors"],
     enemySpawnPoint: [249, 20],
     enemies: {
       aggro: 10,
@@ -2025,6 +2027,7 @@ const levelTemplates = [
   {
     concurrentEnemies: 1,
     spawnPoint: [20, 156],
+    enemyColor: _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["bossColors"],
     enemySpawnPoint: [120, 10],
     enemies: {
       boss: 1,
@@ -2136,31 +2139,29 @@ class Level {
       });
     }
 
-    const colors = {
-      skin: "white",
-      horns: "white",
-      eyes: "green",
-    };
-
     if (this.levelOverTimer > delay * 4) {
-      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(32, 60, 1, Object(_enemyTypes__WEBPACK_IMPORTED_MODULE_4__["makeColors"])(_enemyTypes__WEBPACK_IMPORTED_MODULE_4__["sentinelColors"]), {
+      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(32, 60, 1, _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["sentinelColors"], {
         bodyless: true,
       }).forEach(({ c, r }) =>
         drawer.rect({ adjusted: false, fillColor: c, rect: r })
       );
-      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(42, 60, 1, colors, { bodyless: true }).forEach(({ c, r }) =>
+      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(42, 60, 1, _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["pacifistColors"], {
+        bodyless: true,
+      }).forEach(({ c, r }) =>
         drawer.rect({ adjusted: false, fillColor: c, rect: r })
       );
-      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(52, 60, 1, colors, { bodyless: true }).forEach(({ c, r }) =>
+      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(52, 60, 1, _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["idiotColors"], { bodyless: true }).forEach(({ c, r }) =>
         drawer.rect({ adjusted: false, fillColor: c, rect: r })
       );
-      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(62, 60, 1, colors, { bodyless: true }).forEach(({ c, r }) =>
+      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(62, 60, 1, _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["runAndGunColors"], {
+        bodyless: true,
+      }).forEach(({ c, r }) =>
         drawer.rect({ adjusted: false, fillColor: c, rect: r })
       );
-      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(72, 60, 1, colors, { bodyless: true }).forEach(({ c, r }) =>
+      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(72, 60, 1, _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["aggroColors"], { bodyless: true }).forEach(({ c, r }) =>
         drawer.rect({ adjusted: false, fillColor: c, rect: r })
       );
-      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(82, 55, 1, colors, {
+      Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(82, 55, 1, _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["bossColors"], {
         bodyless: true,
         big: true,
       }).forEach(({ c, r }) =>
@@ -3376,30 +3377,23 @@ const collideRoof = (player, map) => {
 /*!***************************!*\
   !*** ./src/enemyTypes.js ***!
   \***************************/
-/*! exports provided: sentinelColors, pacifistColors, idiotColors, runAndGunColors, aggroColors, bossColors, makeColors, default */
+/*! exports provided: makeColors, sentinelColors, pacifistColors, idiotColors, runAndGunColors, aggroColors, bossColors, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makeColors", function() { return makeColors; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sentinelColors", function() { return sentinelColors; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pacifistColors", function() { return pacifistColors; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "idiotColors", function() { return idiotColors; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "runAndGunColors", function() { return runAndGunColors; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "aggroColors", function() { return aggroColors; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bossColors", function() { return bossColors; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makeColors", function() { return makeColors; });
 /* harmony import */ var _WeaponFactory__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./WeaponFactory */ "./src/WeaponFactory.js");
 /* harmony import */ var _EnemyPersonas__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EnemyPersonas */ "./src/EnemyPersonas.js");
 
 
 
-
-const sentinelColors = ["#50c878", "#50c878", "#c00", "#a00"];
-const pacifistColors = ["beige", "beige", "red", "red"];
-const idiotColors = ["#c77dff", "#c77dff", "#a1ff0a", "#ff5d8f"];
-const runAndGunColors = ["#4cc9f0", "#4cc9f0", "#f72585", "#4361ee"];
-const aggroColors = ["#dd0", "#dd0", "#09f", "#a30"];
-const bossColors = ["red", "red", "yellow", "orange"];
 
 const makeColors = ([skin, horns, eyes, body]) => ({
   skin,
@@ -3407,6 +3401,16 @@ const makeColors = ([skin, horns, eyes, body]) => ({
   eyes,
   body,
 });
+
+// prettier-ignore
+const sentinelColors = makeColors(["#50c878", "#50c878", "#c00", "#a00"]);
+const pacifistColors = makeColors(["beige", "beige", "red", "red"]);
+// prettier-ignore
+const idiotColors = makeColors(["#c77dff", "#c77dff", "#a1ff0a", "#ff5d8f"]);
+// prettier-ignore
+const runAndGunColors = makeColors(["#4cc9f0", "#4cc9f0", "#f72585", "#4361ee"]);
+const aggroColors = makeColors(["#dd0", "#dd0", "#09f", "#a30"]);
+const bossColors = makeColors(["red", "red", "yellow", "orange"]);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   sentinel: {
@@ -3549,7 +3553,7 @@ window.onload = () => {
     }
     chunks.chunks.forEach((chunk) => chunk.tick());
 
-    hud.tick(player, enemies);
+    hud.tick(player, enemies, level.level.enemyColor);
     packages.tick(map, level.level.level);
   };
 

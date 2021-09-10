@@ -3,12 +3,13 @@ import { humanoid } from "./Sprites";
 class HUD {
   constructor() {}
 
-  tick(player, enemies) {
+  tick(player, enemies, enemyColor) {
     if (player.weapon) this.weapon = player.weapon.name;
     this.health = player.health;
     this.maxHealth = player.maxHealth;
     this.dead = player.dead;
     this.enemyCount = enemies.enemyCount + enemies.enemies.length;
+    this.enemyColor = enemyColor;
   }
 
   draw(drawer) {

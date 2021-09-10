@@ -1,6 +1,6 @@
 import Boss from "./Boss";
 import Enemy from "./Enemy";
-import types, { makeColors } from "./enemyTypes";
+import types from "./enemyTypes";
 
 class EnemyCollection {
   constructor() {
@@ -35,7 +35,7 @@ class EnemyCollection {
     if (type === "boss") {
       return new Boss(x, y, health, -1);
     } else {
-      return new Enemy(x, y, health, -1, makeColors(colors), persona, weapon);
+      return new Enemy(x, y, health, -1, colors, persona, weapon);
     }
   }
 

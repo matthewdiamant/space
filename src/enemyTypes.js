@@ -2,19 +2,22 @@ import WeaponFactory, { assaultRifle } from "./WeaponFactory";
 
 import { aggro, runAndGun, idiot, pacifist, sentinel } from "./EnemyPersonas";
 
-export const sentinelColors = ["#50c878", "#50c878", "#c00", "#a00"];
-export const pacifistColors = ["beige", "beige", "red", "red"];
-export const idiotColors = ["#c77dff", "#c77dff", "#a1ff0a", "#ff5d8f"];
-export const runAndGunColors = ["#4cc9f0", "#4cc9f0", "#f72585", "#4361ee"];
-export const aggroColors = ["#dd0", "#dd0", "#09f", "#a30"];
-export const bossColors = ["red", "red", "yellow", "orange"];
-
 export const makeColors = ([skin, horns, eyes, body]) => ({
   skin,
   horns,
   eyes,
   body,
 });
+
+// prettier-ignore
+export const sentinelColors = makeColors(["#50c878", "#50c878", "#c00", "#a00"]);
+export const pacifistColors = makeColors(["beige", "beige", "red", "red"]);
+// prettier-ignore
+export const idiotColors = makeColors(["#c77dff", "#c77dff", "#a1ff0a", "#ff5d8f"]);
+// prettier-ignore
+export const runAndGunColors = makeColors(["#4cc9f0", "#4cc9f0", "#f72585", "#4361ee"]);
+export const aggroColors = makeColors(["#dd0", "#dd0", "#09f", "#a30"]);
+export const bossColors = makeColors(["red", "red", "yellow", "orange"]);
 
 export default {
   sentinel: {

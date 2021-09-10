@@ -83,7 +83,7 @@ window.onload = () => {
     }
     chunks.chunks.forEach((chunk) => chunk.tick());
 
-    hud.tick(player, enemies);
+    hud.tick(player, enemies, level.level.enemyColor);
     packages.tick(map, level.level.level);
   };
 
