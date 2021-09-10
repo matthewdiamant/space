@@ -1856,14 +1856,9 @@ class HUD {
       });
     }
 
-    const colors = {
-      skin: "red",
-      horns: "red",
-      eyes: "yellow",
-      body: "orange",
-    };
-
-    Object(_Sprites__WEBPACK_IMPORTED_MODULE_0__["humanoid"])(113, 115, 1, colors, { bodyless: true }).forEach(({ c, r }) =>
+    Object(_Sprites__WEBPACK_IMPORTED_MODULE_0__["humanoid"])(113, 115, 1, this.enemyColor, {
+      bodyless: true,
+    }).forEach(({ c, r }) =>
       drawer.rect({ adjusted: false, fillColor: c, rect: r })
     );
 

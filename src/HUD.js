@@ -24,14 +24,9 @@ class HUD {
       });
     }
 
-    const colors = {
-      skin: "red",
-      horns: "red",
-      eyes: "yellow",
-      body: "orange",
-    };
-
-    humanoid(113, 115, 1, colors, { bodyless: true }).forEach(({ c, r }) =>
+    humanoid(113, 115, 1, this.enemyColor, {
+      bodyless: true,
+    }).forEach(({ c, r }) =>
       drawer.rect({ adjusted: false, fillColor: c, rect: r })
     );
 
