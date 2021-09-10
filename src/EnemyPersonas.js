@@ -106,12 +106,14 @@ export const idiot = ({ enemy }) => {
 };
 
 export const sentinel = ({ enemy, player }) => {
-  const space = enemy.x - player.x < 30 && enemy.x - player.x > 0;
+  const space = Math.abs(enemy.x - player.x) < 30;
+  const left = enemy.x > player.x;
+  const right = enemy.x < player.x;
   const immobile = true;
   return [
     {
-      left: false,
-      right: false,
+      left,
+      right,
       up: false,
       space,
     },

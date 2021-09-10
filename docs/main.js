@@ -1762,12 +1762,14 @@ const idiot = ({ enemy }) => {
 };
 
 const sentinel = ({ enemy, player }) => {
-  const space = enemy.x - player.x < 30 && enemy.x - player.x > 0;
+  const space = Math.abs(enemy.x - player.x) < 30;
+  const left = enemy.x > player.x;
+  const right = enemy.x < player.x;
   const immobile = true;
   return [
     {
-      left: false,
-      right: false,
+      left,
+      right,
       up: false,
       space,
     },
@@ -1994,14 +1996,20 @@ const level1 = {
 const levelTemplates = [
   (level) => ({
     concurrentEnemies: 3 + Math.floor(level / 6),
-    spawnPoint: [40, 10],
+    spawnPoint: [40, 150],
     enemyColor: _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["sentinelColors"],
     enemySpawnPoints: [
-      [50, 10],
-      [100, 10],
-      [150, 10],
-      [200, 10],
-      [249, 10],
+      [45, 10],
+      [155, 10],
+      [265, 10],
+      [90, 10],
+      [220, 30],
+      [48, 80],
+      [130, 80],
+      [180, 80],
+      [260, 80],
+      [110, 110],
+      [205, 110],
     ],
     enemies: {
       sentinel: 10 + Math.floor(level / 6) * 3,
@@ -3636,7 +3644,7 @@ window.onload = () => {
   let packages = new _PackageCollection__WEBPACK_IMPORTED_MODULE_13__["default"]();
 
   gameContainer.initialize();
-  level.initializeLevel(7, {
+  level.initializeLevel(1, {
     player,
     enemies,
     chunks,
