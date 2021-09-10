@@ -26,6 +26,7 @@ const angler = {
   cooldown: 15,
   payloadCount: 1,
   shake: { force: 1, duration: 15 },
+  sound: "shotgun",
   projectileConfig: anglerProjectiles,
 };
 
@@ -58,6 +59,7 @@ const death = {
   cooldown: 15,
   payloadCount: 0,
   shake: { force: 4, duration: 200 },
+  sound: "death",
   projectileConfig: {
     color: () => "yellow",
     speed: 1.5,

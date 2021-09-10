@@ -22,25 +22,25 @@ export const bossColors = makeColors(["red", "red", "yellow", "orange"]);
 export default {
   sentinel: {
     type: "sentinel",
-    health: 25,
+    health: 22,
     persona: sentinel,
     colors: sentinelColors,
     weapon: new WeaponFactory().create(assaultRifle),
   },
   pacifist: {
     type: "pacifist",
-    health: 25,
+    health: 22,
     persona: pacifist,
     colors: pacifistColors,
   },
-  idiot: { type: "idiot", health: 25, persona: idiot, colors: idiotColors },
+  idiot: { type: "idiot", health: 22, persona: idiot, colors: idiotColors },
   runAndGun: {
     type: "runAndGun",
-    health: 25,
+    health: 22,
     persona: runAndGun,
     colors: runAndGunColors,
   },
-  aggro: { type: "aggro", health: 25, persona: aggro, colors: aggroColors },
+  aggro: { type: "aggro", health: 22, persona: aggro, colors: aggroColors },
   boss: {
     type: "boss",
     health: 250,

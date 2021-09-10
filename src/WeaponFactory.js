@@ -38,7 +38,7 @@ export const minigun = {
   name: "Minigun",
   cooldown: 2,
   payloadCount: 1,
-  knockback: 0.4,
+  knockback: 0.2,
   shake: { force: 1, duration: 2 },
   sound: "minigun",
   projectileConfig: {

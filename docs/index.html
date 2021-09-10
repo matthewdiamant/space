@@ -629,6 +629,7 @@ const angler = {
   cooldown: 15,
   payloadCount: 1,
   shake: { force: 1, duration: 15 },
+  sound: "shotgun",
   projectileConfig: anglerProjectiles,
 };
 
@@ -661,6 +662,7 @@ const death = {
   cooldown: 15,
   payloadCount: 0,
   shake: { force: 4, duration: 200 },
+  sound: "death",
   projectileConfig: {
     color: () => "yellow",
     speed: 1.5,
@@ -1973,7 +1975,7 @@ const level1 = {
 
 const levelTemplates = [
   (level) => ({
-    concurrentEnemies: 5,
+    concurrentEnemies: 3,
     spawnPoint: [40, 10],
     enemyColor: _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["sentinelColors"],
     enemySpawnPoints: [
@@ -1989,7 +1991,7 @@ const levelTemplates = [
     colors: colorSchemes[0],
   }),
   (level) => ({
-    concurrentEnemies: 5,
+    concurrentEnemies: 3,
     spawnPoint: [40, 150],
     enemyColor: _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["pacifistColors"],
     enemySpawnPoints: [
@@ -2005,7 +2007,7 @@ const levelTemplates = [
     colors: colorSchemes[0],
   }),
   (level) => ({
-    concurrentEnemies: 5,
+    concurrentEnemies: 3,
     spawnPoint: [40, 150],
     enemyColor: _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["idiotColors"],
     enemySpawnPoints: [
@@ -2021,7 +2023,7 @@ const levelTemplates = [
     colors: colorSchemes[1],
   }),
   (level) => ({
-    concurrentEnemies: 5,
+    concurrentEnemies: 3,
     spawnPoint: [40, 150],
     enemyColor: _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["runAndGunColors"],
     enemySpawnPoints: [
@@ -2037,7 +2039,7 @@ const levelTemplates = [
     colors: colorSchemes[0],
   }),
   (level) => ({
-    concurrentEnemies: 5,
+    concurrentEnemies: 3,
     spawnPoint: [40, 150],
     enemyColor: _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["aggroColors"],
     enemySpawnPoints: [
@@ -3166,7 +3168,7 @@ const minigun = {
   name: "Minigun",
   cooldown: 2,
   payloadCount: 1,
-  knockback: 0.4,
+  knockback: 0.2,
   shake: { force: 1, duration: 2 },
   sound: "minigun",
   projectileConfig: {
@@ -3459,25 +3461,25 @@ const bossColors = makeColors(["red", "red", "yellow", "orange"]);
 /* harmony default export */ __webpack_exports__["default"] = ({
   sentinel: {
     type: "sentinel",
-    health: 25,
+    health: 22,
     persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_1__["sentinel"],
     colors: sentinelColors,
     weapon: new _WeaponFactory__WEBPACK_IMPORTED_MODULE_0__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_0__["assaultRifle"]),
   },
   pacifist: {
     type: "pacifist",
-    health: 25,
+    health: 22,
     persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_1__["pacifist"],
     colors: pacifistColors,
   },
-  idiot: { type: "idiot", health: 25, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_1__["idiot"], colors: idiotColors },
+  idiot: { type: "idiot", health: 22, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_1__["idiot"], colors: idiotColors },
   runAndGun: {
     type: "runAndGun",
-    health: 25,
+    health: 22,
     persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_1__["runAndGun"],
     colors: runAndGunColors,
   },
-  aggro: { type: "aggro", health: 25, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_1__["aggro"], colors: aggroColors },
+  aggro: { type: "aggro", health: 22, persona: _EnemyPersonas__WEBPACK_IMPORTED_MODULE_1__["aggro"], colors: aggroColors },
   boss: {
     type: "boss",
     health: 250,
@@ -3552,7 +3554,7 @@ window.onload = () => {
   let packages = new _PackageCollection__WEBPACK_IMPORTED_MODULE_13__["default"]();
 
   gameContainer.initialize();
-  level.initializeLevel(1, {
+  level.initializeLevel(6, {
     player,
     enemies,
     chunks,
