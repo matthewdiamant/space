@@ -1,10 +1,10 @@
 import Character from "./Character";
 import { humanoid } from "./Sprites.js";
-import Blood from './Blood';
-import BloodChunk from './BloodChunk';
+import Blood from "./Blood";
+import BloodChunk from "./BloodChunk";
 import WeaponFactory, { assaultRifle, debugPistol } from "./WeaponFactory";
 
-export default class Player extends Character {
+class Player extends Character {
   constructor(x, y, health) {
     super(x, y, health);
     this.bloodColor = "red";
@@ -22,7 +22,7 @@ export default class Player extends Character {
             this.y,
             Math.random() * 5 - 2.5,
             Math.random() * 5 - 5,
-            "red",
+            "red"
           )
         );
       }
@@ -52,6 +52,7 @@ export default class Player extends Character {
         space: keyboard.isDown(keyboard.SPACE),
       },
       sound,
+      volume: 1,
     });
   }
 
@@ -70,6 +71,9 @@ export default class Player extends Character {
       drawer.rect({ fillColor: c, rect: r })
     );
 
-    this.weapon && this.weapon.draw(drawer, { x: this.x, y: this.y, facing: this.facing });
+    this.weapon &&
+      this.weapon.draw(drawer, { x: this.x, y: this.y, facing: this.facing });
   }
 }
+
+export default Player;

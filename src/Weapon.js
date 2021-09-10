@@ -24,7 +24,7 @@ class Weapon {
     this.shooting = false;
   }
 
-  tick(pressSpace, projectiles, location, camera, sound, owner) {
+  tick(pressSpace, projectiles, location, camera, sound, volume, owner) {
     this.ticksSinceLastFired += 1;
     this.shooting = false;
     if (
@@ -32,7 +32,7 @@ class Weapon {
       pressSpace
     ) {
       this.fire(projectiles, location, owner);
-      sound.play(this.sound);
+      sound.play(this.sound, volume);
       if (this.shake) camera.shake(this.shake.force, this.shake.duration);
       this.shooting = true;
       return this.knockback;

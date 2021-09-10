@@ -10,11 +10,13 @@ let sounds = {
   "pickup": [,,548,.08,.36,.47,1,1.79,,,236,.03,.08,,,,,.83],
   "shotgun": [0.8,,300,,,.9,4,.5,,,,,,10,74,.2,,2],
   "sniper": [0.8,,300,,,1.2,4,.5,,,,,,10,74,.1,,2],
-  "thrown": [,0,0,,,0,4,0,1e8,,,,,,,.055,,0,.3],
+  "thrown": [1,0,0,,,0,4,0,1e8,,,,,,,.055,,0,.3],
 };
 
 export default class Sound {
-  play(sound) {
-    zzfx(...sounds[sound]);
+  play(sound, volume) {
+    const newSound = [...sounds[sound]];
+    if (volume) newSound[0] *= volume;
+    zzfx(...newSound);
   }
 }

@@ -28,7 +28,7 @@ class Character extends GameObject {
     this.weapon = weapon || new WeaponFactory().random();
   }
 
-  static tick({ camera, map, projectiles, presses, immobile, sound }) {
+  static tick({ camera, map, projectiles, presses, immobile, sound, volume }) {
     this.lifespan += 1;
 
     const { left, right, up, space } = presses;
@@ -48,6 +48,7 @@ class Character extends GameObject {
         weaponLocation,
         camera,
         sound,
+        volume,
         this
       );
     }

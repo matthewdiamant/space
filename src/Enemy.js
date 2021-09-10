@@ -28,6 +28,7 @@ class Enemy extends Character {
       presses: this.presses,
       sound,
       immobile,
+      volume: 0.7,
     });
   }
 

@@ -105,7 +105,7 @@ class Boss extends Character {
       };
 
       const space = (this.lifespan + offset) % 400 < shoot;
-      weapon.tick(space, projectiles, weaponLocation, camera, sound, this);
+      weapon.tick(space, projectiles, weaponLocation, camera, sound, 0.7, this);
     });
 
     if (this.health <= 0) {

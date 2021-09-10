@@ -708,7 +708,7 @@ class Boss extends _Character__WEBPACK_IMPORTED_MODULE_2__["default"] {
       };
 
       const space = (this.lifespan + offset) % 400 < shoot;
-      weapon.tick(space, projectiles, weaponLocation, camera, sound, this);
+      weapon.tick(space, projectiles, weaponLocation, camera, sound, 0.7, this);
     });
 
     if (this.health <= 0) {
@@ -912,7 +912,7 @@ class Character extends _GameObject__WEBPACK_IMPORTED_MODULE_0__["default"] {
     this.weapon = weapon || new _WeaponFactory__WEBPACK_IMPORTED_MODULE_1__["default"]().random();
   }
 
-  static tick({ camera, map, projectiles, presses, immobile, sound }) {
+  static tick({ camera, map, projectiles, presses, immobile, sound, volume }) {
     this.lifespan += 1;
 
     const { left, right, up, space } = presses;
@@ -932,6 +932,7 @@ class Character extends _GameObject__WEBPACK_IMPORTED_MODULE_0__["default"] {
         weaponLocation,
         camera,
         sound,
+        volume,
         this
       );
     }
@@ -1504,6 +1505,7 @@ class Enemy extends _Character__WEBPACK_IMPORTED_MODULE_2__["default"] {
       presses: this.presses,
       sound,
       immobile,
+      volume: 0.7,
     });
   }
 
@@ -2779,7 +2781,6 @@ class PackageCollection {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Player; });
 /* harmony import */ var _Character__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Character */ "./src/Character.js");
 /* harmony import */ var _Sprites_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Sprites.js */ "./src/Sprites.js");
 /* harmony import */ var _Blood__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Blood */ "./src/Blood.js");
@@ -2809,7 +2810,7 @@ class Player extends _Character__WEBPACK_IMPORTED_MODULE_0__["default"] {
             this.y,
             Math.random() * 5 - 2.5,
             Math.random() * 5 - 5,
-            "red",
+            "red"
           )
         );
       }
@@ -2839,6 +2840,7 @@ class Player extends _Character__WEBPACK_IMPORTED_MODULE_0__["default"] {
         space: keyboard.isDown(keyboard.SPACE),
       },
       sound,
+      volume: 1,
     });
   }
 
@@ -2857,9 +2859,12 @@ class Player extends _Character__WEBPACK_IMPORTED_MODULE_0__["default"] {
       drawer.rect({ fillColor: c, rect: r })
     );
 
-    this.weapon && this.weapon.draw(drawer, { x: this.x, y: this.y, facing: this.facing });
+    this.weapon &&
+      this.weapon.draw(drawer, { x: this.x, y: this.y, facing: this.facing });
   }
 }
+
+/* harmony default export */ __webpack_exports__["default"] = (Player);
 
 
 /***/ }),
@@ -3024,12 +3029,14 @@ let sounds = {
   "pickup": [,,548,.08,.36,.47,1,1.79,,,236,.03,.08,,,,,.83],
   "shotgun": [0.8,,300,,,.9,4,.5,,,,,,10,74,.2,,2],
   "sniper": [0.8,,300,,,1.2,4,.5,,,,,,10,74,.1,,2],
-  "thrown": [,0,0,,,0,4,0,1e8,,,,,,,.055,,0,.3],
+  "thrown": [1,0,0,,,0,4,0,1e8,,,,,,,.055,,0,.3],
 };
 
 class Sound {
-  play(sound) {
-    Object(zzfx__WEBPACK_IMPORTED_MODULE_0__["zzfx"])(...sounds[sound]);
+  play(sound, volume) {
+    const newSound = [...sounds[sound]];
+    if (volume) newSound[0] *= volume;
+    Object(zzfx__WEBPACK_IMPORTED_MODULE_0__["zzfx"])(...newSound);
   }
 }
 
@@ -3128,7 +3135,7 @@ class Weapon {
     this.shooting = false;
   }
 
-  tick(pressSpace, projectiles, location, camera, sound, owner) {
+  tick(pressSpace, projectiles, location, camera, sound, volume, owner) {
     this.ticksSinceLastFired += 1;
     this.shooting = false;
     if (
@@ -3136,7 +3143,7 @@ class Weapon {
       pressSpace
     ) {
       this.fire(projectiles, location, owner);
-      sound.play(this.sound);
+      sound.play(this.sound, volume);
       if (this.shake) camera.shake(this.shake.force, this.shake.duration);
       this.shooting = true;
       return this.knockback;
