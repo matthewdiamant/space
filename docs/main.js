@@ -1999,7 +1999,6 @@ const level1 = {
   enemies: {
     sentinel: 1,
   },
-  colors: colorSchemes[0],
 };
 
 const levelTemplates = [
@@ -2023,7 +2022,6 @@ const levelTemplates = [
     enemies: {
       sentinel: 10 + Math.floor(level / 6) * 3,
     },
-    colors: colorSchemes[0],
   }),
   (level) => ({
     concurrentEnemies: 3 + Math.floor(level / 6),
@@ -2039,7 +2037,6 @@ const levelTemplates = [
     enemies: {
       pacifist: 10 + Math.floor(level / 6) * 3,
     },
-    colors: colorSchemes[0],
   }),
   (level) => ({
     concurrentEnemies: 3 + Math.floor(level / 6),
@@ -2055,7 +2052,6 @@ const levelTemplates = [
     enemies: {
       idiot: 10 + Math.floor(level / 6) * 3,
     },
-    colors: colorSchemes[1],
   }),
   (level) => ({
     concurrentEnemies: 3 + Math.floor(level / 6),
@@ -2071,7 +2067,6 @@ const levelTemplates = [
     enemies: {
       runAndGun: 10 + Math.floor(level / 6) * 3,
     },
-    colors: colorSchemes[0],
   }),
   (level) => ({
     concurrentEnemies: 3 + Math.floor(level / 6),
@@ -2087,7 +2082,6 @@ const levelTemplates = [
     enemies: {
       aggro: 10 + Math.floor(level / 6) * 3,
     },
-    colors: colorSchemes[0],
   }),
   (level) => ({
     concurrentEnemies: 1,
@@ -2097,7 +2091,6 @@ const levelTemplates = [
     enemies: {
       boss: 1,
     },
-    colors: colorSchemes[0],
   }),
 ];
 
@@ -2121,8 +2114,9 @@ class Level {
       (sum, [k, v]) => sum + v,
       0
     );
-    map.loadLevel(level, this.level.colors.tiles);
-    background.colors = this.level.colors.background;
+    const colors = colorSchemes[Math.floor((level - 1) / 6) % 2];
+    map.loadLevel(level, colors.tiles);
+    background.colors = colors.background;
     player.health = player.maxHealth;
     player.x = this.level.spawnPoint[0];
     player.y = this.level.spawnPoint[1];
