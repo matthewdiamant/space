@@ -2358,12 +2358,12 @@ class Level {
       drawer.rect({
         adjusted: false,
         fillColor: "#000",
-        rect: [15, 26, 98, 31],
+        rect: [(_constants__WEBPACK_IMPORTED_MODULE_5__["canvasWidth"] - 98) / 2, 26, 98, 31],
       });
       drawer.text({
         text: "Game over",
         size: 2,
-        x: 25,
+        x: 40,
         y: 36,
       });
     }
