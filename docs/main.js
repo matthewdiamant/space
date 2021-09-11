@@ -3343,7 +3343,7 @@ const sniperRifle = {
     speed: 6,
     spreadX: 0,
     spreadY: 0,
-    damage: 20,
+    damage: 22,
     blood: 50,
   },
 };
