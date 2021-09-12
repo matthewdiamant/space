@@ -2172,7 +2172,7 @@ class Level {
     spurts.spurts = [];
     packages.packages =
       level === 1
-        ? [new _Package__WEBPACK_IMPORTED_MODULE_1__["default"](146, 90, new _WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["debugPistol"]))]
+        ? [new _Package__WEBPACK_IMPORTED_MODULE_1__["default"](146, 90, new _WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["assaultRifle"]))]
         : [];
     enemies.initialize(this.level);
     this.levelOverTimer = 0;
@@ -3411,8 +3411,8 @@ const grenade = {
     grav: 0.1,
     explosion: 3,
     size: 3,
-    damage: 12,
-    blood: 5,
+    damage: 22,
+    blood: 50,
   },
 };
 

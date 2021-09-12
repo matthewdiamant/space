@@ -133,8 +133,8 @@ export const grenade = {
     grav: 0.1,
     explosion: 3,
     size: 3,
-    damage: 12,
-    blood: 5,
+    damage: 22,
+    blood: 50,
   },
 };
 
