@@ -77,7 +77,16 @@ window.onload = () => {
       background,
     });
     player.tick({ camera, keyboard, map, projectiles, sound, chunks, spurts });
-    enemies.tick({ camera, map, projectiles, spurts, chunks, player, sound });
+    enemies.tick({
+      camera,
+      map,
+      projectiles,
+      spurts,
+      chunks,
+      player,
+      sound,
+      level,
+    });
     camera.tick({ player, map });
     projectiles.tick();
     spurts.tick();

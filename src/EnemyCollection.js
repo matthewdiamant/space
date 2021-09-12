@@ -1,5 +1,6 @@
 import Boss from "./Boss";
 import Enemy from "./Enemy";
+import WeaponFactory from "./WeaponFactory";
 import types from "./enemyTypes";
 
 class EnemyCollection {
@@ -9,7 +10,13 @@ class EnemyCollection {
     this.enemyCount = 0;
   }
 
-  initialize({ concurrentEnemies, enemyCount, enemySpawnPoints, enemies }) {
+  initialize({
+    concurrentEnemies,
+    enemyCount,
+    enemySpawnPoints,
+    enemies,
+    level,
+  }) {
     this.concurrentEnemies = concurrentEnemies;
     this.enemyCount = enemyCount;
     this.enemySpawnPoint = () =>
@@ -23,15 +30,16 @@ class EnemyCollection {
     });
 
     for (let i = 0; i < concurrentEnemies; i++) {
-      this.enemies.push(this.createEnemy());
+      this.enemies.push(this.createEnemy(level));
     }
   }
 
-  createEnemy() {
+  createEnemy(level) {
     this.enemyCount -= 1;
-    const { type, health, persona, colors, weapon } = types[
+    let { type, health, persona, colors, weapon } = types[
       this.remainingEnemies.pop()
     ];
+    weapon = weapon || new WeaponFactory().random(level);
     const [x, y] = this.enemySpawnPoint();
     if (type === "boss") {
       return new Boss(x, y, health, -1);
@@ -40,7 +48,7 @@ class EnemyCollection {
     }
   }
 
-  tick({ camera, map, projectiles, spurts, chunks, player, sound }) {
+  tick({ camera, map, projectiles, spurts, chunks, player, sound, level }) {
     this.enemies.forEach((enemy) => {
       enemy.tick({ camera, map, projectiles, player, sound });
     });
@@ -52,7 +60,7 @@ class EnemyCollection {
           this.enemies.length <= this.concurrentEnemies &&
           this.enemyCount > 0
         ) {
-          enemies.push(this.createEnemy());
+          enemies.push(this.createEnemy(level.level.level));
         }
       } else {
         enemies.push(enemy);

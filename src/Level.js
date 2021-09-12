@@ -163,7 +163,7 @@ class Level {
     spurts.spurts = [];
     packages.packages =
       level === 1
-        ? [new Package(146, 90, new WeaponFactory().create(assaultRifle))]
+        ? [new Package(146, 90, new WeaponFactory().create(debugPistol))]
         : [];
     enemies.initialize(this.level);
     this.levelOverTimer = 0;

@@ -196,23 +196,11 @@ const randomAttribute = () =>
 class WeaponFactory {
   constructor() {}
 
-  create(base) {
-    const attribute =
-      Math.random() > 0 ? randomAttribute() : { projectileConfig: {} };
-    const projectileConfig = {
-      ...base.projectileConfig,
-      ...attribute.projectileConfig,
-    };
-    const final = {
-      ...base,
-      ...attribute,
-      projectileConfig,
-      name: `${attribute.prefix ? `${attribute.prefix} ` : ""}${base.name}`,
-    };
+  create(final) {
     return new Weapon(final);
   }
 
-  random() {
+  random(level) {
     const guns = [
       pistol,
       assaultRifle,
@@ -223,7 +211,20 @@ class WeaponFactory {
       grenade,
     ];
     const base = guns[Math.floor(Math.random() * guns.length)];
-    return this.create(base);
+    const likelihood = Math.min(Math.max(level - 6, 0) * 0.1, 0.5);
+    const attribute =
+      Math.random() < likelihood ? randomAttribute() : { projectileConfig: {} };
+    const projectileConfig = {
+      ...base.projectileConfig,
+      ...attribute.projectileConfig,
+    };
+    const final = {
+      ...base,
+      ...attribute,
+      projectileConfig,
+      name: `${attribute.prefix ? `${attribute.prefix} ` : ""}${base.name}`,
+    };
+    return this.create(final);
   }
 }
 

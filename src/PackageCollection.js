@@ -15,7 +15,7 @@ class PackageCollection {
         x = Math.random() * map.mapWidthPixels;
         y = Math.random() * map.mapHeightPixels;
       }
-      this.packages.push(new Package(x, y));
+      this.packages.push(new Package(x, y, null, level));
     }
     this.packages.forEach((p) => p.tick());
   }

@@ -2,10 +2,10 @@ import GameObject from "./GameObject";
 import WeaponFactory from "./WeaponFactory";
 
 class Package extends GameObject {
-  constructor(x, y, weapon) {
+  constructor(x, y, weapon, level) {
     super({ x, y });
 
-    this.weapon = weapon || new WeaponFactory().random();
+    this.weapon = weapon || new WeaponFactory().random(level);
     this.size = 5;
     this.grav = 0.04;
     this.dy = 0.4;

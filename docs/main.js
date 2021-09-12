@@ -1584,7 +1584,9 @@ class Enemy extends _Character__WEBPACK_IMPORTED_MODULE_2__["default"] {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Boss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Boss */ "./src/Boss.js");
 /* harmony import */ var _Enemy__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Enemy */ "./src/Enemy.js");
-/* harmony import */ var _enemyTypes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./enemyTypes */ "./src/enemyTypes.js");
+/* harmony import */ var _WeaponFactory__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./WeaponFactory */ "./src/WeaponFactory.js");
+/* harmony import */ var _enemyTypes__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./enemyTypes */ "./src/enemyTypes.js");
+
 
 
 
@@ -1596,7 +1598,13 @@ class EnemyCollection {
     this.enemyCount = 0;
   }
 
-  initialize({ concurrentEnemies, enemyCount, enemySpawnPoints, enemies }) {
+  initialize({
+    concurrentEnemies,
+    enemyCount,
+    enemySpawnPoints,
+    enemies,
+    level,
+  }) {
     this.concurrentEnemies = concurrentEnemies;
     this.enemyCount = enemyCount;
     this.enemySpawnPoint = () =>
@@ -1610,15 +1618,16 @@ class EnemyCollection {
     });
 
     for (let i = 0; i < concurrentEnemies; i++) {
-      this.enemies.push(this.createEnemy());
+      this.enemies.push(this.createEnemy(level));
     }
   }
 
-  createEnemy() {
+  createEnemy(level) {
     this.enemyCount -= 1;
-    const { type, health, persona, colors, weapon } = _enemyTypes__WEBPACK_IMPORTED_MODULE_2__["default"][
+    let { type, health, persona, colors, weapon } = _enemyTypes__WEBPACK_IMPORTED_MODULE_3__["default"][
       this.remainingEnemies.pop()
     ];
+    weapon = weapon || new _WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["default"]().random(level);
     const [x, y] = this.enemySpawnPoint();
     if (type === "boss") {
       return new _Boss__WEBPACK_IMPORTED_MODULE_0__["default"](x, y, health, -1);
@@ -1627,7 +1636,7 @@ class EnemyCollection {
     }
   }
 
-  tick({ camera, map, projectiles, spurts, chunks, player, sound }) {
+  tick({ camera, map, projectiles, spurts, chunks, player, sound, level }) {
     this.enemies.forEach((enemy) => {
       enemy.tick({ camera, map, projectiles, player, sound });
     });
@@ -1639,7 +1648,7 @@ class EnemyCollection {
           this.enemies.length <= this.concurrentEnemies &&
           this.enemyCount > 0
         ) {
-          enemies.push(this.createEnemy());
+          enemies.push(this.createEnemy(level.level.level));
         }
       } else {
         enemies.push(enemy);
@@ -2133,7 +2142,7 @@ class Level {
     spurts.spurts = [];
     packages.packages =
       level === 1
-        ? [new _Package__WEBPACK_IMPORTED_MODULE_1__["default"](146, 90, new _WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["assaultRifle"]))]
+        ? [new _Package__WEBPACK_IMPORTED_MODULE_1__["default"](146, 90, new _WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["default"]().create(_WeaponFactory__WEBPACK_IMPORTED_MODULE_2__["debugPistol"]))]
         : [];
     enemies.initialize(this.level);
     this.levelOverTimer = 0;
@@ -2682,10 +2691,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class Package extends _GameObject__WEBPACK_IMPORTED_MODULE_0__["default"] {
-  constructor(x, y, weapon) {
+  constructor(x, y, weapon, level) {
     super({ x, y });
 
-    this.weapon = weapon || new _WeaponFactory__WEBPACK_IMPORTED_MODULE_1__["default"]().random();
+    this.weapon = weapon || new _WeaponFactory__WEBPACK_IMPORTED_MODULE_1__["default"]().random(level);
     this.size = 5;
     this.grav = 0.04;
     this.dy = 0.4;
@@ -2772,7 +2781,7 @@ class PackageCollection {
         x = Math.random() * map.mapWidthPixels;
         y = Math.random() * map.mapHeightPixels;
       }
-      this.packages.push(new _Package__WEBPACK_IMPORTED_MODULE_0__["default"](x, y));
+      this.packages.push(new _Package__WEBPACK_IMPORTED_MODULE_0__["default"](x, y, null, level));
     }
     this.packages.forEach((p) => p.tick());
   }
@@ -3435,23 +3444,11 @@ const randomAttribute = () =>
 class WeaponFactory {
   constructor() {}
 
-  create(base) {
-    const attribute =
-      Math.random() > 0 ? randomAttribute() : { projectileConfig: {} };
-    const projectileConfig = {
-      ...base.projectileConfig,
-      ...attribute.projectileConfig,
-    };
-    const final = {
-      ...base,
-      ...attribute,
-      projectileConfig,
-      name: `${attribute.prefix ? `${attribute.prefix} ` : ""}${base.name}`,
-    };
+  create(final) {
     return new _Weapon__WEBPACK_IMPORTED_MODULE_0__["default"](final);
   }
 
-  random() {
+  random(level) {
     const guns = [
       pistol,
       assaultRifle,
@@ -3462,7 +3459,20 @@ class WeaponFactory {
       grenade,
     ];
     const base = guns[Math.floor(Math.random() * guns.length)];
-    return this.create(base);
+    const likelihood = Math.min(Math.max(level - 6, 0) * 0.1, 0.5);
+    const attribute =
+      Math.random() < likelihood ? randomAttribute() : { projectileConfig: {} };
+    const projectileConfig = {
+      ...base.projectileConfig,
+      ...attribute.projectileConfig,
+    };
+    const final = {
+      ...base,
+      ...attribute,
+      projectileConfig,
+      name: `${attribute.prefix ? `${attribute.prefix} ` : ""}${base.name}`,
+    };
+    return this.create(final);
   }
 }
 
@@ -3730,7 +3740,16 @@ window.onload = () => {
       background,
     });
     player.tick({ camera, keyboard, map, projectiles, sound, chunks, spurts });
-    enemies.tick({ camera, map, projectiles, spurts, chunks, player, sound });
+    enemies.tick({
+      camera,
+      map,
+      projectiles,
+      spurts,
+      chunks,
+      player,
+      sound,
+      level,
+    });
     camera.tick({ player, map });
     projectiles.tick();
     spurts.tick();
