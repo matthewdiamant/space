@@ -146,17 +146,6 @@ const knockback = { knockback: 1 };
 
 const sniper = { cooldown: 3, damage: 5, speed: 2 };
 
-// attributes
-const rainbow = {
-  prefix: "Rainbow",
-  projectileConfig: {
-    color: () =>
-      ["#FF0000", "#FFAC00", "#FFF100", "#0BFF00", "#00F6FF"][
-        Math.floor(Math.random() * 6)
-      ],
-  },
-};
-
 const collosal = {
   prefix: "Collosal",
   cooldownMod: 3,
@@ -168,16 +157,39 @@ const collosal = {
   },
 };
 
-const shrimp = {
-  prefix: "Shrimp",
-  projectileConfig: { emoji: "🍤", explosion: 3, size: 3 },
-};
-const bomb = {
-  prefix: "Bomb",
-  projectileConfig: { emoji: "💣", explosion: 3, size: 3 },
-};
+const colors = [
+  [
+    "Rainbow",
+    () =>
+      ["#FF0000", "#FFAC00", "#FFF100", "#0BFF00", "#00F6FF"][
+        Math.floor(Math.random() * 6)
+      ],
+  ],
+  ["Blood", () => "#F00"],
+  ["Water", () => "#6CF"],
+].map(([prefix, color]) => ({ prefix, projectileConfig: { color } }));
 
-const attributes = [rainbow, collosal, shrimp, bomb];
+const emojis = [
+  ["Shrimp", "🍤"],
+  ["Bomb", "💣"],
+  ["Crab", "🦀"],
+  ["Skull", "💀"],
+  ["Pumpkin", "🎃"],
+  ["Cookie", "🍪"],
+  ["Carrot", "🥕"],
+  ["Pineapple", "🍍"],
+  ["Hotdog", "🌭"],
+  ["Fish", "🐟"],
+  ["Bee", "🐝"],
+  ["Apple", "🍎"],
+  ["Knife", "🔪"],
+  ["Heart", "❤️"],
+].map(([prefix, emoji]) => ({
+  prefix,
+  projectileConfig: { emoji, explosion: 3, size: 3 },
+}));
+
+const attributes = [collosal, ...colors, ...emojis];
 const randomAttribute = () =>
   attributes[Math.floor(Math.random() * attributes.length)];
 
@@ -186,7 +198,7 @@ class WeaponFactory {
 
   create(base) {
     const attribute =
-      Math.random() > 0.9 ? randomAttribute() : { projectileConfig: {} };
+      Math.random() > 0 ? randomAttribute() : { projectileConfig: {} };
     const projectileConfig = {
       ...base.projectileConfig,
       ...attribute.projectileConfig,
@@ -210,7 +222,6 @@ class WeaponFactory {
       sniperRifle,
       grenade,
     ];
-    // const guns = [sniperRifle];
     const base = guns[Math.floor(Math.random() * guns.length)];
     return this.create(base);
   }

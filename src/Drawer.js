@@ -1,4 +1,5 @@
 import Camera from "./Camera";
+import { canvasWidth, canvasHeight } from "./constants";
 
 let cx = null;
 
@@ -144,13 +145,20 @@ export default class Drawer {
     }
   }
 
-  emoji({ emoji, x, y, adjusted = true }) {
-    if (adjusted) {
-      x = this.camera.adjustX(x, this.canvas.width);
-      y = this.camera.adjustY(y, this.canvas.height);
-    }
-    cx.font = "4px serif";
-    cx.fillText(emoji, x, y);
+  emoji({ emoji, x, y, flipped, adjusted = true }) {
+    this.draw(() => {
+      if (adjusted) {
+        x = this.camera.adjustX(x, this.canvas.width);
+        y = this.camera.adjustY(y, this.canvas.height);
+      }
+      if (flipped) {
+        // cx.scale(-1, 1);
+        // cx.translate(canvasWidth.width / 2, canvasHeight.height / 2);
+      }
+
+      cx.font = "6px serif";
+      cx.fillText(emoji, x, y + 2);
+    });
   }
 
   hitbox({ x, y, size }) {

@@ -32,6 +32,7 @@ class Projectile {
     this.damage = damage;
     this.damageMod = damageMod || 1;
     this.blood = blood;
+    this.facing = facing;
     this.emoji = emoji;
     this.owner = owner;
   }
@@ -70,7 +71,12 @@ class Projectile {
       });
     } else {
       if (this.emoji) {
-        drawer.emoji({ x: this.x, y: this.y, emoji: this.emoji });
+        drawer.emoji({
+          x: this.x,
+          y: this.y,
+          emoji: this.emoji,
+          flipped: this.facing === -1,
+        });
       } else if (this.size === 1) {
         drawer.rect({
           fillColor: this.color(),
