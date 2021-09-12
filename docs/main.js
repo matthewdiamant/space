@@ -1989,16 +1989,35 @@ class Keyboard {
 
     this._pressed = {};
 
-    this.ENTER = [13];
-    this.SPACE = [32];
-    this.LEFT = [37, 65];
-    this.UP = [38, 87, 16, 17];
-    this.RIGHT = [39, 68];
-    this.DOWN = [40, 83];
+    this.SPACE = { keyboard: [32], controller: [0, 1, 5, 7] };
+    this.LEFT = { keyboard: [37, 65], controller: [14] };
+    this.UP = { keyboard: [38, 87, 16, 17], controller: [12, 2, 3] };
+    this.RIGHT = { keyboard: [39, 68], controller: [15] };
+    this.DOWN = { keyboard: [40, 83], controller: [13] };
+  }
+
+  isDownController(keyCode) {
+    return navigator.getGamepads()[0]
+      ? navigator
+          .getGamepads()[0]
+          .buttons.reduce(
+            (acc, b, i) => (b.pressed ? acc.concat([i]) : acc),
+            []
+          )
+          .some((b) => keyCode.includes(b))
+      : false;
+  }
+
+  isDownKeyboard(keyCode) {
+    return keyCode.some((key) => this._pressed[key]);
   }
 
   isDown(keyCode) {
-    return keyCode.some((key) => this._pressed[key]) || false;
+    return (
+      this.isDownKeyboard(keyCode.keyboard) ||
+      this.isDownController(keyCode.controller) ||
+      false
+    );
   }
 
   onKeydown(event) {
