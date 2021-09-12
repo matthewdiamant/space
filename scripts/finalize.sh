@@ -24,6 +24,9 @@ echo "${YELLOW}zip final build${NC}"
 rm final.html.zip
 ect -zip -9 final.html
 
+echo "${YELLOW}src directory total size${NC}"
+du -sh ../src | awk '{print $1}'
+
 echo "${YELLOW}final size${NC}"
 ls -hl final.html.zip | awk -F ' ' '{ print $5 }'
 
