@@ -8,7 +8,7 @@ class Keyboard {
     this.ENTER = [13];
     this.SPACE = [32];
     this.LEFT = [37, 65];
-    this.UP = [38, 87];
+    this.UP = [38, 87, 16, 17];
     this.RIGHT = [39, 68];
     this.DOWN = [40, 83];
   }
