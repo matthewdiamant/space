@@ -42,6 +42,7 @@ export default class Drawer {
     strokeColor,
     shadowBlur = 0,
     shadowColor = "none",
+    opacity,
     lineWidth = 1,
     adjusted = true,
     rotation,
@@ -63,6 +64,9 @@ export default class Drawer {
     }
     cx.shadowBlur = shadowBlur;
     cx.shadowColor = shadowColor;
+    if (opacity) {
+      cx.globalAlpha = opacity;
+    }
     if (fillColor) {
       cx.fillStyle = fillColor;
       cx.fillRect(...[rect[0], rect[1], ...rect.slice(2)]);
@@ -73,6 +77,7 @@ export default class Drawer {
       cx.strokeRect(...[rect[0], rect[1], ...rect.slice(2)]);
     }
     cx.shadowBlur = 0;
+    cx.globalAlpha = 1;
   }
 
   arc({

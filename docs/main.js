@@ -1129,6 +1129,7 @@ class Drawer {
     strokeColor,
     shadowBlur = 0,
     shadowColor = "none",
+    opacity,
     lineWidth = 1,
     adjusted = true,
     rotation,
@@ -1150,6 +1151,9 @@ class Drawer {
     }
     cx.shadowBlur = shadowBlur;
     cx.shadowColor = shadowColor;
+    if (opacity) {
+      cx.globalAlpha = opacity;
+    }
     if (fillColor) {
       cx.fillStyle = fillColor;
       cx.fillRect(...[rect[0], rect[1], ...rect.slice(2)]);
@@ -1160,6 +1164,7 @@ class Drawer {
       cx.strokeRect(...[rect[0], rect[1], ...rect.slice(2)]);
     }
     cx.shadowBlur = 0;
+    cx.globalAlpha = 1;
   }
 
   arc({
@@ -1560,7 +1565,11 @@ class Enemy extends _Character__WEBPACK_IMPORTED_MODULE_2__["default"] {
     }
 
     Object(_Sprites__WEBPACK_IMPORTED_MODULE_3__["humanoid"])(this.x, this.y, this.facing, this.colors).forEach(({ c, r }) =>
-      drawer.rect({ fillColor: c, rect: r })
+      drawer.rect({
+        fillColor: c,
+        rect: r,
+        opacity: Math.min(this.lifespan / 120, 1),
+      })
     );
 
     this.weapon &&
