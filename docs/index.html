@@ -2049,24 +2049,26 @@ const level1 = {
   },
 };
 
+const enemySpawnPoints = [
+  [45, 10],
+  [155, 10],
+  [265, 10],
+  [90, 10],
+  [220, 30],
+  [48, 80],
+  [130, 80],
+  [180, 80],
+  [260, 80],
+  [110, 110],
+  [205, 110],
+];
+
 const levelTemplates = [
   (level) => ({
     concurrentEnemies: 3 + Math.floor(level / 6),
     spawnPoint: [40, 150],
     enemyColor: _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["sentinelColors"],
-    enemySpawnPoints: [
-      [45, 10],
-      [155, 10],
-      [265, 10],
-      [90, 10],
-      [220, 30],
-      [48, 80],
-      [130, 80],
-      [180, 80],
-      [260, 80],
-      [110, 110],
-      [205, 110],
-    ],
+    enemySpawnPoints,
     enemies: {
       sentinel: 10 + Math.floor(level / 6) * 3,
     },
@@ -2075,13 +2077,7 @@ const levelTemplates = [
     concurrentEnemies: 3 + Math.floor(level / 6),
     spawnPoint: [40, 150],
     enemyColor: _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["pacifistColors"],
-    enemySpawnPoints: [
-      [50, 10],
-      [100, 10],
-      [150, 10],
-      [200, 10],
-      [249, 10],
-    ],
+    enemySpawnPoints,
     enemies: {
       pacifist: 10 + Math.floor(level / 6) * 3,
     },
@@ -2090,13 +2086,7 @@ const levelTemplates = [
     concurrentEnemies: 3 + Math.floor(level / 6),
     spawnPoint: [40, 150],
     enemyColor: _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["idiotColors"],
-    enemySpawnPoints: [
-      [50, 10],
-      [100, 10],
-      [150, 10],
-      [200, 10],
-      [249, 10],
-    ],
+    enemySpawnPoints,
     enemies: {
       idiot: 10 + Math.floor(level / 6) * 3,
     },
@@ -2105,13 +2095,7 @@ const levelTemplates = [
     concurrentEnemies: 3 + Math.floor(level / 6),
     spawnPoint: [40, 150],
     enemyColor: _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["runAndGunColors"],
-    enemySpawnPoints: [
-      [50, 10],
-      [100, 10],
-      [150, 10],
-      [200, 10],
-      [249, 10],
-    ],
+    enemySpawnPoints,
     enemies: {
       runAndGun: 10 + Math.floor(level / 6) * 3,
     },
@@ -2120,13 +2104,7 @@ const levelTemplates = [
     concurrentEnemies: 3 + Math.floor(level / 6),
     spawnPoint: [40, 150],
     enemyColor: _enemyTypes__WEBPACK_IMPORTED_MODULE_4__["aggroColors"],
-    enemySpawnPoints: [
-      [50, 10],
-      [100, 10],
-      [150, 10],
-      [200, 10],
-      [249, 10],
-    ],
+    enemySpawnPoints,
     enemies: {
       aggro: 10 + Math.floor(level / 6) * 3,
     },
