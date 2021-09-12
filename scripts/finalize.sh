@@ -8,12 +8,24 @@ mkdir -p dist
 cp docs/index.html dist/
 cd dist
 
+echo "${YELLOW}extracting javascript${NC}"
+sed -E 's/.*\<script\>(.*)\<\/script\>/\1/' index.html > js.js
+
+echo "${YELLOW}road roller${NC}"
+npx roadroller js.js -o output.js
+
+sed -E 's/(.*)\<script\>.*/\1/' index.html > template.html
+
+echo "<script>" >> template.html
+cat template.html output.js > final.html
+echo "</script>" >> final.html
+
 echo "${YELLOW}zip final build${NC}"
-rm index.html.zip
-ect -zip -9 index.html
+rm final.html.zip
+ect -zip -9 final.html
 
 echo "${YELLOW}final size${NC}"
-ls -hl index.html.zip | awk -F ' ' '{ print $5 }'
+ls -hl final.html.zip | awk -F ' ' '{ print $5 }'
 
 echo "${YELLOW}remaining bytes${NC}"
-expr 13312 - $(ls -l index.html.zip | awk -F ' ' '{ print $5 }')
+expr 13312 - $(ls -l final.html.zip | awk -F ' ' '{ print $5 }')

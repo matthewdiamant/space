@@ -1,7 +1,6 @@
 const TerserPlugin = require("terser-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const HtmlWebpackInlineSourcePlugin = require("html-webpack-inline-source-plugin");
-const ClosureCompilerPlugin = require("webpack-closure-compiler");
 const path = require("path");
 
 const prod = {
@@ -77,14 +76,5 @@ module.exports = {
       inlineSource: ".js$",
     }),
     new HtmlWebpackInlineSourcePlugin(),
-    // new ClosureCompilerPlugin({
-    //   compiler: {
-    //     language_in: "ECMASCRIPT6",
-    //     language_out: "ECMASCRIPT5",
-    //     compilation_level: "ADVANCED",
-    //   },
-    //   concurrency: 3,
-    //   jsCompiler: true,
-    // }),
   ],
 };
