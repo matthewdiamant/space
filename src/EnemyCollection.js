@@ -8,6 +8,7 @@ class EnemyCollection {
     this.enemies = [];
     this.remainingEnemies = [];
     this.enemyCount = 0;
+    this.lifespan = 0;
   }
 
   initialize({
@@ -17,6 +18,7 @@ class EnemyCollection {
     enemies,
     level,
   }) {
+    this.lifespan = 0;
     this.concurrentEnemies = concurrentEnemies;
     this.enemyCount = enemyCount;
     this.enemySpawnPoint = () =>
@@ -48,7 +50,35 @@ class EnemyCollection {
     }
   }
 
+  bonusEnemies(level) {
+    if (
+      level > 6 &&
+      !(
+        this.lifespan % Math.floor(1000 / ((Math.max(level - 7, 0) + 10) * 0.1))
+      )
+    ) {
+      const weapon = new WeaponFactory().random(level);
+      const [x, y] = this.enemySpawnPoint();
+
+      const enemyTypes = Object.entries(types)
+        .filter(([key]) => key !== "boss")
+        .map(([_, value]) => value);
+      const { health, colors, persona } = enemyTypes[
+        Math.floor(Math.random() * enemyTypes.length)
+      ];
+
+      const bonusEnemy = new Enemy(x, y, health, -1, colors, persona, weapon);
+      this.enemies.push(bonusEnemy);
+    }
+  }
+
   tick({ camera, map, projectiles, spurts, chunks, player, sound, level }) {
+    this.lifespan += 1;
+
+    if (this.enemies.length > 0) {
+      this.bonusEnemies(level.level.level);
+    }
+
     this.enemies.forEach((enemy) => {
       enemy.tick({ camera, map, projectiles, player, sound });
     });
