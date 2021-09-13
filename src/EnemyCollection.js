@@ -80,7 +80,7 @@ class EnemyCollection {
     }
 
     this.enemies.forEach((enemy) => {
-      enemy.tick({ camera, map, projectiles, player, sound });
+      enemy.tick({ camera, map, projectiles, player, sound, spurts, chunks });
     });
 
     this.enemies = this.enemies.reduce((enemies, enemy) => {

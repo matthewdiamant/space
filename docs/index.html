@@ -684,7 +684,7 @@ class Boss extends _Character__WEBPACK_IMPORTED_MODULE_2__["default"] {
     this.dx = 0.2;
   }
 
-  tick({ map, projectiles, camera, sound, player }) {
+  tick({ map, projectiles, camera, sound, player, spurts, chunks }) {
     this.lifespan += 1;
 
     // move x
@@ -703,8 +703,17 @@ class Boss extends _Character__WEBPACK_IMPORTED_MODULE_2__["default"] {
       this.airtime += 1;
     }
 
-    if (!(this.lifespan % 200))
+    if (!this.skull) {
+      if (!(this.lifespan % 200))
+        this.facing = player.x > this.x + this.size / 2 ? 1 : -1;
+    } else {
+      if (!(this.lifespan % 100)) {
+        this.dx = 1 - Math.random() * 2;
+        this.dy = 1 - Math.random() * 2;
+      }
       this.facing = player.x > this.x + this.size / 2 ? 1 : -1;
+      this.y = Math.max(Math.min(this.y, 100), 10);
+    }
 
     weapons.forEach(({ weapon, x, y, shoot, offset }) => {
       if (this.lifespan <= 100) return;
@@ -714,26 +723,27 @@ class Boss extends _Character__WEBPACK_IMPORTED_MODULE_2__["default"] {
         facing: this.facing,
       };
 
-      const space = (this.lifespan + offset) % 400 < shoot;
+      const space =
+        (this.lifespan + offset) % (!this.skull ? 400 : 200) < shoot;
       weapon.tick(space, projectiles, weaponLocation, camera, sound, 0.7, this);
     });
 
+    if (!this.skull && this.health <= 200) {
+      this.skull = true;
+      this.size = 32;
+      this.grav = 0;
+      this.x += this.facing * 10;
+      this.dx = 2;
+      this.explode({ spurts, chunks, sound });
+      new _Weapon__WEBPACK_IMPORTED_MODULE_3__["default"](death).tick(true, projectiles, {}, camera, sound, 1, this);
+    }
+
     if (this.health <= 0) {
-      const space = true;
-      const weaponLocation = {};
-      new _Weapon__WEBPACK_IMPORTED_MODULE_3__["default"](death).tick(
-        space,
-        projectiles,
-        weaponLocation,
-        camera,
-        sound,
-        this
-      );
+      new _Weapon__WEBPACK_IMPORTED_MODULE_3__["default"](death).tick(true, projectiles, {}, camera, sound, 1, this);
     }
   }
 
   explode({ spurts, chunks, sound }) {
-    sound.play("death");
     for (let i = 0; i < 300; i++) {
       spurts.add(
         new _Blood__WEBPACK_IMPORTED_MODULE_0__["default"](
@@ -752,7 +762,7 @@ class Boss extends _Character__WEBPACK_IMPORTED_MODULE_2__["default"] {
           this.y + Math.random() * 60,
           Math.random() * 3 - 1.5,
           Math.random() * 3 - 1.5,
-          this.bloodColor
+          "red"
         )
       );
     }
@@ -762,19 +772,53 @@ class Boss extends _Character__WEBPACK_IMPORTED_MODULE_2__["default"] {
     if (this.health < this.maxHealth) {
       drawer.rect({
         fillColor: "white",
-        rect: [this.x - 2, this.y - 22, 60 * (this.health / this.maxHealth), 2],
+        rect: [
+          this.x - 2,
+          this.y - (this.skull ? 10 : 22),
+          60 * (this.health / this.maxHealth),
+          2,
+        ],
       });
     }
 
-    Object(_Sprites__WEBPACK_IMPORTED_MODULE_5__["humanoid"])(
-      this.x - (this.facing === 1 ? 13 : 26),
-      this.y - 40,
-      this.facing,
-      _enemyTypes__WEBPACK_IMPORTED_MODULE_7__["bossColors"],
-      {
-        huge: true,
-      }
-    ).forEach(({ c, r }) => drawer.rect({ fillColor: c, rect: r }));
+    if (!this.skull) {
+      Object(_Sprites__WEBPACK_IMPORTED_MODULE_5__["humanoid"])(
+        this.x - (this.facing === 1 ? 13 : 26),
+        this.y - 40,
+        this.facing,
+        _enemyTypes__WEBPACK_IMPORTED_MODULE_7__["bossColors"],
+        {
+          huge: true,
+        }
+      ).forEach(({ c, r }) => drawer.rect({ fillColor: c, rect: r }));
+    } else {
+      const mult = 4;
+      [
+        [2, 0, 5, 1],
+        [1, 1, 7, 1],
+        [0, 2, 9, 2],
+        [2, 4, 3, 1],
+        [7, 4, 2, 1],
+        [2, 5, 1, 1],
+        [4, 5, 1, 1],
+        [7, 5, 2, 1],
+        [0, 6, 8, 1],
+        [1, 7, 5, 1],
+        [1, 8, 1, 1],
+        [3, 8, 1, 1],
+        [5, 8, 1, 1],
+      ].forEach(([x, y, width, height]) =>
+        drawer.rect({
+          fillColor: "white",
+          rect: [
+            this.x + (this.facing === 1 ? 8 - x - width : x) * mult,
+            this.y + y * mult,
+            width * mult,
+            height * mult,
+          ],
+        })
+      );
+    }
   }
 }
 
@@ -1679,7 +1723,7 @@ class EnemyCollection {
     }
 
     this.enemies.forEach((enemy) => {
-      enemy.tick({ camera, map, projectiles, player, sound });
+      enemy.tick({ camera, map, projectiles, player, sound, spurts, chunks });
     });
 
     this.enemies = this.enemies.reduce((enemies, enemy) => {
