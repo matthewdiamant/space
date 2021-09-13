@@ -54,8 +54,10 @@ class Camera {
   }
 
   shake(force, duration) {
-    this.shakeRemaining = duration;
-    this.shakeForce = force;
+    if (force >= this.shakeForce || this.shakeRemaining === 0) {
+      this.shakeRemaining = duration;
+      this.shakeForce = force;
+    }
   }
 
   applyShake() {
