@@ -61,8 +61,9 @@ class EnemyCollection {
       const [x, y] = this.enemySpawnPoint();
 
       const enemyTypes = Object.entries(types)
-        .filter(([key]) => key !== "boss")
+        .filter(([key, value]) => value.type !== "boss")
         .map(([_, value]) => value);
+
       const { health, colors, persona } = enemyTypes[
         Math.floor(Math.random() * enemyTypes.length)
       ];
