@@ -16,19 +16,21 @@ npx roadroller js.js -o output.js
 
 sed -E 's/(.*)\<script\>.*/\1/' index.html > template.html
 
+rm index.html
+
 echo "<script>" >> template.html
-cat template.html output.js > final.html
-echo "</script>" >> final.html
+cat template.html output.js > index.html
+echo "</script>" >> index.html
 
 echo "${YELLOW}zip final build${NC}"
-rm final.html.zip
-ect -zip -9 final.html
+rm index.html.zip
+ect -zip -9 index.html
 
 echo "${YELLOW}src directory total size${NC}"
 du -sh ../src | awk '{print $1}'
 
 echo "${YELLOW}final size${NC}"
-ls -hl final.html.zip | awk -F ' ' '{ print $5 }'
+ls -hl index.html.zip | awk -F ' ' '{ print $5 }'
 
 echo "${YELLOW}remaining bytes${NC}"
-expr 13312 - $(ls -l final.html.zip | awk -F ' ' '{ print $5 }')
+expr 13312 - $(ls -l index.html.zip | awk -F ' ' '{ print $5 }')
